@@ -1,0 +1,13 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".int-spec.ts$",
+  "globalSetup": "./setup.js",
+  "test": "jest --runInBand",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "testSequencer": "./test-sequencer.js"
+
+}

@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int        @id @default(autoincrement())
+  email       String     @unique
+  accessToken String     @db.VarChar(255)
+  firstName   String?
+  lastName    String?
+  picture     String?
+  locations   Location[]
+}
+
+model Location {
+  id              Int               @id @default(autoincrement())
+  name            String
+  address         String
+  managerId       Int
+  contracts       Contract[]
+  invoices        Invoice[]
+  keys            Key[]
+  manager         User              @relation(fields: [managerId], references: [id])
+  payments        Payment[]
+  PaymentSchedule PaymentSchedule[]
+
+  @@index([managerId], map: "Location_managerId_fkey")
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  locationId    Int
+  date          DateTime
+  amount        Float
+  paymentMethod String
+  location      Location @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "Payment_locationId_fkey")
+}
+
+model Invoice {
+  id         Int      @id @default(autoincrement())
+  locationId Int
+  date       DateTime
+  location   Location @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "Invoice_locationId_fkey")
+}
+
+model PaymentSchedule {
+  id         Int      @id @default(autoincrement())
+  locationId Int
+  dueDate    DateTime
+  location   Location @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "PaymentSchedule_locationId_fkey")
+}
+
+model Key {
+  id         Int      @id @default(autoincrement())
+  locationId Int
+  issueDate  DateTime
+  returnDate DateTime
+  location   Location @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "Key_locationId_fkey")
+}
+
+model Contract {
+  id         Int      @id @default(autoincrement())
+  locationId Int
+  startDate  DateTime
+  endDate    DateTime
+  renewed    Boolean
+  cancelled  Boolean
+  location   Location @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "Contract_locationId_fkey")
+}
+
+model PriceAdjustment {
+  id    Int      @id @default(autoincrement())
+  date  DateTime
+  price Float
+  type  String
+}
