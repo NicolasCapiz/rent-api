@@ -16,7 +16,6 @@
     },
     "skipLibCheck":true,
     "incremental": true,
-    "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
@@ -24,6 +23,7 @@
     "noFallthroughCasesInSwitch": false
   },
   "exclude": [
+    "dist",
     "node_modules/prisma-client-js",
     "prisma",
     "prisma-client-js/runtime/edge-esm.js" 

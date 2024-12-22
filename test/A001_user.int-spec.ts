@@ -86,6 +86,21 @@ describe('UserController', () => {
 
     expect(response.body).toEqual(expect.objectContaining(userToCreate));
   });
+
+  it('/users (POST)', async () => {
+    const userToCreate = {
+      firstName: 'Puma',
+      email: 'puma@example.com',
+      accessToken: 'aSDAOFMEAdaDASD32412rASD1',
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/users')
+      .send(userToCreate)
+      .expect(201);
+
+    expect(response.body).toEqual(expect.objectContaining(userToCreate));
+  });
   afterAll(async () => {
     await app.close();
   });

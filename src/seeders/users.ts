@@ -1,20 +1,19 @@
-// seed.ts
+import { PrismaClient } from '@prisma/client/edge';
 
-// import { PrismaClient } from '@prisma/client';
-import { PrismaService } from '../service/prisma.service';
-
-const prisma = new PrismaService();
+const prisma = new PrismaClient();
 
 async function seed() {
   // Inserta datos en la base de datos usando el cliente Prisma
   await prisma.user.createMany({
     data: [
       {
-        name: 'Usuario 1',
+        accessToken: 'token1',
+        firstName: 'Usuario 1',
         email: 'usuario1@example.com',
       },
       {
-        name: 'Usuario 2',
+        accessToken: 'token2',
+        firstName: 'Usuario 2',
         email: 'usuario2@example.com',
       },
       // Puedes agregar más datos según sea necesario
@@ -22,8 +21,12 @@ async function seed() {
   });
 
   // Cierra la conexión al finalizar
-  // await prisma.$disconnect();
+  await prisma.$disconnect();
 }
 
 // Llama a la función seed para insertar datos en la base de datos
-seed();
+seed().catch((e) => {
+  console.error(e);
+  prisma.$disconnect();
+  process.exit(1);
+});

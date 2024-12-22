@@ -20,6 +20,7 @@ describe('LocationController', () => {
       name: 'Example Location',
       address: '123 Main St',
       manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
     };
 
     const response = await request(app.getHttpServer())
@@ -28,7 +29,13 @@ describe('LocationController', () => {
       .expect(201);
 
     expect(response.body).toEqual(
-      expect.objectContaining({ address: '123 Main St', id: 1, managerId: 2 }),
+      expect.objectContaining({
+        address: '123 Main St',
+        name: 'Example Location',
+        id: 1,
+        managerId: 2,
+        renterId: 2,
+      }),
     );
   });
 
@@ -79,6 +86,7 @@ describe('LocationController', () => {
       name: 'Local 32',
       address: 'Rivadavia 2767',
       manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
     };
 
     const response = await request(app.getHttpServer())
@@ -96,9 +104,10 @@ describe('LocationController', () => {
   });
   it('/locations (POST)', async () => {
     const locationToCreate = {
-      name: 'Loacal 21',
+      name: 'Local 21',
       address: 'Rivadavia 2767',
       manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
     };
 
     const response = await request(app.getHttpServer())
@@ -111,6 +120,104 @@ describe('LocationController', () => {
         address: 'Rivadavia 2767',
         id: 3,
         managerId: 2,
+        renterId: 2,
+        name: 'Local 21',
+      }),
+    );
+  });
+
+  it('/locations (POST)', async () => {
+    const locationToCreate = {
+      name: 'Local 22',
+      address: 'Rivadavia 2767',
+      manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/locations')
+      .send(locationToCreate)
+      .expect(201);
+
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        address: 'Rivadavia 2767',
+        id: 4,
+        managerId: 2,
+        renterId: 2,
+        name: 'Local 22',
+      }),
+    );
+  });
+
+  it('/locations (POST)', async () => {
+    const locationToCreate = {
+      name: 'Local 23',
+      address: 'Rivadavia 2767',
+      manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/locations')
+      .send(locationToCreate)
+      .expect(201);
+
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        address: 'Rivadavia 2767',
+        id: 5,
+        managerId: 2,
+        renterId: 2,
+        name: 'Local 23',
+      }),
+    );
+  });
+
+  it('/locations (POST)', async () => {
+    const locationToCreate = {
+      name: 'Local 24',
+      address: 'Rivadavia 2767',
+      manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/locations')
+      .send(locationToCreate)
+      .expect(201);
+
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        address: 'Rivadavia 2767',
+        id: 6,
+        managerId: 2,
+        renterId: 2,
+        name: 'Local 24',
+      }),
+    );
+  });
+
+  it('/locations (POST)', async () => {
+    const locationToCreate = {
+      name: 'Local 25',
+      address: 'Rivadavia 2767',
+      manager: { connect: { id: 2 } },
+      renter: { connect: { id: 2 } },
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/locations')
+      .send(locationToCreate)
+      .expect(201);
+
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        address: 'Rivadavia 2767',
+        id: 7,
+        managerId: 2,
+        renterId: 2,
+        name: 'Local 25',
       }),
     );
   });
