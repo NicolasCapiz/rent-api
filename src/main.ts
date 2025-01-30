@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { PrismaService } from './services/prisma.service';
 import { config } from 'dotenv';
+import { FormatDateInterceptor } from './interceptors/format-date.interceptor';
 
 config(); // Cargar las variables de entorno desde el archivo .env
 
@@ -14,6 +15,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
+  app.useGlobalInterceptors(new FormatDateInterceptor());
 
   const prismaService = await app.resolve(PrismaService);
   await prismaService.$connect();

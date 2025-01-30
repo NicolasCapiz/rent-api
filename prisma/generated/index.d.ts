@@ -58,6 +58,11 @@ export type Contract = $Result.DefaultSelection<Prisma.$ContractPayload>
  * 
  */
 export type PriceAdjustment = $Result.DefaultSelection<Prisma.$PriceAdjustmentPayload>
+/**
+ * Model AdjustmentLocation
+ * 
+ */
+export type AdjustmentLocation = $Result.DefaultSelection<Prisma.$AdjustmentLocationPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -271,6 +276,16 @@ export class PrismaClient<
     * ```
     */
   get priceAdjustment(): Prisma.PriceAdjustmentDelegate<ExtArgs>;
+
+  /**
+   * `prisma.adjustmentLocation`: Exposes CRUD operations for the **AdjustmentLocation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdjustmentLocations
+    * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
+    * ```
+    */
+  get adjustmentLocation(): Prisma.AdjustmentLocationDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -720,7 +735,8 @@ export namespace Prisma {
     PaymentSchedule: 'PaymentSchedule',
     Key: 'Key',
     Contract: 'Contract',
-    PriceAdjustment: 'PriceAdjustment'
+    PriceAdjustment: 'PriceAdjustment',
+    AdjustmentLocation: 'AdjustmentLocation'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -736,7 +752,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "location" | "payment" | "paymentMethod" | "invoice" | "paymentSchedule" | "key" | "contract" | "priceAdjustment"
+      modelProps: "user" | "location" | "payment" | "paymentMethod" | "invoice" | "paymentSchedule" | "key" | "contract" | "priceAdjustment" | "adjustmentLocation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1334,6 +1350,72 @@ export namespace Prisma {
           }
         }
       }
+      AdjustmentLocation: {
+        payload: Prisma.$AdjustmentLocationPayload<ExtArgs>
+        fields: Prisma.AdjustmentLocationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdjustmentLocationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          findFirst: {
+            args: Prisma.AdjustmentLocationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          findMany: {
+            args: Prisma.AdjustmentLocationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>[]
+          }
+          create: {
+            args: Prisma.AdjustmentLocationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          createMany: {
+            args: Prisma.AdjustmentLocationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdjustmentLocationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          update: {
+            args: Prisma.AdjustmentLocationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdjustmentLocationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdjustmentLocationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdjustmentLocationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          aggregate: {
+            args: Prisma.AdjustmentLocationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdjustmentLocation>
+          }
+          groupBy: {
+            args: Prisma.AdjustmentLocationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdjustmentLocationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdjustmentLocationCountArgs<ExtArgs>
+            result: $Utils.Optional<AdjustmentLocationCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1603,6 +1685,8 @@ export namespace Prisma {
     keys: number
     payments: number
     paymentSchedules: number
+    adjustments: number
+    AdjustmentLocation: number
   }
 
   export type LocationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1611,6 +1695,8 @@ export namespace Prisma {
     keys?: boolean | LocationCountOutputTypeCountKeysArgs
     payments?: boolean | LocationCountOutputTypeCountPaymentsArgs
     paymentSchedules?: boolean | LocationCountOutputTypeCountPaymentSchedulesArgs
+    adjustments?: boolean | LocationCountOutputTypeCountAdjustmentsArgs
+    AdjustmentLocation?: boolean | LocationCountOutputTypeCountAdjustmentLocationArgs
   }
 
   // Custom InputTypes
@@ -1659,6 +1745,20 @@ export namespace Prisma {
     where?: PaymentScheduleWhereInput
   }
 
+  /**
+   * LocationCountOutputType without action
+   */
+  export type LocationCountOutputTypeCountAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PriceAdjustmentWhereInput
+  }
+
+  /**
+   * LocationCountOutputType without action
+   */
+  export type LocationCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdjustmentLocationWhereInput
+  }
+
 
   /**
    * Count Type PaymentMethodCountOutputType
@@ -1688,6 +1788,46 @@ export namespace Prisma {
    */
   export type PaymentMethodCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PaymentWhereInput
+  }
+
+
+  /**
+   * Count Type PriceAdjustmentCountOutputType
+   */
+
+  export type PriceAdjustmentCountOutputType = {
+    locations: number
+    AdjustmentLocation: number
+  }
+
+  export type PriceAdjustmentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    locations?: boolean | PriceAdjustmentCountOutputTypeCountLocationsArgs
+    AdjustmentLocation?: boolean | PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustmentCountOutputType
+     */
+    select?: PriceAdjustmentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LocationWhereInput
+  }
+
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdjustmentLocationWhereInput
   }
 
 
@@ -2926,12 +3066,14 @@ export namespace Prisma {
   export type LocationAvgAggregateOutputType = {
     id: number | null
     renterId: number | null
+    price: number | null
     CUST_ID: number | null
   }
 
   export type LocationSumAggregateOutputType = {
     id: number | null
     renterId: number | null
+    price: number | null
     CUST_ID: number | null
   }
 
@@ -2940,7 +3082,10 @@ export namespace Prisma {
     name: string | null
     address: string | null
     renterId: number | null
+    price: number | null
     CUST_ID: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type LocationMaxAggregateOutputType = {
@@ -2948,7 +3093,10 @@ export namespace Prisma {
     name: string | null
     address: string | null
     renterId: number | null
+    price: number | null
     CUST_ID: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type LocationCountAggregateOutputType = {
@@ -2956,7 +3104,10 @@ export namespace Prisma {
     name: number
     address: number
     renterId: number
+    price: number
     CUST_ID: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -2964,12 +3115,14 @@ export namespace Prisma {
   export type LocationAvgAggregateInputType = {
     id?: true
     renterId?: true
+    price?: true
     CUST_ID?: true
   }
 
   export type LocationSumAggregateInputType = {
     id?: true
     renterId?: true
+    price?: true
     CUST_ID?: true
   }
 
@@ -2978,7 +3131,10 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
+    price?: true
     CUST_ID?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type LocationMaxAggregateInputType = {
@@ -2986,7 +3142,10 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
+    price?: true
     CUST_ID?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type LocationCountAggregateInputType = {
@@ -2994,7 +3153,10 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
+    price?: true
     CUST_ID?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3089,7 +3251,10 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price: number | null
     CUST_ID: number | null
+    createdAt: Date
+    updatedAt: Date | null
     _count: LocationCountAggregateOutputType | null
     _avg: LocationAvgAggregateOutputType | null
     _sum: LocationSumAggregateOutputType | null
@@ -3116,7 +3281,10 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     renterId?: boolean
+    price?: boolean
     CUST_ID?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     contracts?: boolean | Location$contractsArgs<ExtArgs>
     invoices?: boolean | Location$invoicesArgs<ExtArgs>
     keys?: boolean | Location$keysArgs<ExtArgs>
@@ -3124,6 +3292,8 @@ export namespace Prisma {
     payments?: boolean | Location$paymentsArgs<ExtArgs>
     paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
     cust?: boolean | Location$custArgs<ExtArgs>
+    adjustments?: boolean | Location$adjustmentsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["location"]>
 
@@ -3133,7 +3303,10 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     renterId?: boolean
+    price?: boolean
     CUST_ID?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
   export type LocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3144,6 +3317,8 @@ export namespace Prisma {
     payments?: boolean | Location$paymentsArgs<ExtArgs>
     paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
     cust?: boolean | Location$custArgs<ExtArgs>
+    adjustments?: boolean | Location$adjustmentsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3157,13 +3332,18 @@ export namespace Prisma {
       payments: Prisma.$PaymentPayload<ExtArgs>[]
       paymentSchedules: Prisma.$PaymentSchedulePayload<ExtArgs>[]
       cust: Prisma.$UserPayload<ExtArgs> | null
+      adjustments: Prisma.$PriceAdjustmentPayload<ExtArgs>[]
+      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       address: string
       renterId: number
+      price: number | null
       CUST_ID: number | null
+      createdAt: Date
+      updatedAt: Date | null
     }, ExtArgs["result"]["location"]>
     composites: {}
   }
@@ -3511,6 +3691,8 @@ export namespace Prisma {
     payments<T extends Location$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
     paymentSchedules<T extends Location$paymentSchedulesArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSchedulePayload<ExtArgs>, T, "findMany"> | Null>
     cust<T extends Location$custArgs<ExtArgs> = {}>(args?: Subset<T, Location$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    adjustments<T extends Location$adjustmentsArgs<ExtArgs> = {}>(args?: Subset<T, Location$adjustmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany"> | Null>
+    AdjustmentLocation<T extends Location$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, Location$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3544,7 +3726,10 @@ export namespace Prisma {
     readonly name: FieldRef<"Location", 'String'>
     readonly address: FieldRef<"Location", 'String'>
     readonly renterId: FieldRef<"Location", 'Int'>
+    readonly price: FieldRef<"Location", 'Int'>
     readonly CUST_ID: FieldRef<"Location", 'Int'>
+    readonly createdAt: FieldRef<"Location", 'DateTime'>
+    readonly updatedAt: FieldRef<"Location", 'DateTime'>
   }
     
 
@@ -3971,6 +4156,46 @@ export namespace Prisma {
      */
     include?: UserInclude<ExtArgs> | null
     where?: UserWhereInput
+  }
+
+  /**
+   * Location.adjustments
+   */
+  export type Location$adjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    where?: PriceAdjustmentWhereInput
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    cursor?: PriceAdjustmentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
+  }
+
+  /**
+   * Location.AdjustmentLocation
+   */
+  export type Location$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    where?: AdjustmentLocationWhereInput
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    cursor?: AdjustmentLocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
   }
 
   /**
@@ -9628,7 +9853,7 @@ export namespace Prisma {
   export type PriceAdjustmentAvgAggregateOutputType = {
     id: number | null
     amount: number | null
-    percentage: number | null
+    type: number | null
     period: number | null
     status: number | null
     CUST_ID: number | null
@@ -9637,7 +9862,7 @@ export namespace Prisma {
   export type PriceAdjustmentSumAggregateOutputType = {
     id: number | null
     amount: number | null
-    percentage: number | null
+    type: number | null
     period: number | null
     status: number | null
     CUST_ID: number | null
@@ -9645,32 +9870,41 @@ export namespace Prisma {
 
   export type PriceAdjustmentMinAggregateOutputType = {
     id: number | null
-    executionDate: Date | null
     amount: number | null
-    percentage: number | null
+    type: number | null
     period: number | null
+    applyToAll: boolean | null
     status: number | null
     CUST_ID: number | null
+    lastExecutedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type PriceAdjustmentMaxAggregateOutputType = {
     id: number | null
-    executionDate: Date | null
     amount: number | null
-    percentage: number | null
+    type: number | null
     period: number | null
+    applyToAll: boolean | null
     status: number | null
     CUST_ID: number | null
+    lastExecutedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type PriceAdjustmentCountAggregateOutputType = {
     id: number
-    executionDate: number
     amount: number
-    percentage: number
+    type: number
     period: number
+    applyToAll: number
     status: number
     CUST_ID: number
+    lastExecutedAt: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -9678,7 +9912,7 @@ export namespace Prisma {
   export type PriceAdjustmentAvgAggregateInputType = {
     id?: true
     amount?: true
-    percentage?: true
+    type?: true
     period?: true
     status?: true
     CUST_ID?: true
@@ -9687,7 +9921,7 @@ export namespace Prisma {
   export type PriceAdjustmentSumAggregateInputType = {
     id?: true
     amount?: true
-    percentage?: true
+    type?: true
     period?: true
     status?: true
     CUST_ID?: true
@@ -9695,32 +9929,41 @@ export namespace Prisma {
 
   export type PriceAdjustmentMinAggregateInputType = {
     id?: true
-    executionDate?: true
     amount?: true
-    percentage?: true
+    type?: true
     period?: true
+    applyToAll?: true
     status?: true
     CUST_ID?: true
+    lastExecutedAt?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type PriceAdjustmentMaxAggregateInputType = {
     id?: true
-    executionDate?: true
     amount?: true
-    percentage?: true
+    type?: true
     period?: true
+    applyToAll?: true
     status?: true
     CUST_ID?: true
+    lastExecutedAt?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type PriceAdjustmentCountAggregateInputType = {
     id?: true
-    executionDate?: true
     amount?: true
-    percentage?: true
+    type?: true
     period?: true
+    applyToAll?: true
     status?: true
     CUST_ID?: true
+    lastExecutedAt?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -9812,12 +10055,15 @@ export namespace Prisma {
 
   export type PriceAdjustmentGroupByOutputType = {
     id: number
-    executionDate: Date
-    amount: number | null
-    percentage: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
     CUST_ID: number | null
+    lastExecutedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
     _count: PriceAdjustmentCountAggregateOutputType | null
     _avg: PriceAdjustmentAvgAggregateOutputType | null
     _sum: PriceAdjustmentSumAggregateOutputType | null
@@ -9841,43 +10087,60 @@ export namespace Prisma {
 
   export type PriceAdjustmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    executionDate?: boolean
     amount?: boolean
-    percentage?: boolean
+    type?: boolean
     period?: boolean
+    applyToAll?: boolean
     status?: boolean
     CUST_ID?: boolean
+    lastExecutedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
+    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
+    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["priceAdjustment"]>
 
 
   export type PriceAdjustmentSelectScalar = {
     id?: boolean
-    executionDate?: boolean
     amount?: boolean
-    percentage?: boolean
+    type?: boolean
     period?: boolean
+    applyToAll?: boolean
     status?: boolean
     CUST_ID?: boolean
+    lastExecutedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
   export type PriceAdjustmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
+    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
+    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $PriceAdjustmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PriceAdjustment"
     objects: {
       cust: Prisma.$UserPayload<ExtArgs> | null
+      locations: Prisma.$LocationPayload<ExtArgs>[]
+      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      executionDate: Date
-      amount: number | null
-      percentage: number | null
+      amount: number
+      type: number
       period: number
+      applyToAll: boolean
       status: number
       CUST_ID: number | null
+      lastExecutedAt: Date | null
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["priceAdjustment"]>
     composites: {}
   }
@@ -10219,6 +10482,8 @@ export namespace Prisma {
   export interface Prisma__PriceAdjustmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     cust<T extends PriceAdjustment$custArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    locations<T extends PriceAdjustment$locationsArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
+    AdjustmentLocation<T extends PriceAdjustment$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10249,12 +10514,15 @@ export namespace Prisma {
    */ 
   interface PriceAdjustmentFieldRefs {
     readonly id: FieldRef<"PriceAdjustment", 'Int'>
-    readonly executionDate: FieldRef<"PriceAdjustment", 'DateTime'>
     readonly amount: FieldRef<"PriceAdjustment", 'Float'>
-    readonly percentage: FieldRef<"PriceAdjustment", 'Float'>
+    readonly type: FieldRef<"PriceAdjustment", 'Int'>
     readonly period: FieldRef<"PriceAdjustment", 'Int'>
+    readonly applyToAll: FieldRef<"PriceAdjustment", 'Boolean'>
     readonly status: FieldRef<"PriceAdjustment", 'Int'>
     readonly CUST_ID: FieldRef<"PriceAdjustment", 'Int'>
+    readonly lastExecutedAt: FieldRef<"PriceAdjustment", 'DateTime'>
+    readonly createdAt: FieldRef<"PriceAdjustment", 'DateTime'>
+    readonly updatedAt: FieldRef<"PriceAdjustment", 'DateTime'>
   }
     
 
@@ -10569,6 +10837,46 @@ export namespace Prisma {
   }
 
   /**
+   * PriceAdjustment.locations
+   */
+  export type PriceAdjustment$locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Location
+     */
+    select?: LocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationInclude<ExtArgs> | null
+    where?: LocationWhereInput
+    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    cursor?: LocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+  }
+
+  /**
+   * PriceAdjustment.AdjustmentLocation
+   */
+  export type PriceAdjustment$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    where?: AdjustmentLocationWhereInput
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    cursor?: AdjustmentLocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
    * PriceAdjustment without action
    */
   export type PriceAdjustmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10580,6 +10888,909 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PriceAdjustmentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdjustmentLocation
+   */
+
+  export type AggregateAdjustmentLocation = {
+    _count: AdjustmentLocationCountAggregateOutputType | null
+    _avg: AdjustmentLocationAvgAggregateOutputType | null
+    _sum: AdjustmentLocationSumAggregateOutputType | null
+    _min: AdjustmentLocationMinAggregateOutputType | null
+    _max: AdjustmentLocationMaxAggregateOutputType | null
+  }
+
+  export type AdjustmentLocationAvgAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationSumAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationMinAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationMaxAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationCountAggregateOutputType = {
+    id: number
+    priceAdjustmentId: number
+    locationId: number
+    _all: number
+  }
+
+
+  export type AdjustmentLocationAvgAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationSumAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationMinAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationMaxAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationCountAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+    _all?: true
+  }
+
+  export type AdjustmentLocationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdjustmentLocation to aggregate.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdjustmentLocations
+    **/
+    _count?: true | AdjustmentLocationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdjustmentLocationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdjustmentLocationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdjustmentLocationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdjustmentLocationMaxAggregateInputType
+  }
+
+  export type GetAdjustmentLocationAggregateType<T extends AdjustmentLocationAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdjustmentLocation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
+      : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
+  }
+
+
+
+
+  export type AdjustmentLocationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdjustmentLocationWhereInput
+    orderBy?: AdjustmentLocationOrderByWithAggregationInput | AdjustmentLocationOrderByWithAggregationInput[]
+    by: AdjustmentLocationScalarFieldEnum[] | AdjustmentLocationScalarFieldEnum
+    having?: AdjustmentLocationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdjustmentLocationCountAggregateInputType | true
+    _avg?: AdjustmentLocationAvgAggregateInputType
+    _sum?: AdjustmentLocationSumAggregateInputType
+    _min?: AdjustmentLocationMinAggregateInputType
+    _max?: AdjustmentLocationMaxAggregateInputType
+  }
+
+  export type AdjustmentLocationGroupByOutputType = {
+    id: number
+    priceAdjustmentId: number
+    locationId: number
+    _count: AdjustmentLocationCountAggregateOutputType | null
+    _avg: AdjustmentLocationAvgAggregateOutputType | null
+    _sum: AdjustmentLocationSumAggregateOutputType | null
+    _min: AdjustmentLocationMinAggregateOutputType | null
+    _max: AdjustmentLocationMaxAggregateOutputType | null
+  }
+
+  type GetAdjustmentLocationGroupByPayload<T extends AdjustmentLocationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdjustmentLocationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdjustmentLocationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
+            : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdjustmentLocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    priceAdjustmentId?: boolean
+    locationId?: boolean
+    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["adjustmentLocation"]>
+
+
+  export type AdjustmentLocationSelectScalar = {
+    id?: boolean
+    priceAdjustmentId?: boolean
+    locationId?: boolean
+  }
+
+  export type AdjustmentLocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+  }
+
+  export type $AdjustmentLocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdjustmentLocation"
+    objects: {
+      priceAdjustment: Prisma.$PriceAdjustmentPayload<ExtArgs>
+      location: Prisma.$LocationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      priceAdjustmentId: number
+      locationId: number
+    }, ExtArgs["result"]["adjustmentLocation"]>
+    composites: {}
+  }
+
+  type AdjustmentLocationGetPayload<S extends boolean | null | undefined | AdjustmentLocationDefaultArgs> = $Result.GetResult<Prisma.$AdjustmentLocationPayload, S>
+
+  type AdjustmentLocationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<AdjustmentLocationFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: AdjustmentLocationCountAggregateInputType | true
+    }
+
+  export interface AdjustmentLocationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdjustmentLocation'], meta: { name: 'AdjustmentLocation' } }
+    /**
+     * Find zero or one AdjustmentLocation that matches the filter.
+     * @param {AdjustmentLocationFindUniqueArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdjustmentLocationFindUniqueArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one AdjustmentLocation that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {AdjustmentLocationFindUniqueOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdjustmentLocationFindUniqueOrThrowArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first AdjustmentLocation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindFirstArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdjustmentLocationFindFirstArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first AdjustmentLocation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindFirstOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdjustmentLocationFindFirstOrThrowArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more AdjustmentLocations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdjustmentLocations
+     * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
+     * 
+     * // Get first 10 AdjustmentLocations
+     * const adjustmentLocations = await prisma.adjustmentLocation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const adjustmentLocationWithIdOnly = await prisma.adjustmentLocation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdjustmentLocationFindManyArgs>(args?: SelectSubset<T, AdjustmentLocationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a AdjustmentLocation.
+     * @param {AdjustmentLocationCreateArgs} args - Arguments to create a AdjustmentLocation.
+     * @example
+     * // Create one AdjustmentLocation
+     * const AdjustmentLocation = await prisma.adjustmentLocation.create({
+     *   data: {
+     *     // ... data to create a AdjustmentLocation
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdjustmentLocationCreateArgs>(args: SelectSubset<T, AdjustmentLocationCreateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many AdjustmentLocations.
+     * @param {AdjustmentLocationCreateManyArgs} args - Arguments to create many AdjustmentLocations.
+     * @example
+     * // Create many AdjustmentLocations
+     * const adjustmentLocation = await prisma.adjustmentLocation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdjustmentLocationCreateManyArgs>(args?: SelectSubset<T, AdjustmentLocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdjustmentLocation.
+     * @param {AdjustmentLocationDeleteArgs} args - Arguments to delete one AdjustmentLocation.
+     * @example
+     * // Delete one AdjustmentLocation
+     * const AdjustmentLocation = await prisma.adjustmentLocation.delete({
+     *   where: {
+     *     // ... filter to delete one AdjustmentLocation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdjustmentLocationDeleteArgs>(args: SelectSubset<T, AdjustmentLocationDeleteArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one AdjustmentLocation.
+     * @param {AdjustmentLocationUpdateArgs} args - Arguments to update one AdjustmentLocation.
+     * @example
+     * // Update one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdjustmentLocationUpdateArgs>(args: SelectSubset<T, AdjustmentLocationUpdateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more AdjustmentLocations.
+     * @param {AdjustmentLocationDeleteManyArgs} args - Arguments to filter AdjustmentLocations to delete.
+     * @example
+     * // Delete a few AdjustmentLocations
+     * const { count } = await prisma.adjustmentLocation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdjustmentLocationDeleteManyArgs>(args?: SelectSubset<T, AdjustmentLocationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdjustmentLocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdjustmentLocations
+     * const adjustmentLocation = await prisma.adjustmentLocation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdjustmentLocationUpdateManyArgs>(args: SelectSubset<T, AdjustmentLocationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdjustmentLocation.
+     * @param {AdjustmentLocationUpsertArgs} args - Arguments to update or create a AdjustmentLocation.
+     * @example
+     * // Update or create a AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.upsert({
+     *   create: {
+     *     // ... data to create a AdjustmentLocation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdjustmentLocation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdjustmentLocationUpsertArgs>(args: SelectSubset<T, AdjustmentLocationUpsertArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of AdjustmentLocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationCountArgs} args - Arguments to filter AdjustmentLocations to count.
+     * @example
+     * // Count the number of AdjustmentLocations
+     * const count = await prisma.adjustmentLocation.count({
+     *   where: {
+     *     // ... the filter for the AdjustmentLocations we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdjustmentLocationCountArgs>(
+      args?: Subset<T, AdjustmentLocationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdjustmentLocationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdjustmentLocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdjustmentLocationAggregateArgs>(args: Subset<T, AdjustmentLocationAggregateArgs>): Prisma.PrismaPromise<GetAdjustmentLocationAggregateType<T>>
+
+    /**
+     * Group by AdjustmentLocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdjustmentLocationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdjustmentLocationGroupByArgs['orderBy'] }
+        : { orderBy?: AdjustmentLocationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdjustmentLocationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdjustmentLocationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdjustmentLocation model
+   */
+  readonly fields: AdjustmentLocationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdjustmentLocation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdjustmentLocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    priceAdjustment<T extends PriceAdjustmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustmentDefaultArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdjustmentLocation model
+   */ 
+  interface AdjustmentLocationFieldRefs {
+    readonly id: FieldRef<"AdjustmentLocation", 'Int'>
+    readonly priceAdjustmentId: FieldRef<"AdjustmentLocation", 'Int'>
+    readonly locationId: FieldRef<"AdjustmentLocation", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdjustmentLocation findUnique
+   */
+  export type AdjustmentLocationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation findUniqueOrThrow
+   */
+  export type AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation findFirst
+   */
+  export type AdjustmentLocationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdjustmentLocations.
+     */
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation findFirstOrThrow
+   */
+  export type AdjustmentLocationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdjustmentLocations.
+     */
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation findMany
+   */
+  export type AdjustmentLocationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocations to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation create
+   */
+  export type AdjustmentLocationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdjustmentLocation.
+     */
+    data: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+  }
+
+  /**
+   * AdjustmentLocation createMany
+   */
+  export type AdjustmentLocationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdjustmentLocations.
+     */
+    data: AdjustmentLocationCreateManyInput | AdjustmentLocationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdjustmentLocation update
+   */
+  export type AdjustmentLocationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdjustmentLocation.
+     */
+    data: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+    /**
+     * Choose, which AdjustmentLocation to update.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation updateMany
+   */
+  export type AdjustmentLocationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdjustmentLocations.
+     */
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyInput>
+    /**
+     * Filter which AdjustmentLocations to update
+     */
+    where?: AdjustmentLocationWhereInput
+  }
+
+  /**
+   * AdjustmentLocation upsert
+   */
+  export type AdjustmentLocationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdjustmentLocation to update in case it exists.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+    /**
+     * In case the AdjustmentLocation found by the `where` argument doesn't exist, create a new AdjustmentLocation with this data.
+     */
+    create: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+    /**
+     * In case the AdjustmentLocation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+  }
+
+  /**
+   * AdjustmentLocation delete
+   */
+  export type AdjustmentLocationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter which AdjustmentLocation to delete.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation deleteMany
+   */
+  export type AdjustmentLocationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdjustmentLocations to delete
+     */
+    where?: AdjustmentLocationWhereInput
+  }
+
+  /**
+   * AdjustmentLocation without action
+   */
+  export type AdjustmentLocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
   }
 
 
@@ -10619,7 +11830,10 @@ export namespace Prisma {
     name: 'name',
     address: 'address',
     renterId: 'renterId',
-    CUST_ID: 'CUST_ID'
+    price: 'price',
+    CUST_ID: 'CUST_ID',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type LocationScalarFieldEnum = (typeof LocationScalarFieldEnum)[keyof typeof LocationScalarFieldEnum]
@@ -10691,15 +11905,27 @@ export namespace Prisma {
 
   export const PriceAdjustmentScalarFieldEnum: {
     id: 'id',
-    executionDate: 'executionDate',
     amount: 'amount',
-    percentage: 'percentage',
+    type: 'type',
     period: 'period',
+    applyToAll: 'applyToAll',
     status: 'status',
-    CUST_ID: 'CUST_ID'
+    CUST_ID: 'CUST_ID',
+    lastExecutedAt: 'lastExecutedAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type PriceAdjustmentScalarFieldEnum = (typeof PriceAdjustmentScalarFieldEnum)[keyof typeof PriceAdjustmentScalarFieldEnum]
+
+
+  export const AdjustmentLocationScalarFieldEnum: {
+    id: 'id',
+    priceAdjustmentId: 'priceAdjustmentId',
+    locationId: 'locationId'
+  };
+
+  export type AdjustmentLocationScalarFieldEnum = (typeof AdjustmentLocationScalarFieldEnum)[keyof typeof AdjustmentLocationScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10883,7 +12109,10 @@ export namespace Prisma {
     name?: StringFilter<"Location"> | string
     address?: StringFilter<"Location"> | string
     renterId?: IntFilter<"Location"> | number
+    price?: IntNullableFilter<"Location"> | number | null
     CUST_ID?: IntNullableFilter<"Location"> | number | null
+    createdAt?: DateTimeFilter<"Location"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
     contracts?: ContractListRelationFilter
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
@@ -10891,6 +12120,8 @@ export namespace Prisma {
     payments?: PaymentListRelationFilter
     paymentSchedules?: PaymentScheduleListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    adjustments?: PriceAdjustmentListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }
 
   export type LocationOrderByWithRelationInput = {
@@ -10898,7 +12129,10 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
+    price?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     contracts?: ContractOrderByRelationAggregateInput
     invoices?: InvoiceOrderByRelationAggregateInput
     keys?: KeyOrderByRelationAggregateInput
@@ -10906,6 +12140,8 @@ export namespace Prisma {
     payments?: PaymentOrderByRelationAggregateInput
     paymentSchedules?: PaymentScheduleOrderByRelationAggregateInput
     cust?: UserOrderByWithRelationInput
+    adjustments?: PriceAdjustmentOrderByRelationAggregateInput
+    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
   }
 
   export type LocationWhereUniqueInput = Prisma.AtLeast<{
@@ -10916,7 +12152,10 @@ export namespace Prisma {
     name?: StringFilter<"Location"> | string
     address?: StringFilter<"Location"> | string
     renterId?: IntFilter<"Location"> | number
+    price?: IntNullableFilter<"Location"> | number | null
     CUST_ID?: IntNullableFilter<"Location"> | number | null
+    createdAt?: DateTimeFilter<"Location"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
     contracts?: ContractListRelationFilter
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
@@ -10924,6 +12163,8 @@ export namespace Prisma {
     payments?: PaymentListRelationFilter
     paymentSchedules?: PaymentScheduleListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    adjustments?: PriceAdjustmentListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }, "id">
 
   export type LocationOrderByWithAggregationInput = {
@@ -10931,7 +12172,10 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
+    price?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: LocationCountOrderByAggregateInput
     _avg?: LocationAvgOrderByAggregateInput
     _max?: LocationMaxOrderByAggregateInput
@@ -10947,7 +12191,10 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Location"> | string
     address?: StringWithAggregatesFilter<"Location"> | string
     renterId?: IntWithAggregatesFilter<"Location"> | number
+    price?: IntNullableWithAggregatesFilter<"Location"> | number | null
     CUST_ID?: IntNullableWithAggregatesFilter<"Location"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Location"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Location"> | Date | string | null
   }
 
   export type PaymentWhereInput = {
@@ -11305,24 +12552,34 @@ export namespace Prisma {
     OR?: PriceAdjustmentWhereInput[]
     NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
     id?: IntFilter<"PriceAdjustment"> | number
-    executionDate?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    amount?: FloatNullableFilter<"PriceAdjustment"> | number | null
-    percentage?: FloatNullableFilter<"PriceAdjustment"> | number | null
+    amount?: FloatFilter<"PriceAdjustment"> | number
+    type?: IntFilter<"PriceAdjustment"> | number
     period?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
     status?: IntFilter<"PriceAdjustment"> | number
     CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    locations?: LocationListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }
 
   export type PriceAdjustmentOrderByWithRelationInput = {
     id?: SortOrder
-    executionDate?: SortOrder
-    amount?: SortOrderInput | SortOrder
-    percentage?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    type?: SortOrder
     period?: SortOrder
+    applyToAll?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    lastExecutedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     cust?: UserOrderByWithRelationInput
+    locations?: LocationOrderByRelationAggregateInput
+    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
   }
 
   export type PriceAdjustmentWhereUniqueInput = Prisma.AtLeast<{
@@ -11330,23 +12587,31 @@ export namespace Prisma {
     AND?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
     OR?: PriceAdjustmentWhereInput[]
     NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
-    executionDate?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    amount?: FloatNullableFilter<"PriceAdjustment"> | number | null
-    percentage?: FloatNullableFilter<"PriceAdjustment"> | number | null
+    amount?: FloatFilter<"PriceAdjustment"> | number
+    type?: IntFilter<"PriceAdjustment"> | number
     period?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
     status?: IntFilter<"PriceAdjustment"> | number
     CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    locations?: LocationListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }, "id">
 
   export type PriceAdjustmentOrderByWithAggregationInput = {
     id?: SortOrder
-    executionDate?: SortOrder
-    amount?: SortOrderInput | SortOrder
-    percentage?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    type?: SortOrder
     period?: SortOrder
+    applyToAll?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    lastExecutedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: PriceAdjustmentCountOrderByAggregateInput
     _avg?: PriceAdjustmentAvgOrderByAggregateInput
     _max?: PriceAdjustmentMaxOrderByAggregateInput
@@ -11359,12 +12624,65 @@ export namespace Prisma {
     OR?: PriceAdjustmentScalarWhereWithAggregatesInput[]
     NOT?: PriceAdjustmentScalarWhereWithAggregatesInput | PriceAdjustmentScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"PriceAdjustment"> | number
-    executionDate?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
-    amount?: FloatNullableWithAggregatesFilter<"PriceAdjustment"> | number | null
-    percentage?: FloatNullableWithAggregatesFilter<"PriceAdjustment"> | number | null
+    amount?: FloatWithAggregatesFilter<"PriceAdjustment"> | number
+    type?: IntWithAggregatesFilter<"PriceAdjustment"> | number
     period?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolWithAggregatesFilter<"PriceAdjustment"> | boolean
     status?: IntWithAggregatesFilter<"PriceAdjustment"> | number
     CUST_ID?: IntNullableWithAggregatesFilter<"PriceAdjustment"> | number | null
+    lastExecutedAt?: DateTimeNullableWithAggregatesFilter<"PriceAdjustment"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
+  }
+
+  export type AdjustmentLocationWhereInput = {
+    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    OR?: AdjustmentLocationWhereInput[]
+    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    id?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }
+
+  export type AdjustmentLocationOrderByWithRelationInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+    priceAdjustment?: PriceAdjustmentOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
+  }
+
+  export type AdjustmentLocationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    OR?: AdjustmentLocationWhereInput[]
+    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }, "id">
+
+  export type AdjustmentLocationOrderByWithAggregationInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+    _count?: AdjustmentLocationCountOrderByAggregateInput
+    _avg?: AdjustmentLocationAvgOrderByAggregateInput
+    _max?: AdjustmentLocationMaxOrderByAggregateInput
+    _min?: AdjustmentLocationMinOrderByAggregateInput
+    _sum?: AdjustmentLocationSumOrderByAggregateInput
+  }
+
+  export type AdjustmentLocationScalarWhereWithAggregatesInput = {
+    AND?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
+    OR?: AdjustmentLocationScalarWhereWithAggregatesInput[]
+    NOT?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
+    locationId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
   }
 
   export type UserCreateInput = {
@@ -11500,6 +12818,9 @@ export namespace Prisma {
   export type LocationCreateInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
@@ -11507,6 +12828,8 @@ export namespace Prisma {
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateInput = {
@@ -11514,17 +12837,25 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
@@ -11532,6 +12863,8 @@ export namespace Prisma {
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateInput = {
@@ -11539,12 +12872,17 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationCreateManyInput = {
@@ -11552,12 +12890,18 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type LocationUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type LocationUncheckedUpdateManyInput = {
@@ -11565,7 +12909,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PaymentCreateInput = {
@@ -11866,69 +13213,136 @@ export namespace Prisma {
   }
 
   export type PriceAdjustmentCreateInput = {
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
   }
 
   export type PriceAdjustmentUncheckedCreateInput = {
     id?: number
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
     CUST_ID?: number | null
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
   }
 
   export type PriceAdjustmentUpdateInput = {
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
   }
 
   export type PriceAdjustmentCreateManyInput = {
     id?: number
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
     CUST_ID?: number | null
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PriceAdjustmentUpdateManyMutationInput = {
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PriceAdjustmentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdjustmentLocationCreateInput = {
+    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
+    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
+  }
+
+  export type AdjustmentLocationUncheckedCreateInput = {
+    id?: number
+    priceAdjustmentId: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationUpdateInput = {
+    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+    location?: LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+  }
+
+  export type AdjustmentLocationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdjustmentLocationCreateManyInput = {
+    id?: number
+    priceAdjustmentId: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationUpdateManyMutationInput = {
+
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -12252,17 +13666,31 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type AdjustmentLocationListRelationFilter = {
+    every?: AdjustmentLocationWhereInput
+    some?: AdjustmentLocationWhereInput
+    none?: AdjustmentLocationWhereInput
+  }
+
+  export type AdjustmentLocationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type LocationCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
+    price?: SortOrder
     CUST_ID?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type LocationAvgOrderByAggregateInput = {
     id?: SortOrder
     renterId?: SortOrder
+    price?: SortOrder
     CUST_ID?: SortOrder
   }
 
@@ -12271,7 +13699,10 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
+    price?: SortOrder
     CUST_ID?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type LocationMinOrderByAggregateInput = {
@@ -12279,12 +13710,16 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
+    price?: SortOrder
     CUST_ID?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type LocationSumOrderByAggregateInput = {
     id?: SortOrder
     renterId?: SortOrder
+    price?: SortOrder
     CUST_ID?: SortOrder
   }
 
@@ -12535,31 +13970,23 @@ export namespace Prisma {
     CUST_ID?: SortOrder
   }
 
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type PriceAdjustmentCountOrderByAggregateInput = {
     id?: SortOrder
-    executionDate?: SortOrder
     amount?: SortOrder
-    percentage?: SortOrder
+    type?: SortOrder
     period?: SortOrder
+    applyToAll?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrder
+    lastExecutedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PriceAdjustmentAvgOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
-    percentage?: SortOrder
+    type?: SortOrder
     period?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrder
@@ -12567,47 +13994,72 @@ export namespace Prisma {
 
   export type PriceAdjustmentMaxOrderByAggregateInput = {
     id?: SortOrder
-    executionDate?: SortOrder
     amount?: SortOrder
-    percentage?: SortOrder
+    type?: SortOrder
     period?: SortOrder
+    applyToAll?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrder
+    lastExecutedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PriceAdjustmentMinOrderByAggregateInput = {
     id?: SortOrder
-    executionDate?: SortOrder
     amount?: SortOrder
-    percentage?: SortOrder
+    type?: SortOrder
     period?: SortOrder
+    applyToAll?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrder
+    lastExecutedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PriceAdjustmentSumOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
-    percentage?: SortOrder
+    type?: SortOrder
     period?: SortOrder
     status?: SortOrder
     CUST_ID?: SortOrder
   }
 
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
+  export type PriceAdjustmentRelationFilter = {
+    is?: PriceAdjustmentWhereInput
+    isNot?: PriceAdjustmentWhereInput
+  }
+
+  export type AdjustmentLocationCountOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationMinOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationSumOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
   }
 
   export type LocationCreateNestedManyWithoutRenterInput = {
@@ -13087,6 +14539,19 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type PriceAdjustmentCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationCreateNestedManyWithoutLocationInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+  }
+
   export type ContractUncheckedCreateNestedManyWithoutLocationInput = {
     create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
@@ -13120,6 +14585,19 @@ export namespace Prisma {
     connectOrCreate?: PaymentScheduleCreateOrConnectWithoutLocationInput | PaymentScheduleCreateOrConnectWithoutLocationInput[]
     createMany?: PaymentScheduleCreateManyLocationInputEnvelope
     connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+  }
+
+  export type PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
   }
 
   export type ContractUpdateManyWithoutLocationNestedInput = {
@@ -13212,6 +14690,33 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLocationInput, UserUpdateWithoutLocationInput>, UserUncheckedUpdateWithoutLocationInput>
   }
 
+  export type PriceAdjustmentUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
+    upsert?: PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput | PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput[]
+    set?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    disconnect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    delete?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    update?: PriceAdjustmentUpdateWithWhereUniqueWithoutLocationsInput | PriceAdjustmentUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: PriceAdjustmentUpdateManyWithWhereWithoutLocationsInput | PriceAdjustmentUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutLocationInput | AdjustmentLocationUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+  }
+
   export type ContractUncheckedUpdateManyWithoutLocationNestedInput = {
     create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
@@ -13280,6 +14785,33 @@ export namespace Prisma {
     update?: PaymentScheduleUpdateWithWhereUniqueWithoutLocationInput | PaymentScheduleUpdateWithWhereUniqueWithoutLocationInput[]
     updateMany?: PaymentScheduleUpdateManyWithWhereWithoutLocationInput | PaymentScheduleUpdateManyWithWhereWithoutLocationInput[]
     deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
+  }
+
+  export type PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
+    upsert?: PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput | PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput[]
+    set?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    disconnect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    delete?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    update?: PriceAdjustmentUpdateWithWhereUniqueWithoutLocationsInput | PriceAdjustmentUpdateWithWhereUniqueWithoutLocationsInput[]
+    updateMany?: PriceAdjustmentUpdateManyWithWhereWithoutLocationsInput | PriceAdjustmentUpdateManyWithWhereWithoutLocationsInput[]
+    deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutLocationInput | AdjustmentLocationUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
   }
 
   export type LocationCreateNestedOneWithoutPaymentsInput = {
@@ -13502,12 +15034,30 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type LocationCreateNestedManyWithoutAdjustmentsInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+  }
+
+  export type LocationUncheckedCreateNestedManyWithoutAdjustmentsInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
   }
 
   export type UserUpdateOneWithoutPriceAdjustmentsNestedInput = {
@@ -13518,6 +15068,88 @@ export namespace Prisma {
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPriceAdjustmentsInput, UserUpdateWithoutPriceAdjustmentsInput>, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
+  }
+
+  export type LocationUpdateManyWithoutAdjustmentsNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+  }
+
+  export type LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+  }
+
+  export type PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
+    connect?: PriceAdjustmentWhereUniqueInput
+  }
+
+  export type LocationCreateNestedOneWithoutAdjustmentLocationInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
+    connect?: LocationWhereUniqueInput
+  }
+
+  export type PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
+    upsert?: PriceAdjustmentUpsertWithoutAdjustmentLocationInput
+    connect?: PriceAdjustmentWhereUniqueInput
+    update?: XOR<XOR<PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput, PriceAdjustmentUpdateWithoutAdjustmentLocationInput>, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
+    upsert?: LocationUpsertWithoutAdjustmentLocationInput
+    connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput, LocationUpdateWithoutAdjustmentLocationInput>, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -13737,43 +15369,37 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
-  }
-
   export type LocationCreateWithoutRenterInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutRenterInput = {
     id?: number
     name: string
     address: string
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutRenterInput = {
@@ -13890,12 +15516,17 @@ export namespace Prisma {
   export type LocationCreateWithoutCustInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutCustInput = {
@@ -13903,11 +15534,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutCustInput = {
@@ -14038,20 +15674,30 @@ export namespace Prisma {
   }
 
   export type PriceAdjustmentCreateWithoutCustInput = {
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
   }
 
   export type PriceAdjustmentUncheckedCreateWithoutCustInput = {
     id?: number
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
   }
 
   export type PriceAdjustmentCreateOrConnectWithoutCustInput = {
@@ -14088,7 +15734,10 @@ export namespace Prisma {
     name?: StringFilter<"Location"> | string
     address?: StringFilter<"Location"> | string
     renterId?: IntFilter<"Location"> | number
+    price?: IntNullableFilter<"Location"> | number | null
     CUST_ID?: IntNullableFilter<"Location"> | number | null
+    createdAt?: DateTimeFilter<"Location"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
   }
 
   export type UserUpsertWithoutCreatedUsersInput = {
@@ -14351,12 +16000,15 @@ export namespace Prisma {
     OR?: PriceAdjustmentScalarWhereInput[]
     NOT?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
     id?: IntFilter<"PriceAdjustment"> | number
-    executionDate?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    amount?: FloatNullableFilter<"PriceAdjustment"> | number | null
-    percentage?: FloatNullableFilter<"PriceAdjustment"> | number | null
+    amount?: FloatFilter<"PriceAdjustment"> | number
+    type?: IntFilter<"PriceAdjustment"> | number
     period?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
     status?: IntFilter<"PriceAdjustment"> | number
     CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
   }
 
   export type ContractCreateWithoutLocationInput = {
@@ -14572,6 +16224,57 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
   }
 
+  export type PriceAdjustmentCreateWithoutLocationsInput = {
+    amount: number
+    type: number
+    period: number
+    applyToAll: boolean
+    status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
+  }
+
+  export type PriceAdjustmentUncheckedCreateWithoutLocationsInput = {
+    id?: number
+    amount: number
+    type: number
+    period: number
+    applyToAll: boolean
+    status: number
+    CUST_ID?: number | null
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
+  }
+
+  export type PriceAdjustmentCreateOrConnectWithoutLocationsInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    create: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type AdjustmentLocationCreateWithoutLocationInput = {
+    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
+  }
+
+  export type AdjustmentLocationUncheckedCreateWithoutLocationInput = {
+    id?: number
+    priceAdjustmentId: number
+  }
+
+  export type AdjustmentLocationCreateOrConnectWithoutLocationInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    create: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput>
+  }
+
+  export type AdjustmentLocationCreateManyLocationInputEnvelope = {
+    data: AdjustmentLocationCreateManyLocationInput | AdjustmentLocationCreateManyLocationInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ContractUpsertWithWhereUniqueWithoutLocationInput = {
     where: ContractWhereUniqueInput
     update: XOR<ContractUpdateWithoutLocationInput, ContractUncheckedUpdateWithoutLocationInput>
@@ -14760,15 +16463,61 @@ export namespace Prisma {
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
   }
 
+  export type PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    update: XOR<PriceAdjustmentUpdateWithoutLocationsInput, PriceAdjustmentUncheckedUpdateWithoutLocationsInput>
+    create: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type PriceAdjustmentUpdateWithWhereUniqueWithoutLocationsInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    data: XOR<PriceAdjustmentUpdateWithoutLocationsInput, PriceAdjustmentUncheckedUpdateWithoutLocationsInput>
+  }
+
+  export type PriceAdjustmentUpdateManyWithWhereWithoutLocationsInput = {
+    where: PriceAdjustmentScalarWhereInput
+    data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyWithoutLocationsInput>
+  }
+
+  export type AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    update: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
+    create: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput>
+  }
+
+  export type AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    data: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type AdjustmentLocationUpdateManyWithWhereWithoutLocationInput = {
+    where: AdjustmentLocationScalarWhereInput
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutLocationInput>
+  }
+
+  export type AdjustmentLocationScalarWhereInput = {
+    AND?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+    OR?: AdjustmentLocationScalarWhereInput[]
+    NOT?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+    id?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
+  }
+
   export type LocationCreateWithoutPaymentsInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutPaymentsInput = {
@@ -14776,11 +16525,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutPaymentsInput = {
@@ -14864,12 +16618,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutPaymentsInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutPaymentsInput = {
@@ -14877,11 +16636,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type PaymentMethodUpsertWithoutPaymentsInput = {
@@ -15002,12 +16766,17 @@ export namespace Prisma {
   export type LocationCreateWithoutInvoicesInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutInvoicesInput = {
@@ -15015,11 +16784,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutInvoicesInput = {
@@ -15089,12 +16863,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutInvoicesInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutInvoicesInput = {
@@ -15102,11 +16881,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutInvoicesInput = {
@@ -15166,12 +16950,17 @@ export namespace Prisma {
   export type LocationCreateWithoutPaymentSchedulesInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutPaymentSchedulesInput = {
@@ -15179,11 +16968,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutPaymentSchedulesInput = {
@@ -15253,12 +17047,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutPaymentSchedulesInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutPaymentSchedulesInput = {
@@ -15266,11 +17065,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutPaymentSchedulesInput = {
@@ -15330,12 +17134,17 @@ export namespace Prisma {
   export type LocationCreateWithoutKeysInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutKeysInput = {
@@ -15343,11 +17152,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutKeysInput = {
@@ -15417,12 +17231,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutKeysInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutKeysInput = {
@@ -15430,11 +17249,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutKeysInput = {
@@ -15494,12 +17318,17 @@ export namespace Prisma {
   export type LocationCreateWithoutContractsInput = {
     name: string
     address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
     renter?: UserCreateNestedOneWithoutRentedLocationsInput
     payments?: PaymentCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutContractsInput = {
@@ -15507,11 +17336,16 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutContractsInput = {
@@ -15581,12 +17415,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutContractsInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutContractsInput = {
@@ -15594,11 +17433,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutContractsInput = {
@@ -15703,6 +17547,63 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
   }
 
+  export type LocationCreateWithoutAdjustmentsInput = {
+    name: string
+    address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    contracts?: ContractCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    renter?: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+  }
+
+  export type LocationUncheckedCreateWithoutAdjustmentsInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    price?: number | null
+    CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+  }
+
+  export type LocationCreateOrConnectWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
+  }
+
+  export type AdjustmentLocationCreateWithoutPriceAdjustmentInput = {
+    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
+  }
+
+  export type AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput = {
+    id?: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope = {
+    data: AdjustmentLocationCreateManyPriceAdjustmentInput | AdjustmentLocationCreateManyPriceAdjustmentInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserUpsertWithoutPriceAdjustmentsInput = {
     update: XOR<UserUpdateWithoutPriceAdjustmentsInput, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
     create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
@@ -15757,11 +17658,198 @@ export namespace Prisma {
     contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
   }
 
+  export type LocationUpsertWithWhereUniqueWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    update: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
+    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
+  }
+
+  export type LocationUpdateWithWhereUniqueWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    data: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
+  }
+
+  export type LocationUpdateManyWithWhereWithoutAdjustmentsInput = {
+    where: LocationScalarWhereInput
+    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutAdjustmentsInput>
+  }
+
+  export type AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    update: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
+    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    data: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationScalarWhereInput
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentInput>
+  }
+
+  export type PriceAdjustmentCreateWithoutAdjustmentLocationInput = {
+    amount: number
+    type: number
+    period: number
+    applyToAll: boolean
+    status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput = {
+    id?: number
+    amount: number
+    type: number
+    period: number
+    applyToAll: boolean
+    status: number
+    CUST_ID?: number | null
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+  }
+
+  export type LocationCreateWithoutAdjustmentLocationInput = {
+    name: string
+    address: string
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    contracts?: ContractCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    renter?: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutAdjustmentLocationInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    price?: number | null
+    CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutAdjustmentLocationInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+  }
+
+  export type PriceAdjustmentUpsertWithoutAdjustmentLocationInput = {
+    update: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    where?: PriceAdjustmentWhereInput
+  }
+
+  export type PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
+    where?: PriceAdjustmentWhereInput
+    data: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type PriceAdjustmentUpdateWithoutAdjustmentLocationInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    status?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type LocationUpsertWithoutAdjustmentLocationInput = {
+    update: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    where?: LocationWhereInput
+  }
+
+  export type LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type LocationUpdateWithoutAdjustmentLocationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contracts?: ContractUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutAdjustmentLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
   export type LocationCreateManyRenterInput = {
     id?: number
     name: string
     address: string
+    price?: number | null
     CUST_ID?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type UserCreateManyCustInput = {
@@ -15782,6 +17870,9 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
+    price?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type PaymentCreateManyCustInput = {
@@ -15822,41 +17913,57 @@ export namespace Prisma {
 
   export type PriceAdjustmentCreateManyCustInput = {
     id?: number
-    executionDate: Date | string
-    amount?: number | null
-    percentage?: number | null
+    amount: number
+    type: number
     period: number
+    applyToAll: boolean
     status: number
+    lastExecutedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type LocationUpdateWithoutRenterInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutRenterInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateManyWithoutRenterInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UserUpdateWithoutCustInput = {
@@ -15918,12 +18025,17 @@ export namespace Prisma {
   export type LocationUpdateWithoutCustInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
     renter?: UserUpdateOneWithoutRentedLocationsNestedInput
     payments?: PaymentUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutCustInput = {
@@ -15931,11 +18043,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateManyWithoutCustInput = {
@@ -15943,6 +18060,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PaymentUpdateWithoutCustInput = {
@@ -16049,29 +18169,42 @@ export namespace Prisma {
   }
 
   export type PriceAdjustmentUpdateWithoutCustInput = {
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateWithoutCustInput = {
     id?: IntFieldUpdateOperationsInput | number
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateManyWithoutCustInput = {
     id?: IntFieldUpdateOperationsInput | number
-    executionDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: NullableFloatFieldUpdateOperationsInput | number | null
-    percentage?: NullableFloatFieldUpdateOperationsInput | number | null
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ContractCreateManyLocationInput = {
@@ -16108,6 +18241,11 @@ export namespace Prisma {
     id?: number
     dueDate: Date | string
     CUST_ID?: number | null
+  }
+
+  export type AdjustmentLocationCreateManyLocationInput = {
+    id?: number
+    priceAdjustmentId: number
   }
 
   export type ContractUpdateWithoutLocationInput = {
@@ -16213,6 +18351,60 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type PriceAdjustmentUpdateWithoutLocationsInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    status?: IntFieldUpdateOperationsInput | number
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
+  }
+
+  export type PriceAdjustmentUncheckedUpdateWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    status?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
+  }
+
+  export type PriceAdjustmentUncheckedUpdateManyWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    status?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdjustmentLocationUpdateWithoutLocationInput = {
+    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+  }
+
+  export type AdjustmentLocationUncheckedUpdateWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type PaymentCreateManyPaymentMethodInput = {
     id?: number
     locationId: number
@@ -16244,6 +18436,69 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type AdjustmentLocationCreateManyPriceAdjustmentInput = {
+    id?: number
+    locationId: number
+  }
+
+  export type LocationUpdateWithoutAdjustmentsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contracts?: ContractUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutAdjustmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+  }
+
+  export type LocationUncheckedUpdateManyWithoutAdjustmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    price?: NullableIntFieldUpdateOperationsInput | number | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AdjustmentLocationUpdateWithoutPriceAdjustmentInput = {
+    location?: LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+  }
+
+  export type AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
 
 
   /**
@@ -16261,6 +18516,10 @@ export namespace Prisma {
      * @deprecated Use PaymentMethodCountOutputTypeDefaultArgs instead
      */
     export type PaymentMethodCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentMethodCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PriceAdjustmentCountOutputTypeDefaultArgs instead
+     */
+    export type PriceAdjustmentCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -16297,6 +18556,10 @@ export namespace Prisma {
      * @deprecated Use PriceAdjustmentDefaultArgs instead
      */
     export type PriceAdjustmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PriceAdjustmentDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use AdjustmentLocationDefaultArgs instead
+     */
+    export type AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AdjustmentLocationDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

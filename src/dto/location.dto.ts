@@ -5,9 +5,11 @@ import {
   IsNotEmpty,
   IsInt,
   IsDateString,
+  isNumber,
 } from 'class-validator';
 
 export class CreateLocationDto {
+
   @IsString()
   @IsNotEmpty()
   address: string;

@@ -141,7 +141,10 @@ exports.Prisma.LocationScalarFieldEnum = {
   name: 'name',
   address: 'address',
   renterId: 'renterId',
-  CUST_ID: 'CUST_ID'
+  price: 'price',
+  CUST_ID: 'CUST_ID',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PaymentScalarFieldEnum = {
@@ -192,12 +195,21 @@ exports.Prisma.ContractScalarFieldEnum = {
 
 exports.Prisma.PriceAdjustmentScalarFieldEnum = {
   id: 'id',
-  executionDate: 'executionDate',
   amount: 'amount',
-  percentage: 'percentage',
+  type: 'type',
   period: 'period',
+  applyToAll: 'applyToAll',
   status: 'status',
-  CUST_ID: 'CUST_ID'
+  CUST_ID: 'CUST_ID',
+  lastExecutedAt: 'lastExecutedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdjustmentLocationScalarFieldEnum = {
+  id: 'id',
+  priceAdjustmentId: 'priceAdjustmentId',
+  locationId: 'locationId'
 };
 
 exports.Prisma.SortOrder = {
@@ -220,7 +232,8 @@ exports.Prisma.ModelName = {
   PaymentSchedule: 'PaymentSchedule',
   Key: 'Key',
   Contract: 'Contract',
-  PriceAdjustment: 'PriceAdjustment'
+  PriceAdjustment: 'PriceAdjustment',
+  AdjustmentLocation: 'AdjustmentLocation'
 };
 
 /**

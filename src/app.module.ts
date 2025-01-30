@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaService } from './services/prisma.service';
 import { CreateContextMiddleware } from './middleware/create-context.middleware';
 import { APP_FILTER } from '@nestjs/core';
+import { ScheduleModule } from '@nestjs/schedule';
 import { UnauthorizedFilter } from './common/filters/unauthorized.filter';
 import { LocationController } from './controllers/location.controller';
 import { UserController } from './controllers/user.controller';
@@ -20,11 +21,13 @@ import { JwtStrategy } from './strategy/jwt.strategy';
 import { LocalStrategy } from './strategy/local.strategy';
 import * as dotenv from 'dotenv';
 import { JwtModule } from '@nestjs/jwt';
+import { PriceAdjustmentController } from './controllers/priceAdjustment.controller';
 
 dotenv.config(); // Cargar las variables de entorno desde el archivo .env
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     ConfigModule.forRoot(),
     JwtModule.register({
       secret: process.env.JWT_SECRET, // Accede directamente a la variable de entorno
@@ -40,6 +43,7 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
     InvoiceController,
     PaymentScheduleController,
     KeyController,
+    PriceAdjustmentController,
   ],
   providers: [
     // {

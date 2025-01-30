@@ -35,19 +35,23 @@ model User {
 }
 
 model Location {
-  id               Int               @id @default(autoincrement())
-  name             String
-  address          String
-  renterId         Int
-  contracts        Contract[]
-  invoices         Invoice[]
-  keys             Key[]
-  renter           User?             @relation("renter", fields: [renterId], references: [id])
-  payments         Payment[]
-  paymentSchedules PaymentSchedule[]
-  CUST_ID          Int?
-  cust             User?             @relation(fields: [CUST_ID], references: [id])
-  // userId           Int?
+  id                 Int                  @id @default(autoincrement())
+  name               String
+  address            String
+  renterId           Int
+  contracts          Contract[]
+  invoices           Invoice[]
+  keys               Key[]
+  price              Int?
+  renter             User?                @relation("renter", fields: [renterId], references: [id])
+  payments           Payment[]
+  paymentSchedules   PaymentSchedule[]
+  CUST_ID            Int?
+  cust               User?                @relation(fields: [CUST_ID], references: [id])
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime?            @updatedAt
+  adjustments        PriceAdjustment[]    @relation("AdjustmentLocations")
+  AdjustmentLocation AdjustmentLocation[]
 
   @@index([renterId], map: "Location_renterId_fkey")
 }
@@ -122,12 +126,25 @@ model Contract {
 }
 
 model PriceAdjustment {
-  id            Int      @id @default(autoincrement())
-  executionDate DateTime // Fecha de ejecución
-  amount        Float? // Monto específico del ajuste
-  percentage    Float? // Porcentaje del ajuste
-  period        Int // Periodo codificado en binario
-  status        Int // Estado codificado en binario
-  CUST_ID       Int? // Relación con el usuario
-  cust          User?    @relation(fields: [CUST_ID], references: [id])
+  id                 Int                  @id @default(autoincrement())
+  amount             Float
+  type               Int
+  period             Int
+  applyToAll         Boolean
+  status             Int
+  cust               User?                @relation(fields: [CUST_ID], references: [id])
+  CUST_ID            Int?
+  lastExecutedAt     DateTime? // Fecha de última ejecución
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  locations          Location[]           @relation("AdjustmentLocations")
+  AdjustmentLocation AdjustmentLocation[]
+}
+
+model AdjustmentLocation {
+  id                Int             @id @default(autoincrement())
+  priceAdjustment   PriceAdjustment @relation(fields: [priceAdjustmentId], references: [id])
+  priceAdjustmentId Int
+  location          Location        @relation(fields: [locationId], references: [id])
+  locationId        Int
 }
