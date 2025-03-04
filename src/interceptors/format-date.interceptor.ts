@@ -16,12 +16,16 @@ export class FormatDateInterceptor implements NestInterceptor {
   }
 
   private formatDates(data: any): any {
+    console.log('1111');
+    
     if (Array.isArray(data)) {
       return data.map((item) => this.formatDates(item));
     } else if (typeof data === 'object' && data !== null) {
       const formattedData = { ...data };
       for (const key in formattedData) {
         if (formattedData[key] instanceof Date) {
+          console.log('entre nomas', key);
+          
           formattedData[key] = format(formattedData[key], 'yyyy-MM-dd');
         } else if (typeof formattedData[key] === 'object') {
           formattedData[key] = this.formatDates(formattedData[key]);

@@ -12,12 +12,14 @@ export class UserService {
     });
   }
 
-  async createUser(email: string, password: string): Promise<User> {
+  async createUser(email: string, password: string, dni: number): Promise<User> {
     return this.prisma.user.create({
       data: {
         email,
-        password, // Aquí deberías aplicar hashing para la contraseña
+        password, // Aplica el hashing de la contraseña aquí, si es necesario.
+        dni,      // Ahora se incluye el DNI, que es obligatorio.
       },
     });
   }
+  
 }

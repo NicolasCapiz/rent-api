@@ -17,12 +17,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.21.1
- * Query Engine version: bf0e5e8a04cada8225617067eaa03d041e2bba36
+ * Prisma Client JS version: 5.22.0
+ * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
  */
 Prisma.prismaVersion = {
-  client: "5.21.1",
-  engine: "bf0e5e8a04cada8225617067eaa03d041e2bba36"
+  client: "5.22.0",
+  engine: "605197351a3c8bdd595af2d2a9bc3025bca48ea2"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -130,10 +130,11 @@ exports.Prisma.UserScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   picture: 'picture',
-  password: 'password',
   createdAt: 'createdAt',
+  password: 'password',
   updatedAt: 'updatedAt',
-  CUST_ID: 'CUST_ID'
+  CUST_ID: 'CUST_ID',
+  dni: 'dni'
 };
 
 exports.Prisma.LocationScalarFieldEnum = {
@@ -141,10 +142,51 @@ exports.Prisma.LocationScalarFieldEnum = {
   name: 'name',
   address: 'address',
   renterId: 'renterId',
-  price: 'price',
   CUST_ID: 'CUST_ID',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeaseContractScalarFieldEnum = {
+  id: 'id',
+  locationId: 'locationId',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  finishedDate: 'finishedDate',
+  rentAmount: 'rentAmount',
+  active: 'active',
+  cancelled: 'cancelled',
+  createdAt: 'createdAt',
+  pdfPath: 'pdfPath',
+  CUST_ID: 'CUST_ID',
+  renterId: 'renterId'
+};
+
+exports.Prisma.KeyScalarFieldEnum = {
+  id: 'id',
+  locationId: 'locationId',
+  issueDate: 'issueDate',
+  returnDate: 'returnDate',
+  CUST_ID: 'CUST_ID'
+};
+
+exports.Prisma.PriceAdjustmentScalarFieldEnum = {
+  id: 'id',
+  CUST_ID: 'CUST_ID',
+  amount: 'amount',
+  period: 'period',
+  status: 'status',
+  applyToAll: 'applyToAll',
+  type: 'type',
+  createdAt: 'createdAt',
+  lastExecutedAt: 'lastExecutedAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdjustmentLocationScalarFieldEnum = {
+  id: 'id',
+  priceAdjustmentId: 'priceAdjustmentId',
+  locationId: 'locationId'
 };
 
 exports.Prisma.PaymentScalarFieldEnum = {
@@ -153,7 +195,21 @@ exports.Prisma.PaymentScalarFieldEnum = {
   date: 'date',
   amount: 'amount',
   paymentMethodId: 'paymentMethodId',
-  CUST_ID: 'CUST_ID'
+  CUST_ID: 'CUST_ID',
+  paymentRecordId: 'paymentRecordId',
+  month: 'month',
+  year: 'year'
+};
+
+exports.Prisma.PaymentRecordScalarFieldEnum = {
+  id: 'id',
+  locationId: 'locationId',
+  month: 'month',
+  year: 'year',
+  CUST_ID: 'CUST_ID',
+  remainingAmount: 'remainingAmount',
+  totalPaid: 'totalPaid',
+  totalRent: 'totalRent'
 };
 
 exports.Prisma.PaymentMethodScalarFieldEnum = {
@@ -175,41 +231,14 @@ exports.Prisma.PaymentScheduleScalarFieldEnum = {
   CUST_ID: 'CUST_ID'
 };
 
-exports.Prisma.KeyScalarFieldEnum = {
+exports.Prisma.RentHistoryScalarFieldEnum = {
   id: 'id',
   locationId: 'locationId',
-  issueDate: 'issueDate',
-  returnDate: 'returnDate',
-  CUST_ID: 'CUST_ID'
-};
-
-exports.Prisma.ContractScalarFieldEnum = {
-  id: 'id',
-  locationId: 'locationId',
-  startDate: 'startDate',
-  endDate: 'endDate',
-  renewed: 'renewed',
-  cancelled: 'cancelled',
-  CUST_ID: 'CUST_ID'
-};
-
-exports.Prisma.PriceAdjustmentScalarFieldEnum = {
-  id: 'id',
-  amount: 'amount',
-  type: 'type',
-  period: 'period',
-  applyToAll: 'applyToAll',
-  status: 'status',
-  CUST_ID: 'CUST_ID',
-  lastExecutedAt: 'lastExecutedAt',
+  month: 'month',
+  year: 'year',
+  rentAmount: 'rentAmount',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.AdjustmentLocationScalarFieldEnum = {
-  id: 'id',
-  priceAdjustmentId: 'priceAdjustmentId',
-  locationId: 'locationId'
+  CUST_ID: 'CUST_ID'
 };
 
 exports.Prisma.SortOrder = {
@@ -226,14 +255,16 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Location: 'Location',
+  LeaseContract: 'LeaseContract',
+  Key: 'Key',
+  PriceAdjustment: 'PriceAdjustment',
+  AdjustmentLocation: 'AdjustmentLocation',
   Payment: 'Payment',
+  PaymentRecord: 'PaymentRecord',
   PaymentMethod: 'PaymentMethod',
   Invoice: 'Invoice',
   PaymentSchedule: 'PaymentSchedule',
-  Key: 'Key',
-  Contract: 'Contract',
-  PriceAdjustment: 'PriceAdjustment',
-  AdjustmentLocation: 'AdjustmentLocation'
+  RentHistory: 'RentHistory'
 };
 
 /**

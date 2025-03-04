@@ -15,7 +15,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
   });
-  app.useGlobalInterceptors(new FormatDateInterceptor());
+  // app.useGlobalInterceptors(new FormatDateInterceptor());
 
   const prismaService = await app.resolve(PrismaService);
   await prismaService.$connect();

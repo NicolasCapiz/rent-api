@@ -24,10 +24,35 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type Location = $Result.DefaultSelection<Prisma.$LocationPayload>
 /**
+ * Model LeaseContract
+ * 
+ */
+export type LeaseContract = $Result.DefaultSelection<Prisma.$LeaseContractPayload>
+/**
+ * Model Key
+ * 
+ */
+export type Key = $Result.DefaultSelection<Prisma.$KeyPayload>
+/**
+ * Model PriceAdjustment
+ * 
+ */
+export type PriceAdjustment = $Result.DefaultSelection<Prisma.$PriceAdjustmentPayload>
+/**
+ * Model AdjustmentLocation
+ * 
+ */
+export type AdjustmentLocation = $Result.DefaultSelection<Prisma.$AdjustmentLocationPayload>
+/**
  * Model Payment
  * 
  */
 export type Payment = $Result.DefaultSelection<Prisma.$PaymentPayload>
+/**
+ * Model PaymentRecord
+ * 
+ */
+export type PaymentRecord = $Result.DefaultSelection<Prisma.$PaymentRecordPayload>
 /**
  * Model PaymentMethod
  * 
@@ -44,25 +69,10 @@ export type Invoice = $Result.DefaultSelection<Prisma.$InvoicePayload>
  */
 export type PaymentSchedule = $Result.DefaultSelection<Prisma.$PaymentSchedulePayload>
 /**
- * Model Key
+ * Model RentHistory
  * 
  */
-export type Key = $Result.DefaultSelection<Prisma.$KeyPayload>
-/**
- * Model Contract
- * 
- */
-export type Contract = $Result.DefaultSelection<Prisma.$ContractPayload>
-/**
- * Model PriceAdjustment
- * 
- */
-export type PriceAdjustment = $Result.DefaultSelection<Prisma.$PriceAdjustmentPayload>
-/**
- * Model AdjustmentLocation
- * 
- */
-export type AdjustmentLocation = $Result.DefaultSelection<Prisma.$AdjustmentLocationPayload>
+export type RentHistory = $Result.DefaultSelection<Prisma.$RentHistoryPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -208,6 +218,46 @@ export class PrismaClient<
   get location(): Prisma.LocationDelegate<ExtArgs>;
 
   /**
+   * `prisma.leaseContract`: Exposes CRUD operations for the **LeaseContract** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LeaseContracts
+    * const leaseContracts = await prisma.leaseContract.findMany()
+    * ```
+    */
+  get leaseContract(): Prisma.LeaseContractDelegate<ExtArgs>;
+
+  /**
+   * `prisma.key`: Exposes CRUD operations for the **Key** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Keys
+    * const keys = await prisma.key.findMany()
+    * ```
+    */
+  get key(): Prisma.KeyDelegate<ExtArgs>;
+
+  /**
+   * `prisma.priceAdjustment`: Exposes CRUD operations for the **PriceAdjustment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PriceAdjustments
+    * const priceAdjustments = await prisma.priceAdjustment.findMany()
+    * ```
+    */
+  get priceAdjustment(): Prisma.PriceAdjustmentDelegate<ExtArgs>;
+
+  /**
+   * `prisma.adjustmentLocation`: Exposes CRUD operations for the **AdjustmentLocation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdjustmentLocations
+    * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
+    * ```
+    */
+  get adjustmentLocation(): Prisma.AdjustmentLocationDelegate<ExtArgs>;
+
+  /**
    * `prisma.payment`: Exposes CRUD operations for the **Payment** model.
     * Example usage:
     * ```ts
@@ -216,6 +266,16 @@ export class PrismaClient<
     * ```
     */
   get payment(): Prisma.PaymentDelegate<ExtArgs>;
+
+  /**
+   * `prisma.paymentRecord`: Exposes CRUD operations for the **PaymentRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PaymentRecords
+    * const paymentRecords = await prisma.paymentRecord.findMany()
+    * ```
+    */
+  get paymentRecord(): Prisma.PaymentRecordDelegate<ExtArgs>;
 
   /**
    * `prisma.paymentMethod`: Exposes CRUD operations for the **PaymentMethod** model.
@@ -248,44 +308,14 @@ export class PrismaClient<
   get paymentSchedule(): Prisma.PaymentScheduleDelegate<ExtArgs>;
 
   /**
-   * `prisma.key`: Exposes CRUD operations for the **Key** model.
+   * `prisma.rentHistory`: Exposes CRUD operations for the **RentHistory** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Keys
-    * const keys = await prisma.key.findMany()
+    * // Fetch zero or more RentHistories
+    * const rentHistories = await prisma.rentHistory.findMany()
     * ```
     */
-  get key(): Prisma.KeyDelegate<ExtArgs>;
-
-  /**
-   * `prisma.contract`: Exposes CRUD operations for the **Contract** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Contracts
-    * const contracts = await prisma.contract.findMany()
-    * ```
-    */
-  get contract(): Prisma.ContractDelegate<ExtArgs>;
-
-  /**
-   * `prisma.priceAdjustment`: Exposes CRUD operations for the **PriceAdjustment** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more PriceAdjustments
-    * const priceAdjustments = await prisma.priceAdjustment.findMany()
-    * ```
-    */
-  get priceAdjustment(): Prisma.PriceAdjustmentDelegate<ExtArgs>;
-
-  /**
-   * `prisma.adjustmentLocation`: Exposes CRUD operations for the **AdjustmentLocation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more AdjustmentLocations
-    * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
-    * ```
-    */
-  get adjustmentLocation(): Prisma.AdjustmentLocationDelegate<ExtArgs>;
+  get rentHistory(): Prisma.RentHistoryDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -345,8 +375,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.21.1
-   * Query Engine version: bf0e5e8a04cada8225617067eaa03d041e2bba36
+   * Prisma Client JS version: 5.22.0
+   * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
    */
   export type PrismaVersion = {
     client: string
@@ -729,14 +759,16 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Location: 'Location',
+    LeaseContract: 'LeaseContract',
+    Key: 'Key',
+    PriceAdjustment: 'PriceAdjustment',
+    AdjustmentLocation: 'AdjustmentLocation',
     Payment: 'Payment',
+    PaymentRecord: 'PaymentRecord',
     PaymentMethod: 'PaymentMethod',
     Invoice: 'Invoice',
     PaymentSchedule: 'PaymentSchedule',
-    Key: 'Key',
-    Contract: 'Contract',
-    PriceAdjustment: 'PriceAdjustment',
-    AdjustmentLocation: 'AdjustmentLocation'
+    RentHistory: 'RentHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -752,7 +784,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "location" | "payment" | "paymentMethod" | "invoice" | "paymentSchedule" | "key" | "contract" | "priceAdjustment" | "adjustmentLocation"
+      modelProps: "user" | "location" | "leaseContract" | "key" | "priceAdjustment" | "adjustmentLocation" | "payment" | "paymentRecord" | "paymentMethod" | "invoice" | "paymentSchedule" | "rentHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -888,6 +920,270 @@ export namespace Prisma {
           }
         }
       }
+      LeaseContract: {
+        payload: Prisma.$LeaseContractPayload<ExtArgs>
+        fields: Prisma.LeaseContractFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LeaseContractFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeaseContractFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          findFirst: {
+            args: Prisma.LeaseContractFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeaseContractFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          findMany: {
+            args: Prisma.LeaseContractFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>[]
+          }
+          create: {
+            args: Prisma.LeaseContractCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          createMany: {
+            args: Prisma.LeaseContractCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.LeaseContractDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          update: {
+            args: Prisma.LeaseContractUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          deleteMany: {
+            args: Prisma.LeaseContractDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LeaseContractUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LeaseContractUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeaseContractPayload>
+          }
+          aggregate: {
+            args: Prisma.LeaseContractAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLeaseContract>
+          }
+          groupBy: {
+            args: Prisma.LeaseContractGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LeaseContractGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LeaseContractCountArgs<ExtArgs>
+            result: $Utils.Optional<LeaseContractCountAggregateOutputType> | number
+          }
+        }
+      }
+      Key: {
+        payload: Prisma.$KeyPayload<ExtArgs>
+        fields: Prisma.KeyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.KeyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.KeyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          findFirst: {
+            args: Prisma.KeyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.KeyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          findMany: {
+            args: Prisma.KeyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>[]
+          }
+          create: {
+            args: Prisma.KeyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          createMany: {
+            args: Prisma.KeyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.KeyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          update: {
+            args: Prisma.KeyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          deleteMany: {
+            args: Prisma.KeyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.KeyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.KeyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+          }
+          aggregate: {
+            args: Prisma.KeyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateKey>
+          }
+          groupBy: {
+            args: Prisma.KeyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<KeyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.KeyCountArgs<ExtArgs>
+            result: $Utils.Optional<KeyCountAggregateOutputType> | number
+          }
+        }
+      }
+      PriceAdjustment: {
+        payload: Prisma.$PriceAdjustmentPayload<ExtArgs>
+        fields: Prisma.PriceAdjustmentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PriceAdjustmentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          findFirst: {
+            args: Prisma.PriceAdjustmentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PriceAdjustmentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          findMany: {
+            args: Prisma.PriceAdjustmentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>[]
+          }
+          create: {
+            args: Prisma.PriceAdjustmentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          createMany: {
+            args: Prisma.PriceAdjustmentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.PriceAdjustmentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          update: {
+            args: Prisma.PriceAdjustmentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          deleteMany: {
+            args: Prisma.PriceAdjustmentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PriceAdjustmentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PriceAdjustmentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
+          }
+          aggregate: {
+            args: Prisma.PriceAdjustmentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePriceAdjustment>
+          }
+          groupBy: {
+            args: Prisma.PriceAdjustmentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PriceAdjustmentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PriceAdjustmentCountArgs<ExtArgs>
+            result: $Utils.Optional<PriceAdjustmentCountAggregateOutputType> | number
+          }
+        }
+      }
+      AdjustmentLocation: {
+        payload: Prisma.$AdjustmentLocationPayload<ExtArgs>
+        fields: Prisma.AdjustmentLocationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdjustmentLocationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          findFirst: {
+            args: Prisma.AdjustmentLocationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          findMany: {
+            args: Prisma.AdjustmentLocationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>[]
+          }
+          create: {
+            args: Prisma.AdjustmentLocationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          createMany: {
+            args: Prisma.AdjustmentLocationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdjustmentLocationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          update: {
+            args: Prisma.AdjustmentLocationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdjustmentLocationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdjustmentLocationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdjustmentLocationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
+          }
+          aggregate: {
+            args: Prisma.AdjustmentLocationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdjustmentLocation>
+          }
+          groupBy: {
+            args: Prisma.AdjustmentLocationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdjustmentLocationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AdjustmentLocationCountArgs<ExtArgs>
+            result: $Utils.Optional<AdjustmentLocationCountAggregateOutputType> | number
+          }
+        }
+      }
       Payment: {
         payload: Prisma.$PaymentPayload<ExtArgs>
         fields: Prisma.PaymentFieldRefs
@@ -951,6 +1247,72 @@ export namespace Prisma {
           count: {
             args: Prisma.PaymentCountArgs<ExtArgs>
             result: $Utils.Optional<PaymentCountAggregateOutputType> | number
+          }
+        }
+      }
+      PaymentRecord: {
+        payload: Prisma.$PaymentRecordPayload<ExtArgs>
+        fields: Prisma.PaymentRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PaymentRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PaymentRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.PaymentRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PaymentRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          findMany: {
+            args: Prisma.PaymentRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>[]
+          }
+          create: {
+            args: Prisma.PaymentRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          createMany: {
+            args: Prisma.PaymentRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.PaymentRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          update: {
+            args: Prisma.PaymentRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.PaymentRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PaymentRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PaymentRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.PaymentRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePaymentRecord>
+          }
+          groupBy: {
+            args: Prisma.PaymentRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PaymentRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PaymentRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<PaymentRecordCountAggregateOutputType> | number
           }
         }
       }
@@ -1152,267 +1514,69 @@ export namespace Prisma {
           }
         }
       }
-      Key: {
-        payload: Prisma.$KeyPayload<ExtArgs>
-        fields: Prisma.KeyFieldRefs
+      RentHistory: {
+        payload: Prisma.$RentHistoryPayload<ExtArgs>
+        fields: Prisma.RentHistoryFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.KeyFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload> | null
+            args: Prisma.RentHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.KeyFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           findFirst: {
-            args: Prisma.KeyFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload> | null
+            args: Prisma.RentHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.KeyFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           findMany: {
-            args: Prisma.KeyFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>[]
+            args: Prisma.RentHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>[]
           }
           create: {
-            args: Prisma.KeyCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           createMany: {
-            args: Prisma.KeyCreateManyArgs<ExtArgs>
+            args: Prisma.RentHistoryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.KeyDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           update: {
-            args: Prisma.KeyUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           deleteMany: {
-            args: Prisma.KeyDeleteManyArgs<ExtArgs>
+            args: Prisma.RentHistoryDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.KeyUpdateManyArgs<ExtArgs>
+            args: Prisma.RentHistoryUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.KeyUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$KeyPayload>
+            args: Prisma.RentHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RentHistoryPayload>
           }
           aggregate: {
-            args: Prisma.KeyAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateKey>
+            args: Prisma.RentHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRentHistory>
           }
           groupBy: {
-            args: Prisma.KeyGroupByArgs<ExtArgs>
-            result: $Utils.Optional<KeyGroupByOutputType>[]
+            args: Prisma.RentHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RentHistoryGroupByOutputType>[]
           }
           count: {
-            args: Prisma.KeyCountArgs<ExtArgs>
-            result: $Utils.Optional<KeyCountAggregateOutputType> | number
-          }
-        }
-      }
-      Contract: {
-        payload: Prisma.$ContractPayload<ExtArgs>
-        fields: Prisma.ContractFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.ContractFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.ContractFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          findFirst: {
-            args: Prisma.ContractFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.ContractFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          findMany: {
-            args: Prisma.ContractFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>[]
-          }
-          create: {
-            args: Prisma.ContractCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          createMany: {
-            args: Prisma.ContractCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.ContractDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          update: {
-            args: Prisma.ContractUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          deleteMany: {
-            args: Prisma.ContractDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.ContractUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.ContractUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ContractPayload>
-          }
-          aggregate: {
-            args: Prisma.ContractAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateContract>
-          }
-          groupBy: {
-            args: Prisma.ContractGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ContractGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.ContractCountArgs<ExtArgs>
-            result: $Utils.Optional<ContractCountAggregateOutputType> | number
-          }
-        }
-      }
-      PriceAdjustment: {
-        payload: Prisma.$PriceAdjustmentPayload<ExtArgs>
-        fields: Prisma.PriceAdjustmentFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.PriceAdjustmentFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          findFirst: {
-            args: Prisma.PriceAdjustmentFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.PriceAdjustmentFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          findMany: {
-            args: Prisma.PriceAdjustmentFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>[]
-          }
-          create: {
-            args: Prisma.PriceAdjustmentCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          createMany: {
-            args: Prisma.PriceAdjustmentCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.PriceAdjustmentDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          update: {
-            args: Prisma.PriceAdjustmentUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          deleteMany: {
-            args: Prisma.PriceAdjustmentDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.PriceAdjustmentUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.PriceAdjustmentUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PriceAdjustmentPayload>
-          }
-          aggregate: {
-            args: Prisma.PriceAdjustmentAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePriceAdjustment>
-          }
-          groupBy: {
-            args: Prisma.PriceAdjustmentGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PriceAdjustmentGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.PriceAdjustmentCountArgs<ExtArgs>
-            result: $Utils.Optional<PriceAdjustmentCountAggregateOutputType> | number
-          }
-        }
-      }
-      AdjustmentLocation: {
-        payload: Prisma.$AdjustmentLocationPayload<ExtArgs>
-        fields: Prisma.AdjustmentLocationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.AdjustmentLocationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          findFirst: {
-            args: Prisma.AdjustmentLocationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          findMany: {
-            args: Prisma.AdjustmentLocationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>[]
-          }
-          create: {
-            args: Prisma.AdjustmentLocationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          createMany: {
-            args: Prisma.AdjustmentLocationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.AdjustmentLocationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          update: {
-            args: Prisma.AdjustmentLocationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          deleteMany: {
-            args: Prisma.AdjustmentLocationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.AdjustmentLocationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.AdjustmentLocationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AdjustmentLocationPayload>
-          }
-          aggregate: {
-            args: Prisma.AdjustmentLocationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAdjustmentLocation>
-          }
-          groupBy: {
-            args: Prisma.AdjustmentLocationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AdjustmentLocationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.AdjustmentLocationCountArgs<ExtArgs>
-            result: $Utils.Optional<AdjustmentLocationCountAggregateOutputType> | number
+            args: Prisma.RentHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<RentHistoryCountAggregateOutputType> | number
           }
         }
       }
@@ -1577,27 +1741,33 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    rentedLocations: number
-    createdUsers: number
-    Location: number
-    payments: number
     invoices: number
-    paymentSchedules: number
     keys: number
-    contracts: number
+    leaseContractsAsCust: number
+    leaseContractsAsRenter: number
+    Location: number
+    rentedLocations: number
+    payments: number
+    PaymentRecord: number
+    paymentSchedules: number
     priceAdjustments: number
+    RentHistory: number
+    createdUsers: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    rentedLocations?: boolean | UserCountOutputTypeCountRentedLocationsArgs
-    createdUsers?: boolean | UserCountOutputTypeCountCreatedUsersArgs
-    Location?: boolean | UserCountOutputTypeCountLocationArgs
-    payments?: boolean | UserCountOutputTypeCountPaymentsArgs
     invoices?: boolean | UserCountOutputTypeCountInvoicesArgs
-    paymentSchedules?: boolean | UserCountOutputTypeCountPaymentSchedulesArgs
     keys?: boolean | UserCountOutputTypeCountKeysArgs
-    contracts?: boolean | UserCountOutputTypeCountContractsArgs
+    leaseContractsAsCust?: boolean | UserCountOutputTypeCountLeaseContractsAsCustArgs
+    leaseContractsAsRenter?: boolean | UserCountOutputTypeCountLeaseContractsAsRenterArgs
+    Location?: boolean | UserCountOutputTypeCountLocationArgs
+    rentedLocations?: boolean | UserCountOutputTypeCountRentedLocationsArgs
+    payments?: boolean | UserCountOutputTypeCountPaymentsArgs
+    PaymentRecord?: boolean | UserCountOutputTypeCountPaymentRecordArgs
+    paymentSchedules?: boolean | UserCountOutputTypeCountPaymentSchedulesArgs
     priceAdjustments?: boolean | UserCountOutputTypeCountPriceAdjustmentsArgs
+    RentHistory?: boolean | UserCountOutputTypeCountRentHistoryArgs
+    createdUsers?: boolean | UserCountOutputTypeCountCreatedUsersArgs
   }
 
   // Custom InputTypes
@@ -1614,21 +1784,42 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountRentedLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LocationWhereInput
+  export type UserCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCreatedUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type UserCountOutputTypeCountKeysArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KeyWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLeaseContractsAsCustArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeaseContractWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLeaseContractsAsRenterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeaseContractWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LocationWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountRentedLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LocationWhereInput
   }
 
@@ -1642,8 +1833,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: InvoiceWhereInput
+  export type UserCountOutputTypeCountPaymentRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentRecordWhereInput
   }
 
   /**
@@ -1656,22 +1847,22 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountKeysArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: KeyWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountContractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ContractWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
   export type UserCountOutputTypeCountPriceAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PriceAdjustmentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountRentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RentHistoryWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCreatedUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
   }
 
 
@@ -1680,23 +1871,27 @@ export namespace Prisma {
    */
 
   export type LocationCountOutputType = {
-    contracts: number
+    AdjustmentLocation: number
     invoices: number
     keys: number
+    contracts: number
     payments: number
+    PaymentRecord: number
     paymentSchedules: number
+    rentHistory: number
     adjustments: number
-    AdjustmentLocation: number
   }
 
   export type LocationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    contracts?: boolean | LocationCountOutputTypeCountContractsArgs
+    AdjustmentLocation?: boolean | LocationCountOutputTypeCountAdjustmentLocationArgs
     invoices?: boolean | LocationCountOutputTypeCountInvoicesArgs
     keys?: boolean | LocationCountOutputTypeCountKeysArgs
+    contracts?: boolean | LocationCountOutputTypeCountContractsArgs
     payments?: boolean | LocationCountOutputTypeCountPaymentsArgs
+    PaymentRecord?: boolean | LocationCountOutputTypeCountPaymentRecordArgs
     paymentSchedules?: boolean | LocationCountOutputTypeCountPaymentSchedulesArgs
+    rentHistory?: boolean | LocationCountOutputTypeCountRentHistoryArgs
     adjustments?: boolean | LocationCountOutputTypeCountAdjustmentsArgs
-    AdjustmentLocation?: boolean | LocationCountOutputTypeCountAdjustmentLocationArgs
   }
 
   // Custom InputTypes
@@ -1713,8 +1908,8 @@ export namespace Prisma {
   /**
    * LocationCountOutputType without action
    */
-  export type LocationCountOutputTypeCountContractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ContractWhereInput
+  export type LocationCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdjustmentLocationWhereInput
   }
 
   /**
@@ -1734,8 +1929,22 @@ export namespace Prisma {
   /**
    * LocationCountOutputType without action
    */
+  export type LocationCountOutputTypeCountContractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeaseContractWhereInput
+  }
+
+  /**
+   * LocationCountOutputType without action
+   */
   export type LocationCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PaymentWhereInput
+  }
+
+  /**
+   * LocationCountOutputType without action
+   */
+  export type LocationCountOutputTypeCountPaymentRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentRecordWhereInput
   }
 
   /**
@@ -1748,15 +1957,86 @@ export namespace Prisma {
   /**
    * LocationCountOutputType without action
    */
-  export type LocationCountOutputTypeCountAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PriceAdjustmentWhereInput
+  export type LocationCountOutputTypeCountRentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RentHistoryWhereInput
   }
 
   /**
    * LocationCountOutputType without action
    */
-  export type LocationCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocationCountOutputTypeCountAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PriceAdjustmentWhereInput
+  }
+
+
+  /**
+   * Count Type PriceAdjustmentCountOutputType
+   */
+
+  export type PriceAdjustmentCountOutputType = {
+    AdjustmentLocation: number
+    locations: number
+  }
+
+  export type PriceAdjustmentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    AdjustmentLocation?: boolean | PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs
+    locations?: boolean | PriceAdjustmentCountOutputTypeCountLocationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustmentCountOutputType
+     */
+    select?: PriceAdjustmentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AdjustmentLocationWhereInput
+  }
+
+  /**
+   * PriceAdjustmentCountOutputType without action
+   */
+  export type PriceAdjustmentCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LocationWhereInput
+  }
+
+
+  /**
+   * Count Type PaymentRecordCountOutputType
+   */
+
+  export type PaymentRecordCountOutputType = {
+    payments: number
+  }
+
+  export type PaymentRecordCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    payments?: boolean | PaymentRecordCountOutputTypeCountPaymentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PaymentRecordCountOutputType without action
+   */
+  export type PaymentRecordCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecordCountOutputType
+     */
+    select?: PaymentRecordCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PaymentRecordCountOutputType without action
+   */
+  export type PaymentRecordCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentWhereInput
   }
 
 
@@ -1792,46 +2072,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type PriceAdjustmentCountOutputType
-   */
-
-  export type PriceAdjustmentCountOutputType = {
-    locations: number
-    AdjustmentLocation: number
-  }
-
-  export type PriceAdjustmentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    locations?: boolean | PriceAdjustmentCountOutputTypeCountLocationsArgs
-    AdjustmentLocation?: boolean | PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * PriceAdjustmentCountOutputType without action
-   */
-  export type PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustmentCountOutputType
-     */
-    select?: PriceAdjustmentCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * PriceAdjustmentCountOutputType without action
-   */
-  export type PriceAdjustmentCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LocationWhereInput
-  }
-
-  /**
-   * PriceAdjustmentCountOutputType without action
-   */
-  export type PriceAdjustmentCountOutputTypeCountAdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AdjustmentLocationWhereInput
-  }
-
-
-  /**
    * Models
    */
 
@@ -1850,11 +2090,13 @@ export namespace Prisma {
   export type UserAvgAggregateOutputType = {
     id: number | null
     CUST_ID: number | null
+    dni: number | null
   }
 
   export type UserSumAggregateOutputType = {
     id: number | null
     CUST_ID: number | null
+    dni: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -1865,10 +2107,11 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     picture: string | null
-    password: string | null
     createdAt: Date | null
+    password: string | null
     updatedAt: Date | null
     CUST_ID: number | null
+    dni: number | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1879,10 +2122,11 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     picture: string | null
-    password: string | null
     createdAt: Date | null
+    password: string | null
     updatedAt: Date | null
     CUST_ID: number | null
+    dni: number | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1893,10 +2137,11 @@ export namespace Prisma {
     firstName: number
     lastName: number
     picture: number
-    password: number
     createdAt: number
+    password: number
     updatedAt: number
     CUST_ID: number
+    dni: number
     _all: number
   }
 
@@ -1904,11 +2149,13 @@ export namespace Prisma {
   export type UserAvgAggregateInputType = {
     id?: true
     CUST_ID?: true
+    dni?: true
   }
 
   export type UserSumAggregateInputType = {
     id?: true
     CUST_ID?: true
+    dni?: true
   }
 
   export type UserMinAggregateInputType = {
@@ -1919,10 +2166,11 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     picture?: true
-    password?: true
     createdAt?: true
+    password?: true
     updatedAt?: true
     CUST_ID?: true
+    dni?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1933,10 +2181,11 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     picture?: true
-    password?: true
     createdAt?: true
+    password?: true
     updatedAt?: true
     CUST_ID?: true
+    dni?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1947,10 +2196,11 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     picture?: true
-    password?: true
     createdAt?: true
+    password?: true
     updatedAt?: true
     CUST_ID?: true
+    dni?: true
     _all?: true
   }
 
@@ -2048,10 +2298,11 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     picture: string | null
-    password: string | null
     createdAt: Date
+    password: string | null
     updatedAt: Date | null
     CUST_ID: number | null
+    dni: number
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2081,20 +2332,24 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     picture?: boolean
-    password?: boolean
     createdAt?: boolean
+    password?: boolean
     updatedAt?: boolean
     CUST_ID?: boolean
+    dni?: boolean
+    invoices?: boolean | User$invoicesArgs<ExtArgs>
+    keys?: boolean | User$keysArgs<ExtArgs>
+    leaseContractsAsCust?: boolean | User$leaseContractsAsCustArgs<ExtArgs>
+    leaseContractsAsRenter?: boolean | User$leaseContractsAsRenterArgs<ExtArgs>
+    Location?: boolean | User$LocationArgs<ExtArgs>
     rentedLocations?: boolean | User$rentedLocationsArgs<ExtArgs>
+    payments?: boolean | User$paymentsArgs<ExtArgs>
+    PaymentRecord?: boolean | User$PaymentRecordArgs<ExtArgs>
+    paymentSchedules?: boolean | User$paymentSchedulesArgs<ExtArgs>
+    priceAdjustments?: boolean | User$priceAdjustmentsArgs<ExtArgs>
+    RentHistory?: boolean | User$RentHistoryArgs<ExtArgs>
     cust?: boolean | User$custArgs<ExtArgs>
     createdUsers?: boolean | User$createdUsersArgs<ExtArgs>
-    Location?: boolean | User$LocationArgs<ExtArgs>
-    payments?: boolean | User$paymentsArgs<ExtArgs>
-    invoices?: boolean | User$invoicesArgs<ExtArgs>
-    paymentSchedules?: boolean | User$paymentSchedulesArgs<ExtArgs>
-    keys?: boolean | User$keysArgs<ExtArgs>
-    contracts?: boolean | User$contractsArgs<ExtArgs>
-    priceAdjustments?: boolean | User$priceAdjustmentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2107,39 +2362,46 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     picture?: boolean
-    password?: boolean
     createdAt?: boolean
+    password?: boolean
     updatedAt?: boolean
     CUST_ID?: boolean
+    dni?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoices?: boolean | User$invoicesArgs<ExtArgs>
+    keys?: boolean | User$keysArgs<ExtArgs>
+    leaseContractsAsCust?: boolean | User$leaseContractsAsCustArgs<ExtArgs>
+    leaseContractsAsRenter?: boolean | User$leaseContractsAsRenterArgs<ExtArgs>
+    Location?: boolean | User$LocationArgs<ExtArgs>
     rentedLocations?: boolean | User$rentedLocationsArgs<ExtArgs>
+    payments?: boolean | User$paymentsArgs<ExtArgs>
+    PaymentRecord?: boolean | User$PaymentRecordArgs<ExtArgs>
+    paymentSchedules?: boolean | User$paymentSchedulesArgs<ExtArgs>
+    priceAdjustments?: boolean | User$priceAdjustmentsArgs<ExtArgs>
+    RentHistory?: boolean | User$RentHistoryArgs<ExtArgs>
     cust?: boolean | User$custArgs<ExtArgs>
     createdUsers?: boolean | User$createdUsersArgs<ExtArgs>
-    Location?: boolean | User$LocationArgs<ExtArgs>
-    payments?: boolean | User$paymentsArgs<ExtArgs>
-    invoices?: boolean | User$invoicesArgs<ExtArgs>
-    paymentSchedules?: boolean | User$paymentSchedulesArgs<ExtArgs>
-    keys?: boolean | User$keysArgs<ExtArgs>
-    contracts?: boolean | User$contractsArgs<ExtArgs>
-    priceAdjustments?: boolean | User$priceAdjustmentsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
+      invoices: Prisma.$InvoicePayload<ExtArgs>[]
+      keys: Prisma.$KeyPayload<ExtArgs>[]
+      leaseContractsAsCust: Prisma.$LeaseContractPayload<ExtArgs>[]
+      leaseContractsAsRenter: Prisma.$LeaseContractPayload<ExtArgs>[]
+      Location: Prisma.$LocationPayload<ExtArgs>[]
       rentedLocations: Prisma.$LocationPayload<ExtArgs>[]
+      payments: Prisma.$PaymentPayload<ExtArgs>[]
+      PaymentRecord: Prisma.$PaymentRecordPayload<ExtArgs>[]
+      paymentSchedules: Prisma.$PaymentSchedulePayload<ExtArgs>[]
+      priceAdjustments: Prisma.$PriceAdjustmentPayload<ExtArgs>[]
+      RentHistory: Prisma.$RentHistoryPayload<ExtArgs>[]
       cust: Prisma.$UserPayload<ExtArgs> | null
       createdUsers: Prisma.$UserPayload<ExtArgs>[]
-      Location: Prisma.$LocationPayload<ExtArgs>[]
-      payments: Prisma.$PaymentPayload<ExtArgs>[]
-      invoices: Prisma.$InvoicePayload<ExtArgs>[]
-      paymentSchedules: Prisma.$PaymentSchedulePayload<ExtArgs>[]
-      keys: Prisma.$KeyPayload<ExtArgs>[]
-      contracts: Prisma.$ContractPayload<ExtArgs>[]
-      priceAdjustments: Prisma.$PriceAdjustmentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2149,10 +2411,11 @@ export namespace Prisma {
       firstName: string | null
       lastName: string | null
       picture: string | null
-      password: string | null
       createdAt: Date
+      password: string | null
       updatedAt: Date | null
       CUST_ID: number | null
+      dni: number
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2493,16 +2756,19 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    invoices<T extends User$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, User$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany"> | Null>
+    keys<T extends User$keysArgs<ExtArgs> = {}>(args?: Subset<T, User$keysArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findMany"> | Null>
+    leaseContractsAsCust<T extends User$leaseContractsAsCustArgs<ExtArgs> = {}>(args?: Subset<T, User$leaseContractsAsCustArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findMany"> | Null>
+    leaseContractsAsRenter<T extends User$leaseContractsAsRenterArgs<ExtArgs> = {}>(args?: Subset<T, User$leaseContractsAsRenterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findMany"> | Null>
+    Location<T extends User$LocationArgs<ExtArgs> = {}>(args?: Subset<T, User$LocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
     rentedLocations<T extends User$rentedLocationsArgs<ExtArgs> = {}>(args?: Subset<T, User$rentedLocationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
+    payments<T extends User$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
+    PaymentRecord<T extends User$PaymentRecordArgs<ExtArgs> = {}>(args?: Subset<T, User$PaymentRecordArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findMany"> | Null>
+    paymentSchedules<T extends User$paymentSchedulesArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSchedulePayload<ExtArgs>, T, "findMany"> | Null>
+    priceAdjustments<T extends User$priceAdjustmentsArgs<ExtArgs> = {}>(args?: Subset<T, User$priceAdjustmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany"> | Null>
+    RentHistory<T extends User$RentHistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$RentHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findMany"> | Null>
     cust<T extends User$custArgs<ExtArgs> = {}>(args?: Subset<T, User$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     createdUsers<T extends User$createdUsersArgs<ExtArgs> = {}>(args?: Subset<T, User$createdUsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany"> | Null>
-    Location<T extends User$LocationArgs<ExtArgs> = {}>(args?: Subset<T, User$LocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
-    payments<T extends User$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
-    invoices<T extends User$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, User$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany"> | Null>
-    paymentSchedules<T extends User$paymentSchedulesArgs<ExtArgs> = {}>(args?: Subset<T, User$paymentSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSchedulePayload<ExtArgs>, T, "findMany"> | Null>
-    keys<T extends User$keysArgs<ExtArgs> = {}>(args?: Subset<T, User$keysArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findMany"> | Null>
-    contracts<T extends User$contractsArgs<ExtArgs> = {}>(args?: Subset<T, User$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany"> | Null>
-    priceAdjustments<T extends User$priceAdjustmentsArgs<ExtArgs> = {}>(args?: Subset<T, User$priceAdjustmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2539,10 +2805,11 @@ export namespace Prisma {
     readonly firstName: FieldRef<"User", 'String'>
     readonly lastName: FieldRef<"User", 'String'>
     readonly picture: FieldRef<"User", 'String'>
-    readonly password: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly password: FieldRef<"User", 'String'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly CUST_ID: FieldRef<"User", 'Int'>
+    readonly dni: FieldRef<"User", 'Int'>
   }
     
 
@@ -2842,6 +3109,106 @@ export namespace Prisma {
   }
 
   /**
+   * User.invoices
+   */
+  export type User$invoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    where?: InvoiceWhereInput
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    cursor?: InvoiceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * User.keys
+   */
+  export type User$keysArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    where?: KeyWhereInput
+    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
+    cursor?: KeyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
+  }
+
+  /**
+   * User.leaseContractsAsCust
+   */
+  export type User$leaseContractsAsCustArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    where?: LeaseContractWhereInput
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    cursor?: LeaseContractWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * User.leaseContractsAsRenter
+   */
+  export type User$leaseContractsAsRenterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    where?: LeaseContractWhereInput
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    cursor?: LeaseContractWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * User.Location
+   */
+  export type User$LocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Location
+     */
+    select?: LocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationInclude<ExtArgs> | null
+    where?: LocationWhereInput
+    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    cursor?: LocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+  }
+
+  /**
    * User.rentedLocations
    */
   export type User$rentedLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2859,6 +3226,106 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+  }
+
+  /**
+   * User.payments
+   */
+  export type User$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    where?: PaymentWhereInput
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    cursor?: PaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * User.PaymentRecord
+   */
+  export type User$PaymentRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    where?: PaymentRecordWhereInput
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    cursor?: PaymentRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentRecordScalarFieldEnum | PaymentRecordScalarFieldEnum[]
+  }
+
+  /**
+   * User.paymentSchedules
+   */
+  export type User$paymentSchedulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentSchedule
+     */
+    select?: PaymentScheduleSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentScheduleInclude<ExtArgs> | null
+    where?: PaymentScheduleWhereInput
+    orderBy?: PaymentScheduleOrderByWithRelationInput | PaymentScheduleOrderByWithRelationInput[]
+    cursor?: PaymentScheduleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentScheduleScalarFieldEnum | PaymentScheduleScalarFieldEnum[]
+  }
+
+  /**
+   * User.priceAdjustments
+   */
+  export type User$priceAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    where?: PriceAdjustmentWhereInput
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    cursor?: PriceAdjustmentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
+  }
+
+  /**
+   * User.RentHistory
+   */
+  export type User$RentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RentHistory
+     */
+    select?: RentHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RentHistoryInclude<ExtArgs> | null
+    where?: RentHistoryWhereInput
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
+    cursor?: RentHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RentHistoryScalarFieldEnum | RentHistoryScalarFieldEnum[]
   }
 
   /**
@@ -2897,146 +3364,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.Location
-   */
-  export type User$LocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Location
-     */
-    select?: LocationSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocationInclude<ExtArgs> | null
-    where?: LocationWhereInput
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
-    cursor?: LocationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
-  }
-
-  /**
-   * User.payments
-   */
-  export type User$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    where?: PaymentWhereInput
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    cursor?: PaymentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
-  }
-
-  /**
-   * User.invoices
-   */
-  export type User$invoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Invoice
-     */
-    select?: InvoiceSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: InvoiceInclude<ExtArgs> | null
-    where?: InvoiceWhereInput
-    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
-    cursor?: InvoiceWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
-  }
-
-  /**
-   * User.paymentSchedules
-   */
-  export type User$paymentSchedulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PaymentSchedule
-     */
-    select?: PaymentScheduleSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentScheduleInclude<ExtArgs> | null
-    where?: PaymentScheduleWhereInput
-    orderBy?: PaymentScheduleOrderByWithRelationInput | PaymentScheduleOrderByWithRelationInput[]
-    cursor?: PaymentScheduleWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PaymentScheduleScalarFieldEnum | PaymentScheduleScalarFieldEnum[]
-  }
-
-  /**
-   * User.keys
-   */
-  export type User$keysArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    where?: KeyWhereInput
-    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
-    cursor?: KeyWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
-  }
-
-  /**
-   * User.contracts
-   */
-  export type User$contractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    where?: ContractWhereInput
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    cursor?: ContractWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ContractScalarFieldEnum | ContractScalarFieldEnum[]
-  }
-
-  /**
-   * User.priceAdjustments
-   */
-  export type User$priceAdjustmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    where?: PriceAdjustmentWhereInput
-    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
-    cursor?: PriceAdjustmentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
-  }
-
-  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3066,14 +3393,12 @@ export namespace Prisma {
   export type LocationAvgAggregateOutputType = {
     id: number | null
     renterId: number | null
-    price: number | null
     CUST_ID: number | null
   }
 
   export type LocationSumAggregateOutputType = {
     id: number | null
     renterId: number | null
-    price: number | null
     CUST_ID: number | null
   }
 
@@ -3082,7 +3407,6 @@ export namespace Prisma {
     name: string | null
     address: string | null
     renterId: number | null
-    price: number | null
     CUST_ID: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3093,7 +3417,6 @@ export namespace Prisma {
     name: string | null
     address: string | null
     renterId: number | null
-    price: number | null
     CUST_ID: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3104,7 +3427,6 @@ export namespace Prisma {
     name: number
     address: number
     renterId: number
-    price: number
     CUST_ID: number
     createdAt: number
     updatedAt: number
@@ -3115,14 +3437,12 @@ export namespace Prisma {
   export type LocationAvgAggregateInputType = {
     id?: true
     renterId?: true
-    price?: true
     CUST_ID?: true
   }
 
   export type LocationSumAggregateInputType = {
     id?: true
     renterId?: true
-    price?: true
     CUST_ID?: true
   }
 
@@ -3131,7 +3451,6 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
-    price?: true
     CUST_ID?: true
     createdAt?: true
     updatedAt?: true
@@ -3142,7 +3461,6 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
-    price?: true
     CUST_ID?: true
     createdAt?: true
     updatedAt?: true
@@ -3153,7 +3471,6 @@ export namespace Prisma {
     name?: true
     address?: true
     renterId?: true
-    price?: true
     CUST_ID?: true
     createdAt?: true
     updatedAt?: true
@@ -3251,9 +3568,8 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
-    price: number | null
     CUST_ID: number | null
-    createdAt: Date
+    createdAt: Date | null
     updatedAt: Date | null
     _count: LocationCountAggregateOutputType | null
     _avg: LocationAvgAggregateOutputType | null
@@ -3281,19 +3597,20 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     renterId?: boolean
-    price?: boolean
     CUST_ID?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    contracts?: boolean | Location$contractsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     invoices?: boolean | Location$invoicesArgs<ExtArgs>
     keys?: boolean | Location$keysArgs<ExtArgs>
-    renter?: boolean | Location$renterArgs<ExtArgs>
-    payments?: boolean | Location$paymentsArgs<ExtArgs>
-    paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
+    contracts?: boolean | Location$contractsArgs<ExtArgs>
     cust?: boolean | Location$custArgs<ExtArgs>
+    renter?: boolean | UserDefaultArgs<ExtArgs>
+    payments?: boolean | Location$paymentsArgs<ExtArgs>
+    PaymentRecord?: boolean | Location$PaymentRecordArgs<ExtArgs>
+    paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
+    rentHistory?: boolean | Location$rentHistoryArgs<ExtArgs>
     adjustments?: boolean | Location$adjustmentsArgs<ExtArgs>
-    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["location"]>
 
@@ -3303,46 +3620,48 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     renterId?: boolean
-    price?: boolean
     CUST_ID?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
   export type LocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    contracts?: boolean | Location$contractsArgs<ExtArgs>
+    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     invoices?: boolean | Location$invoicesArgs<ExtArgs>
     keys?: boolean | Location$keysArgs<ExtArgs>
-    renter?: boolean | Location$renterArgs<ExtArgs>
-    payments?: boolean | Location$paymentsArgs<ExtArgs>
-    paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
+    contracts?: boolean | Location$contractsArgs<ExtArgs>
     cust?: boolean | Location$custArgs<ExtArgs>
+    renter?: boolean | UserDefaultArgs<ExtArgs>
+    payments?: boolean | Location$paymentsArgs<ExtArgs>
+    PaymentRecord?: boolean | Location$PaymentRecordArgs<ExtArgs>
+    paymentSchedules?: boolean | Location$paymentSchedulesArgs<ExtArgs>
+    rentHistory?: boolean | Location$rentHistoryArgs<ExtArgs>
     adjustments?: boolean | Location$adjustmentsArgs<ExtArgs>
-    AdjustmentLocation?: boolean | Location$AdjustmentLocationArgs<ExtArgs>
     _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $LocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Location"
     objects: {
-      contracts: Prisma.$ContractPayload<ExtArgs>[]
+      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
       invoices: Prisma.$InvoicePayload<ExtArgs>[]
       keys: Prisma.$KeyPayload<ExtArgs>[]
-      renter: Prisma.$UserPayload<ExtArgs> | null
-      payments: Prisma.$PaymentPayload<ExtArgs>[]
-      paymentSchedules: Prisma.$PaymentSchedulePayload<ExtArgs>[]
+      contracts: Prisma.$LeaseContractPayload<ExtArgs>[]
       cust: Prisma.$UserPayload<ExtArgs> | null
+      renter: Prisma.$UserPayload<ExtArgs>
+      payments: Prisma.$PaymentPayload<ExtArgs>[]
+      PaymentRecord: Prisma.$PaymentRecordPayload<ExtArgs>[]
+      paymentSchedules: Prisma.$PaymentSchedulePayload<ExtArgs>[]
+      rentHistory: Prisma.$RentHistoryPayload<ExtArgs>[]
       adjustments: Prisma.$PriceAdjustmentPayload<ExtArgs>[]
-      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       address: string
       renterId: number
-      price: number | null
       CUST_ID: number | null
-      createdAt: Date
+      createdAt: Date | null
       updatedAt: Date | null
     }, ExtArgs["result"]["location"]>
     composites: {}
@@ -3684,15 +4003,17 @@ export namespace Prisma {
    */
   export interface Prisma__LocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    contracts<T extends Location$contractsArgs<ExtArgs> = {}>(args?: Subset<T, Location$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany"> | Null>
+    AdjustmentLocation<T extends Location$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, Location$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
     invoices<T extends Location$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, Location$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany"> | Null>
     keys<T extends Location$keysArgs<ExtArgs> = {}>(args?: Subset<T, Location$keysArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findMany"> | Null>
-    renter<T extends Location$renterArgs<ExtArgs> = {}>(args?: Subset<T, Location$renterArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
-    payments<T extends Location$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
-    paymentSchedules<T extends Location$paymentSchedulesArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSchedulePayload<ExtArgs>, T, "findMany"> | Null>
+    contracts<T extends Location$contractsArgs<ExtArgs> = {}>(args?: Subset<T, Location$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findMany"> | Null>
     cust<T extends Location$custArgs<ExtArgs> = {}>(args?: Subset<T, Location$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    renter<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    payments<T extends Location$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
+    PaymentRecord<T extends Location$PaymentRecordArgs<ExtArgs> = {}>(args?: Subset<T, Location$PaymentRecordArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findMany"> | Null>
+    paymentSchedules<T extends Location$paymentSchedulesArgs<ExtArgs> = {}>(args?: Subset<T, Location$paymentSchedulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentSchedulePayload<ExtArgs>, T, "findMany"> | Null>
+    rentHistory<T extends Location$rentHistoryArgs<ExtArgs> = {}>(args?: Subset<T, Location$rentHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findMany"> | Null>
     adjustments<T extends Location$adjustmentsArgs<ExtArgs> = {}>(args?: Subset<T, Location$adjustmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany"> | Null>
-    AdjustmentLocation<T extends Location$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, Location$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3726,7 +4047,6 @@ export namespace Prisma {
     readonly name: FieldRef<"Location", 'String'>
     readonly address: FieldRef<"Location", 'String'>
     readonly renterId: FieldRef<"Location", 'Int'>
-    readonly price: FieldRef<"Location", 'Int'>
     readonly CUST_ID: FieldRef<"Location", 'Int'>
     readonly createdAt: FieldRef<"Location", 'DateTime'>
     readonly updatedAt: FieldRef<"Location", 'DateTime'>
@@ -4029,23 +4349,23 @@ export namespace Prisma {
   }
 
   /**
-   * Location.contracts
+   * Location.AdjustmentLocation
    */
-  export type Location$contractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Location$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Contract
+     * Select specific fields to fetch from the AdjustmentLocation
      */
-    select?: ContractSelect<ExtArgs> | null
+    select?: AdjustmentLocationSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ContractInclude<ExtArgs> | null
-    where?: ContractWhereInput
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    cursor?: ContractWhereUniqueInput
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    where?: AdjustmentLocationWhereInput
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    cursor?: AdjustmentLocationWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ContractScalarFieldEnum | ContractScalarFieldEnum[]
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
   }
 
   /**
@@ -4089,9 +4409,29 @@ export namespace Prisma {
   }
 
   /**
-   * Location.renter
+   * Location.contracts
    */
-  export type Location$renterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Location$contractsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    where?: LeaseContractWhereInput
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    cursor?: LeaseContractWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * Location.cust
+   */
+  export type Location$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -4124,6 +4464,26 @@ export namespace Prisma {
   }
 
   /**
+   * Location.PaymentRecord
+   */
+  export type Location$PaymentRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    where?: PaymentRecordWhereInput
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    cursor?: PaymentRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentRecordScalarFieldEnum | PaymentRecordScalarFieldEnum[]
+  }
+
+  /**
    * Location.paymentSchedules
    */
   export type Location$paymentSchedulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4144,18 +4504,23 @@ export namespace Prisma {
   }
 
   /**
-   * Location.cust
+   * Location.rentHistory
    */
-  export type Location$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Location$rentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
+    include?: RentHistoryInclude<ExtArgs> | null
+    where?: RentHistoryWhereInput
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
+    cursor?: RentHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RentHistoryScalarFieldEnum | RentHistoryScalarFieldEnum[]
   }
 
   /**
@@ -4179,9 +4544,2976 @@ export namespace Prisma {
   }
 
   /**
-   * Location.AdjustmentLocation
+   * Location without action
    */
-  export type Location$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Location
+     */
+    select?: LocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LeaseContract
+   */
+
+  export type AggregateLeaseContract = {
+    _count: LeaseContractCountAggregateOutputType | null
+    _avg: LeaseContractAvgAggregateOutputType | null
+    _sum: LeaseContractSumAggregateOutputType | null
+    _min: LeaseContractMinAggregateOutputType | null
+    _max: LeaseContractMaxAggregateOutputType | null
+  }
+
+  export type LeaseContractAvgAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    rentAmount: number | null
+    CUST_ID: number | null
+    renterId: number | null
+  }
+
+  export type LeaseContractSumAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    rentAmount: number | null
+    CUST_ID: number | null
+    renterId: number | null
+  }
+
+  export type LeaseContractMinAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    startDate: Date | null
+    endDate: Date | null
+    finishedDate: Date | null
+    rentAmount: number | null
+    active: boolean | null
+    cancelled: boolean | null
+    createdAt: Date | null
+    pdfPath: string | null
+    CUST_ID: number | null
+    renterId: number | null
+  }
+
+  export type LeaseContractMaxAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    startDate: Date | null
+    endDate: Date | null
+    finishedDate: Date | null
+    rentAmount: number | null
+    active: boolean | null
+    cancelled: boolean | null
+    createdAt: Date | null
+    pdfPath: string | null
+    CUST_ID: number | null
+    renterId: number | null
+  }
+
+  export type LeaseContractCountAggregateOutputType = {
+    id: number
+    locationId: number
+    startDate: number
+    endDate: number
+    finishedDate: number
+    rentAmount: number
+    active: number
+    cancelled: number
+    createdAt: number
+    pdfPath: number
+    CUST_ID: number
+    renterId: number
+    _all: number
+  }
+
+
+  export type LeaseContractAvgAggregateInputType = {
+    id?: true
+    locationId?: true
+    rentAmount?: true
+    CUST_ID?: true
+    renterId?: true
+  }
+
+  export type LeaseContractSumAggregateInputType = {
+    id?: true
+    locationId?: true
+    rentAmount?: true
+    CUST_ID?: true
+    renterId?: true
+  }
+
+  export type LeaseContractMinAggregateInputType = {
+    id?: true
+    locationId?: true
+    startDate?: true
+    endDate?: true
+    finishedDate?: true
+    rentAmount?: true
+    active?: true
+    cancelled?: true
+    createdAt?: true
+    pdfPath?: true
+    CUST_ID?: true
+    renterId?: true
+  }
+
+  export type LeaseContractMaxAggregateInputType = {
+    id?: true
+    locationId?: true
+    startDate?: true
+    endDate?: true
+    finishedDate?: true
+    rentAmount?: true
+    active?: true
+    cancelled?: true
+    createdAt?: true
+    pdfPath?: true
+    CUST_ID?: true
+    renterId?: true
+  }
+
+  export type LeaseContractCountAggregateInputType = {
+    id?: true
+    locationId?: true
+    startDate?: true
+    endDate?: true
+    finishedDate?: true
+    rentAmount?: true
+    active?: true
+    cancelled?: true
+    createdAt?: true
+    pdfPath?: true
+    CUST_ID?: true
+    renterId?: true
+    _all?: true
+  }
+
+  export type LeaseContractAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeaseContract to aggregate.
+     */
+    where?: LeaseContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeaseContracts to fetch.
+     */
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LeaseContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeaseContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeaseContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LeaseContracts
+    **/
+    _count?: true | LeaseContractCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LeaseContractAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LeaseContractSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeaseContractMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeaseContractMaxAggregateInputType
+  }
+
+  export type GetLeaseContractAggregateType<T extends LeaseContractAggregateArgs> = {
+        [P in keyof T & keyof AggregateLeaseContract]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLeaseContract[P]>
+      : GetScalarType<T[P], AggregateLeaseContract[P]>
+  }
+
+
+
+
+  export type LeaseContractGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeaseContractWhereInput
+    orderBy?: LeaseContractOrderByWithAggregationInput | LeaseContractOrderByWithAggregationInput[]
+    by: LeaseContractScalarFieldEnum[] | LeaseContractScalarFieldEnum
+    having?: LeaseContractScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeaseContractCountAggregateInputType | true
+    _avg?: LeaseContractAvgAggregateInputType
+    _sum?: LeaseContractSumAggregateInputType
+    _min?: LeaseContractMinAggregateInputType
+    _max?: LeaseContractMaxAggregateInputType
+  }
+
+  export type LeaseContractGroupByOutputType = {
+    id: number
+    locationId: number
+    startDate: Date
+    endDate: Date
+    finishedDate: Date | null
+    rentAmount: number
+    active: boolean
+    cancelled: boolean
+    createdAt: Date
+    pdfPath: string | null
+    CUST_ID: number | null
+    renterId: number
+    _count: LeaseContractCountAggregateOutputType | null
+    _avg: LeaseContractAvgAggregateOutputType | null
+    _sum: LeaseContractSumAggregateOutputType | null
+    _min: LeaseContractMinAggregateOutputType | null
+    _max: LeaseContractMaxAggregateOutputType | null
+  }
+
+  type GetLeaseContractGroupByPayload<T extends LeaseContractGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeaseContractGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeaseContractGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeaseContractGroupByOutputType[P]>
+            : GetScalarType<T[P], LeaseContractGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeaseContractSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    locationId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    finishedDate?: boolean
+    rentAmount?: boolean
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: boolean
+    pdfPath?: boolean
+    CUST_ID?: boolean
+    renterId?: boolean
+    cust?: boolean | LeaseContract$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    renter?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["leaseContract"]>
+
+
+  export type LeaseContractSelectScalar = {
+    id?: boolean
+    locationId?: boolean
+    startDate?: boolean
+    endDate?: boolean
+    finishedDate?: boolean
+    rentAmount?: boolean
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: boolean
+    pdfPath?: boolean
+    CUST_ID?: boolean
+    renterId?: boolean
+  }
+
+  export type LeaseContractInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cust?: boolean | LeaseContract$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    renter?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $LeaseContractPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LeaseContract"
+    objects: {
+      cust: Prisma.$UserPayload<ExtArgs> | null
+      location: Prisma.$LocationPayload<ExtArgs>
+      renter: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      locationId: number
+      startDate: Date
+      endDate: Date
+      finishedDate: Date | null
+      rentAmount: number
+      active: boolean
+      cancelled: boolean
+      createdAt: Date
+      pdfPath: string | null
+      CUST_ID: number | null
+      renterId: number
+    }, ExtArgs["result"]["leaseContract"]>
+    composites: {}
+  }
+
+  type LeaseContractGetPayload<S extends boolean | null | undefined | LeaseContractDefaultArgs> = $Result.GetResult<Prisma.$LeaseContractPayload, S>
+
+  type LeaseContractCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LeaseContractFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: LeaseContractCountAggregateInputType | true
+    }
+
+  export interface LeaseContractDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LeaseContract'], meta: { name: 'LeaseContract' } }
+    /**
+     * Find zero or one LeaseContract that matches the filter.
+     * @param {LeaseContractFindUniqueArgs} args - Arguments to find a LeaseContract
+     * @example
+     * // Get one LeaseContract
+     * const leaseContract = await prisma.leaseContract.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeaseContractFindUniqueArgs>(args: SelectSubset<T, LeaseContractFindUniqueArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one LeaseContract that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LeaseContractFindUniqueOrThrowArgs} args - Arguments to find a LeaseContract
+     * @example
+     * // Get one LeaseContract
+     * const leaseContract = await prisma.leaseContract.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeaseContractFindUniqueOrThrowArgs>(args: SelectSubset<T, LeaseContractFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first LeaseContract that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractFindFirstArgs} args - Arguments to find a LeaseContract
+     * @example
+     * // Get one LeaseContract
+     * const leaseContract = await prisma.leaseContract.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeaseContractFindFirstArgs>(args?: SelectSubset<T, LeaseContractFindFirstArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first LeaseContract that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractFindFirstOrThrowArgs} args - Arguments to find a LeaseContract
+     * @example
+     * // Get one LeaseContract
+     * const leaseContract = await prisma.leaseContract.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeaseContractFindFirstOrThrowArgs>(args?: SelectSubset<T, LeaseContractFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more LeaseContracts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LeaseContracts
+     * const leaseContracts = await prisma.leaseContract.findMany()
+     * 
+     * // Get first 10 LeaseContracts
+     * const leaseContracts = await prisma.leaseContract.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const leaseContractWithIdOnly = await prisma.leaseContract.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LeaseContractFindManyArgs>(args?: SelectSubset<T, LeaseContractFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a LeaseContract.
+     * @param {LeaseContractCreateArgs} args - Arguments to create a LeaseContract.
+     * @example
+     * // Create one LeaseContract
+     * const LeaseContract = await prisma.leaseContract.create({
+     *   data: {
+     *     // ... data to create a LeaseContract
+     *   }
+     * })
+     * 
+     */
+    create<T extends LeaseContractCreateArgs>(args: SelectSubset<T, LeaseContractCreateArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many LeaseContracts.
+     * @param {LeaseContractCreateManyArgs} args - Arguments to create many LeaseContracts.
+     * @example
+     * // Create many LeaseContracts
+     * const leaseContract = await prisma.leaseContract.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LeaseContractCreateManyArgs>(args?: SelectSubset<T, LeaseContractCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LeaseContract.
+     * @param {LeaseContractDeleteArgs} args - Arguments to delete one LeaseContract.
+     * @example
+     * // Delete one LeaseContract
+     * const LeaseContract = await prisma.leaseContract.delete({
+     *   where: {
+     *     // ... filter to delete one LeaseContract
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LeaseContractDeleteArgs>(args: SelectSubset<T, LeaseContractDeleteArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one LeaseContract.
+     * @param {LeaseContractUpdateArgs} args - Arguments to update one LeaseContract.
+     * @example
+     * // Update one LeaseContract
+     * const leaseContract = await prisma.leaseContract.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LeaseContractUpdateArgs>(args: SelectSubset<T, LeaseContractUpdateArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more LeaseContracts.
+     * @param {LeaseContractDeleteManyArgs} args - Arguments to filter LeaseContracts to delete.
+     * @example
+     * // Delete a few LeaseContracts
+     * const { count } = await prisma.leaseContract.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LeaseContractDeleteManyArgs>(args?: SelectSubset<T, LeaseContractDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeaseContracts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LeaseContracts
+     * const leaseContract = await prisma.leaseContract.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LeaseContractUpdateManyArgs>(args: SelectSubset<T, LeaseContractUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LeaseContract.
+     * @param {LeaseContractUpsertArgs} args - Arguments to update or create a LeaseContract.
+     * @example
+     * // Update or create a LeaseContract
+     * const leaseContract = await prisma.leaseContract.upsert({
+     *   create: {
+     *     // ... data to create a LeaseContract
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LeaseContract we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeaseContractUpsertArgs>(args: SelectSubset<T, LeaseContractUpsertArgs<ExtArgs>>): Prisma__LeaseContractClient<$Result.GetResult<Prisma.$LeaseContractPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of LeaseContracts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractCountArgs} args - Arguments to filter LeaseContracts to count.
+     * @example
+     * // Count the number of LeaseContracts
+     * const count = await prisma.leaseContract.count({
+     *   where: {
+     *     // ... the filter for the LeaseContracts we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeaseContractCountArgs>(
+      args?: Subset<T, LeaseContractCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeaseContractCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LeaseContract.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeaseContractAggregateArgs>(args: Subset<T, LeaseContractAggregateArgs>): Prisma.PrismaPromise<GetLeaseContractAggregateType<T>>
+
+    /**
+     * Group by LeaseContract.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseContractGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LeaseContractGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeaseContractGroupByArgs['orderBy'] }
+        : { orderBy?: LeaseContractGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeaseContractGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeaseContractGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LeaseContract model
+   */
+  readonly fields: LeaseContractFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LeaseContract.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeaseContractClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    cust<T extends LeaseContract$custArgs<ExtArgs> = {}>(args?: Subset<T, LeaseContract$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    renter<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LeaseContract model
+   */ 
+  interface LeaseContractFieldRefs {
+    readonly id: FieldRef<"LeaseContract", 'Int'>
+    readonly locationId: FieldRef<"LeaseContract", 'Int'>
+    readonly startDate: FieldRef<"LeaseContract", 'DateTime'>
+    readonly endDate: FieldRef<"LeaseContract", 'DateTime'>
+    readonly finishedDate: FieldRef<"LeaseContract", 'DateTime'>
+    readonly rentAmount: FieldRef<"LeaseContract", 'Int'>
+    readonly active: FieldRef<"LeaseContract", 'Boolean'>
+    readonly cancelled: FieldRef<"LeaseContract", 'Boolean'>
+    readonly createdAt: FieldRef<"LeaseContract", 'DateTime'>
+    readonly pdfPath: FieldRef<"LeaseContract", 'String'>
+    readonly CUST_ID: FieldRef<"LeaseContract", 'Int'>
+    readonly renterId: FieldRef<"LeaseContract", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LeaseContract findUnique
+   */
+  export type LeaseContractFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter, which LeaseContract to fetch.
+     */
+    where: LeaseContractWhereUniqueInput
+  }
+
+  /**
+   * LeaseContract findUniqueOrThrow
+   */
+  export type LeaseContractFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter, which LeaseContract to fetch.
+     */
+    where: LeaseContractWhereUniqueInput
+  }
+
+  /**
+   * LeaseContract findFirst
+   */
+  export type LeaseContractFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter, which LeaseContract to fetch.
+     */
+    where?: LeaseContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeaseContracts to fetch.
+     */
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeaseContracts.
+     */
+    cursor?: LeaseContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeaseContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeaseContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeaseContracts.
+     */
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * LeaseContract findFirstOrThrow
+   */
+  export type LeaseContractFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter, which LeaseContract to fetch.
+     */
+    where?: LeaseContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeaseContracts to fetch.
+     */
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeaseContracts.
+     */
+    cursor?: LeaseContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeaseContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeaseContracts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeaseContracts.
+     */
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * LeaseContract findMany
+   */
+  export type LeaseContractFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter, which LeaseContracts to fetch.
+     */
+    where?: LeaseContractWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeaseContracts to fetch.
+     */
+    orderBy?: LeaseContractOrderByWithRelationInput | LeaseContractOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LeaseContracts.
+     */
+    cursor?: LeaseContractWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeaseContracts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeaseContracts.
+     */
+    skip?: number
+    distinct?: LeaseContractScalarFieldEnum | LeaseContractScalarFieldEnum[]
+  }
+
+  /**
+   * LeaseContract create
+   */
+  export type LeaseContractCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LeaseContract.
+     */
+    data: XOR<LeaseContractCreateInput, LeaseContractUncheckedCreateInput>
+  }
+
+  /**
+   * LeaseContract createMany
+   */
+  export type LeaseContractCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LeaseContracts.
+     */
+    data: LeaseContractCreateManyInput | LeaseContractCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LeaseContract update
+   */
+  export type LeaseContractUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LeaseContract.
+     */
+    data: XOR<LeaseContractUpdateInput, LeaseContractUncheckedUpdateInput>
+    /**
+     * Choose, which LeaseContract to update.
+     */
+    where: LeaseContractWhereUniqueInput
+  }
+
+  /**
+   * LeaseContract updateMany
+   */
+  export type LeaseContractUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LeaseContracts.
+     */
+    data: XOR<LeaseContractUpdateManyMutationInput, LeaseContractUncheckedUpdateManyInput>
+    /**
+     * Filter which LeaseContracts to update
+     */
+    where?: LeaseContractWhereInput
+  }
+
+  /**
+   * LeaseContract upsert
+   */
+  export type LeaseContractUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LeaseContract to update in case it exists.
+     */
+    where: LeaseContractWhereUniqueInput
+    /**
+     * In case the LeaseContract found by the `where` argument doesn't exist, create a new LeaseContract with this data.
+     */
+    create: XOR<LeaseContractCreateInput, LeaseContractUncheckedCreateInput>
+    /**
+     * In case the LeaseContract was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeaseContractUpdateInput, LeaseContractUncheckedUpdateInput>
+  }
+
+  /**
+   * LeaseContract delete
+   */
+  export type LeaseContractDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+    /**
+     * Filter which LeaseContract to delete.
+     */
+    where: LeaseContractWhereUniqueInput
+  }
+
+  /**
+   * LeaseContract deleteMany
+   */
+  export type LeaseContractDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeaseContracts to delete
+     */
+    where?: LeaseContractWhereInput
+  }
+
+  /**
+   * LeaseContract.cust
+   */
+  export type LeaseContract$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * LeaseContract without action
+   */
+  export type LeaseContractDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeaseContract
+     */
+    select?: LeaseContractSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LeaseContractInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Key
+   */
+
+  export type AggregateKey = {
+    _count: KeyCountAggregateOutputType | null
+    _avg: KeyAvgAggregateOutputType | null
+    _sum: KeySumAggregateOutputType | null
+    _min: KeyMinAggregateOutputType | null
+    _max: KeyMaxAggregateOutputType | null
+  }
+
+  export type KeyAvgAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    CUST_ID: number | null
+  }
+
+  export type KeySumAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    CUST_ID: number | null
+  }
+
+  export type KeyMinAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    issueDate: Date | null
+    returnDate: Date | null
+    CUST_ID: number | null
+  }
+
+  export type KeyMaxAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    issueDate: Date | null
+    returnDate: Date | null
+    CUST_ID: number | null
+  }
+
+  export type KeyCountAggregateOutputType = {
+    id: number
+    locationId: number
+    issueDate: number
+    returnDate: number
+    CUST_ID: number
+    _all: number
+  }
+
+
+  export type KeyAvgAggregateInputType = {
+    id?: true
+    locationId?: true
+    CUST_ID?: true
+  }
+
+  export type KeySumAggregateInputType = {
+    id?: true
+    locationId?: true
+    CUST_ID?: true
+  }
+
+  export type KeyMinAggregateInputType = {
+    id?: true
+    locationId?: true
+    issueDate?: true
+    returnDate?: true
+    CUST_ID?: true
+  }
+
+  export type KeyMaxAggregateInputType = {
+    id?: true
+    locationId?: true
+    issueDate?: true
+    returnDate?: true
+    CUST_ID?: true
+  }
+
+  export type KeyCountAggregateInputType = {
+    id?: true
+    locationId?: true
+    issueDate?: true
+    returnDate?: true
+    CUST_ID?: true
+    _all?: true
+  }
+
+  export type KeyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Key to aggregate.
+     */
+    where?: KeyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Keys to fetch.
+     */
+    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: KeyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Keys from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Keys.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Keys
+    **/
+    _count?: true | KeyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: KeyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: KeySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: KeyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: KeyMaxAggregateInputType
+  }
+
+  export type GetKeyAggregateType<T extends KeyAggregateArgs> = {
+        [P in keyof T & keyof AggregateKey]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateKey[P]>
+      : GetScalarType<T[P], AggregateKey[P]>
+  }
+
+
+
+
+  export type KeyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KeyWhereInput
+    orderBy?: KeyOrderByWithAggregationInput | KeyOrderByWithAggregationInput[]
+    by: KeyScalarFieldEnum[] | KeyScalarFieldEnum
+    having?: KeyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: KeyCountAggregateInputType | true
+    _avg?: KeyAvgAggregateInputType
+    _sum?: KeySumAggregateInputType
+    _min?: KeyMinAggregateInputType
+    _max?: KeyMaxAggregateInputType
+  }
+
+  export type KeyGroupByOutputType = {
+    id: number
+    locationId: number
+    issueDate: Date
+    returnDate: Date | null
+    CUST_ID: number | null
+    _count: KeyCountAggregateOutputType | null
+    _avg: KeyAvgAggregateOutputType | null
+    _sum: KeySumAggregateOutputType | null
+    _min: KeyMinAggregateOutputType | null
+    _max: KeyMaxAggregateOutputType | null
+  }
+
+  type GetKeyGroupByPayload<T extends KeyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<KeyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof KeyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], KeyGroupByOutputType[P]>
+            : GetScalarType<T[P], KeyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type KeySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    locationId?: boolean
+    issueDate?: boolean
+    returnDate?: boolean
+    CUST_ID?: boolean
+    cust?: boolean | Key$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["key"]>
+
+
+  export type KeySelectScalar = {
+    id?: boolean
+    locationId?: boolean
+    issueDate?: boolean
+    returnDate?: boolean
+    CUST_ID?: boolean
+  }
+
+  export type KeyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cust?: boolean | Key$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+  }
+
+  export type $KeyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Key"
+    objects: {
+      cust: Prisma.$UserPayload<ExtArgs> | null
+      location: Prisma.$LocationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      locationId: number
+      issueDate: Date
+      returnDate: Date | null
+      CUST_ID: number | null
+    }, ExtArgs["result"]["key"]>
+    composites: {}
+  }
+
+  type KeyGetPayload<S extends boolean | null | undefined | KeyDefaultArgs> = $Result.GetResult<Prisma.$KeyPayload, S>
+
+  type KeyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<KeyFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: KeyCountAggregateInputType | true
+    }
+
+  export interface KeyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Key'], meta: { name: 'Key' } }
+    /**
+     * Find zero or one Key that matches the filter.
+     * @param {KeyFindUniqueArgs} args - Arguments to find a Key
+     * @example
+     * // Get one Key
+     * const key = await prisma.key.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends KeyFindUniqueArgs>(args: SelectSubset<T, KeyFindUniqueArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Key that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {KeyFindUniqueOrThrowArgs} args - Arguments to find a Key
+     * @example
+     * // Get one Key
+     * const key = await prisma.key.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends KeyFindUniqueOrThrowArgs>(args: SelectSubset<T, KeyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Key that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyFindFirstArgs} args - Arguments to find a Key
+     * @example
+     * // Get one Key
+     * const key = await prisma.key.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends KeyFindFirstArgs>(args?: SelectSubset<T, KeyFindFirstArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Key that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyFindFirstOrThrowArgs} args - Arguments to find a Key
+     * @example
+     * // Get one Key
+     * const key = await prisma.key.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends KeyFindFirstOrThrowArgs>(args?: SelectSubset<T, KeyFindFirstOrThrowArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Keys that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Keys
+     * const keys = await prisma.key.findMany()
+     * 
+     * // Get first 10 Keys
+     * const keys = await prisma.key.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const keyWithIdOnly = await prisma.key.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends KeyFindManyArgs>(args?: SelectSubset<T, KeyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Key.
+     * @param {KeyCreateArgs} args - Arguments to create a Key.
+     * @example
+     * // Create one Key
+     * const Key = await prisma.key.create({
+     *   data: {
+     *     // ... data to create a Key
+     *   }
+     * })
+     * 
+     */
+    create<T extends KeyCreateArgs>(args: SelectSubset<T, KeyCreateArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Keys.
+     * @param {KeyCreateManyArgs} args - Arguments to create many Keys.
+     * @example
+     * // Create many Keys
+     * const key = await prisma.key.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends KeyCreateManyArgs>(args?: SelectSubset<T, KeyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Key.
+     * @param {KeyDeleteArgs} args - Arguments to delete one Key.
+     * @example
+     * // Delete one Key
+     * const Key = await prisma.key.delete({
+     *   where: {
+     *     // ... filter to delete one Key
+     *   }
+     * })
+     * 
+     */
+    delete<T extends KeyDeleteArgs>(args: SelectSubset<T, KeyDeleteArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Key.
+     * @param {KeyUpdateArgs} args - Arguments to update one Key.
+     * @example
+     * // Update one Key
+     * const key = await prisma.key.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends KeyUpdateArgs>(args: SelectSubset<T, KeyUpdateArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Keys.
+     * @param {KeyDeleteManyArgs} args - Arguments to filter Keys to delete.
+     * @example
+     * // Delete a few Keys
+     * const { count } = await prisma.key.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends KeyDeleteManyArgs>(args?: SelectSubset<T, KeyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Keys.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Keys
+     * const key = await prisma.key.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends KeyUpdateManyArgs>(args: SelectSubset<T, KeyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Key.
+     * @param {KeyUpsertArgs} args - Arguments to update or create a Key.
+     * @example
+     * // Update or create a Key
+     * const key = await prisma.key.upsert({
+     *   create: {
+     *     // ... data to create a Key
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Key we want to update
+     *   }
+     * })
+     */
+    upsert<T extends KeyUpsertArgs>(args: SelectSubset<T, KeyUpsertArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Keys.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyCountArgs} args - Arguments to filter Keys to count.
+     * @example
+     * // Count the number of Keys
+     * const count = await prisma.key.count({
+     *   where: {
+     *     // ... the filter for the Keys we want to count
+     *   }
+     * })
+    **/
+    count<T extends KeyCountArgs>(
+      args?: Subset<T, KeyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], KeyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Key.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends KeyAggregateArgs>(args: Subset<T, KeyAggregateArgs>): Prisma.PrismaPromise<GetKeyAggregateType<T>>
+
+    /**
+     * Group by Key.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends KeyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: KeyGroupByArgs['orderBy'] }
+        : { orderBy?: KeyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, KeyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKeyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Key model
+   */
+  readonly fields: KeyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Key.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__KeyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    cust<T extends Key$custArgs<ExtArgs> = {}>(args?: Subset<T, Key$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Key model
+   */ 
+  interface KeyFieldRefs {
+    readonly id: FieldRef<"Key", 'Int'>
+    readonly locationId: FieldRef<"Key", 'Int'>
+    readonly issueDate: FieldRef<"Key", 'DateTime'>
+    readonly returnDate: FieldRef<"Key", 'DateTime'>
+    readonly CUST_ID: FieldRef<"Key", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Key findUnique
+   */
+  export type KeyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter, which Key to fetch.
+     */
+    where: KeyWhereUniqueInput
+  }
+
+  /**
+   * Key findUniqueOrThrow
+   */
+  export type KeyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter, which Key to fetch.
+     */
+    where: KeyWhereUniqueInput
+  }
+
+  /**
+   * Key findFirst
+   */
+  export type KeyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter, which Key to fetch.
+     */
+    where?: KeyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Keys to fetch.
+     */
+    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Keys.
+     */
+    cursor?: KeyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Keys from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Keys.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Keys.
+     */
+    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
+  }
+
+  /**
+   * Key findFirstOrThrow
+   */
+  export type KeyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter, which Key to fetch.
+     */
+    where?: KeyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Keys to fetch.
+     */
+    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Keys.
+     */
+    cursor?: KeyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Keys from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Keys.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Keys.
+     */
+    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
+  }
+
+  /**
+   * Key findMany
+   */
+  export type KeyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter, which Keys to fetch.
+     */
+    where?: KeyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Keys to fetch.
+     */
+    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Keys.
+     */
+    cursor?: KeyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Keys from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Keys.
+     */
+    skip?: number
+    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
+  }
+
+  /**
+   * Key create
+   */
+  export type KeyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Key.
+     */
+    data: XOR<KeyCreateInput, KeyUncheckedCreateInput>
+  }
+
+  /**
+   * Key createMany
+   */
+  export type KeyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Keys.
+     */
+    data: KeyCreateManyInput | KeyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Key update
+   */
+  export type KeyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Key.
+     */
+    data: XOR<KeyUpdateInput, KeyUncheckedUpdateInput>
+    /**
+     * Choose, which Key to update.
+     */
+    where: KeyWhereUniqueInput
+  }
+
+  /**
+   * Key updateMany
+   */
+  export type KeyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Keys.
+     */
+    data: XOR<KeyUpdateManyMutationInput, KeyUncheckedUpdateManyInput>
+    /**
+     * Filter which Keys to update
+     */
+    where?: KeyWhereInput
+  }
+
+  /**
+   * Key upsert
+   */
+  export type KeyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Key to update in case it exists.
+     */
+    where: KeyWhereUniqueInput
+    /**
+     * In case the Key found by the `where` argument doesn't exist, create a new Key with this data.
+     */
+    create: XOR<KeyCreateInput, KeyUncheckedCreateInput>
+    /**
+     * In case the Key was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<KeyUpdateInput, KeyUncheckedUpdateInput>
+  }
+
+  /**
+   * Key delete
+   */
+  export type KeyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+    /**
+     * Filter which Key to delete.
+     */
+    where: KeyWhereUniqueInput
+  }
+
+  /**
+   * Key deleteMany
+   */
+  export type KeyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Keys to delete
+     */
+    where?: KeyWhereInput
+  }
+
+  /**
+   * Key.cust
+   */
+  export type Key$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * Key without action
+   */
+  export type KeyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Key
+     */
+    select?: KeySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KeyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PriceAdjustment
+   */
+
+  export type AggregatePriceAdjustment = {
+    _count: PriceAdjustmentCountAggregateOutputType | null
+    _avg: PriceAdjustmentAvgAggregateOutputType | null
+    _sum: PriceAdjustmentSumAggregateOutputType | null
+    _min: PriceAdjustmentMinAggregateOutputType | null
+    _max: PriceAdjustmentMaxAggregateOutputType | null
+  }
+
+  export type PriceAdjustmentAvgAggregateOutputType = {
+    id: number | null
+    CUST_ID: number | null
+    amount: number | null
+    period: number | null
+    status: number | null
+    type: number | null
+  }
+
+  export type PriceAdjustmentSumAggregateOutputType = {
+    id: number | null
+    CUST_ID: number | null
+    amount: number | null
+    period: number | null
+    status: number | null
+    type: number | null
+  }
+
+  export type PriceAdjustmentMinAggregateOutputType = {
+    id: number | null
+    CUST_ID: number | null
+    amount: number | null
+    period: number | null
+    status: number | null
+    applyToAll: boolean | null
+    type: number | null
+    createdAt: Date | null
+    lastExecutedAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PriceAdjustmentMaxAggregateOutputType = {
+    id: number | null
+    CUST_ID: number | null
+    amount: number | null
+    period: number | null
+    status: number | null
+    applyToAll: boolean | null
+    type: number | null
+    createdAt: Date | null
+    lastExecutedAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PriceAdjustmentCountAggregateOutputType = {
+    id: number
+    CUST_ID: number
+    amount: number
+    period: number
+    status: number
+    applyToAll: number
+    type: number
+    createdAt: number
+    lastExecutedAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PriceAdjustmentAvgAggregateInputType = {
+    id?: true
+    CUST_ID?: true
+    amount?: true
+    period?: true
+    status?: true
+    type?: true
+  }
+
+  export type PriceAdjustmentSumAggregateInputType = {
+    id?: true
+    CUST_ID?: true
+    amount?: true
+    period?: true
+    status?: true
+    type?: true
+  }
+
+  export type PriceAdjustmentMinAggregateInputType = {
+    id?: true
+    CUST_ID?: true
+    amount?: true
+    period?: true
+    status?: true
+    applyToAll?: true
+    type?: true
+    createdAt?: true
+    lastExecutedAt?: true
+    updatedAt?: true
+  }
+
+  export type PriceAdjustmentMaxAggregateInputType = {
+    id?: true
+    CUST_ID?: true
+    amount?: true
+    period?: true
+    status?: true
+    applyToAll?: true
+    type?: true
+    createdAt?: true
+    lastExecutedAt?: true
+    updatedAt?: true
+  }
+
+  export type PriceAdjustmentCountAggregateInputType = {
+    id?: true
+    CUST_ID?: true
+    amount?: true
+    period?: true
+    status?: true
+    applyToAll?: true
+    type?: true
+    createdAt?: true
+    lastExecutedAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PriceAdjustmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PriceAdjustment to aggregate.
+     */
+    where?: PriceAdjustmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PriceAdjustments to fetch.
+     */
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PriceAdjustmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PriceAdjustments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PriceAdjustments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PriceAdjustments
+    **/
+    _count?: true | PriceAdjustmentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PriceAdjustmentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PriceAdjustmentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PriceAdjustmentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PriceAdjustmentMaxAggregateInputType
+  }
+
+  export type GetPriceAdjustmentAggregateType<T extends PriceAdjustmentAggregateArgs> = {
+        [P in keyof T & keyof AggregatePriceAdjustment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePriceAdjustment[P]>
+      : GetScalarType<T[P], AggregatePriceAdjustment[P]>
+  }
+
+
+
+
+  export type PriceAdjustmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PriceAdjustmentWhereInput
+    orderBy?: PriceAdjustmentOrderByWithAggregationInput | PriceAdjustmentOrderByWithAggregationInput[]
+    by: PriceAdjustmentScalarFieldEnum[] | PriceAdjustmentScalarFieldEnum
+    having?: PriceAdjustmentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PriceAdjustmentCountAggregateInputType | true
+    _avg?: PriceAdjustmentAvgAggregateInputType
+    _sum?: PriceAdjustmentSumAggregateInputType
+    _min?: PriceAdjustmentMinAggregateInputType
+    _max?: PriceAdjustmentMaxAggregateInputType
+  }
+
+  export type PriceAdjustmentGroupByOutputType = {
+    id: number
+    CUST_ID: number | null
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt: Date
+    lastExecutedAt: Date | null
+    updatedAt: Date
+    _count: PriceAdjustmentCountAggregateOutputType | null
+    _avg: PriceAdjustmentAvgAggregateOutputType | null
+    _sum: PriceAdjustmentSumAggregateOutputType | null
+    _min: PriceAdjustmentMinAggregateOutputType | null
+    _max: PriceAdjustmentMaxAggregateOutputType | null
+  }
+
+  type GetPriceAdjustmentGroupByPayload<T extends PriceAdjustmentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PriceAdjustmentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PriceAdjustmentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PriceAdjustmentGroupByOutputType[P]>
+            : GetScalarType<T[P], PriceAdjustmentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PriceAdjustmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    CUST_ID?: boolean
+    amount?: boolean
+    period?: boolean
+    status?: boolean
+    applyToAll?: boolean
+    type?: boolean
+    createdAt?: boolean
+    lastExecutedAt?: boolean
+    updatedAt?: boolean
+    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
+    cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
+    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
+    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["priceAdjustment"]>
+
+
+  export type PriceAdjustmentSelectScalar = {
+    id?: boolean
+    CUST_ID?: boolean
+    amount?: boolean
+    period?: boolean
+    status?: boolean
+    applyToAll?: boolean
+    type?: boolean
+    createdAt?: boolean
+    lastExecutedAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PriceAdjustmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
+    cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
+    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
+    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $PriceAdjustmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PriceAdjustment"
+    objects: {
+      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
+      cust: Prisma.$UserPayload<ExtArgs> | null
+      locations: Prisma.$LocationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      CUST_ID: number | null
+      amount: number
+      period: number
+      status: number
+      applyToAll: boolean
+      type: number
+      createdAt: Date
+      lastExecutedAt: Date | null
+      updatedAt: Date
+    }, ExtArgs["result"]["priceAdjustment"]>
+    composites: {}
+  }
+
+  type PriceAdjustmentGetPayload<S extends boolean | null | undefined | PriceAdjustmentDefaultArgs> = $Result.GetResult<Prisma.$PriceAdjustmentPayload, S>
+
+  type PriceAdjustmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PriceAdjustmentFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PriceAdjustmentCountAggregateInputType | true
+    }
+
+  export interface PriceAdjustmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PriceAdjustment'], meta: { name: 'PriceAdjustment' } }
+    /**
+     * Find zero or one PriceAdjustment that matches the filter.
+     * @param {PriceAdjustmentFindUniqueArgs} args - Arguments to find a PriceAdjustment
+     * @example
+     * // Get one PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PriceAdjustmentFindUniqueArgs>(args: SelectSubset<T, PriceAdjustmentFindUniqueArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one PriceAdjustment that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {PriceAdjustmentFindUniqueOrThrowArgs} args - Arguments to find a PriceAdjustment
+     * @example
+     * // Get one PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PriceAdjustmentFindUniqueOrThrowArgs>(args: SelectSubset<T, PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first PriceAdjustment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentFindFirstArgs} args - Arguments to find a PriceAdjustment
+     * @example
+     * // Get one PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PriceAdjustmentFindFirstArgs>(args?: SelectSubset<T, PriceAdjustmentFindFirstArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first PriceAdjustment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentFindFirstOrThrowArgs} args - Arguments to find a PriceAdjustment
+     * @example
+     * // Get one PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PriceAdjustmentFindFirstOrThrowArgs>(args?: SelectSubset<T, PriceAdjustmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more PriceAdjustments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PriceAdjustments
+     * const priceAdjustments = await prisma.priceAdjustment.findMany()
+     * 
+     * // Get first 10 PriceAdjustments
+     * const priceAdjustments = await prisma.priceAdjustment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const priceAdjustmentWithIdOnly = await prisma.priceAdjustment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PriceAdjustmentFindManyArgs>(args?: SelectSubset<T, PriceAdjustmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a PriceAdjustment.
+     * @param {PriceAdjustmentCreateArgs} args - Arguments to create a PriceAdjustment.
+     * @example
+     * // Create one PriceAdjustment
+     * const PriceAdjustment = await prisma.priceAdjustment.create({
+     *   data: {
+     *     // ... data to create a PriceAdjustment
+     *   }
+     * })
+     * 
+     */
+    create<T extends PriceAdjustmentCreateArgs>(args: SelectSubset<T, PriceAdjustmentCreateArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many PriceAdjustments.
+     * @param {PriceAdjustmentCreateManyArgs} args - Arguments to create many PriceAdjustments.
+     * @example
+     * // Create many PriceAdjustments
+     * const priceAdjustment = await prisma.priceAdjustment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PriceAdjustmentCreateManyArgs>(args?: SelectSubset<T, PriceAdjustmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a PriceAdjustment.
+     * @param {PriceAdjustmentDeleteArgs} args - Arguments to delete one PriceAdjustment.
+     * @example
+     * // Delete one PriceAdjustment
+     * const PriceAdjustment = await prisma.priceAdjustment.delete({
+     *   where: {
+     *     // ... filter to delete one PriceAdjustment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PriceAdjustmentDeleteArgs>(args: SelectSubset<T, PriceAdjustmentDeleteArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one PriceAdjustment.
+     * @param {PriceAdjustmentUpdateArgs} args - Arguments to update one PriceAdjustment.
+     * @example
+     * // Update one PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PriceAdjustmentUpdateArgs>(args: SelectSubset<T, PriceAdjustmentUpdateArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more PriceAdjustments.
+     * @param {PriceAdjustmentDeleteManyArgs} args - Arguments to filter PriceAdjustments to delete.
+     * @example
+     * // Delete a few PriceAdjustments
+     * const { count } = await prisma.priceAdjustment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PriceAdjustmentDeleteManyArgs>(args?: SelectSubset<T, PriceAdjustmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PriceAdjustments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PriceAdjustments
+     * const priceAdjustment = await prisma.priceAdjustment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PriceAdjustmentUpdateManyArgs>(args: SelectSubset<T, PriceAdjustmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PriceAdjustment.
+     * @param {PriceAdjustmentUpsertArgs} args - Arguments to update or create a PriceAdjustment.
+     * @example
+     * // Update or create a PriceAdjustment
+     * const priceAdjustment = await prisma.priceAdjustment.upsert({
+     *   create: {
+     *     // ... data to create a PriceAdjustment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PriceAdjustment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PriceAdjustmentUpsertArgs>(args: SelectSubset<T, PriceAdjustmentUpsertArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of PriceAdjustments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentCountArgs} args - Arguments to filter PriceAdjustments to count.
+     * @example
+     * // Count the number of PriceAdjustments
+     * const count = await prisma.priceAdjustment.count({
+     *   where: {
+     *     // ... the filter for the PriceAdjustments we want to count
+     *   }
+     * })
+    **/
+    count<T extends PriceAdjustmentCountArgs>(
+      args?: Subset<T, PriceAdjustmentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PriceAdjustmentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PriceAdjustment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PriceAdjustmentAggregateArgs>(args: Subset<T, PriceAdjustmentAggregateArgs>): Prisma.PrismaPromise<GetPriceAdjustmentAggregateType<T>>
+
+    /**
+     * Group by PriceAdjustment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PriceAdjustmentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PriceAdjustmentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PriceAdjustmentGroupByArgs['orderBy'] }
+        : { orderBy?: PriceAdjustmentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PriceAdjustmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPriceAdjustmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PriceAdjustment model
+   */
+  readonly fields: PriceAdjustmentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PriceAdjustment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PriceAdjustmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    AdjustmentLocation<T extends PriceAdjustment$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
+    cust<T extends PriceAdjustment$custArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    locations<T extends PriceAdjustment$locationsArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PriceAdjustment model
+   */ 
+  interface PriceAdjustmentFieldRefs {
+    readonly id: FieldRef<"PriceAdjustment", 'Int'>
+    readonly CUST_ID: FieldRef<"PriceAdjustment", 'Int'>
+    readonly amount: FieldRef<"PriceAdjustment", 'Int'>
+    readonly period: FieldRef<"PriceAdjustment", 'Int'>
+    readonly status: FieldRef<"PriceAdjustment", 'Int'>
+    readonly applyToAll: FieldRef<"PriceAdjustment", 'Boolean'>
+    readonly type: FieldRef<"PriceAdjustment", 'Int'>
+    readonly createdAt: FieldRef<"PriceAdjustment", 'DateTime'>
+    readonly lastExecutedAt: FieldRef<"PriceAdjustment", 'DateTime'>
+    readonly updatedAt: FieldRef<"PriceAdjustment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PriceAdjustment findUnique
+   */
+  export type PriceAdjustmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter, which PriceAdjustment to fetch.
+     */
+    where: PriceAdjustmentWhereUniqueInput
+  }
+
+  /**
+   * PriceAdjustment findUniqueOrThrow
+   */
+  export type PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter, which PriceAdjustment to fetch.
+     */
+    where: PriceAdjustmentWhereUniqueInput
+  }
+
+  /**
+   * PriceAdjustment findFirst
+   */
+  export type PriceAdjustmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter, which PriceAdjustment to fetch.
+     */
+    where?: PriceAdjustmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PriceAdjustments to fetch.
+     */
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PriceAdjustments.
+     */
+    cursor?: PriceAdjustmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PriceAdjustments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PriceAdjustments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PriceAdjustments.
+     */
+    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
+  }
+
+  /**
+   * PriceAdjustment findFirstOrThrow
+   */
+  export type PriceAdjustmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter, which PriceAdjustment to fetch.
+     */
+    where?: PriceAdjustmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PriceAdjustments to fetch.
+     */
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PriceAdjustments.
+     */
+    cursor?: PriceAdjustmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PriceAdjustments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PriceAdjustments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PriceAdjustments.
+     */
+    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
+  }
+
+  /**
+   * PriceAdjustment findMany
+   */
+  export type PriceAdjustmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter, which PriceAdjustments to fetch.
+     */
+    where?: PriceAdjustmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PriceAdjustments to fetch.
+     */
+    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PriceAdjustments.
+     */
+    cursor?: PriceAdjustmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PriceAdjustments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PriceAdjustments.
+     */
+    skip?: number
+    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
+  }
+
+  /**
+   * PriceAdjustment create
+   */
+  export type PriceAdjustmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PriceAdjustment.
+     */
+    data: XOR<PriceAdjustmentCreateInput, PriceAdjustmentUncheckedCreateInput>
+  }
+
+  /**
+   * PriceAdjustment createMany
+   */
+  export type PriceAdjustmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PriceAdjustments.
+     */
+    data: PriceAdjustmentCreateManyInput | PriceAdjustmentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PriceAdjustment update
+   */
+  export type PriceAdjustmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PriceAdjustment.
+     */
+    data: XOR<PriceAdjustmentUpdateInput, PriceAdjustmentUncheckedUpdateInput>
+    /**
+     * Choose, which PriceAdjustment to update.
+     */
+    where: PriceAdjustmentWhereUniqueInput
+  }
+
+  /**
+   * PriceAdjustment updateMany
+   */
+  export type PriceAdjustmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PriceAdjustments.
+     */
+    data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyInput>
+    /**
+     * Filter which PriceAdjustments to update
+     */
+    where?: PriceAdjustmentWhereInput
+  }
+
+  /**
+   * PriceAdjustment upsert
+   */
+  export type PriceAdjustmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PriceAdjustment to update in case it exists.
+     */
+    where: PriceAdjustmentWhereUniqueInput
+    /**
+     * In case the PriceAdjustment found by the `where` argument doesn't exist, create a new PriceAdjustment with this data.
+     */
+    create: XOR<PriceAdjustmentCreateInput, PriceAdjustmentUncheckedCreateInput>
+    /**
+     * In case the PriceAdjustment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PriceAdjustmentUpdateInput, PriceAdjustmentUncheckedUpdateInput>
+  }
+
+  /**
+   * PriceAdjustment delete
+   */
+  export type PriceAdjustmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+    /**
+     * Filter which PriceAdjustment to delete.
+     */
+    where: PriceAdjustmentWhereUniqueInput
+  }
+
+  /**
+   * PriceAdjustment deleteMany
+   */
+  export type PriceAdjustmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PriceAdjustments to delete
+     */
+    where?: PriceAdjustmentWhereInput
+  }
+
+  /**
+   * PriceAdjustment.AdjustmentLocation
+   */
+  export type PriceAdjustment$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the AdjustmentLocation
      */
@@ -4199,9 +7531,24 @@ export namespace Prisma {
   }
 
   /**
-   * Location without action
+   * PriceAdjustment.cust
    */
-  export type LocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PriceAdjustment$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * PriceAdjustment.locations
+   */
+  export type PriceAdjustment$locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Location
      */
@@ -4210,6 +7557,929 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: LocationInclude<ExtArgs> | null
+    where?: LocationWhereInput
+    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    cursor?: LocationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+  }
+
+  /**
+   * PriceAdjustment without action
+   */
+  export type PriceAdjustmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PriceAdjustment
+     */
+    select?: PriceAdjustmentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PriceAdjustmentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model AdjustmentLocation
+   */
+
+  export type AggregateAdjustmentLocation = {
+    _count: AdjustmentLocationCountAggregateOutputType | null
+    _avg: AdjustmentLocationAvgAggregateOutputType | null
+    _sum: AdjustmentLocationSumAggregateOutputType | null
+    _min: AdjustmentLocationMinAggregateOutputType | null
+    _max: AdjustmentLocationMaxAggregateOutputType | null
+  }
+
+  export type AdjustmentLocationAvgAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationSumAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationMinAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationMaxAggregateOutputType = {
+    id: number | null
+    priceAdjustmentId: number | null
+    locationId: number | null
+  }
+
+  export type AdjustmentLocationCountAggregateOutputType = {
+    id: number
+    priceAdjustmentId: number
+    locationId: number
+    _all: number
+  }
+
+
+  export type AdjustmentLocationAvgAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationSumAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationMinAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationMaxAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+  }
+
+  export type AdjustmentLocationCountAggregateInputType = {
+    id?: true
+    priceAdjustmentId?: true
+    locationId?: true
+    _all?: true
+  }
+
+  export type AdjustmentLocationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdjustmentLocation to aggregate.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdjustmentLocations
+    **/
+    _count?: true | AdjustmentLocationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdjustmentLocationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdjustmentLocationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdjustmentLocationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdjustmentLocationMaxAggregateInputType
+  }
+
+  export type GetAdjustmentLocationAggregateType<T extends AdjustmentLocationAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdjustmentLocation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
+      : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
+  }
+
+
+
+
+  export type AdjustmentLocationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdjustmentLocationWhereInput
+    orderBy?: AdjustmentLocationOrderByWithAggregationInput | AdjustmentLocationOrderByWithAggregationInput[]
+    by: AdjustmentLocationScalarFieldEnum[] | AdjustmentLocationScalarFieldEnum
+    having?: AdjustmentLocationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdjustmentLocationCountAggregateInputType | true
+    _avg?: AdjustmentLocationAvgAggregateInputType
+    _sum?: AdjustmentLocationSumAggregateInputType
+    _min?: AdjustmentLocationMinAggregateInputType
+    _max?: AdjustmentLocationMaxAggregateInputType
+  }
+
+  export type AdjustmentLocationGroupByOutputType = {
+    id: number
+    priceAdjustmentId: number
+    locationId: number
+    _count: AdjustmentLocationCountAggregateOutputType | null
+    _avg: AdjustmentLocationAvgAggregateOutputType | null
+    _sum: AdjustmentLocationSumAggregateOutputType | null
+    _min: AdjustmentLocationMinAggregateOutputType | null
+    _max: AdjustmentLocationMaxAggregateOutputType | null
+  }
+
+  type GetAdjustmentLocationGroupByPayload<T extends AdjustmentLocationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdjustmentLocationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdjustmentLocationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
+            : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdjustmentLocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    priceAdjustmentId?: boolean
+    locationId?: boolean
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["adjustmentLocation"]>
+
+
+  export type AdjustmentLocationSelectScalar = {
+    id?: boolean
+    priceAdjustmentId?: boolean
+    locationId?: boolean
+  }
+
+  export type AdjustmentLocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
+  }
+
+  export type $AdjustmentLocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdjustmentLocation"
+    objects: {
+      location: Prisma.$LocationPayload<ExtArgs>
+      priceAdjustment: Prisma.$PriceAdjustmentPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      priceAdjustmentId: number
+      locationId: number
+    }, ExtArgs["result"]["adjustmentLocation"]>
+    composites: {}
+  }
+
+  type AdjustmentLocationGetPayload<S extends boolean | null | undefined | AdjustmentLocationDefaultArgs> = $Result.GetResult<Prisma.$AdjustmentLocationPayload, S>
+
+  type AdjustmentLocationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<AdjustmentLocationFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: AdjustmentLocationCountAggregateInputType | true
+    }
+
+  export interface AdjustmentLocationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdjustmentLocation'], meta: { name: 'AdjustmentLocation' } }
+    /**
+     * Find zero or one AdjustmentLocation that matches the filter.
+     * @param {AdjustmentLocationFindUniqueArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdjustmentLocationFindUniqueArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one AdjustmentLocation that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {AdjustmentLocationFindUniqueOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdjustmentLocationFindUniqueOrThrowArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first AdjustmentLocation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindFirstArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdjustmentLocationFindFirstArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first AdjustmentLocation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindFirstOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @example
+     * // Get one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdjustmentLocationFindFirstOrThrowArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more AdjustmentLocations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdjustmentLocations
+     * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
+     * 
+     * // Get first 10 AdjustmentLocations
+     * const adjustmentLocations = await prisma.adjustmentLocation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const adjustmentLocationWithIdOnly = await prisma.adjustmentLocation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdjustmentLocationFindManyArgs>(args?: SelectSubset<T, AdjustmentLocationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a AdjustmentLocation.
+     * @param {AdjustmentLocationCreateArgs} args - Arguments to create a AdjustmentLocation.
+     * @example
+     * // Create one AdjustmentLocation
+     * const AdjustmentLocation = await prisma.adjustmentLocation.create({
+     *   data: {
+     *     // ... data to create a AdjustmentLocation
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdjustmentLocationCreateArgs>(args: SelectSubset<T, AdjustmentLocationCreateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many AdjustmentLocations.
+     * @param {AdjustmentLocationCreateManyArgs} args - Arguments to create many AdjustmentLocations.
+     * @example
+     * // Create many AdjustmentLocations
+     * const adjustmentLocation = await prisma.adjustmentLocation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdjustmentLocationCreateManyArgs>(args?: SelectSubset<T, AdjustmentLocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdjustmentLocation.
+     * @param {AdjustmentLocationDeleteArgs} args - Arguments to delete one AdjustmentLocation.
+     * @example
+     * // Delete one AdjustmentLocation
+     * const AdjustmentLocation = await prisma.adjustmentLocation.delete({
+     *   where: {
+     *     // ... filter to delete one AdjustmentLocation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdjustmentLocationDeleteArgs>(args: SelectSubset<T, AdjustmentLocationDeleteArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one AdjustmentLocation.
+     * @param {AdjustmentLocationUpdateArgs} args - Arguments to update one AdjustmentLocation.
+     * @example
+     * // Update one AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdjustmentLocationUpdateArgs>(args: SelectSubset<T, AdjustmentLocationUpdateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more AdjustmentLocations.
+     * @param {AdjustmentLocationDeleteManyArgs} args - Arguments to filter AdjustmentLocations to delete.
+     * @example
+     * // Delete a few AdjustmentLocations
+     * const { count } = await prisma.adjustmentLocation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdjustmentLocationDeleteManyArgs>(args?: SelectSubset<T, AdjustmentLocationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdjustmentLocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdjustmentLocations
+     * const adjustmentLocation = await prisma.adjustmentLocation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdjustmentLocationUpdateManyArgs>(args: SelectSubset<T, AdjustmentLocationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdjustmentLocation.
+     * @param {AdjustmentLocationUpsertArgs} args - Arguments to update or create a AdjustmentLocation.
+     * @example
+     * // Update or create a AdjustmentLocation
+     * const adjustmentLocation = await prisma.adjustmentLocation.upsert({
+     *   create: {
+     *     // ... data to create a AdjustmentLocation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdjustmentLocation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdjustmentLocationUpsertArgs>(args: SelectSubset<T, AdjustmentLocationUpsertArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of AdjustmentLocations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationCountArgs} args - Arguments to filter AdjustmentLocations to count.
+     * @example
+     * // Count the number of AdjustmentLocations
+     * const count = await prisma.adjustmentLocation.count({
+     *   where: {
+     *     // ... the filter for the AdjustmentLocations we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdjustmentLocationCountArgs>(
+      args?: Subset<T, AdjustmentLocationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdjustmentLocationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdjustmentLocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdjustmentLocationAggregateArgs>(args: Subset<T, AdjustmentLocationAggregateArgs>): Prisma.PrismaPromise<GetAdjustmentLocationAggregateType<T>>
+
+    /**
+     * Group by AdjustmentLocation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdjustmentLocationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdjustmentLocationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdjustmentLocationGroupByArgs['orderBy'] }
+        : { orderBy?: AdjustmentLocationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdjustmentLocationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdjustmentLocationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdjustmentLocation model
+   */
+  readonly fields: AdjustmentLocationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdjustmentLocation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdjustmentLocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    priceAdjustment<T extends PriceAdjustmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustmentDefaultArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdjustmentLocation model
+   */ 
+  interface AdjustmentLocationFieldRefs {
+    readonly id: FieldRef<"AdjustmentLocation", 'Int'>
+    readonly priceAdjustmentId: FieldRef<"AdjustmentLocation", 'Int'>
+    readonly locationId: FieldRef<"AdjustmentLocation", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdjustmentLocation findUnique
+   */
+  export type AdjustmentLocationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation findUniqueOrThrow
+   */
+  export type AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation findFirst
+   */
+  export type AdjustmentLocationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdjustmentLocations.
+     */
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation findFirstOrThrow
+   */
+  export type AdjustmentLocationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocation to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdjustmentLocations.
+     */
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation findMany
+   */
+  export type AdjustmentLocationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter, which AdjustmentLocations to fetch.
+     */
+    where?: AdjustmentLocationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdjustmentLocations to fetch.
+     */
+    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdjustmentLocations.
+     */
+    cursor?: AdjustmentLocationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdjustmentLocations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdjustmentLocations.
+     */
+    skip?: number
+    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+  }
+
+  /**
+   * AdjustmentLocation create
+   */
+  export type AdjustmentLocationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdjustmentLocation.
+     */
+    data: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+  }
+
+  /**
+   * AdjustmentLocation createMany
+   */
+  export type AdjustmentLocationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdjustmentLocations.
+     */
+    data: AdjustmentLocationCreateManyInput | AdjustmentLocationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AdjustmentLocation update
+   */
+  export type AdjustmentLocationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdjustmentLocation.
+     */
+    data: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+    /**
+     * Choose, which AdjustmentLocation to update.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation updateMany
+   */
+  export type AdjustmentLocationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdjustmentLocations.
+     */
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyInput>
+    /**
+     * Filter which AdjustmentLocations to update
+     */
+    where?: AdjustmentLocationWhereInput
+  }
+
+  /**
+   * AdjustmentLocation upsert
+   */
+  export type AdjustmentLocationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdjustmentLocation to update in case it exists.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+    /**
+     * In case the AdjustmentLocation found by the `where` argument doesn't exist, create a new AdjustmentLocation with this data.
+     */
+    create: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+    /**
+     * In case the AdjustmentLocation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+  }
+
+  /**
+   * AdjustmentLocation delete
+   */
+  export type AdjustmentLocationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
+    /**
+     * Filter which AdjustmentLocation to delete.
+     */
+    where: AdjustmentLocationWhereUniqueInput
+  }
+
+  /**
+   * AdjustmentLocation deleteMany
+   */
+  export type AdjustmentLocationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdjustmentLocations to delete
+     */
+    where?: AdjustmentLocationWhereInput
+  }
+
+  /**
+   * AdjustmentLocation without action
+   */
+  export type AdjustmentLocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdjustmentLocation
+     */
+    select?: AdjustmentLocationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdjustmentLocationInclude<ExtArgs> | null
   }
 
 
@@ -4231,6 +8501,9 @@ export namespace Prisma {
     amount: number | null
     paymentMethodId: number | null
     CUST_ID: number | null
+    paymentRecordId: number | null
+    month: number | null
+    year: number | null
   }
 
   export type PaymentSumAggregateOutputType = {
@@ -4239,6 +8512,9 @@ export namespace Prisma {
     amount: number | null
     paymentMethodId: number | null
     CUST_ID: number | null
+    paymentRecordId: number | null
+    month: number | null
+    year: number | null
   }
 
   export type PaymentMinAggregateOutputType = {
@@ -4248,6 +8524,9 @@ export namespace Prisma {
     amount: number | null
     paymentMethodId: number | null
     CUST_ID: number | null
+    paymentRecordId: number | null
+    month: number | null
+    year: number | null
   }
 
   export type PaymentMaxAggregateOutputType = {
@@ -4257,6 +8536,9 @@ export namespace Prisma {
     amount: number | null
     paymentMethodId: number | null
     CUST_ID: number | null
+    paymentRecordId: number | null
+    month: number | null
+    year: number | null
   }
 
   export type PaymentCountAggregateOutputType = {
@@ -4266,6 +8548,9 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID: number
+    paymentRecordId: number
+    month: number
+    year: number
     _all: number
   }
 
@@ -4276,6 +8561,9 @@ export namespace Prisma {
     amount?: true
     paymentMethodId?: true
     CUST_ID?: true
+    paymentRecordId?: true
+    month?: true
+    year?: true
   }
 
   export type PaymentSumAggregateInputType = {
@@ -4284,6 +8572,9 @@ export namespace Prisma {
     amount?: true
     paymentMethodId?: true
     CUST_ID?: true
+    paymentRecordId?: true
+    month?: true
+    year?: true
   }
 
   export type PaymentMinAggregateInputType = {
@@ -4293,6 +8584,9 @@ export namespace Prisma {
     amount?: true
     paymentMethodId?: true
     CUST_ID?: true
+    paymentRecordId?: true
+    month?: true
+    year?: true
   }
 
   export type PaymentMaxAggregateInputType = {
@@ -4302,6 +8596,9 @@ export namespace Prisma {
     amount?: true
     paymentMethodId?: true
     CUST_ID?: true
+    paymentRecordId?: true
+    month?: true
+    year?: true
   }
 
   export type PaymentCountAggregateInputType = {
@@ -4311,6 +8608,9 @@ export namespace Prisma {
     amount?: true
     paymentMethodId?: true
     CUST_ID?: true
+    paymentRecordId?: true
+    month?: true
+    year?: true
     _all?: true
   }
 
@@ -4407,6 +8707,9 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID: number | null
+    paymentRecordId: number
+    month: number
+    year: number
     _count: PaymentCountAggregateOutputType | null
     _avg: PaymentAvgAggregateOutputType | null
     _sum: PaymentSumAggregateOutputType | null
@@ -4435,9 +8738,13 @@ export namespace Prisma {
     amount?: boolean
     paymentMethodId?: boolean
     CUST_ID?: boolean
+    paymentRecordId?: boolean
+    month?: boolean
+    year?: boolean
+    cust?: boolean | Payment$custArgs<ExtArgs>
     location?: boolean | LocationDefaultArgs<ExtArgs>
     paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-    cust?: boolean | Payment$custArgs<ExtArgs>
+    paymentRecord?: boolean | PaymentRecordDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["payment"]>
 
 
@@ -4448,20 +8755,25 @@ export namespace Prisma {
     amount?: boolean
     paymentMethodId?: boolean
     CUST_ID?: boolean
+    paymentRecordId?: boolean
+    month?: boolean
+    year?: boolean
   }
 
   export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cust?: boolean | Payment$custArgs<ExtArgs>
     location?: boolean | LocationDefaultArgs<ExtArgs>
     paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-    cust?: boolean | Payment$custArgs<ExtArgs>
+    paymentRecord?: boolean | PaymentRecordDefaultArgs<ExtArgs>
   }
 
   export type $PaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Payment"
     objects: {
+      cust: Prisma.$UserPayload<ExtArgs> | null
       location: Prisma.$LocationPayload<ExtArgs>
       paymentMethod: Prisma.$PaymentMethodPayload<ExtArgs>
-      cust: Prisma.$UserPayload<ExtArgs> | null
+      paymentRecord: Prisma.$PaymentRecordPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4470,6 +8782,9 @@ export namespace Prisma {
       amount: number
       paymentMethodId: number
       CUST_ID: number | null
+      paymentRecordId: number
+      month: number
+      year: number
     }, ExtArgs["result"]["payment"]>
     composites: {}
   }
@@ -4810,9 +9125,10 @@ export namespace Prisma {
    */
   export interface Prisma__PaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    cust<T extends Payment$custArgs<ExtArgs> = {}>(args?: Subset<T, Payment$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     paymentMethod<T extends PaymentMethodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PaymentMethodDefaultArgs<ExtArgs>>): Prisma__PaymentMethodClient<$Result.GetResult<Prisma.$PaymentMethodPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    cust<T extends Payment$custArgs<ExtArgs> = {}>(args?: Subset<T, Payment$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    paymentRecord<T extends PaymentRecordDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PaymentRecordDefaultArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4845,9 +9161,12 @@ export namespace Prisma {
     readonly id: FieldRef<"Payment", 'Int'>
     readonly locationId: FieldRef<"Payment", 'Int'>
     readonly date: FieldRef<"Payment", 'DateTime'>
-    readonly amount: FieldRef<"Payment", 'Float'>
+    readonly amount: FieldRef<"Payment", 'Int'>
     readonly paymentMethodId: FieldRef<"Payment", 'Int'>
     readonly CUST_ID: FieldRef<"Payment", 'Int'>
+    readonly paymentRecordId: FieldRef<"Payment", 'Int'>
+    readonly month: FieldRef<"Payment", 'Int'>
+    readonly year: FieldRef<"Payment", 'Int'>
   }
     
 
@@ -5173,6 +9492,1025 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PaymentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PaymentRecord
+   */
+
+  export type AggregatePaymentRecord = {
+    _count: PaymentRecordCountAggregateOutputType | null
+    _avg: PaymentRecordAvgAggregateOutputType | null
+    _sum: PaymentRecordSumAggregateOutputType | null
+    _min: PaymentRecordMinAggregateOutputType | null
+    _max: PaymentRecordMaxAggregateOutputType | null
+  }
+
+  export type PaymentRecordAvgAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    month: number | null
+    year: number | null
+    CUST_ID: number | null
+    remainingAmount: number | null
+    totalPaid: number | null
+    totalRent: number | null
+  }
+
+  export type PaymentRecordSumAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    month: number | null
+    year: number | null
+    CUST_ID: number | null
+    remainingAmount: number | null
+    totalPaid: number | null
+    totalRent: number | null
+  }
+
+  export type PaymentRecordMinAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    month: number | null
+    year: number | null
+    CUST_ID: number | null
+    remainingAmount: number | null
+    totalPaid: number | null
+    totalRent: number | null
+  }
+
+  export type PaymentRecordMaxAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    month: number | null
+    year: number | null
+    CUST_ID: number | null
+    remainingAmount: number | null
+    totalPaid: number | null
+    totalRent: number | null
+  }
+
+  export type PaymentRecordCountAggregateOutputType = {
+    id: number
+    locationId: number
+    month: number
+    year: number
+    CUST_ID: number
+    remainingAmount: number
+    totalPaid: number
+    totalRent: number
+    _all: number
+  }
+
+
+  export type PaymentRecordAvgAggregateInputType = {
+    id?: true
+    locationId?: true
+    month?: true
+    year?: true
+    CUST_ID?: true
+    remainingAmount?: true
+    totalPaid?: true
+    totalRent?: true
+  }
+
+  export type PaymentRecordSumAggregateInputType = {
+    id?: true
+    locationId?: true
+    month?: true
+    year?: true
+    CUST_ID?: true
+    remainingAmount?: true
+    totalPaid?: true
+    totalRent?: true
+  }
+
+  export type PaymentRecordMinAggregateInputType = {
+    id?: true
+    locationId?: true
+    month?: true
+    year?: true
+    CUST_ID?: true
+    remainingAmount?: true
+    totalPaid?: true
+    totalRent?: true
+  }
+
+  export type PaymentRecordMaxAggregateInputType = {
+    id?: true
+    locationId?: true
+    month?: true
+    year?: true
+    CUST_ID?: true
+    remainingAmount?: true
+    totalPaid?: true
+    totalRent?: true
+  }
+
+  export type PaymentRecordCountAggregateInputType = {
+    id?: true
+    locationId?: true
+    month?: true
+    year?: true
+    CUST_ID?: true
+    remainingAmount?: true
+    totalPaid?: true
+    totalRent?: true
+    _all?: true
+  }
+
+  export type PaymentRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PaymentRecord to aggregate.
+     */
+    where?: PaymentRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentRecords to fetch.
+     */
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PaymentRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PaymentRecords
+    **/
+    _count?: true | PaymentRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PaymentRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PaymentRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PaymentRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PaymentRecordMaxAggregateInputType
+  }
+
+  export type GetPaymentRecordAggregateType<T extends PaymentRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregatePaymentRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePaymentRecord[P]>
+      : GetScalarType<T[P], AggregatePaymentRecord[P]>
+  }
+
+
+
+
+  export type PaymentRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentRecordWhereInput
+    orderBy?: PaymentRecordOrderByWithAggregationInput | PaymentRecordOrderByWithAggregationInput[]
+    by: PaymentRecordScalarFieldEnum[] | PaymentRecordScalarFieldEnum
+    having?: PaymentRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PaymentRecordCountAggregateInputType | true
+    _avg?: PaymentRecordAvgAggregateInputType
+    _sum?: PaymentRecordSumAggregateInputType
+    _min?: PaymentRecordMinAggregateInputType
+    _max?: PaymentRecordMaxAggregateInputType
+  }
+
+  export type PaymentRecordGroupByOutputType = {
+    id: number
+    locationId: number
+    month: number
+    year: number
+    CUST_ID: number | null
+    remainingAmount: number
+    totalPaid: number
+    totalRent: number
+    _count: PaymentRecordCountAggregateOutputType | null
+    _avg: PaymentRecordAvgAggregateOutputType | null
+    _sum: PaymentRecordSumAggregateOutputType | null
+    _min: PaymentRecordMinAggregateOutputType | null
+    _max: PaymentRecordMaxAggregateOutputType | null
+  }
+
+  type GetPaymentRecordGroupByPayload<T extends PaymentRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PaymentRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PaymentRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PaymentRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], PaymentRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PaymentRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    locationId?: boolean
+    month?: boolean
+    year?: boolean
+    CUST_ID?: boolean
+    remainingAmount?: boolean
+    totalPaid?: boolean
+    totalRent?: boolean
+    payments?: boolean | PaymentRecord$paymentsArgs<ExtArgs>
+    cust?: boolean | PaymentRecord$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    _count?: boolean | PaymentRecordCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["paymentRecord"]>
+
+
+  export type PaymentRecordSelectScalar = {
+    id?: boolean
+    locationId?: boolean
+    month?: boolean
+    year?: boolean
+    CUST_ID?: boolean
+    remainingAmount?: boolean
+    totalPaid?: boolean
+    totalRent?: boolean
+  }
+
+  export type PaymentRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    payments?: boolean | PaymentRecord$paymentsArgs<ExtArgs>
+    cust?: boolean | PaymentRecord$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+    _count?: boolean | PaymentRecordCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $PaymentRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PaymentRecord"
+    objects: {
+      payments: Prisma.$PaymentPayload<ExtArgs>[]
+      cust: Prisma.$UserPayload<ExtArgs> | null
+      location: Prisma.$LocationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      locationId: number
+      month: number
+      year: number
+      CUST_ID: number | null
+      remainingAmount: number
+      totalPaid: number
+      totalRent: number
+    }, ExtArgs["result"]["paymentRecord"]>
+    composites: {}
+  }
+
+  type PaymentRecordGetPayload<S extends boolean | null | undefined | PaymentRecordDefaultArgs> = $Result.GetResult<Prisma.$PaymentRecordPayload, S>
+
+  type PaymentRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PaymentRecordFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PaymentRecordCountAggregateInputType | true
+    }
+
+  export interface PaymentRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PaymentRecord'], meta: { name: 'PaymentRecord' } }
+    /**
+     * Find zero or one PaymentRecord that matches the filter.
+     * @param {PaymentRecordFindUniqueArgs} args - Arguments to find a PaymentRecord
+     * @example
+     * // Get one PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PaymentRecordFindUniqueArgs>(args: SelectSubset<T, PaymentRecordFindUniqueArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one PaymentRecord that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {PaymentRecordFindUniqueOrThrowArgs} args - Arguments to find a PaymentRecord
+     * @example
+     * // Get one PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PaymentRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, PaymentRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first PaymentRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordFindFirstArgs} args - Arguments to find a PaymentRecord
+     * @example
+     * // Get one PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PaymentRecordFindFirstArgs>(args?: SelectSubset<T, PaymentRecordFindFirstArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first PaymentRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordFindFirstOrThrowArgs} args - Arguments to find a PaymentRecord
+     * @example
+     * // Get one PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PaymentRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, PaymentRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more PaymentRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PaymentRecords
+     * const paymentRecords = await prisma.paymentRecord.findMany()
+     * 
+     * // Get first 10 PaymentRecords
+     * const paymentRecords = await prisma.paymentRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const paymentRecordWithIdOnly = await prisma.paymentRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PaymentRecordFindManyArgs>(args?: SelectSubset<T, PaymentRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a PaymentRecord.
+     * @param {PaymentRecordCreateArgs} args - Arguments to create a PaymentRecord.
+     * @example
+     * // Create one PaymentRecord
+     * const PaymentRecord = await prisma.paymentRecord.create({
+     *   data: {
+     *     // ... data to create a PaymentRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends PaymentRecordCreateArgs>(args: SelectSubset<T, PaymentRecordCreateArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many PaymentRecords.
+     * @param {PaymentRecordCreateManyArgs} args - Arguments to create many PaymentRecords.
+     * @example
+     * // Create many PaymentRecords
+     * const paymentRecord = await prisma.paymentRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PaymentRecordCreateManyArgs>(args?: SelectSubset<T, PaymentRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a PaymentRecord.
+     * @param {PaymentRecordDeleteArgs} args - Arguments to delete one PaymentRecord.
+     * @example
+     * // Delete one PaymentRecord
+     * const PaymentRecord = await prisma.paymentRecord.delete({
+     *   where: {
+     *     // ... filter to delete one PaymentRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PaymentRecordDeleteArgs>(args: SelectSubset<T, PaymentRecordDeleteArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one PaymentRecord.
+     * @param {PaymentRecordUpdateArgs} args - Arguments to update one PaymentRecord.
+     * @example
+     * // Update one PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PaymentRecordUpdateArgs>(args: SelectSubset<T, PaymentRecordUpdateArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more PaymentRecords.
+     * @param {PaymentRecordDeleteManyArgs} args - Arguments to filter PaymentRecords to delete.
+     * @example
+     * // Delete a few PaymentRecords
+     * const { count } = await prisma.paymentRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PaymentRecordDeleteManyArgs>(args?: SelectSubset<T, PaymentRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PaymentRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PaymentRecords
+     * const paymentRecord = await prisma.paymentRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PaymentRecordUpdateManyArgs>(args: SelectSubset<T, PaymentRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PaymentRecord.
+     * @param {PaymentRecordUpsertArgs} args - Arguments to update or create a PaymentRecord.
+     * @example
+     * // Update or create a PaymentRecord
+     * const paymentRecord = await prisma.paymentRecord.upsert({
+     *   create: {
+     *     // ... data to create a PaymentRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PaymentRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PaymentRecordUpsertArgs>(args: SelectSubset<T, PaymentRecordUpsertArgs<ExtArgs>>): Prisma__PaymentRecordClient<$Result.GetResult<Prisma.$PaymentRecordPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of PaymentRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordCountArgs} args - Arguments to filter PaymentRecords to count.
+     * @example
+     * // Count the number of PaymentRecords
+     * const count = await prisma.paymentRecord.count({
+     *   where: {
+     *     // ... the filter for the PaymentRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends PaymentRecordCountArgs>(
+      args?: Subset<T, PaymentRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PaymentRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PaymentRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PaymentRecordAggregateArgs>(args: Subset<T, PaymentRecordAggregateArgs>): Prisma.PrismaPromise<GetPaymentRecordAggregateType<T>>
+
+    /**
+     * Group by PaymentRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PaymentRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PaymentRecordGroupByArgs['orderBy'] }
+        : { orderBy?: PaymentRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PaymentRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPaymentRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PaymentRecord model
+   */
+  readonly fields: PaymentRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PaymentRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PaymentRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    payments<T extends PaymentRecord$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, PaymentRecord$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany"> | Null>
+    cust<T extends PaymentRecord$custArgs<ExtArgs> = {}>(args?: Subset<T, PaymentRecord$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PaymentRecord model
+   */ 
+  interface PaymentRecordFieldRefs {
+    readonly id: FieldRef<"PaymentRecord", 'Int'>
+    readonly locationId: FieldRef<"PaymentRecord", 'Int'>
+    readonly month: FieldRef<"PaymentRecord", 'Int'>
+    readonly year: FieldRef<"PaymentRecord", 'Int'>
+    readonly CUST_ID: FieldRef<"PaymentRecord", 'Int'>
+    readonly remainingAmount: FieldRef<"PaymentRecord", 'Int'>
+    readonly totalPaid: FieldRef<"PaymentRecord", 'Int'>
+    readonly totalRent: FieldRef<"PaymentRecord", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PaymentRecord findUnique
+   */
+  export type PaymentRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentRecord to fetch.
+     */
+    where: PaymentRecordWhereUniqueInput
+  }
+
+  /**
+   * PaymentRecord findUniqueOrThrow
+   */
+  export type PaymentRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentRecord to fetch.
+     */
+    where: PaymentRecordWhereUniqueInput
+  }
+
+  /**
+   * PaymentRecord findFirst
+   */
+  export type PaymentRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentRecord to fetch.
+     */
+    where?: PaymentRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentRecords to fetch.
+     */
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PaymentRecords.
+     */
+    cursor?: PaymentRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PaymentRecords.
+     */
+    distinct?: PaymentRecordScalarFieldEnum | PaymentRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentRecord findFirstOrThrow
+   */
+  export type PaymentRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentRecord to fetch.
+     */
+    where?: PaymentRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentRecords to fetch.
+     */
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PaymentRecords.
+     */
+    cursor?: PaymentRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PaymentRecords.
+     */
+    distinct?: PaymentRecordScalarFieldEnum | PaymentRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentRecord findMany
+   */
+  export type PaymentRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which PaymentRecords to fetch.
+     */
+    where?: PaymentRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PaymentRecords to fetch.
+     */
+    orderBy?: PaymentRecordOrderByWithRelationInput | PaymentRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PaymentRecords.
+     */
+    cursor?: PaymentRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PaymentRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PaymentRecords.
+     */
+    skip?: number
+    distinct?: PaymentRecordScalarFieldEnum | PaymentRecordScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentRecord create
+   */
+  export type PaymentRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PaymentRecord.
+     */
+    data: XOR<PaymentRecordCreateInput, PaymentRecordUncheckedCreateInput>
+  }
+
+  /**
+   * PaymentRecord createMany
+   */
+  export type PaymentRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PaymentRecords.
+     */
+    data: PaymentRecordCreateManyInput | PaymentRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PaymentRecord update
+   */
+  export type PaymentRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PaymentRecord.
+     */
+    data: XOR<PaymentRecordUpdateInput, PaymentRecordUncheckedUpdateInput>
+    /**
+     * Choose, which PaymentRecord to update.
+     */
+    where: PaymentRecordWhereUniqueInput
+  }
+
+  /**
+   * PaymentRecord updateMany
+   */
+  export type PaymentRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PaymentRecords.
+     */
+    data: XOR<PaymentRecordUpdateManyMutationInput, PaymentRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which PaymentRecords to update
+     */
+    where?: PaymentRecordWhereInput
+  }
+
+  /**
+   * PaymentRecord upsert
+   */
+  export type PaymentRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PaymentRecord to update in case it exists.
+     */
+    where: PaymentRecordWhereUniqueInput
+    /**
+     * In case the PaymentRecord found by the `where` argument doesn't exist, create a new PaymentRecord with this data.
+     */
+    create: XOR<PaymentRecordCreateInput, PaymentRecordUncheckedCreateInput>
+    /**
+     * In case the PaymentRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PaymentRecordUpdateInput, PaymentRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * PaymentRecord delete
+   */
+  export type PaymentRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
+    /**
+     * Filter which PaymentRecord to delete.
+     */
+    where: PaymentRecordWhereUniqueInput
+  }
+
+  /**
+   * PaymentRecord deleteMany
+   */
+  export type PaymentRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PaymentRecords to delete
+     */
+    where?: PaymentRecordWhereInput
+  }
+
+  /**
+   * PaymentRecord.payments
+   */
+  export type PaymentRecord$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    where?: PaymentWhereInput
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    cursor?: PaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * PaymentRecord.cust
+   */
+  export type PaymentRecord$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * PaymentRecord without action
+   */
+  export type PaymentRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaymentRecord
+     */
+    select?: PaymentRecordSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentRecordInclude<ExtArgs> | null
   }
 
 
@@ -6276,8 +11614,8 @@ export namespace Prisma {
     locationId?: boolean
     date?: boolean
     CUST_ID?: boolean
-    location?: boolean | LocationDefaultArgs<ExtArgs>
     cust?: boolean | Invoice$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["invoice"]>
 
 
@@ -6289,15 +11627,15 @@ export namespace Prisma {
   }
 
   export type InvoiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | LocationDefaultArgs<ExtArgs>
     cust?: boolean | Invoice$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
   }
 
   export type $InvoicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Invoice"
     objects: {
-      location: Prisma.$LocationPayload<ExtArgs>
       cust: Prisma.$UserPayload<ExtArgs> | null
+      location: Prisma.$LocationPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6644,8 +11982,8 @@ export namespace Prisma {
    */
   export interface Prisma__InvoiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     cust<T extends Invoice$custArgs<ExtArgs> = {}>(args?: Subset<T, Invoice$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7205,8 +12543,8 @@ export namespace Prisma {
     locationId?: boolean
     dueDate?: boolean
     CUST_ID?: boolean
-    location?: boolean | LocationDefaultArgs<ExtArgs>
     cust?: boolean | PaymentSchedule$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["paymentSchedule"]>
 
 
@@ -7218,15 +12556,15 @@ export namespace Prisma {
   }
 
   export type PaymentScheduleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | LocationDefaultArgs<ExtArgs>
     cust?: boolean | PaymentSchedule$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
   }
 
   export type $PaymentSchedulePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PaymentSchedule"
     objects: {
-      location: Prisma.$LocationPayload<ExtArgs>
       cust: Prisma.$UserPayload<ExtArgs> | null
+      location: Prisma.$LocationPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7573,8 +12911,8 @@ export namespace Prisma {
    */
   export interface Prisma__PaymentScheduleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     cust<T extends PaymentSchedule$custArgs<ExtArgs> = {}>(args?: Subset<T, PaymentSchedule$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7937,3313 +13275,410 @@ export namespace Prisma {
 
 
   /**
-   * Model Key
+   * Model RentHistory
    */
 
-  export type AggregateKey = {
-    _count: KeyCountAggregateOutputType | null
-    _avg: KeyAvgAggregateOutputType | null
-    _sum: KeySumAggregateOutputType | null
-    _min: KeyMinAggregateOutputType | null
-    _max: KeyMaxAggregateOutputType | null
+  export type AggregateRentHistory = {
+    _count: RentHistoryCountAggregateOutputType | null
+    _avg: RentHistoryAvgAggregateOutputType | null
+    _sum: RentHistorySumAggregateOutputType | null
+    _min: RentHistoryMinAggregateOutputType | null
+    _max: RentHistoryMaxAggregateOutputType | null
   }
 
-  export type KeyAvgAggregateOutputType = {
+  export type RentHistoryAvgAggregateOutputType = {
     id: number | null
     locationId: number | null
+    month: number | null
+    year: number | null
+    rentAmount: number | null
     CUST_ID: number | null
   }
 
-  export type KeySumAggregateOutputType = {
+  export type RentHistorySumAggregateOutputType = {
     id: number | null
     locationId: number | null
+    month: number | null
+    year: number | null
+    rentAmount: number | null
     CUST_ID: number | null
   }
 
-  export type KeyMinAggregateOutputType = {
+  export type RentHistoryMinAggregateOutputType = {
     id: number | null
     locationId: number | null
-    issueDate: Date | null
-    returnDate: Date | null
-    CUST_ID: number | null
-  }
-
-  export type KeyMaxAggregateOutputType = {
-    id: number | null
-    locationId: number | null
-    issueDate: Date | null
-    returnDate: Date | null
-    CUST_ID: number | null
-  }
-
-  export type KeyCountAggregateOutputType = {
-    id: number
-    locationId: number
-    issueDate: number
-    returnDate: number
-    CUST_ID: number
-    _all: number
-  }
-
-
-  export type KeyAvgAggregateInputType = {
-    id?: true
-    locationId?: true
-    CUST_ID?: true
-  }
-
-  export type KeySumAggregateInputType = {
-    id?: true
-    locationId?: true
-    CUST_ID?: true
-  }
-
-  export type KeyMinAggregateInputType = {
-    id?: true
-    locationId?: true
-    issueDate?: true
-    returnDate?: true
-    CUST_ID?: true
-  }
-
-  export type KeyMaxAggregateInputType = {
-    id?: true
-    locationId?: true
-    issueDate?: true
-    returnDate?: true
-    CUST_ID?: true
-  }
-
-  export type KeyCountAggregateInputType = {
-    id?: true
-    locationId?: true
-    issueDate?: true
-    returnDate?: true
-    CUST_ID?: true
-    _all?: true
-  }
-
-  export type KeyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Key to aggregate.
-     */
-    where?: KeyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Keys to fetch.
-     */
-    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: KeyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Keys from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Keys.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Keys
-    **/
-    _count?: true | KeyCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: KeyAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: KeySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: KeyMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: KeyMaxAggregateInputType
-  }
-
-  export type GetKeyAggregateType<T extends KeyAggregateArgs> = {
-        [P in keyof T & keyof AggregateKey]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateKey[P]>
-      : GetScalarType<T[P], AggregateKey[P]>
-  }
-
-
-
-
-  export type KeyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: KeyWhereInput
-    orderBy?: KeyOrderByWithAggregationInput | KeyOrderByWithAggregationInput[]
-    by: KeyScalarFieldEnum[] | KeyScalarFieldEnum
-    having?: KeyScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: KeyCountAggregateInputType | true
-    _avg?: KeyAvgAggregateInputType
-    _sum?: KeySumAggregateInputType
-    _min?: KeyMinAggregateInputType
-    _max?: KeyMaxAggregateInputType
-  }
-
-  export type KeyGroupByOutputType = {
-    id: number
-    locationId: number
-    issueDate: Date
-    returnDate: Date
-    CUST_ID: number | null
-    _count: KeyCountAggregateOutputType | null
-    _avg: KeyAvgAggregateOutputType | null
-    _sum: KeySumAggregateOutputType | null
-    _min: KeyMinAggregateOutputType | null
-    _max: KeyMaxAggregateOutputType | null
-  }
-
-  type GetKeyGroupByPayload<T extends KeyGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<KeyGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof KeyGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], KeyGroupByOutputType[P]>
-            : GetScalarType<T[P], KeyGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type KeySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    locationId?: boolean
-    issueDate?: boolean
-    returnDate?: boolean
-    CUST_ID?: boolean
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-    cust?: boolean | Key$custArgs<ExtArgs>
-  }, ExtArgs["result"]["key"]>
-
-
-  export type KeySelectScalar = {
-    id?: boolean
-    locationId?: boolean
-    issueDate?: boolean
-    returnDate?: boolean
-    CUST_ID?: boolean
-  }
-
-  export type KeyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-    cust?: boolean | Key$custArgs<ExtArgs>
-  }
-
-  export type $KeyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Key"
-    objects: {
-      location: Prisma.$LocationPayload<ExtArgs>
-      cust: Prisma.$UserPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      locationId: number
-      issueDate: Date
-      returnDate: Date
-      CUST_ID: number | null
-    }, ExtArgs["result"]["key"]>
-    composites: {}
-  }
-
-  type KeyGetPayload<S extends boolean | null | undefined | KeyDefaultArgs> = $Result.GetResult<Prisma.$KeyPayload, S>
-
-  type KeyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<KeyFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: KeyCountAggregateInputType | true
-    }
-
-  export interface KeyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Key'], meta: { name: 'Key' } }
-    /**
-     * Find zero or one Key that matches the filter.
-     * @param {KeyFindUniqueArgs} args - Arguments to find a Key
-     * @example
-     * // Get one Key
-     * const key = await prisma.key.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends KeyFindUniqueArgs>(args: SelectSubset<T, KeyFindUniqueArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Key that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {KeyFindUniqueOrThrowArgs} args - Arguments to find a Key
-     * @example
-     * // Get one Key
-     * const key = await prisma.key.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends KeyFindUniqueOrThrowArgs>(args: SelectSubset<T, KeyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Key that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyFindFirstArgs} args - Arguments to find a Key
-     * @example
-     * // Get one Key
-     * const key = await prisma.key.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends KeyFindFirstArgs>(args?: SelectSubset<T, KeyFindFirstArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Key that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyFindFirstOrThrowArgs} args - Arguments to find a Key
-     * @example
-     * // Get one Key
-     * const key = await prisma.key.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends KeyFindFirstOrThrowArgs>(args?: SelectSubset<T, KeyFindFirstOrThrowArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Keys that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Keys
-     * const keys = await prisma.key.findMany()
-     * 
-     * // Get first 10 Keys
-     * const keys = await prisma.key.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const keyWithIdOnly = await prisma.key.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends KeyFindManyArgs>(args?: SelectSubset<T, KeyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Key.
-     * @param {KeyCreateArgs} args - Arguments to create a Key.
-     * @example
-     * // Create one Key
-     * const Key = await prisma.key.create({
-     *   data: {
-     *     // ... data to create a Key
-     *   }
-     * })
-     * 
-     */
-    create<T extends KeyCreateArgs>(args: SelectSubset<T, KeyCreateArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Keys.
-     * @param {KeyCreateManyArgs} args - Arguments to create many Keys.
-     * @example
-     * // Create many Keys
-     * const key = await prisma.key.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends KeyCreateManyArgs>(args?: SelectSubset<T, KeyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Key.
-     * @param {KeyDeleteArgs} args - Arguments to delete one Key.
-     * @example
-     * // Delete one Key
-     * const Key = await prisma.key.delete({
-     *   where: {
-     *     // ... filter to delete one Key
-     *   }
-     * })
-     * 
-     */
-    delete<T extends KeyDeleteArgs>(args: SelectSubset<T, KeyDeleteArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Key.
-     * @param {KeyUpdateArgs} args - Arguments to update one Key.
-     * @example
-     * // Update one Key
-     * const key = await prisma.key.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends KeyUpdateArgs>(args: SelectSubset<T, KeyUpdateArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Keys.
-     * @param {KeyDeleteManyArgs} args - Arguments to filter Keys to delete.
-     * @example
-     * // Delete a few Keys
-     * const { count } = await prisma.key.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends KeyDeleteManyArgs>(args?: SelectSubset<T, KeyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Keys.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Keys
-     * const key = await prisma.key.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends KeyUpdateManyArgs>(args: SelectSubset<T, KeyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Key.
-     * @param {KeyUpsertArgs} args - Arguments to update or create a Key.
-     * @example
-     * // Update or create a Key
-     * const key = await prisma.key.upsert({
-     *   create: {
-     *     // ... data to create a Key
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Key we want to update
-     *   }
-     * })
-     */
-    upsert<T extends KeyUpsertArgs>(args: SelectSubset<T, KeyUpsertArgs<ExtArgs>>): Prisma__KeyClient<$Result.GetResult<Prisma.$KeyPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Keys.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyCountArgs} args - Arguments to filter Keys to count.
-     * @example
-     * // Count the number of Keys
-     * const count = await prisma.key.count({
-     *   where: {
-     *     // ... the filter for the Keys we want to count
-     *   }
-     * })
-    **/
-    count<T extends KeyCountArgs>(
-      args?: Subset<T, KeyCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], KeyCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Key.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends KeyAggregateArgs>(args: Subset<T, KeyAggregateArgs>): Prisma.PrismaPromise<GetKeyAggregateType<T>>
-
-    /**
-     * Group by Key.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {KeyGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends KeyGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: KeyGroupByArgs['orderBy'] }
-        : { orderBy?: KeyGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, KeyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKeyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Key model
-   */
-  readonly fields: KeyFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Key.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__KeyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    cust<T extends Key$custArgs<ExtArgs> = {}>(args?: Subset<T, Key$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Key model
-   */ 
-  interface KeyFieldRefs {
-    readonly id: FieldRef<"Key", 'Int'>
-    readonly locationId: FieldRef<"Key", 'Int'>
-    readonly issueDate: FieldRef<"Key", 'DateTime'>
-    readonly returnDate: FieldRef<"Key", 'DateTime'>
-    readonly CUST_ID: FieldRef<"Key", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Key findUnique
-   */
-  export type KeyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter, which Key to fetch.
-     */
-    where: KeyWhereUniqueInput
-  }
-
-  /**
-   * Key findUniqueOrThrow
-   */
-  export type KeyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter, which Key to fetch.
-     */
-    where: KeyWhereUniqueInput
-  }
-
-  /**
-   * Key findFirst
-   */
-  export type KeyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter, which Key to fetch.
-     */
-    where?: KeyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Keys to fetch.
-     */
-    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Keys.
-     */
-    cursor?: KeyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Keys from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Keys.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Keys.
-     */
-    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
-  }
-
-  /**
-   * Key findFirstOrThrow
-   */
-  export type KeyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter, which Key to fetch.
-     */
-    where?: KeyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Keys to fetch.
-     */
-    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Keys.
-     */
-    cursor?: KeyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Keys from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Keys.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Keys.
-     */
-    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
-  }
-
-  /**
-   * Key findMany
-   */
-  export type KeyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter, which Keys to fetch.
-     */
-    where?: KeyWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Keys to fetch.
-     */
-    orderBy?: KeyOrderByWithRelationInput | KeyOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Keys.
-     */
-    cursor?: KeyWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Keys from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Keys.
-     */
-    skip?: number
-    distinct?: KeyScalarFieldEnum | KeyScalarFieldEnum[]
-  }
-
-  /**
-   * Key create
-   */
-  export type KeyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Key.
-     */
-    data: XOR<KeyCreateInput, KeyUncheckedCreateInput>
-  }
-
-  /**
-   * Key createMany
-   */
-  export type KeyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Keys.
-     */
-    data: KeyCreateManyInput | KeyCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Key update
-   */
-  export type KeyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Key.
-     */
-    data: XOR<KeyUpdateInput, KeyUncheckedUpdateInput>
-    /**
-     * Choose, which Key to update.
-     */
-    where: KeyWhereUniqueInput
-  }
-
-  /**
-   * Key updateMany
-   */
-  export type KeyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Keys.
-     */
-    data: XOR<KeyUpdateManyMutationInput, KeyUncheckedUpdateManyInput>
-    /**
-     * Filter which Keys to update
-     */
-    where?: KeyWhereInput
-  }
-
-  /**
-   * Key upsert
-   */
-  export type KeyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Key to update in case it exists.
-     */
-    where: KeyWhereUniqueInput
-    /**
-     * In case the Key found by the `where` argument doesn't exist, create a new Key with this data.
-     */
-    create: XOR<KeyCreateInput, KeyUncheckedCreateInput>
-    /**
-     * In case the Key was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<KeyUpdateInput, KeyUncheckedUpdateInput>
-  }
-
-  /**
-   * Key delete
-   */
-  export type KeyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-    /**
-     * Filter which Key to delete.
-     */
-    where: KeyWhereUniqueInput
-  }
-
-  /**
-   * Key deleteMany
-   */
-  export type KeyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Keys to delete
-     */
-    where?: KeyWhereInput
-  }
-
-  /**
-   * Key.cust
-   */
-  export type Key$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-  }
-
-  /**
-   * Key without action
-   */
-  export type KeyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Key
-     */
-    select?: KeySelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KeyInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Contract
-   */
-
-  export type AggregateContract = {
-    _count: ContractCountAggregateOutputType | null
-    _avg: ContractAvgAggregateOutputType | null
-    _sum: ContractSumAggregateOutputType | null
-    _min: ContractMinAggregateOutputType | null
-    _max: ContractMaxAggregateOutputType | null
-  }
-
-  export type ContractAvgAggregateOutputType = {
-    id: number | null
-    locationId: number | null
-    CUST_ID: number | null
-  }
-
-  export type ContractSumAggregateOutputType = {
-    id: number | null
-    locationId: number | null
-    CUST_ID: number | null
-  }
-
-  export type ContractMinAggregateOutputType = {
-    id: number | null
-    locationId: number | null
-    startDate: Date | null
-    endDate: Date | null
-    renewed: boolean | null
-    cancelled: boolean | null
-    CUST_ID: number | null
-  }
-
-  export type ContractMaxAggregateOutputType = {
-    id: number | null
-    locationId: number | null
-    startDate: Date | null
-    endDate: Date | null
-    renewed: boolean | null
-    cancelled: boolean | null
-    CUST_ID: number | null
-  }
-
-  export type ContractCountAggregateOutputType = {
-    id: number
-    locationId: number
-    startDate: number
-    endDate: number
-    renewed: number
-    cancelled: number
-    CUST_ID: number
-    _all: number
-  }
-
-
-  export type ContractAvgAggregateInputType = {
-    id?: true
-    locationId?: true
-    CUST_ID?: true
-  }
-
-  export type ContractSumAggregateInputType = {
-    id?: true
-    locationId?: true
-    CUST_ID?: true
-  }
-
-  export type ContractMinAggregateInputType = {
-    id?: true
-    locationId?: true
-    startDate?: true
-    endDate?: true
-    renewed?: true
-    cancelled?: true
-    CUST_ID?: true
-  }
-
-  export type ContractMaxAggregateInputType = {
-    id?: true
-    locationId?: true
-    startDate?: true
-    endDate?: true
-    renewed?: true
-    cancelled?: true
-    CUST_ID?: true
-  }
-
-  export type ContractCountAggregateInputType = {
-    id?: true
-    locationId?: true
-    startDate?: true
-    endDate?: true
-    renewed?: true
-    cancelled?: true
-    CUST_ID?: true
-    _all?: true
-  }
-
-  export type ContractAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Contract to aggregate.
-     */
-    where?: ContractWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Contracts to fetch.
-     */
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: ContractWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Contracts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Contracts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Contracts
-    **/
-    _count?: true | ContractCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ContractAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ContractSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ContractMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ContractMaxAggregateInputType
-  }
-
-  export type GetContractAggregateType<T extends ContractAggregateArgs> = {
-        [P in keyof T & keyof AggregateContract]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateContract[P]>
-      : GetScalarType<T[P], AggregateContract[P]>
-  }
-
-
-
-
-  export type ContractGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ContractWhereInput
-    orderBy?: ContractOrderByWithAggregationInput | ContractOrderByWithAggregationInput[]
-    by: ContractScalarFieldEnum[] | ContractScalarFieldEnum
-    having?: ContractScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ContractCountAggregateInputType | true
-    _avg?: ContractAvgAggregateInputType
-    _sum?: ContractSumAggregateInputType
-    _min?: ContractMinAggregateInputType
-    _max?: ContractMaxAggregateInputType
-  }
-
-  export type ContractGroupByOutputType = {
-    id: number
-    locationId: number
-    startDate: Date
-    endDate: Date
-    renewed: boolean
-    cancelled: boolean
-    CUST_ID: number | null
-    _count: ContractCountAggregateOutputType | null
-    _avg: ContractAvgAggregateOutputType | null
-    _sum: ContractSumAggregateOutputType | null
-    _min: ContractMinAggregateOutputType | null
-    _max: ContractMaxAggregateOutputType | null
-  }
-
-  type GetContractGroupByPayload<T extends ContractGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ContractGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ContractGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ContractGroupByOutputType[P]>
-            : GetScalarType<T[P], ContractGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type ContractSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    locationId?: boolean
-    startDate?: boolean
-    endDate?: boolean
-    renewed?: boolean
-    cancelled?: boolean
-    CUST_ID?: boolean
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-    cust?: boolean | Contract$custArgs<ExtArgs>
-  }, ExtArgs["result"]["contract"]>
-
-
-  export type ContractSelectScalar = {
-    id?: boolean
-    locationId?: boolean
-    startDate?: boolean
-    endDate?: boolean
-    renewed?: boolean
-    cancelled?: boolean
-    CUST_ID?: boolean
-  }
-
-  export type ContractInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-    cust?: boolean | Contract$custArgs<ExtArgs>
-  }
-
-  export type $ContractPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Contract"
-    objects: {
-      location: Prisma.$LocationPayload<ExtArgs>
-      cust: Prisma.$UserPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      locationId: number
-      startDate: Date
-      endDate: Date
-      renewed: boolean
-      cancelled: boolean
-      CUST_ID: number | null
-    }, ExtArgs["result"]["contract"]>
-    composites: {}
-  }
-
-  type ContractGetPayload<S extends boolean | null | undefined | ContractDefaultArgs> = $Result.GetResult<Prisma.$ContractPayload, S>
-
-  type ContractCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<ContractFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: ContractCountAggregateInputType | true
-    }
-
-  export interface ContractDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Contract'], meta: { name: 'Contract' } }
-    /**
-     * Find zero or one Contract that matches the filter.
-     * @param {ContractFindUniqueArgs} args - Arguments to find a Contract
-     * @example
-     * // Get one Contract
-     * const contract = await prisma.contract.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends ContractFindUniqueArgs>(args: SelectSubset<T, ContractFindUniqueArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Contract that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {ContractFindUniqueOrThrowArgs} args - Arguments to find a Contract
-     * @example
-     * // Get one Contract
-     * const contract = await prisma.contract.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends ContractFindUniqueOrThrowArgs>(args: SelectSubset<T, ContractFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Contract that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractFindFirstArgs} args - Arguments to find a Contract
-     * @example
-     * // Get one Contract
-     * const contract = await prisma.contract.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends ContractFindFirstArgs>(args?: SelectSubset<T, ContractFindFirstArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Contract that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractFindFirstOrThrowArgs} args - Arguments to find a Contract
-     * @example
-     * // Get one Contract
-     * const contract = await prisma.contract.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends ContractFindFirstOrThrowArgs>(args?: SelectSubset<T, ContractFindFirstOrThrowArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Contracts that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Contracts
-     * const contracts = await prisma.contract.findMany()
-     * 
-     * // Get first 10 Contracts
-     * const contracts = await prisma.contract.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const contractWithIdOnly = await prisma.contract.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends ContractFindManyArgs>(args?: SelectSubset<T, ContractFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Contract.
-     * @param {ContractCreateArgs} args - Arguments to create a Contract.
-     * @example
-     * // Create one Contract
-     * const Contract = await prisma.contract.create({
-     *   data: {
-     *     // ... data to create a Contract
-     *   }
-     * })
-     * 
-     */
-    create<T extends ContractCreateArgs>(args: SelectSubset<T, ContractCreateArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Contracts.
-     * @param {ContractCreateManyArgs} args - Arguments to create many Contracts.
-     * @example
-     * // Create many Contracts
-     * const contract = await prisma.contract.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends ContractCreateManyArgs>(args?: SelectSubset<T, ContractCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Contract.
-     * @param {ContractDeleteArgs} args - Arguments to delete one Contract.
-     * @example
-     * // Delete one Contract
-     * const Contract = await prisma.contract.delete({
-     *   where: {
-     *     // ... filter to delete one Contract
-     *   }
-     * })
-     * 
-     */
-    delete<T extends ContractDeleteArgs>(args: SelectSubset<T, ContractDeleteArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Contract.
-     * @param {ContractUpdateArgs} args - Arguments to update one Contract.
-     * @example
-     * // Update one Contract
-     * const contract = await prisma.contract.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends ContractUpdateArgs>(args: SelectSubset<T, ContractUpdateArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Contracts.
-     * @param {ContractDeleteManyArgs} args - Arguments to filter Contracts to delete.
-     * @example
-     * // Delete a few Contracts
-     * const { count } = await prisma.contract.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends ContractDeleteManyArgs>(args?: SelectSubset<T, ContractDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Contracts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Contracts
-     * const contract = await prisma.contract.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends ContractUpdateManyArgs>(args: SelectSubset<T, ContractUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Contract.
-     * @param {ContractUpsertArgs} args - Arguments to update or create a Contract.
-     * @example
-     * // Update or create a Contract
-     * const contract = await prisma.contract.upsert({
-     *   create: {
-     *     // ... data to create a Contract
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Contract we want to update
-     *   }
-     * })
-     */
-    upsert<T extends ContractUpsertArgs>(args: SelectSubset<T, ContractUpsertArgs<ExtArgs>>): Prisma__ContractClient<$Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Contracts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractCountArgs} args - Arguments to filter Contracts to count.
-     * @example
-     * // Count the number of Contracts
-     * const count = await prisma.contract.count({
-     *   where: {
-     *     // ... the filter for the Contracts we want to count
-     *   }
-     * })
-    **/
-    count<T extends ContractCountArgs>(
-      args?: Subset<T, ContractCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ContractCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Contract.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ContractAggregateArgs>(args: Subset<T, ContractAggregateArgs>): Prisma.PrismaPromise<GetContractAggregateType<T>>
-
-    /**
-     * Group by Contract.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ContractGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends ContractGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ContractGroupByArgs['orderBy'] }
-        : { orderBy?: ContractGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, ContractGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetContractGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Contract model
-   */
-  readonly fields: ContractFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Contract.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__ContractClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    cust<T extends Contract$custArgs<ExtArgs> = {}>(args?: Subset<T, Contract$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Contract model
-   */ 
-  interface ContractFieldRefs {
-    readonly id: FieldRef<"Contract", 'Int'>
-    readonly locationId: FieldRef<"Contract", 'Int'>
-    readonly startDate: FieldRef<"Contract", 'DateTime'>
-    readonly endDate: FieldRef<"Contract", 'DateTime'>
-    readonly renewed: FieldRef<"Contract", 'Boolean'>
-    readonly cancelled: FieldRef<"Contract", 'Boolean'>
-    readonly CUST_ID: FieldRef<"Contract", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Contract findUnique
-   */
-  export type ContractFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter, which Contract to fetch.
-     */
-    where: ContractWhereUniqueInput
-  }
-
-  /**
-   * Contract findUniqueOrThrow
-   */
-  export type ContractFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter, which Contract to fetch.
-     */
-    where: ContractWhereUniqueInput
-  }
-
-  /**
-   * Contract findFirst
-   */
-  export type ContractFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter, which Contract to fetch.
-     */
-    where?: ContractWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Contracts to fetch.
-     */
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Contracts.
-     */
-    cursor?: ContractWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Contracts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Contracts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Contracts.
-     */
-    distinct?: ContractScalarFieldEnum | ContractScalarFieldEnum[]
-  }
-
-  /**
-   * Contract findFirstOrThrow
-   */
-  export type ContractFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter, which Contract to fetch.
-     */
-    where?: ContractWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Contracts to fetch.
-     */
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Contracts.
-     */
-    cursor?: ContractWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Contracts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Contracts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Contracts.
-     */
-    distinct?: ContractScalarFieldEnum | ContractScalarFieldEnum[]
-  }
-
-  /**
-   * Contract findMany
-   */
-  export type ContractFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter, which Contracts to fetch.
-     */
-    where?: ContractWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Contracts to fetch.
-     */
-    orderBy?: ContractOrderByWithRelationInput | ContractOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Contracts.
-     */
-    cursor?: ContractWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Contracts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Contracts.
-     */
-    skip?: number
-    distinct?: ContractScalarFieldEnum | ContractScalarFieldEnum[]
-  }
-
-  /**
-   * Contract create
-   */
-  export type ContractCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Contract.
-     */
-    data: XOR<ContractCreateInput, ContractUncheckedCreateInput>
-  }
-
-  /**
-   * Contract createMany
-   */
-  export type ContractCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Contracts.
-     */
-    data: ContractCreateManyInput | ContractCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Contract update
-   */
-  export type ContractUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Contract.
-     */
-    data: XOR<ContractUpdateInput, ContractUncheckedUpdateInput>
-    /**
-     * Choose, which Contract to update.
-     */
-    where: ContractWhereUniqueInput
-  }
-
-  /**
-   * Contract updateMany
-   */
-  export type ContractUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Contracts.
-     */
-    data: XOR<ContractUpdateManyMutationInput, ContractUncheckedUpdateManyInput>
-    /**
-     * Filter which Contracts to update
-     */
-    where?: ContractWhereInput
-  }
-
-  /**
-   * Contract upsert
-   */
-  export type ContractUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Contract to update in case it exists.
-     */
-    where: ContractWhereUniqueInput
-    /**
-     * In case the Contract found by the `where` argument doesn't exist, create a new Contract with this data.
-     */
-    create: XOR<ContractCreateInput, ContractUncheckedCreateInput>
-    /**
-     * In case the Contract was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ContractUpdateInput, ContractUncheckedUpdateInput>
-  }
-
-  /**
-   * Contract delete
-   */
-  export type ContractDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-    /**
-     * Filter which Contract to delete.
-     */
-    where: ContractWhereUniqueInput
-  }
-
-  /**
-   * Contract deleteMany
-   */
-  export type ContractDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Contracts to delete
-     */
-    where?: ContractWhereInput
-  }
-
-  /**
-   * Contract.cust
-   */
-  export type Contract$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-  }
-
-  /**
-   * Contract without action
-   */
-  export type ContractDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Contract
-     */
-    select?: ContractSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ContractInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model PriceAdjustment
-   */
-
-  export type AggregatePriceAdjustment = {
-    _count: PriceAdjustmentCountAggregateOutputType | null
-    _avg: PriceAdjustmentAvgAggregateOutputType | null
-    _sum: PriceAdjustmentSumAggregateOutputType | null
-    _min: PriceAdjustmentMinAggregateOutputType | null
-    _max: PriceAdjustmentMaxAggregateOutputType | null
-  }
-
-  export type PriceAdjustmentAvgAggregateOutputType = {
-    id: number | null
-    amount: number | null
-    type: number | null
-    period: number | null
-    status: number | null
-    CUST_ID: number | null
-  }
-
-  export type PriceAdjustmentSumAggregateOutputType = {
-    id: number | null
-    amount: number | null
-    type: number | null
-    period: number | null
-    status: number | null
-    CUST_ID: number | null
-  }
-
-  export type PriceAdjustmentMinAggregateOutputType = {
-    id: number | null
-    amount: number | null
-    type: number | null
-    period: number | null
-    applyToAll: boolean | null
-    status: number | null
-    CUST_ID: number | null
-    lastExecutedAt: Date | null
+    month: number | null
+    year: number | null
+    rentAmount: number | null
     createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type PriceAdjustmentMaxAggregateOutputType = {
-    id: number | null
-    amount: number | null
-    type: number | null
-    period: number | null
-    applyToAll: boolean | null
-    status: number | null
     CUST_ID: number | null
-    lastExecutedAt: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
   }
 
-  export type PriceAdjustmentCountAggregateOutputType = {
+  export type RentHistoryMaxAggregateOutputType = {
+    id: number | null
+    locationId: number | null
+    month: number | null
+    year: number | null
+    rentAmount: number | null
+    createdAt: Date | null
+    CUST_ID: number | null
+  }
+
+  export type RentHistoryCountAggregateOutputType = {
     id: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: number
-    status: number
-    CUST_ID: number
-    lastExecutedAt: number
+    locationId: number
+    month: number
+    year: number
+    rentAmount: number
     createdAt: number
-    updatedAt: number
+    CUST_ID: number
     _all: number
   }
 
 
-  export type PriceAdjustmentAvgAggregateInputType = {
+  export type RentHistoryAvgAggregateInputType = {
     id?: true
-    amount?: true
-    type?: true
-    period?: true
-    status?: true
+    locationId?: true
+    month?: true
+    year?: true
+    rentAmount?: true
     CUST_ID?: true
   }
 
-  export type PriceAdjustmentSumAggregateInputType = {
+  export type RentHistorySumAggregateInputType = {
     id?: true
-    amount?: true
-    type?: true
-    period?: true
-    status?: true
+    locationId?: true
+    month?: true
+    year?: true
+    rentAmount?: true
     CUST_ID?: true
   }
 
-  export type PriceAdjustmentMinAggregateInputType = {
+  export type RentHistoryMinAggregateInputType = {
     id?: true
-    amount?: true
-    type?: true
-    period?: true
-    applyToAll?: true
-    status?: true
-    CUST_ID?: true
-    lastExecutedAt?: true
+    locationId?: true
+    month?: true
+    year?: true
+    rentAmount?: true
     createdAt?: true
-    updatedAt?: true
+    CUST_ID?: true
   }
 
-  export type PriceAdjustmentMaxAggregateInputType = {
+  export type RentHistoryMaxAggregateInputType = {
     id?: true
-    amount?: true
-    type?: true
-    period?: true
-    applyToAll?: true
-    status?: true
-    CUST_ID?: true
-    lastExecutedAt?: true
+    locationId?: true
+    month?: true
+    year?: true
+    rentAmount?: true
     createdAt?: true
-    updatedAt?: true
+    CUST_ID?: true
   }
 
-  export type PriceAdjustmentCountAggregateInputType = {
+  export type RentHistoryCountAggregateInputType = {
     id?: true
-    amount?: true
-    type?: true
-    period?: true
-    applyToAll?: true
-    status?: true
-    CUST_ID?: true
-    lastExecutedAt?: true
+    locationId?: true
+    month?: true
+    year?: true
+    rentAmount?: true
     createdAt?: true
-    updatedAt?: true
+    CUST_ID?: true
     _all?: true
   }
 
-  export type PriceAdjustmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PriceAdjustment to aggregate.
+     * Filter which RentHistory to aggregate.
      */
-    where?: PriceAdjustmentWhereInput
+    where?: RentHistoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PriceAdjustments to fetch.
+     * Determine the order of RentHistories to fetch.
      */
-    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PriceAdjustmentWhereUniqueInput
+    cursor?: RentHistoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PriceAdjustments from the position of the cursor.
+     * Take `±n` RentHistories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PriceAdjustments.
+     * Skip the first `n` RentHistories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PriceAdjustments
+     * Count returned RentHistories
     **/
-    _count?: true | PriceAdjustmentCountAggregateInputType
+    _count?: true | RentHistoryCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PriceAdjustmentAvgAggregateInputType
+    _avg?: RentHistoryAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PriceAdjustmentSumAggregateInputType
+    _sum?: RentHistorySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PriceAdjustmentMinAggregateInputType
+    _min?: RentHistoryMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PriceAdjustmentMaxAggregateInputType
+    _max?: RentHistoryMaxAggregateInputType
   }
 
-  export type GetPriceAdjustmentAggregateType<T extends PriceAdjustmentAggregateArgs> = {
-        [P in keyof T & keyof AggregatePriceAdjustment]: P extends '_count' | 'count'
+  export type GetRentHistoryAggregateType<T extends RentHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateRentHistory]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePriceAdjustment[P]>
-      : GetScalarType<T[P], AggregatePriceAdjustment[P]>
+        : GetScalarType<T[P], AggregateRentHistory[P]>
+      : GetScalarType<T[P], AggregateRentHistory[P]>
   }
 
 
 
 
-  export type PriceAdjustmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PriceAdjustmentWhereInput
-    orderBy?: PriceAdjustmentOrderByWithAggregationInput | PriceAdjustmentOrderByWithAggregationInput[]
-    by: PriceAdjustmentScalarFieldEnum[] | PriceAdjustmentScalarFieldEnum
-    having?: PriceAdjustmentScalarWhereWithAggregatesInput
+  export type RentHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RentHistoryWhereInput
+    orderBy?: RentHistoryOrderByWithAggregationInput | RentHistoryOrderByWithAggregationInput[]
+    by: RentHistoryScalarFieldEnum[] | RentHistoryScalarFieldEnum
+    having?: RentHistoryScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PriceAdjustmentCountAggregateInputType | true
-    _avg?: PriceAdjustmentAvgAggregateInputType
-    _sum?: PriceAdjustmentSumAggregateInputType
-    _min?: PriceAdjustmentMinAggregateInputType
-    _max?: PriceAdjustmentMaxAggregateInputType
+    _count?: RentHistoryCountAggregateInputType | true
+    _avg?: RentHistoryAvgAggregateInputType
+    _sum?: RentHistorySumAggregateInputType
+    _min?: RentHistoryMinAggregateInputType
+    _max?: RentHistoryMaxAggregateInputType
   }
 
-  export type PriceAdjustmentGroupByOutputType = {
+  export type RentHistoryGroupByOutputType = {
     id: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    CUST_ID: number | null
-    lastExecutedAt: Date | null
+    locationId: number
+    month: number
+    year: number
+    rentAmount: number
     createdAt: Date
-    updatedAt: Date
-    _count: PriceAdjustmentCountAggregateOutputType | null
-    _avg: PriceAdjustmentAvgAggregateOutputType | null
-    _sum: PriceAdjustmentSumAggregateOutputType | null
-    _min: PriceAdjustmentMinAggregateOutputType | null
-    _max: PriceAdjustmentMaxAggregateOutputType | null
+    CUST_ID: number | null
+    _count: RentHistoryCountAggregateOutputType | null
+    _avg: RentHistoryAvgAggregateOutputType | null
+    _sum: RentHistorySumAggregateOutputType | null
+    _min: RentHistoryMinAggregateOutputType | null
+    _max: RentHistoryMaxAggregateOutputType | null
   }
 
-  type GetPriceAdjustmentGroupByPayload<T extends PriceAdjustmentGroupByArgs> = Prisma.PrismaPromise<
+  type GetRentHistoryGroupByPayload<T extends RentHistoryGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PriceAdjustmentGroupByOutputType, T['by']> &
+      PickEnumerable<RentHistoryGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PriceAdjustmentGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof RentHistoryGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PriceAdjustmentGroupByOutputType[P]>
-            : GetScalarType<T[P], PriceAdjustmentGroupByOutputType[P]>
+              : GetScalarType<T[P], RentHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], RentHistoryGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PriceAdjustmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type RentHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    amount?: boolean
-    type?: boolean
-    period?: boolean
-    applyToAll?: boolean
-    status?: boolean
-    CUST_ID?: boolean
-    lastExecutedAt?: boolean
+    locationId?: boolean
+    month?: boolean
+    year?: boolean
+    rentAmount?: boolean
     createdAt?: boolean
-    updatedAt?: boolean
-    cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
-    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
-    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
-    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["priceAdjustment"]>
+    CUST_ID?: boolean
+    cust?: boolean | RentHistory$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rentHistory"]>
 
 
-  export type PriceAdjustmentSelectScalar = {
+  export type RentHistorySelectScalar = {
     id?: boolean
-    amount?: boolean
-    type?: boolean
-    period?: boolean
-    applyToAll?: boolean
-    status?: boolean
-    CUST_ID?: boolean
-    lastExecutedAt?: boolean
+    locationId?: boolean
+    month?: boolean
+    year?: boolean
+    rentAmount?: boolean
     createdAt?: boolean
-    updatedAt?: boolean
+    CUST_ID?: boolean
   }
 
-  export type PriceAdjustmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cust?: boolean | PriceAdjustment$custArgs<ExtArgs>
-    locations?: boolean | PriceAdjustment$locationsArgs<ExtArgs>
-    AdjustmentLocation?: boolean | PriceAdjustment$AdjustmentLocationArgs<ExtArgs>
-    _count?: boolean | PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
+  export type RentHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cust?: boolean | RentHistory$custArgs<ExtArgs>
+    location?: boolean | LocationDefaultArgs<ExtArgs>
   }
 
-  export type $PriceAdjustmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PriceAdjustment"
+  export type $RentHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RentHistory"
     objects: {
       cust: Prisma.$UserPayload<ExtArgs> | null
-      locations: Prisma.$LocationPayload<ExtArgs>[]
-      AdjustmentLocation: Prisma.$AdjustmentLocationPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      amount: number
-      type: number
-      period: number
-      applyToAll: boolean
-      status: number
-      CUST_ID: number | null
-      lastExecutedAt: Date | null
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["priceAdjustment"]>
-    composites: {}
-  }
-
-  type PriceAdjustmentGetPayload<S extends boolean | null | undefined | PriceAdjustmentDefaultArgs> = $Result.GetResult<Prisma.$PriceAdjustmentPayload, S>
-
-  type PriceAdjustmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<PriceAdjustmentFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: PriceAdjustmentCountAggregateInputType | true
-    }
-
-  export interface PriceAdjustmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PriceAdjustment'], meta: { name: 'PriceAdjustment' } }
-    /**
-     * Find zero or one PriceAdjustment that matches the filter.
-     * @param {PriceAdjustmentFindUniqueArgs} args - Arguments to find a PriceAdjustment
-     * @example
-     * // Get one PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends PriceAdjustmentFindUniqueArgs>(args: SelectSubset<T, PriceAdjustmentFindUniqueArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one PriceAdjustment that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {PriceAdjustmentFindUniqueOrThrowArgs} args - Arguments to find a PriceAdjustment
-     * @example
-     * // Get one PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends PriceAdjustmentFindUniqueOrThrowArgs>(args: SelectSubset<T, PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first PriceAdjustment that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentFindFirstArgs} args - Arguments to find a PriceAdjustment
-     * @example
-     * // Get one PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends PriceAdjustmentFindFirstArgs>(args?: SelectSubset<T, PriceAdjustmentFindFirstArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first PriceAdjustment that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentFindFirstOrThrowArgs} args - Arguments to find a PriceAdjustment
-     * @example
-     * // Get one PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends PriceAdjustmentFindFirstOrThrowArgs>(args?: SelectSubset<T, PriceAdjustmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more PriceAdjustments that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all PriceAdjustments
-     * const priceAdjustments = await prisma.priceAdjustment.findMany()
-     * 
-     * // Get first 10 PriceAdjustments
-     * const priceAdjustments = await prisma.priceAdjustment.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const priceAdjustmentWithIdOnly = await prisma.priceAdjustment.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends PriceAdjustmentFindManyArgs>(args?: SelectSubset<T, PriceAdjustmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a PriceAdjustment.
-     * @param {PriceAdjustmentCreateArgs} args - Arguments to create a PriceAdjustment.
-     * @example
-     * // Create one PriceAdjustment
-     * const PriceAdjustment = await prisma.priceAdjustment.create({
-     *   data: {
-     *     // ... data to create a PriceAdjustment
-     *   }
-     * })
-     * 
-     */
-    create<T extends PriceAdjustmentCreateArgs>(args: SelectSubset<T, PriceAdjustmentCreateArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many PriceAdjustments.
-     * @param {PriceAdjustmentCreateManyArgs} args - Arguments to create many PriceAdjustments.
-     * @example
-     * // Create many PriceAdjustments
-     * const priceAdjustment = await prisma.priceAdjustment.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends PriceAdjustmentCreateManyArgs>(args?: SelectSubset<T, PriceAdjustmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a PriceAdjustment.
-     * @param {PriceAdjustmentDeleteArgs} args - Arguments to delete one PriceAdjustment.
-     * @example
-     * // Delete one PriceAdjustment
-     * const PriceAdjustment = await prisma.priceAdjustment.delete({
-     *   where: {
-     *     // ... filter to delete one PriceAdjustment
-     *   }
-     * })
-     * 
-     */
-    delete<T extends PriceAdjustmentDeleteArgs>(args: SelectSubset<T, PriceAdjustmentDeleteArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one PriceAdjustment.
-     * @param {PriceAdjustmentUpdateArgs} args - Arguments to update one PriceAdjustment.
-     * @example
-     * // Update one PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends PriceAdjustmentUpdateArgs>(args: SelectSubset<T, PriceAdjustmentUpdateArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more PriceAdjustments.
-     * @param {PriceAdjustmentDeleteManyArgs} args - Arguments to filter PriceAdjustments to delete.
-     * @example
-     * // Delete a few PriceAdjustments
-     * const { count } = await prisma.priceAdjustment.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends PriceAdjustmentDeleteManyArgs>(args?: SelectSubset<T, PriceAdjustmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more PriceAdjustments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many PriceAdjustments
-     * const priceAdjustment = await prisma.priceAdjustment.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends PriceAdjustmentUpdateManyArgs>(args: SelectSubset<T, PriceAdjustmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one PriceAdjustment.
-     * @param {PriceAdjustmentUpsertArgs} args - Arguments to update or create a PriceAdjustment.
-     * @example
-     * // Update or create a PriceAdjustment
-     * const priceAdjustment = await prisma.priceAdjustment.upsert({
-     *   create: {
-     *     // ... data to create a PriceAdjustment
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the PriceAdjustment we want to update
-     *   }
-     * })
-     */
-    upsert<T extends PriceAdjustmentUpsertArgs>(args: SelectSubset<T, PriceAdjustmentUpsertArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of PriceAdjustments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentCountArgs} args - Arguments to filter PriceAdjustments to count.
-     * @example
-     * // Count the number of PriceAdjustments
-     * const count = await prisma.priceAdjustment.count({
-     *   where: {
-     *     // ... the filter for the PriceAdjustments we want to count
-     *   }
-     * })
-    **/
-    count<T extends PriceAdjustmentCountArgs>(
-      args?: Subset<T, PriceAdjustmentCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], PriceAdjustmentCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a PriceAdjustment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends PriceAdjustmentAggregateArgs>(args: Subset<T, PriceAdjustmentAggregateArgs>): Prisma.PrismaPromise<GetPriceAdjustmentAggregateType<T>>
-
-    /**
-     * Group by PriceAdjustment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PriceAdjustmentGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends PriceAdjustmentGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PriceAdjustmentGroupByArgs['orderBy'] }
-        : { orderBy?: PriceAdjustmentGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, PriceAdjustmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPriceAdjustmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the PriceAdjustment model
-   */
-  readonly fields: PriceAdjustmentFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for PriceAdjustment.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__PriceAdjustmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    cust<T extends PriceAdjustment$custArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
-    locations<T extends PriceAdjustment$locationsArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany"> | Null>
-    AdjustmentLocation<T extends PriceAdjustment$AdjustmentLocationArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustment$AdjustmentLocationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany"> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the PriceAdjustment model
-   */ 
-  interface PriceAdjustmentFieldRefs {
-    readonly id: FieldRef<"PriceAdjustment", 'Int'>
-    readonly amount: FieldRef<"PriceAdjustment", 'Float'>
-    readonly type: FieldRef<"PriceAdjustment", 'Int'>
-    readonly period: FieldRef<"PriceAdjustment", 'Int'>
-    readonly applyToAll: FieldRef<"PriceAdjustment", 'Boolean'>
-    readonly status: FieldRef<"PriceAdjustment", 'Int'>
-    readonly CUST_ID: FieldRef<"PriceAdjustment", 'Int'>
-    readonly lastExecutedAt: FieldRef<"PriceAdjustment", 'DateTime'>
-    readonly createdAt: FieldRef<"PriceAdjustment", 'DateTime'>
-    readonly updatedAt: FieldRef<"PriceAdjustment", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * PriceAdjustment findUnique
-   */
-  export type PriceAdjustmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter, which PriceAdjustment to fetch.
-     */
-    where: PriceAdjustmentWhereUniqueInput
-  }
-
-  /**
-   * PriceAdjustment findUniqueOrThrow
-   */
-  export type PriceAdjustmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter, which PriceAdjustment to fetch.
-     */
-    where: PriceAdjustmentWhereUniqueInput
-  }
-
-  /**
-   * PriceAdjustment findFirst
-   */
-  export type PriceAdjustmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter, which PriceAdjustment to fetch.
-     */
-    where?: PriceAdjustmentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PriceAdjustments to fetch.
-     */
-    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for PriceAdjustments.
-     */
-    cursor?: PriceAdjustmentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PriceAdjustments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PriceAdjustments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of PriceAdjustments.
-     */
-    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
-  }
-
-  /**
-   * PriceAdjustment findFirstOrThrow
-   */
-  export type PriceAdjustmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter, which PriceAdjustment to fetch.
-     */
-    where?: PriceAdjustmentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PriceAdjustments to fetch.
-     */
-    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for PriceAdjustments.
-     */
-    cursor?: PriceAdjustmentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PriceAdjustments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PriceAdjustments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of PriceAdjustments.
-     */
-    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
-  }
-
-  /**
-   * PriceAdjustment findMany
-   */
-  export type PriceAdjustmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter, which PriceAdjustments to fetch.
-     */
-    where?: PriceAdjustmentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of PriceAdjustments to fetch.
-     */
-    orderBy?: PriceAdjustmentOrderByWithRelationInput | PriceAdjustmentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing PriceAdjustments.
-     */
-    cursor?: PriceAdjustmentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` PriceAdjustments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` PriceAdjustments.
-     */
-    skip?: number
-    distinct?: PriceAdjustmentScalarFieldEnum | PriceAdjustmentScalarFieldEnum[]
-  }
-
-  /**
-   * PriceAdjustment create
-   */
-  export type PriceAdjustmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * The data needed to create a PriceAdjustment.
-     */
-    data: XOR<PriceAdjustmentCreateInput, PriceAdjustmentUncheckedCreateInput>
-  }
-
-  /**
-   * PriceAdjustment createMany
-   */
-  export type PriceAdjustmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many PriceAdjustments.
-     */
-    data: PriceAdjustmentCreateManyInput | PriceAdjustmentCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * PriceAdjustment update
-   */
-  export type PriceAdjustmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * The data needed to update a PriceAdjustment.
-     */
-    data: XOR<PriceAdjustmentUpdateInput, PriceAdjustmentUncheckedUpdateInput>
-    /**
-     * Choose, which PriceAdjustment to update.
-     */
-    where: PriceAdjustmentWhereUniqueInput
-  }
-
-  /**
-   * PriceAdjustment updateMany
-   */
-  export type PriceAdjustmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update PriceAdjustments.
-     */
-    data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyInput>
-    /**
-     * Filter which PriceAdjustments to update
-     */
-    where?: PriceAdjustmentWhereInput
-  }
-
-  /**
-   * PriceAdjustment upsert
-   */
-  export type PriceAdjustmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * The filter to search for the PriceAdjustment to update in case it exists.
-     */
-    where: PriceAdjustmentWhereUniqueInput
-    /**
-     * In case the PriceAdjustment found by the `where` argument doesn't exist, create a new PriceAdjustment with this data.
-     */
-    create: XOR<PriceAdjustmentCreateInput, PriceAdjustmentUncheckedCreateInput>
-    /**
-     * In case the PriceAdjustment was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PriceAdjustmentUpdateInput, PriceAdjustmentUncheckedUpdateInput>
-  }
-
-  /**
-   * PriceAdjustment delete
-   */
-  export type PriceAdjustmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-    /**
-     * Filter which PriceAdjustment to delete.
-     */
-    where: PriceAdjustmentWhereUniqueInput
-  }
-
-  /**
-   * PriceAdjustment deleteMany
-   */
-  export type PriceAdjustmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which PriceAdjustments to delete
-     */
-    where?: PriceAdjustmentWhereInput
-  }
-
-  /**
-   * PriceAdjustment.cust
-   */
-  export type PriceAdjustment$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-  }
-
-  /**
-   * PriceAdjustment.locations
-   */
-  export type PriceAdjustment$locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Location
-     */
-    select?: LocationSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocationInclude<ExtArgs> | null
-    where?: LocationWhereInput
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
-    cursor?: LocationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
-  }
-
-  /**
-   * PriceAdjustment.AdjustmentLocation
-   */
-  export type PriceAdjustment$AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AdjustmentLocation
-     */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
-    where?: AdjustmentLocationWhereInput
-    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
-    cursor?: AdjustmentLocationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
-  }
-
-  /**
-   * PriceAdjustment without action
-   */
-  export type PriceAdjustmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PriceAdjustment
-     */
-    select?: PriceAdjustmentSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PriceAdjustmentInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model AdjustmentLocation
-   */
-
-  export type AggregateAdjustmentLocation = {
-    _count: AdjustmentLocationCountAggregateOutputType | null
-    _avg: AdjustmentLocationAvgAggregateOutputType | null
-    _sum: AdjustmentLocationSumAggregateOutputType | null
-    _min: AdjustmentLocationMinAggregateOutputType | null
-    _max: AdjustmentLocationMaxAggregateOutputType | null
-  }
-
-  export type AdjustmentLocationAvgAggregateOutputType = {
-    id: number | null
-    priceAdjustmentId: number | null
-    locationId: number | null
-  }
-
-  export type AdjustmentLocationSumAggregateOutputType = {
-    id: number | null
-    priceAdjustmentId: number | null
-    locationId: number | null
-  }
-
-  export type AdjustmentLocationMinAggregateOutputType = {
-    id: number | null
-    priceAdjustmentId: number | null
-    locationId: number | null
-  }
-
-  export type AdjustmentLocationMaxAggregateOutputType = {
-    id: number | null
-    priceAdjustmentId: number | null
-    locationId: number | null
-  }
-
-  export type AdjustmentLocationCountAggregateOutputType = {
-    id: number
-    priceAdjustmentId: number
-    locationId: number
-    _all: number
-  }
-
-
-  export type AdjustmentLocationAvgAggregateInputType = {
-    id?: true
-    priceAdjustmentId?: true
-    locationId?: true
-  }
-
-  export type AdjustmentLocationSumAggregateInputType = {
-    id?: true
-    priceAdjustmentId?: true
-    locationId?: true
-  }
-
-  export type AdjustmentLocationMinAggregateInputType = {
-    id?: true
-    priceAdjustmentId?: true
-    locationId?: true
-  }
-
-  export type AdjustmentLocationMaxAggregateInputType = {
-    id?: true
-    priceAdjustmentId?: true
-    locationId?: true
-  }
-
-  export type AdjustmentLocationCountAggregateInputType = {
-    id?: true
-    priceAdjustmentId?: true
-    locationId?: true
-    _all?: true
-  }
-
-  export type AdjustmentLocationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which AdjustmentLocation to aggregate.
-     */
-    where?: AdjustmentLocationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of AdjustmentLocations to fetch.
-     */
-    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: AdjustmentLocationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` AdjustmentLocations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` AdjustmentLocations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned AdjustmentLocations
-    **/
-    _count?: true | AdjustmentLocationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AdjustmentLocationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AdjustmentLocationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AdjustmentLocationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AdjustmentLocationMaxAggregateInputType
-  }
-
-  export type GetAdjustmentLocationAggregateType<T extends AdjustmentLocationAggregateArgs> = {
-        [P in keyof T & keyof AggregateAdjustmentLocation]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
-      : GetScalarType<T[P], AggregateAdjustmentLocation[P]>
-  }
-
-
-
-
-  export type AdjustmentLocationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AdjustmentLocationWhereInput
-    orderBy?: AdjustmentLocationOrderByWithAggregationInput | AdjustmentLocationOrderByWithAggregationInput[]
-    by: AdjustmentLocationScalarFieldEnum[] | AdjustmentLocationScalarFieldEnum
-    having?: AdjustmentLocationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AdjustmentLocationCountAggregateInputType | true
-    _avg?: AdjustmentLocationAvgAggregateInputType
-    _sum?: AdjustmentLocationSumAggregateInputType
-    _min?: AdjustmentLocationMinAggregateInputType
-    _max?: AdjustmentLocationMaxAggregateInputType
-  }
-
-  export type AdjustmentLocationGroupByOutputType = {
-    id: number
-    priceAdjustmentId: number
-    locationId: number
-    _count: AdjustmentLocationCountAggregateOutputType | null
-    _avg: AdjustmentLocationAvgAggregateOutputType | null
-    _sum: AdjustmentLocationSumAggregateOutputType | null
-    _min: AdjustmentLocationMinAggregateOutputType | null
-    _max: AdjustmentLocationMaxAggregateOutputType | null
-  }
-
-  type GetAdjustmentLocationGroupByPayload<T extends AdjustmentLocationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AdjustmentLocationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AdjustmentLocationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
-            : GetScalarType<T[P], AdjustmentLocationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type AdjustmentLocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    priceAdjustmentId?: boolean
-    locationId?: boolean
-    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["adjustmentLocation"]>
-
-
-  export type AdjustmentLocationSelectScalar = {
-    id?: boolean
-    priceAdjustmentId?: boolean
-    locationId?: boolean
-  }
-
-  export type AdjustmentLocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    priceAdjustment?: boolean | PriceAdjustmentDefaultArgs<ExtArgs>
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-  }
-
-  export type $AdjustmentLocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "AdjustmentLocation"
-    objects: {
-      priceAdjustment: Prisma.$PriceAdjustmentPayload<ExtArgs>
       location: Prisma.$LocationPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      priceAdjustmentId: number
       locationId: number
-    }, ExtArgs["result"]["adjustmentLocation"]>
+      month: number
+      year: number
+      rentAmount: number
+      createdAt: Date
+      CUST_ID: number | null
+    }, ExtArgs["result"]["rentHistory"]>
     composites: {}
   }
 
-  type AdjustmentLocationGetPayload<S extends boolean | null | undefined | AdjustmentLocationDefaultArgs> = $Result.GetResult<Prisma.$AdjustmentLocationPayload, S>
+  type RentHistoryGetPayload<S extends boolean | null | undefined | RentHistoryDefaultArgs> = $Result.GetResult<Prisma.$RentHistoryPayload, S>
 
-  type AdjustmentLocationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<AdjustmentLocationFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: AdjustmentLocationCountAggregateInputType | true
+  type RentHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<RentHistoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: RentHistoryCountAggregateInputType | true
     }
 
-  export interface AdjustmentLocationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdjustmentLocation'], meta: { name: 'AdjustmentLocation' } }
+  export interface RentHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RentHistory'], meta: { name: 'RentHistory' } }
     /**
-     * Find zero or one AdjustmentLocation that matches the filter.
-     * @param {AdjustmentLocationFindUniqueArgs} args - Arguments to find a AdjustmentLocation
+     * Find zero or one RentHistory that matches the filter.
+     * @param {RentHistoryFindUniqueArgs} args - Arguments to find a RentHistory
      * @example
-     * // Get one AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.findUnique({
+     * // Get one RentHistory
+     * const rentHistory = await prisma.rentHistory.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends AdjustmentLocationFindUniqueArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends RentHistoryFindUniqueArgs>(args: SelectSubset<T, RentHistoryFindUniqueArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one AdjustmentLocation that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one RentHistory that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {AdjustmentLocationFindUniqueOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @param {RentHistoryFindUniqueOrThrowArgs} args - Arguments to find a RentHistory
      * @example
-     * // Get one AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.findUniqueOrThrow({
+     * // Get one RentHistory
+     * const rentHistory = await prisma.rentHistory.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends AdjustmentLocationFindUniqueOrThrowArgs>(args: SelectSubset<T, AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends RentHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, RentHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first AdjustmentLocation that matches the filter.
+     * Find the first RentHistory that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationFindFirstArgs} args - Arguments to find a AdjustmentLocation
+     * @param {RentHistoryFindFirstArgs} args - Arguments to find a RentHistory
      * @example
-     * // Get one AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.findFirst({
+     * // Get one RentHistory
+     * const rentHistory = await prisma.rentHistory.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends AdjustmentLocationFindFirstArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends RentHistoryFindFirstArgs>(args?: SelectSubset<T, RentHistoryFindFirstArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first AdjustmentLocation that matches the filter or
+     * Find the first RentHistory that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationFindFirstOrThrowArgs} args - Arguments to find a AdjustmentLocation
+     * @param {RentHistoryFindFirstOrThrowArgs} args - Arguments to find a RentHistory
      * @example
-     * // Get one AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.findFirstOrThrow({
+     * // Get one RentHistory
+     * const rentHistory = await prisma.rentHistory.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends AdjustmentLocationFindFirstOrThrowArgs>(args?: SelectSubset<T, AdjustmentLocationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends RentHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, RentHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more AdjustmentLocations that matches the filter.
+     * Find zero or more RentHistories that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {RentHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all AdjustmentLocations
-     * const adjustmentLocations = await prisma.adjustmentLocation.findMany()
+     * // Get all RentHistories
+     * const rentHistories = await prisma.rentHistory.findMany()
      * 
-     * // Get first 10 AdjustmentLocations
-     * const adjustmentLocations = await prisma.adjustmentLocation.findMany({ take: 10 })
+     * // Get first 10 RentHistories
+     * const rentHistories = await prisma.rentHistory.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const adjustmentLocationWithIdOnly = await prisma.adjustmentLocation.findMany({ select: { id: true } })
+     * const rentHistoryWithIdOnly = await prisma.rentHistory.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends AdjustmentLocationFindManyArgs>(args?: SelectSubset<T, AdjustmentLocationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends RentHistoryFindManyArgs>(args?: SelectSubset<T, RentHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a AdjustmentLocation.
-     * @param {AdjustmentLocationCreateArgs} args - Arguments to create a AdjustmentLocation.
+     * Create a RentHistory.
+     * @param {RentHistoryCreateArgs} args - Arguments to create a RentHistory.
      * @example
-     * // Create one AdjustmentLocation
-     * const AdjustmentLocation = await prisma.adjustmentLocation.create({
+     * // Create one RentHistory
+     * const RentHistory = await prisma.rentHistory.create({
      *   data: {
-     *     // ... data to create a AdjustmentLocation
+     *     // ... data to create a RentHistory
      *   }
      * })
      * 
      */
-    create<T extends AdjustmentLocationCreateArgs>(args: SelectSubset<T, AdjustmentLocationCreateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends RentHistoryCreateArgs>(args: SelectSubset<T, RentHistoryCreateArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many AdjustmentLocations.
-     * @param {AdjustmentLocationCreateManyArgs} args - Arguments to create many AdjustmentLocations.
+     * Create many RentHistories.
+     * @param {RentHistoryCreateManyArgs} args - Arguments to create many RentHistories.
      * @example
-     * // Create many AdjustmentLocations
-     * const adjustmentLocation = await prisma.adjustmentLocation.createMany({
+     * // Create many RentHistories
+     * const rentHistory = await prisma.rentHistory.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends AdjustmentLocationCreateManyArgs>(args?: SelectSubset<T, AdjustmentLocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends RentHistoryCreateManyArgs>(args?: SelectSubset<T, RentHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a AdjustmentLocation.
-     * @param {AdjustmentLocationDeleteArgs} args - Arguments to delete one AdjustmentLocation.
+     * Delete a RentHistory.
+     * @param {RentHistoryDeleteArgs} args - Arguments to delete one RentHistory.
      * @example
-     * // Delete one AdjustmentLocation
-     * const AdjustmentLocation = await prisma.adjustmentLocation.delete({
+     * // Delete one RentHistory
+     * const RentHistory = await prisma.rentHistory.delete({
      *   where: {
-     *     // ... filter to delete one AdjustmentLocation
+     *     // ... filter to delete one RentHistory
      *   }
      * })
      * 
      */
-    delete<T extends AdjustmentLocationDeleteArgs>(args: SelectSubset<T, AdjustmentLocationDeleteArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends RentHistoryDeleteArgs>(args: SelectSubset<T, RentHistoryDeleteArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one AdjustmentLocation.
-     * @param {AdjustmentLocationUpdateArgs} args - Arguments to update one AdjustmentLocation.
+     * Update one RentHistory.
+     * @param {RentHistoryUpdateArgs} args - Arguments to update one RentHistory.
      * @example
-     * // Update one AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.update({
+     * // Update one RentHistory
+     * const rentHistory = await prisma.rentHistory.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11253,30 +13688,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends AdjustmentLocationUpdateArgs>(args: SelectSubset<T, AdjustmentLocationUpdateArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends RentHistoryUpdateArgs>(args: SelectSubset<T, RentHistoryUpdateArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more AdjustmentLocations.
-     * @param {AdjustmentLocationDeleteManyArgs} args - Arguments to filter AdjustmentLocations to delete.
+     * Delete zero or more RentHistories.
+     * @param {RentHistoryDeleteManyArgs} args - Arguments to filter RentHistories to delete.
      * @example
-     * // Delete a few AdjustmentLocations
-     * const { count } = await prisma.adjustmentLocation.deleteMany({
+     * // Delete a few RentHistories
+     * const { count } = await prisma.rentHistory.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends AdjustmentLocationDeleteManyArgs>(args?: SelectSubset<T, AdjustmentLocationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends RentHistoryDeleteManyArgs>(args?: SelectSubset<T, RentHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more AdjustmentLocations.
+     * Update zero or more RentHistories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {RentHistoryUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many AdjustmentLocations
-     * const adjustmentLocation = await prisma.adjustmentLocation.updateMany({
+     * // Update many RentHistories
+     * const rentHistory = await prisma.rentHistory.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11286,56 +13721,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends AdjustmentLocationUpdateManyArgs>(args: SelectSubset<T, AdjustmentLocationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends RentHistoryUpdateManyArgs>(args: SelectSubset<T, RentHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one AdjustmentLocation.
-     * @param {AdjustmentLocationUpsertArgs} args - Arguments to update or create a AdjustmentLocation.
+     * Create or update one RentHistory.
+     * @param {RentHistoryUpsertArgs} args - Arguments to update or create a RentHistory.
      * @example
-     * // Update or create a AdjustmentLocation
-     * const adjustmentLocation = await prisma.adjustmentLocation.upsert({
+     * // Update or create a RentHistory
+     * const rentHistory = await prisma.rentHistory.upsert({
      *   create: {
-     *     // ... data to create a AdjustmentLocation
+     *     // ... data to create a RentHistory
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the AdjustmentLocation we want to update
+     *     // ... the filter for the RentHistory we want to update
      *   }
      * })
      */
-    upsert<T extends AdjustmentLocationUpsertArgs>(args: SelectSubset<T, AdjustmentLocationUpsertArgs<ExtArgs>>): Prisma__AdjustmentLocationClient<$Result.GetResult<Prisma.$AdjustmentLocationPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends RentHistoryUpsertArgs>(args: SelectSubset<T, RentHistoryUpsertArgs<ExtArgs>>): Prisma__RentHistoryClient<$Result.GetResult<Prisma.$RentHistoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of AdjustmentLocations.
+     * Count the number of RentHistories.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationCountArgs} args - Arguments to filter AdjustmentLocations to count.
+     * @param {RentHistoryCountArgs} args - Arguments to filter RentHistories to count.
      * @example
-     * // Count the number of AdjustmentLocations
-     * const count = await prisma.adjustmentLocation.count({
+     * // Count the number of RentHistories
+     * const count = await prisma.rentHistory.count({
      *   where: {
-     *     // ... the filter for the AdjustmentLocations we want to count
+     *     // ... the filter for the RentHistories we want to count
      *   }
      * })
     **/
-    count<T extends AdjustmentLocationCountArgs>(
-      args?: Subset<T, AdjustmentLocationCountArgs>,
+    count<T extends RentHistoryCountArgs>(
+      args?: Subset<T, RentHistoryCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], AdjustmentLocationCountAggregateOutputType>
+          : GetScalarType<T['select'], RentHistoryCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a AdjustmentLocation.
+     * Allows you to perform aggregations operations on a RentHistory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {RentHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -11355,13 +13790,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends AdjustmentLocationAggregateArgs>(args: Subset<T, AdjustmentLocationAggregateArgs>): Prisma.PrismaPromise<GetAdjustmentLocationAggregateType<T>>
+    aggregate<T extends RentHistoryAggregateArgs>(args: Subset<T, RentHistoryAggregateArgs>): Prisma.PrismaPromise<GetRentHistoryAggregateType<T>>
 
     /**
-     * Group by AdjustmentLocation.
+     * Group by RentHistory.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AdjustmentLocationGroupByArgs} args - Group by arguments.
+     * @param {RentHistoryGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -11376,14 +13811,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends AdjustmentLocationGroupByArgs,
+      T extends RentHistoryGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AdjustmentLocationGroupByArgs['orderBy'] }
-        : { orderBy?: AdjustmentLocationGroupByArgs['orderBy'] },
+        ? { orderBy: RentHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: RentHistoryGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -11432,22 +13867,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, AdjustmentLocationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdjustmentLocationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, RentHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRentHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the AdjustmentLocation model
+   * Fields of the RentHistory model
    */
-  readonly fields: AdjustmentLocationFieldRefs;
+  readonly fields: RentHistoryFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for AdjustmentLocation.
+   * The delegate class that acts as a "Promise-like" for RentHistory.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__AdjustmentLocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__RentHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    priceAdjustment<T extends PriceAdjustmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PriceAdjustmentDefaultArgs<ExtArgs>>): Prisma__PriceAdjustmentClient<$Result.GetResult<Prisma.$PriceAdjustmentPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    cust<T extends RentHistory$custArgs<ExtArgs> = {}>(args?: Subset<T, RentHistory$custArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -11475,322 +13910,341 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the AdjustmentLocation model
+   * Fields of the RentHistory model
    */ 
-  interface AdjustmentLocationFieldRefs {
-    readonly id: FieldRef<"AdjustmentLocation", 'Int'>
-    readonly priceAdjustmentId: FieldRef<"AdjustmentLocation", 'Int'>
-    readonly locationId: FieldRef<"AdjustmentLocation", 'Int'>
+  interface RentHistoryFieldRefs {
+    readonly id: FieldRef<"RentHistory", 'Int'>
+    readonly locationId: FieldRef<"RentHistory", 'Int'>
+    readonly month: FieldRef<"RentHistory", 'Int'>
+    readonly year: FieldRef<"RentHistory", 'Int'>
+    readonly rentAmount: FieldRef<"RentHistory", 'Int'>
+    readonly createdAt: FieldRef<"RentHistory", 'DateTime'>
+    readonly CUST_ID: FieldRef<"RentHistory", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * AdjustmentLocation findUnique
+   * RentHistory findUnique
    */
-  export type AdjustmentLocationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter, which AdjustmentLocation to fetch.
+     * Filter, which RentHistory to fetch.
      */
-    where: AdjustmentLocationWhereUniqueInput
+    where: RentHistoryWhereUniqueInput
   }
 
   /**
-   * AdjustmentLocation findUniqueOrThrow
+   * RentHistory findUniqueOrThrow
    */
-  export type AdjustmentLocationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter, which AdjustmentLocation to fetch.
+     * Filter, which RentHistory to fetch.
      */
-    where: AdjustmentLocationWhereUniqueInput
+    where: RentHistoryWhereUniqueInput
   }
 
   /**
-   * AdjustmentLocation findFirst
+   * RentHistory findFirst
    */
-  export type AdjustmentLocationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter, which AdjustmentLocation to fetch.
+     * Filter, which RentHistory to fetch.
      */
-    where?: AdjustmentLocationWhereInput
+    where?: RentHistoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdjustmentLocations to fetch.
+     * Determine the order of RentHistories to fetch.
      */
-    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for AdjustmentLocations.
+     * Sets the position for searching for RentHistories.
      */
-    cursor?: AdjustmentLocationWhereUniqueInput
+    cursor?: RentHistoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdjustmentLocations from the position of the cursor.
+     * Take `±n` RentHistories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdjustmentLocations.
+     * Skip the first `n` RentHistories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of AdjustmentLocations.
+     * Filter by unique combinations of RentHistories.
      */
-    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+    distinct?: RentHistoryScalarFieldEnum | RentHistoryScalarFieldEnum[]
   }
 
   /**
-   * AdjustmentLocation findFirstOrThrow
+   * RentHistory findFirstOrThrow
    */
-  export type AdjustmentLocationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter, which AdjustmentLocation to fetch.
+     * Filter, which RentHistory to fetch.
      */
-    where?: AdjustmentLocationWhereInput
+    where?: RentHistoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdjustmentLocations to fetch.
+     * Determine the order of RentHistories to fetch.
      */
-    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for AdjustmentLocations.
+     * Sets the position for searching for RentHistories.
      */
-    cursor?: AdjustmentLocationWhereUniqueInput
+    cursor?: RentHistoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdjustmentLocations from the position of the cursor.
+     * Take `±n` RentHistories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdjustmentLocations.
+     * Skip the first `n` RentHistories.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of AdjustmentLocations.
+     * Filter by unique combinations of RentHistories.
      */
-    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+    distinct?: RentHistoryScalarFieldEnum | RentHistoryScalarFieldEnum[]
   }
 
   /**
-   * AdjustmentLocation findMany
+   * RentHistory findMany
    */
-  export type AdjustmentLocationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter, which AdjustmentLocations to fetch.
+     * Filter, which RentHistories to fetch.
      */
-    where?: AdjustmentLocationWhereInput
+    where?: RentHistoryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AdjustmentLocations to fetch.
+     * Determine the order of RentHistories to fetch.
      */
-    orderBy?: AdjustmentLocationOrderByWithRelationInput | AdjustmentLocationOrderByWithRelationInput[]
+    orderBy?: RentHistoryOrderByWithRelationInput | RentHistoryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing AdjustmentLocations.
+     * Sets the position for listing RentHistories.
      */
-    cursor?: AdjustmentLocationWhereUniqueInput
+    cursor?: RentHistoryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` AdjustmentLocations from the position of the cursor.
+     * Take `±n` RentHistories from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` AdjustmentLocations.
+     * Skip the first `n` RentHistories.
      */
     skip?: number
-    distinct?: AdjustmentLocationScalarFieldEnum | AdjustmentLocationScalarFieldEnum[]
+    distinct?: RentHistoryScalarFieldEnum | RentHistoryScalarFieldEnum[]
   }
 
   /**
-   * AdjustmentLocation create
+   * RentHistory create
    */
-  export type AdjustmentLocationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * The data needed to create a AdjustmentLocation.
+     * The data needed to create a RentHistory.
      */
-    data: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+    data: XOR<RentHistoryCreateInput, RentHistoryUncheckedCreateInput>
   }
 
   /**
-   * AdjustmentLocation createMany
+   * RentHistory createMany
    */
-  export type AdjustmentLocationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many AdjustmentLocations.
+     * The data used to create many RentHistories.
      */
-    data: AdjustmentLocationCreateManyInput | AdjustmentLocationCreateManyInput[]
+    data: RentHistoryCreateManyInput | RentHistoryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * AdjustmentLocation update
+   * RentHistory update
    */
-  export type AdjustmentLocationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * The data needed to update a AdjustmentLocation.
+     * The data needed to update a RentHistory.
      */
-    data: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+    data: XOR<RentHistoryUpdateInput, RentHistoryUncheckedUpdateInput>
     /**
-     * Choose, which AdjustmentLocation to update.
+     * Choose, which RentHistory to update.
      */
-    where: AdjustmentLocationWhereUniqueInput
+    where: RentHistoryWhereUniqueInput
   }
 
   /**
-   * AdjustmentLocation updateMany
+   * RentHistory updateMany
    */
-  export type AdjustmentLocationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update AdjustmentLocations.
+     * The data used to update RentHistories.
      */
-    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyInput>
+    data: XOR<RentHistoryUpdateManyMutationInput, RentHistoryUncheckedUpdateManyInput>
     /**
-     * Filter which AdjustmentLocations to update
+     * Filter which RentHistories to update
      */
-    where?: AdjustmentLocationWhereInput
+    where?: RentHistoryWhereInput
   }
 
   /**
-   * AdjustmentLocation upsert
+   * RentHistory upsert
    */
-  export type AdjustmentLocationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * The filter to search for the AdjustmentLocation to update in case it exists.
+     * The filter to search for the RentHistory to update in case it exists.
      */
-    where: AdjustmentLocationWhereUniqueInput
+    where: RentHistoryWhereUniqueInput
     /**
-     * In case the AdjustmentLocation found by the `where` argument doesn't exist, create a new AdjustmentLocation with this data.
+     * In case the RentHistory found by the `where` argument doesn't exist, create a new RentHistory with this data.
      */
-    create: XOR<AdjustmentLocationCreateInput, AdjustmentLocationUncheckedCreateInput>
+    create: XOR<RentHistoryCreateInput, RentHistoryUncheckedCreateInput>
     /**
-     * In case the AdjustmentLocation was found with the provided `where` argument, update it with this data.
+     * In case the RentHistory was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<AdjustmentLocationUpdateInput, AdjustmentLocationUncheckedUpdateInput>
+    update: XOR<RentHistoryUpdateInput, RentHistoryUncheckedUpdateInput>
   }
 
   /**
-   * AdjustmentLocation delete
+   * RentHistory delete
    */
-  export type AdjustmentLocationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the RentHistory
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: RentHistorySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: RentHistoryInclude<ExtArgs> | null
     /**
-     * Filter which AdjustmentLocation to delete.
+     * Filter which RentHistory to delete.
      */
-    where: AdjustmentLocationWhereUniqueInput
+    where: RentHistoryWhereUniqueInput
   }
 
   /**
-   * AdjustmentLocation deleteMany
+   * RentHistory deleteMany
    */
-  export type AdjustmentLocationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which AdjustmentLocations to delete
+     * Filter which RentHistories to delete
      */
-    where?: AdjustmentLocationWhereInput
+    where?: RentHistoryWhereInput
   }
 
   /**
-   * AdjustmentLocation without action
+   * RentHistory.cust
    */
-  export type AdjustmentLocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type RentHistory$custArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AdjustmentLocation
+     * Select specific fields to fetch from the User
      */
-    select?: AdjustmentLocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AdjustmentLocationInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * RentHistory without action
+   */
+  export type RentHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RentHistory
+     */
+    select?: RentHistorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RentHistoryInclude<ExtArgs> | null
   }
 
 
@@ -11816,10 +14270,11 @@ export namespace Prisma {
     firstName: 'firstName',
     lastName: 'lastName',
     picture: 'picture',
-    password: 'password',
     createdAt: 'createdAt',
+    password: 'password',
     updatedAt: 'updatedAt',
-    CUST_ID: 'CUST_ID'
+    CUST_ID: 'CUST_ID',
+    dni: 'dni'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -11830,7 +14285,6 @@ export namespace Prisma {
     name: 'name',
     address: 'address',
     renterId: 'renterId',
-    price: 'price',
     CUST_ID: 'CUST_ID',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -11839,16 +14293,87 @@ export namespace Prisma {
   export type LocationScalarFieldEnum = (typeof LocationScalarFieldEnum)[keyof typeof LocationScalarFieldEnum]
 
 
+  export const LeaseContractScalarFieldEnum: {
+    id: 'id',
+    locationId: 'locationId',
+    startDate: 'startDate',
+    endDate: 'endDate',
+    finishedDate: 'finishedDate',
+    rentAmount: 'rentAmount',
+    active: 'active',
+    cancelled: 'cancelled',
+    createdAt: 'createdAt',
+    pdfPath: 'pdfPath',
+    CUST_ID: 'CUST_ID',
+    renterId: 'renterId'
+  };
+
+  export type LeaseContractScalarFieldEnum = (typeof LeaseContractScalarFieldEnum)[keyof typeof LeaseContractScalarFieldEnum]
+
+
+  export const KeyScalarFieldEnum: {
+    id: 'id',
+    locationId: 'locationId',
+    issueDate: 'issueDate',
+    returnDate: 'returnDate',
+    CUST_ID: 'CUST_ID'
+  };
+
+  export type KeyScalarFieldEnum = (typeof KeyScalarFieldEnum)[keyof typeof KeyScalarFieldEnum]
+
+
+  export const PriceAdjustmentScalarFieldEnum: {
+    id: 'id',
+    CUST_ID: 'CUST_ID',
+    amount: 'amount',
+    period: 'period',
+    status: 'status',
+    applyToAll: 'applyToAll',
+    type: 'type',
+    createdAt: 'createdAt',
+    lastExecutedAt: 'lastExecutedAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PriceAdjustmentScalarFieldEnum = (typeof PriceAdjustmentScalarFieldEnum)[keyof typeof PriceAdjustmentScalarFieldEnum]
+
+
+  export const AdjustmentLocationScalarFieldEnum: {
+    id: 'id',
+    priceAdjustmentId: 'priceAdjustmentId',
+    locationId: 'locationId'
+  };
+
+  export type AdjustmentLocationScalarFieldEnum = (typeof AdjustmentLocationScalarFieldEnum)[keyof typeof AdjustmentLocationScalarFieldEnum]
+
+
   export const PaymentScalarFieldEnum: {
     id: 'id',
     locationId: 'locationId',
     date: 'date',
     amount: 'amount',
     paymentMethodId: 'paymentMethodId',
-    CUST_ID: 'CUST_ID'
+    CUST_ID: 'CUST_ID',
+    paymentRecordId: 'paymentRecordId',
+    month: 'month',
+    year: 'year'
   };
 
   export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+  export const PaymentRecordScalarFieldEnum: {
+    id: 'id',
+    locationId: 'locationId',
+    month: 'month',
+    year: 'year',
+    CUST_ID: 'CUST_ID',
+    remainingAmount: 'remainingAmount',
+    totalPaid: 'totalPaid',
+    totalRent: 'totalRent'
+  };
+
+  export type PaymentRecordScalarFieldEnum = (typeof PaymentRecordScalarFieldEnum)[keyof typeof PaymentRecordScalarFieldEnum]
 
 
   export const PaymentMethodScalarFieldEnum: {
@@ -11879,53 +14404,17 @@ export namespace Prisma {
   export type PaymentScheduleScalarFieldEnum = (typeof PaymentScheduleScalarFieldEnum)[keyof typeof PaymentScheduleScalarFieldEnum]
 
 
-  export const KeyScalarFieldEnum: {
+  export const RentHistoryScalarFieldEnum: {
     id: 'id',
     locationId: 'locationId',
-    issueDate: 'issueDate',
-    returnDate: 'returnDate',
-    CUST_ID: 'CUST_ID'
-  };
-
-  export type KeyScalarFieldEnum = (typeof KeyScalarFieldEnum)[keyof typeof KeyScalarFieldEnum]
-
-
-  export const ContractScalarFieldEnum: {
-    id: 'id',
-    locationId: 'locationId',
-    startDate: 'startDate',
-    endDate: 'endDate',
-    renewed: 'renewed',
-    cancelled: 'cancelled',
-    CUST_ID: 'CUST_ID'
-  };
-
-  export type ContractScalarFieldEnum = (typeof ContractScalarFieldEnum)[keyof typeof ContractScalarFieldEnum]
-
-
-  export const PriceAdjustmentScalarFieldEnum: {
-    id: 'id',
-    amount: 'amount',
-    type: 'type',
-    period: 'period',
-    applyToAll: 'applyToAll',
-    status: 'status',
-    CUST_ID: 'CUST_ID',
-    lastExecutedAt: 'lastExecutedAt',
+    month: 'month',
+    year: 'year',
+    rentAmount: 'rentAmount',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    CUST_ID: 'CUST_ID'
   };
 
-  export type PriceAdjustmentScalarFieldEnum = (typeof PriceAdjustmentScalarFieldEnum)[keyof typeof PriceAdjustmentScalarFieldEnum]
-
-
-  export const AdjustmentLocationScalarFieldEnum: {
-    id: 'id',
-    priceAdjustmentId: 'priceAdjustmentId',
-    locationId: 'locationId'
-  };
-
-  export type AdjustmentLocationScalarFieldEnum = (typeof AdjustmentLocationScalarFieldEnum)[keyof typeof AdjustmentLocationScalarFieldEnum]
+  export type RentHistoryScalarFieldEnum = (typeof RentHistoryScalarFieldEnum)[keyof typeof RentHistoryScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11998,20 +14487,24 @@ export namespace Prisma {
     firstName?: StringNullableFilter<"User"> | string | null
     lastName?: StringNullableFilter<"User"> | string | null
     picture?: StringNullableFilter<"User"> | string | null
-    password?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
+    password?: StringNullableFilter<"User"> | string | null
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
+    dni?: IntFilter<"User"> | number
+    invoices?: InvoiceListRelationFilter
+    keys?: KeyListRelationFilter
+    leaseContractsAsCust?: LeaseContractListRelationFilter
+    leaseContractsAsRenter?: LeaseContractListRelationFilter
+    Location?: LocationListRelationFilter
     rentedLocations?: LocationListRelationFilter
+    payments?: PaymentListRelationFilter
+    PaymentRecord?: PaymentRecordListRelationFilter
+    paymentSchedules?: PaymentScheduleListRelationFilter
+    priceAdjustments?: PriceAdjustmentListRelationFilter
+    RentHistory?: RentHistoryListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     createdUsers?: UserListRelationFilter
-    Location?: LocationListRelationFilter
-    payments?: PaymentListRelationFilter
-    invoices?: InvoiceListRelationFilter
-    paymentSchedules?: PaymentScheduleListRelationFilter
-    keys?: KeyListRelationFilter
-    contracts?: ContractListRelationFilter
-    priceAdjustments?: PriceAdjustmentListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -12022,25 +14515,30 @@ export namespace Prisma {
     firstName?: SortOrderInput | SortOrder
     lastName?: SortOrderInput | SortOrder
     picture?: SortOrderInput | SortOrder
-    password?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    password?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    dni?: SortOrder
+    invoices?: InvoiceOrderByRelationAggregateInput
+    keys?: KeyOrderByRelationAggregateInput
+    leaseContractsAsCust?: LeaseContractOrderByRelationAggregateInput
+    leaseContractsAsRenter?: LeaseContractOrderByRelationAggregateInput
+    Location?: LocationOrderByRelationAggregateInput
     rentedLocations?: LocationOrderByRelationAggregateInput
+    payments?: PaymentOrderByRelationAggregateInput
+    PaymentRecord?: PaymentRecordOrderByRelationAggregateInput
+    paymentSchedules?: PaymentScheduleOrderByRelationAggregateInput
+    priceAdjustments?: PriceAdjustmentOrderByRelationAggregateInput
+    RentHistory?: RentHistoryOrderByRelationAggregateInput
     cust?: UserOrderByWithRelationInput
     createdUsers?: UserOrderByRelationAggregateInput
-    Location?: LocationOrderByRelationAggregateInput
-    payments?: PaymentOrderByRelationAggregateInput
-    invoices?: InvoiceOrderByRelationAggregateInput
-    paymentSchedules?: PaymentScheduleOrderByRelationAggregateInput
-    keys?: KeyOrderByRelationAggregateInput
-    contracts?: ContractOrderByRelationAggregateInput
-    priceAdjustments?: PriceAdjustmentOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
+    dni?: number
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -12049,21 +14547,24 @@ export namespace Prisma {
     firstName?: StringNullableFilter<"User"> | string | null
     lastName?: StringNullableFilter<"User"> | string | null
     picture?: StringNullableFilter<"User"> | string | null
-    password?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
+    password?: StringNullableFilter<"User"> | string | null
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
+    invoices?: InvoiceListRelationFilter
+    keys?: KeyListRelationFilter
+    leaseContractsAsCust?: LeaseContractListRelationFilter
+    leaseContractsAsRenter?: LeaseContractListRelationFilter
+    Location?: LocationListRelationFilter
     rentedLocations?: LocationListRelationFilter
+    payments?: PaymentListRelationFilter
+    PaymentRecord?: PaymentRecordListRelationFilter
+    paymentSchedules?: PaymentScheduleListRelationFilter
+    priceAdjustments?: PriceAdjustmentListRelationFilter
+    RentHistory?: RentHistoryListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     createdUsers?: UserListRelationFilter
-    Location?: LocationListRelationFilter
-    payments?: PaymentListRelationFilter
-    invoices?: InvoiceListRelationFilter
-    paymentSchedules?: PaymentScheduleListRelationFilter
-    keys?: KeyListRelationFilter
-    contracts?: ContractListRelationFilter
-    priceAdjustments?: PriceAdjustmentListRelationFilter
-  }, "id" | "email">
+  }, "id" | "email" | "dni">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -12073,10 +14574,11 @@ export namespace Prisma {
     firstName?: SortOrderInput | SortOrder
     lastName?: SortOrderInput | SortOrder
     picture?: SortOrderInput | SortOrder
-    password?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    password?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    dni?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -12095,10 +14597,11 @@ export namespace Prisma {
     firstName?: StringNullableWithAggregatesFilter<"User"> | string | null
     lastName?: StringNullableWithAggregatesFilter<"User"> | string | null
     picture?: StringNullableWithAggregatesFilter<"User"> | string | null
-    password?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    password?: StringNullableWithAggregatesFilter<"User"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableWithAggregatesFilter<"User"> | number | null
+    dni?: IntWithAggregatesFilter<"User"> | number
   }
 
   export type LocationWhereInput = {
@@ -12109,19 +14612,20 @@ export namespace Prisma {
     name?: StringFilter<"Location"> | string
     address?: StringFilter<"Location"> | string
     renterId?: IntFilter<"Location"> | number
-    price?: IntNullableFilter<"Location"> | number | null
     CUST_ID?: IntNullableFilter<"Location"> | number | null
-    createdAt?: DateTimeFilter<"Location"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Location"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
-    contracts?: ContractListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
-    renter?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-    payments?: PaymentListRelationFilter
-    paymentSchedules?: PaymentScheduleListRelationFilter
+    contracts?: LeaseContractListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    renter?: XOR<UserRelationFilter, UserWhereInput>
+    payments?: PaymentListRelationFilter
+    PaymentRecord?: PaymentRecordListRelationFilter
+    paymentSchedules?: PaymentScheduleListRelationFilter
+    rentHistory?: RentHistoryListRelationFilter
     adjustments?: PriceAdjustmentListRelationFilter
-    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }
 
   export type LocationOrderByWithRelationInput = {
@@ -12129,19 +14633,20 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
-    price?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    contracts?: ContractOrderByRelationAggregateInput
+    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
     invoices?: InvoiceOrderByRelationAggregateInput
     keys?: KeyOrderByRelationAggregateInput
+    contracts?: LeaseContractOrderByRelationAggregateInput
+    cust?: UserOrderByWithRelationInput
     renter?: UserOrderByWithRelationInput
     payments?: PaymentOrderByRelationAggregateInput
+    PaymentRecord?: PaymentRecordOrderByRelationAggregateInput
     paymentSchedules?: PaymentScheduleOrderByRelationAggregateInput
-    cust?: UserOrderByWithRelationInput
+    rentHistory?: RentHistoryOrderByRelationAggregateInput
     adjustments?: PriceAdjustmentOrderByRelationAggregateInput
-    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
   }
 
   export type LocationWhereUniqueInput = Prisma.AtLeast<{
@@ -12152,19 +14657,20 @@ export namespace Prisma {
     name?: StringFilter<"Location"> | string
     address?: StringFilter<"Location"> | string
     renterId?: IntFilter<"Location"> | number
-    price?: IntNullableFilter<"Location"> | number | null
     CUST_ID?: IntNullableFilter<"Location"> | number | null
-    createdAt?: DateTimeFilter<"Location"> | Date | string
+    createdAt?: DateTimeNullableFilter<"Location"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
-    contracts?: ContractListRelationFilter
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
-    renter?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-    payments?: PaymentListRelationFilter
-    paymentSchedules?: PaymentScheduleListRelationFilter
+    contracts?: LeaseContractListRelationFilter
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    renter?: XOR<UserRelationFilter, UserWhereInput>
+    payments?: PaymentListRelationFilter
+    PaymentRecord?: PaymentRecordListRelationFilter
+    paymentSchedules?: PaymentScheduleListRelationFilter
+    rentHistory?: RentHistoryListRelationFilter
     adjustments?: PriceAdjustmentListRelationFilter
-    AdjustmentLocation?: AdjustmentLocationListRelationFilter
   }, "id">
 
   export type LocationOrderByWithAggregationInput = {
@@ -12172,9 +14678,8 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
-    price?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     _count?: LocationCountOrderByAggregateInput
     _avg?: LocationAvgOrderByAggregateInput
@@ -12191,10 +14696,305 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Location"> | string
     address?: StringWithAggregatesFilter<"Location"> | string
     renterId?: IntWithAggregatesFilter<"Location"> | number
-    price?: IntNullableWithAggregatesFilter<"Location"> | number | null
     CUST_ID?: IntNullableWithAggregatesFilter<"Location"> | number | null
-    createdAt?: DateTimeWithAggregatesFilter<"Location"> | Date | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Location"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Location"> | Date | string | null
+  }
+
+  export type LeaseContractWhereInput = {
+    AND?: LeaseContractWhereInput | LeaseContractWhereInput[]
+    OR?: LeaseContractWhereInput[]
+    NOT?: LeaseContractWhereInput | LeaseContractWhereInput[]
+    id?: IntFilter<"LeaseContract"> | number
+    locationId?: IntFilter<"LeaseContract"> | number
+    startDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    endDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    finishedDate?: DateTimeNullableFilter<"LeaseContract"> | Date | string | null
+    rentAmount?: IntFilter<"LeaseContract"> | number
+    active?: BoolFilter<"LeaseContract"> | boolean
+    cancelled?: BoolFilter<"LeaseContract"> | boolean
+    createdAt?: DateTimeFilter<"LeaseContract"> | Date | string
+    pdfPath?: StringNullableFilter<"LeaseContract"> | string | null
+    CUST_ID?: IntNullableFilter<"LeaseContract"> | number | null
+    renterId?: IntFilter<"LeaseContract"> | number
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+    renter?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type LeaseContractOrderByWithRelationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    finishedDate?: SortOrderInput | SortOrder
+    rentAmount?: SortOrder
+    active?: SortOrder
+    cancelled?: SortOrder
+    createdAt?: SortOrder
+    pdfPath?: SortOrderInput | SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    renterId?: SortOrder
+    cust?: UserOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
+    renter?: UserOrderByWithRelationInput
+  }
+
+  export type LeaseContractWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LeaseContractWhereInput | LeaseContractWhereInput[]
+    OR?: LeaseContractWhereInput[]
+    NOT?: LeaseContractWhereInput | LeaseContractWhereInput[]
+    locationId?: IntFilter<"LeaseContract"> | number
+    startDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    endDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    finishedDate?: DateTimeNullableFilter<"LeaseContract"> | Date | string | null
+    rentAmount?: IntFilter<"LeaseContract"> | number
+    active?: BoolFilter<"LeaseContract"> | boolean
+    cancelled?: BoolFilter<"LeaseContract"> | boolean
+    createdAt?: DateTimeFilter<"LeaseContract"> | Date | string
+    pdfPath?: StringNullableFilter<"LeaseContract"> | string | null
+    CUST_ID?: IntNullableFilter<"LeaseContract"> | number | null
+    renterId?: IntFilter<"LeaseContract"> | number
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+    renter?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type LeaseContractOrderByWithAggregationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    finishedDate?: SortOrderInput | SortOrder
+    rentAmount?: SortOrder
+    active?: SortOrder
+    cancelled?: SortOrder
+    createdAt?: SortOrder
+    pdfPath?: SortOrderInput | SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    renterId?: SortOrder
+    _count?: LeaseContractCountOrderByAggregateInput
+    _avg?: LeaseContractAvgOrderByAggregateInput
+    _max?: LeaseContractMaxOrderByAggregateInput
+    _min?: LeaseContractMinOrderByAggregateInput
+    _sum?: LeaseContractSumOrderByAggregateInput
+  }
+
+  export type LeaseContractScalarWhereWithAggregatesInput = {
+    AND?: LeaseContractScalarWhereWithAggregatesInput | LeaseContractScalarWhereWithAggregatesInput[]
+    OR?: LeaseContractScalarWhereWithAggregatesInput[]
+    NOT?: LeaseContractScalarWhereWithAggregatesInput | LeaseContractScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LeaseContract"> | number
+    locationId?: IntWithAggregatesFilter<"LeaseContract"> | number
+    startDate?: DateTimeWithAggregatesFilter<"LeaseContract"> | Date | string
+    endDate?: DateTimeWithAggregatesFilter<"LeaseContract"> | Date | string
+    finishedDate?: DateTimeNullableWithAggregatesFilter<"LeaseContract"> | Date | string | null
+    rentAmount?: IntWithAggregatesFilter<"LeaseContract"> | number
+    active?: BoolWithAggregatesFilter<"LeaseContract"> | boolean
+    cancelled?: BoolWithAggregatesFilter<"LeaseContract"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"LeaseContract"> | Date | string
+    pdfPath?: StringNullableWithAggregatesFilter<"LeaseContract"> | string | null
+    CUST_ID?: IntNullableWithAggregatesFilter<"LeaseContract"> | number | null
+    renterId?: IntWithAggregatesFilter<"LeaseContract"> | number
+  }
+
+  export type KeyWhereInput = {
+    AND?: KeyWhereInput | KeyWhereInput[]
+    OR?: KeyWhereInput[]
+    NOT?: KeyWhereInput | KeyWhereInput[]
+    id?: IntFilter<"Key"> | number
+    locationId?: IntFilter<"Key"> | number
+    issueDate?: DateTimeFilter<"Key"> | Date | string
+    returnDate?: DateTimeNullableFilter<"Key"> | Date | string | null
+    CUST_ID?: IntNullableFilter<"Key"> | number | null
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }
+
+  export type KeyOrderByWithRelationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    issueDate?: SortOrder
+    returnDate?: SortOrderInput | SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    cust?: UserOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
+  }
+
+  export type KeyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: KeyWhereInput | KeyWhereInput[]
+    OR?: KeyWhereInput[]
+    NOT?: KeyWhereInput | KeyWhereInput[]
+    locationId?: IntFilter<"Key"> | number
+    issueDate?: DateTimeFilter<"Key"> | Date | string
+    returnDate?: DateTimeNullableFilter<"Key"> | Date | string | null
+    CUST_ID?: IntNullableFilter<"Key"> | number | null
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }, "id">
+
+  export type KeyOrderByWithAggregationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    issueDate?: SortOrder
+    returnDate?: SortOrderInput | SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    _count?: KeyCountOrderByAggregateInput
+    _avg?: KeyAvgOrderByAggregateInput
+    _max?: KeyMaxOrderByAggregateInput
+    _min?: KeyMinOrderByAggregateInput
+    _sum?: KeySumOrderByAggregateInput
+  }
+
+  export type KeyScalarWhereWithAggregatesInput = {
+    AND?: KeyScalarWhereWithAggregatesInput | KeyScalarWhereWithAggregatesInput[]
+    OR?: KeyScalarWhereWithAggregatesInput[]
+    NOT?: KeyScalarWhereWithAggregatesInput | KeyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Key"> | number
+    locationId?: IntWithAggregatesFilter<"Key"> | number
+    issueDate?: DateTimeWithAggregatesFilter<"Key"> | Date | string
+    returnDate?: DateTimeNullableWithAggregatesFilter<"Key"> | Date | string | null
+    CUST_ID?: IntNullableWithAggregatesFilter<"Key"> | number | null
+  }
+
+  export type PriceAdjustmentWhereInput = {
+    AND?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
+    OR?: PriceAdjustmentWhereInput[]
+    NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
+    id?: IntFilter<"PriceAdjustment"> | number
+    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    amount?: IntFilter<"PriceAdjustment"> | number
+    period?: IntFilter<"PriceAdjustment"> | number
+    status?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
+    type?: IntFilter<"PriceAdjustment"> | number
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    locations?: LocationListRelationFilter
+  }
+
+  export type PriceAdjustmentOrderByWithRelationInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    applyToAll?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    lastExecutedAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
+    cust?: UserOrderByWithRelationInput
+    locations?: LocationOrderByRelationAggregateInput
+  }
+
+  export type PriceAdjustmentWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
+    OR?: PriceAdjustmentWhereInput[]
+    NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
+    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    amount?: IntFilter<"PriceAdjustment"> | number
+    period?: IntFilter<"PriceAdjustment"> | number
+    status?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
+    type?: IntFilter<"PriceAdjustment"> | number
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    AdjustmentLocation?: AdjustmentLocationListRelationFilter
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    locations?: LocationListRelationFilter
+  }, "id">
+
+  export type PriceAdjustmentOrderByWithAggregationInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    applyToAll?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    lastExecutedAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
+    _count?: PriceAdjustmentCountOrderByAggregateInput
+    _avg?: PriceAdjustmentAvgOrderByAggregateInput
+    _max?: PriceAdjustmentMaxOrderByAggregateInput
+    _min?: PriceAdjustmentMinOrderByAggregateInput
+    _sum?: PriceAdjustmentSumOrderByAggregateInput
+  }
+
+  export type PriceAdjustmentScalarWhereWithAggregatesInput = {
+    AND?: PriceAdjustmentScalarWhereWithAggregatesInput | PriceAdjustmentScalarWhereWithAggregatesInput[]
+    OR?: PriceAdjustmentScalarWhereWithAggregatesInput[]
+    NOT?: PriceAdjustmentScalarWhereWithAggregatesInput | PriceAdjustmentScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    CUST_ID?: IntNullableWithAggregatesFilter<"PriceAdjustment"> | number | null
+    amount?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    period?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    status?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolWithAggregatesFilter<"PriceAdjustment"> | boolean
+    type?: IntWithAggregatesFilter<"PriceAdjustment"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
+    lastExecutedAt?: DateTimeNullableWithAggregatesFilter<"PriceAdjustment"> | Date | string | null
+    updatedAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
+  }
+
+  export type AdjustmentLocationWhereInput = {
+    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    OR?: AdjustmentLocationWhereInput[]
+    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    id?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
+  }
+
+  export type AdjustmentLocationOrderByWithRelationInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+    location?: LocationOrderByWithRelationInput
+    priceAdjustment?: PriceAdjustmentOrderByWithRelationInput
+  }
+
+  export type AdjustmentLocationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    OR?: AdjustmentLocationWhereInput[]
+    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
+  }, "id">
+
+  export type AdjustmentLocationOrderByWithAggregationInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+    _count?: AdjustmentLocationCountOrderByAggregateInput
+    _avg?: AdjustmentLocationAvgOrderByAggregateInput
+    _max?: AdjustmentLocationMaxOrderByAggregateInput
+    _min?: AdjustmentLocationMinOrderByAggregateInput
+    _sum?: AdjustmentLocationSumOrderByAggregateInput
+  }
+
+  export type AdjustmentLocationScalarWhereWithAggregatesInput = {
+    AND?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
+    OR?: AdjustmentLocationScalarWhereWithAggregatesInput[]
+    NOT?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
+    locationId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
   }
 
   export type PaymentWhereInput = {
@@ -12204,12 +15004,16 @@ export namespace Prisma {
     id?: IntFilter<"Payment"> | number
     locationId?: IntFilter<"Payment"> | number
     date?: DateTimeFilter<"Payment"> | Date | string
-    amount?: FloatFilter<"Payment"> | number
+    amount?: IntFilter<"Payment"> | number
     paymentMethodId?: IntFilter<"Payment"> | number
     CUST_ID?: IntNullableFilter<"Payment"> | number | null
+    paymentRecordId?: IntFilter<"Payment"> | number
+    month?: IntFilter<"Payment"> | number
+    year?: IntFilter<"Payment"> | number
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     location?: XOR<LocationRelationFilter, LocationWhereInput>
     paymentMethod?: XOR<PaymentMethodRelationFilter, PaymentMethodWhereInput>
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    paymentRecord?: XOR<PaymentRecordRelationFilter, PaymentRecordWhereInput>
   }
 
   export type PaymentOrderByWithRelationInput = {
@@ -12219,9 +15023,13 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    cust?: UserOrderByWithRelationInput
     location?: LocationOrderByWithRelationInput
     paymentMethod?: PaymentMethodOrderByWithRelationInput
-    cust?: UserOrderByWithRelationInput
+    paymentRecord?: PaymentRecordOrderByWithRelationInput
   }
 
   export type PaymentWhereUniqueInput = Prisma.AtLeast<{
@@ -12231,12 +15039,16 @@ export namespace Prisma {
     NOT?: PaymentWhereInput | PaymentWhereInput[]
     locationId?: IntFilter<"Payment"> | number
     date?: DateTimeFilter<"Payment"> | Date | string
-    amount?: FloatFilter<"Payment"> | number
+    amount?: IntFilter<"Payment"> | number
     paymentMethodId?: IntFilter<"Payment"> | number
     CUST_ID?: IntNullableFilter<"Payment"> | number | null
+    paymentRecordId?: IntFilter<"Payment"> | number
+    month?: IntFilter<"Payment"> | number
+    year?: IntFilter<"Payment"> | number
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     location?: XOR<LocationRelationFilter, LocationWhereInput>
     paymentMethod?: XOR<PaymentMethodRelationFilter, PaymentMethodWhereInput>
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    paymentRecord?: XOR<PaymentRecordRelationFilter, PaymentRecordWhereInput>
   }, "id">
 
   export type PaymentOrderByWithAggregationInput = {
@@ -12246,6 +15058,9 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
     _count?: PaymentCountOrderByAggregateInput
     _avg?: PaymentAvgOrderByAggregateInput
     _max?: PaymentMaxOrderByAggregateInput
@@ -12260,9 +15075,90 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Payment"> | number
     locationId?: IntWithAggregatesFilter<"Payment"> | number
     date?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
-    amount?: FloatWithAggregatesFilter<"Payment"> | number
+    amount?: IntWithAggregatesFilter<"Payment"> | number
     paymentMethodId?: IntWithAggregatesFilter<"Payment"> | number
     CUST_ID?: IntNullableWithAggregatesFilter<"Payment"> | number | null
+    paymentRecordId?: IntWithAggregatesFilter<"Payment"> | number
+    month?: IntWithAggregatesFilter<"Payment"> | number
+    year?: IntWithAggregatesFilter<"Payment"> | number
+  }
+
+  export type PaymentRecordWhereInput = {
+    AND?: PaymentRecordWhereInput | PaymentRecordWhereInput[]
+    OR?: PaymentRecordWhereInput[]
+    NOT?: PaymentRecordWhereInput | PaymentRecordWhereInput[]
+    id?: IntFilter<"PaymentRecord"> | number
+    locationId?: IntFilter<"PaymentRecord"> | number
+    month?: IntFilter<"PaymentRecord"> | number
+    year?: IntFilter<"PaymentRecord"> | number
+    CUST_ID?: IntNullableFilter<"PaymentRecord"> | number | null
+    remainingAmount?: IntFilter<"PaymentRecord"> | number
+    totalPaid?: IntFilter<"PaymentRecord"> | number
+    totalRent?: IntFilter<"PaymentRecord"> | number
+    payments?: PaymentListRelationFilter
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }
+
+  export type PaymentRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+    payments?: PaymentOrderByRelationAggregateInput
+    cust?: UserOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
+  }
+
+  export type PaymentRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PaymentRecordWhereInput | PaymentRecordWhereInput[]
+    OR?: PaymentRecordWhereInput[]
+    NOT?: PaymentRecordWhereInput | PaymentRecordWhereInput[]
+    locationId?: IntFilter<"PaymentRecord"> | number
+    month?: IntFilter<"PaymentRecord"> | number
+    year?: IntFilter<"PaymentRecord"> | number
+    CUST_ID?: IntNullableFilter<"PaymentRecord"> | number | null
+    remainingAmount?: IntFilter<"PaymentRecord"> | number
+    totalPaid?: IntFilter<"PaymentRecord"> | number
+    totalRent?: IntFilter<"PaymentRecord"> | number
+    payments?: PaymentListRelationFilter
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  }, "id">
+
+  export type PaymentRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+    _count?: PaymentRecordCountOrderByAggregateInput
+    _avg?: PaymentRecordAvgOrderByAggregateInput
+    _max?: PaymentRecordMaxOrderByAggregateInput
+    _min?: PaymentRecordMinOrderByAggregateInput
+    _sum?: PaymentRecordSumOrderByAggregateInput
+  }
+
+  export type PaymentRecordScalarWhereWithAggregatesInput = {
+    AND?: PaymentRecordScalarWhereWithAggregatesInput | PaymentRecordScalarWhereWithAggregatesInput[]
+    OR?: PaymentRecordScalarWhereWithAggregatesInput[]
+    NOT?: PaymentRecordScalarWhereWithAggregatesInput | PaymentRecordScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    locationId?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    month?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    year?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    CUST_ID?: IntNullableWithAggregatesFilter<"PaymentRecord"> | number | null
+    remainingAmount?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    totalPaid?: IntWithAggregatesFilter<"PaymentRecord"> | number
+    totalRent?: IntWithAggregatesFilter<"PaymentRecord"> | number
   }
 
   export type PaymentMethodWhereInput = {
@@ -12315,8 +15211,8 @@ export namespace Prisma {
     locationId?: IntFilter<"Invoice"> | number
     date?: DateTimeFilter<"Invoice"> | Date | string
     CUST_ID?: IntNullableFilter<"Invoice"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
   }
 
   export type InvoiceOrderByWithRelationInput = {
@@ -12324,8 +15220,8 @@ export namespace Prisma {
     locationId?: SortOrder
     date?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
-    location?: LocationOrderByWithRelationInput
     cust?: UserOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
   }
 
   export type InvoiceWhereUniqueInput = Prisma.AtLeast<{
@@ -12336,8 +15232,8 @@ export namespace Prisma {
     locationId?: IntFilter<"Invoice"> | number
     date?: DateTimeFilter<"Invoice"> | Date | string
     CUST_ID?: IntNullableFilter<"Invoice"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
   }, "id">
 
   export type InvoiceOrderByWithAggregationInput = {
@@ -12370,8 +15266,8 @@ export namespace Prisma {
     locationId?: IntFilter<"PaymentSchedule"> | number
     dueDate?: DateTimeFilter<"PaymentSchedule"> | Date | string
     CUST_ID?: IntNullableFilter<"PaymentSchedule"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
   }
 
   export type PaymentScheduleOrderByWithRelationInput = {
@@ -12379,8 +15275,8 @@ export namespace Prisma {
     locationId?: SortOrder
     dueDate?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
-    location?: LocationOrderByWithRelationInput
     cust?: UserOrderByWithRelationInput
+    location?: LocationOrderByWithRelationInput
   }
 
   export type PaymentScheduleWhereUniqueInput = Prisma.AtLeast<{
@@ -12391,8 +15287,8 @@ export namespace Prisma {
     locationId?: IntFilter<"PaymentSchedule"> | number
     dueDate?: DateTimeFilter<"PaymentSchedule"> | Date | string
     CUST_ID?: IntNullableFilter<"PaymentSchedule"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
   }, "id">
 
   export type PaymentScheduleOrderByWithAggregationInput = {
@@ -12417,272 +15313,75 @@ export namespace Prisma {
     CUST_ID?: IntNullableWithAggregatesFilter<"PaymentSchedule"> | number | null
   }
 
-  export type KeyWhereInput = {
-    AND?: KeyWhereInput | KeyWhereInput[]
-    OR?: KeyWhereInput[]
-    NOT?: KeyWhereInput | KeyWhereInput[]
-    id?: IntFilter<"Key"> | number
-    locationId?: IntFilter<"Key"> | number
-    issueDate?: DateTimeFilter<"Key"> | Date | string
-    returnDate?: DateTimeFilter<"Key"> | Date | string
-    CUST_ID?: IntNullableFilter<"Key"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
+  export type RentHistoryWhereInput = {
+    AND?: RentHistoryWhereInput | RentHistoryWhereInput[]
+    OR?: RentHistoryWhereInput[]
+    NOT?: RentHistoryWhereInput | RentHistoryWhereInput[]
+    id?: IntFilter<"RentHistory"> | number
+    locationId?: IntFilter<"RentHistory"> | number
+    month?: IntFilter<"RentHistory"> | number
+    year?: IntFilter<"RentHistory"> | number
+    rentAmount?: IntFilter<"RentHistory"> | number
+    createdAt?: DateTimeFilter<"RentHistory"> | Date | string
+    CUST_ID?: IntNullableFilter<"RentHistory"> | number | null
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    location?: XOR<LocationRelationFilter, LocationWhereInput>
   }
 
-  export type KeyOrderByWithRelationInput = {
+  export type RentHistoryOrderByWithRelationInput = {
     id?: SortOrder
     locationId?: SortOrder
-    issueDate?: SortOrder
-    returnDate?: SortOrder
-    CUST_ID?: SortOrderInput | SortOrder
-    location?: LocationOrderByWithRelationInput
-    cust?: UserOrderByWithRelationInput
-  }
-
-  export type KeyWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: KeyWhereInput | KeyWhereInput[]
-    OR?: KeyWhereInput[]
-    NOT?: KeyWhereInput | KeyWhereInput[]
-    locationId?: IntFilter<"Key"> | number
-    issueDate?: DateTimeFilter<"Key"> | Date | string
-    returnDate?: DateTimeFilter<"Key"> | Date | string
-    CUST_ID?: IntNullableFilter<"Key"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-  }, "id">
-
-  export type KeyOrderByWithAggregationInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    issueDate?: SortOrder
-    returnDate?: SortOrder
-    CUST_ID?: SortOrderInput | SortOrder
-    _count?: KeyCountOrderByAggregateInput
-    _avg?: KeyAvgOrderByAggregateInput
-    _max?: KeyMaxOrderByAggregateInput
-    _min?: KeyMinOrderByAggregateInput
-    _sum?: KeySumOrderByAggregateInput
-  }
-
-  export type KeyScalarWhereWithAggregatesInput = {
-    AND?: KeyScalarWhereWithAggregatesInput | KeyScalarWhereWithAggregatesInput[]
-    OR?: KeyScalarWhereWithAggregatesInput[]
-    NOT?: KeyScalarWhereWithAggregatesInput | KeyScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Key"> | number
-    locationId?: IntWithAggregatesFilter<"Key"> | number
-    issueDate?: DateTimeWithAggregatesFilter<"Key"> | Date | string
-    returnDate?: DateTimeWithAggregatesFilter<"Key"> | Date | string
-    CUST_ID?: IntNullableWithAggregatesFilter<"Key"> | number | null
-  }
-
-  export type ContractWhereInput = {
-    AND?: ContractWhereInput | ContractWhereInput[]
-    OR?: ContractWhereInput[]
-    NOT?: ContractWhereInput | ContractWhereInput[]
-    id?: IntFilter<"Contract"> | number
-    locationId?: IntFilter<"Contract"> | number
-    startDate?: DateTimeFilter<"Contract"> | Date | string
-    endDate?: DateTimeFilter<"Contract"> | Date | string
-    renewed?: BoolFilter<"Contract"> | boolean
-    cancelled?: BoolFilter<"Contract"> | boolean
-    CUST_ID?: IntNullableFilter<"Contract"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-  }
-
-  export type ContractOrderByWithRelationInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    renewed?: SortOrder
-    cancelled?: SortOrder
-    CUST_ID?: SortOrderInput | SortOrder
-    location?: LocationOrderByWithRelationInput
-    cust?: UserOrderByWithRelationInput
-  }
-
-  export type ContractWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: ContractWhereInput | ContractWhereInput[]
-    OR?: ContractWhereInput[]
-    NOT?: ContractWhereInput | ContractWhereInput[]
-    locationId?: IntFilter<"Contract"> | number
-    startDate?: DateTimeFilter<"Contract"> | Date | string
-    endDate?: DateTimeFilter<"Contract"> | Date | string
-    renewed?: BoolFilter<"Contract"> | boolean
-    cancelled?: BoolFilter<"Contract"> | boolean
-    CUST_ID?: IntNullableFilter<"Contract"> | number | null
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-  }, "id">
-
-  export type ContractOrderByWithAggregationInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    renewed?: SortOrder
-    cancelled?: SortOrder
-    CUST_ID?: SortOrderInput | SortOrder
-    _count?: ContractCountOrderByAggregateInput
-    _avg?: ContractAvgOrderByAggregateInput
-    _max?: ContractMaxOrderByAggregateInput
-    _min?: ContractMinOrderByAggregateInput
-    _sum?: ContractSumOrderByAggregateInput
-  }
-
-  export type ContractScalarWhereWithAggregatesInput = {
-    AND?: ContractScalarWhereWithAggregatesInput | ContractScalarWhereWithAggregatesInput[]
-    OR?: ContractScalarWhereWithAggregatesInput[]
-    NOT?: ContractScalarWhereWithAggregatesInput | ContractScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Contract"> | number
-    locationId?: IntWithAggregatesFilter<"Contract"> | number
-    startDate?: DateTimeWithAggregatesFilter<"Contract"> | Date | string
-    endDate?: DateTimeWithAggregatesFilter<"Contract"> | Date | string
-    renewed?: BoolWithAggregatesFilter<"Contract"> | boolean
-    cancelled?: BoolWithAggregatesFilter<"Contract"> | boolean
-    CUST_ID?: IntNullableWithAggregatesFilter<"Contract"> | number | null
-  }
-
-  export type PriceAdjustmentWhereInput = {
-    AND?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
-    OR?: PriceAdjustmentWhereInput[]
-    NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
-    id?: IntFilter<"PriceAdjustment"> | number
-    amount?: FloatFilter<"PriceAdjustment"> | number
-    type?: IntFilter<"PriceAdjustment"> | number
-    period?: IntFilter<"PriceAdjustment"> | number
-    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
-    status?: IntFilter<"PriceAdjustment"> | number
-    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
-    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
-    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-    locations?: LocationListRelationFilter
-    AdjustmentLocation?: AdjustmentLocationListRelationFilter
-  }
-
-  export type PriceAdjustmentOrderByWithRelationInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    applyToAll?: SortOrder
-    status?: SortOrder
-    CUST_ID?: SortOrderInput | SortOrder
-    lastExecutedAt?: SortOrderInput | SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
-    cust?: UserOrderByWithRelationInput
-    locations?: LocationOrderByRelationAggregateInput
-    AdjustmentLocation?: AdjustmentLocationOrderByRelationAggregateInput
-  }
-
-  export type PriceAdjustmentWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
-    OR?: PriceAdjustmentWhereInput[]
-    NOT?: PriceAdjustmentWhereInput | PriceAdjustmentWhereInput[]
-    amount?: FloatFilter<"PriceAdjustment"> | number
-    type?: IntFilter<"PriceAdjustment"> | number
-    period?: IntFilter<"PriceAdjustment"> | number
-    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
-    status?: IntFilter<"PriceAdjustment"> | number
-    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
-    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
-    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
-    locations?: LocationListRelationFilter
-    AdjustmentLocation?: AdjustmentLocationListRelationFilter
-  }, "id">
-
-  export type PriceAdjustmentOrderByWithAggregationInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    applyToAll?: SortOrder
-    status?: SortOrder
     CUST_ID?: SortOrderInput | SortOrder
-    lastExecutedAt?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: PriceAdjustmentCountOrderByAggregateInput
-    _avg?: PriceAdjustmentAvgOrderByAggregateInput
-    _max?: PriceAdjustmentMaxOrderByAggregateInput
-    _min?: PriceAdjustmentMinOrderByAggregateInput
-    _sum?: PriceAdjustmentSumOrderByAggregateInput
-  }
-
-  export type PriceAdjustmentScalarWhereWithAggregatesInput = {
-    AND?: PriceAdjustmentScalarWhereWithAggregatesInput | PriceAdjustmentScalarWhereWithAggregatesInput[]
-    OR?: PriceAdjustmentScalarWhereWithAggregatesInput[]
-    NOT?: PriceAdjustmentScalarWhereWithAggregatesInput | PriceAdjustmentScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"PriceAdjustment"> | number
-    amount?: FloatWithAggregatesFilter<"PriceAdjustment"> | number
-    type?: IntWithAggregatesFilter<"PriceAdjustment"> | number
-    period?: IntWithAggregatesFilter<"PriceAdjustment"> | number
-    applyToAll?: BoolWithAggregatesFilter<"PriceAdjustment"> | boolean
-    status?: IntWithAggregatesFilter<"PriceAdjustment"> | number
-    CUST_ID?: IntNullableWithAggregatesFilter<"PriceAdjustment"> | number | null
-    lastExecutedAt?: DateTimeNullableWithAggregatesFilter<"PriceAdjustment"> | Date | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"PriceAdjustment"> | Date | string
-  }
-
-  export type AdjustmentLocationWhereInput = {
-    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
-    OR?: AdjustmentLocationWhereInput[]
-    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
-    id?: IntFilter<"AdjustmentLocation"> | number
-    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
-    locationId?: IntFilter<"AdjustmentLocation"> | number
-    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
-    location?: XOR<LocationRelationFilter, LocationWhereInput>
-  }
-
-  export type AdjustmentLocationOrderByWithRelationInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
-    priceAdjustment?: PriceAdjustmentOrderByWithRelationInput
+    cust?: UserOrderByWithRelationInput
     location?: LocationOrderByWithRelationInput
   }
 
-  export type AdjustmentLocationWhereUniqueInput = Prisma.AtLeast<{
+  export type RentHistoryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
-    OR?: AdjustmentLocationWhereInput[]
-    NOT?: AdjustmentLocationWhereInput | AdjustmentLocationWhereInput[]
-    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
-    locationId?: IntFilter<"AdjustmentLocation"> | number
-    priceAdjustment?: XOR<PriceAdjustmentRelationFilter, PriceAdjustmentWhereInput>
+    locationId_month_year?: RentHistoryLocationIdMonthYearCompoundUniqueInput
+    AND?: RentHistoryWhereInput | RentHistoryWhereInput[]
+    OR?: RentHistoryWhereInput[]
+    NOT?: RentHistoryWhereInput | RentHistoryWhereInput[]
+    locationId?: IntFilter<"RentHistory"> | number
+    month?: IntFilter<"RentHistory"> | number
+    year?: IntFilter<"RentHistory"> | number
+    rentAmount?: IntFilter<"RentHistory"> | number
+    createdAt?: DateTimeFilter<"RentHistory"> | Date | string
+    CUST_ID?: IntNullableFilter<"RentHistory"> | number | null
+    cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     location?: XOR<LocationRelationFilter, LocationWhereInput>
-  }, "id">
+  }, "id" | "locationId_month_year">
 
-  export type AdjustmentLocationOrderByWithAggregationInput = {
+  export type RentHistoryOrderByWithAggregationInput = {
     id?: SortOrder
-    priceAdjustmentId?: SortOrder
     locationId?: SortOrder
-    _count?: AdjustmentLocationCountOrderByAggregateInput
-    _avg?: AdjustmentLocationAvgOrderByAggregateInput
-    _max?: AdjustmentLocationMaxOrderByAggregateInput
-    _min?: AdjustmentLocationMinOrderByAggregateInput
-    _sum?: AdjustmentLocationSumOrderByAggregateInput
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
+    createdAt?: SortOrder
+    CUST_ID?: SortOrderInput | SortOrder
+    _count?: RentHistoryCountOrderByAggregateInput
+    _avg?: RentHistoryAvgOrderByAggregateInput
+    _max?: RentHistoryMaxOrderByAggregateInput
+    _min?: RentHistoryMinOrderByAggregateInput
+    _sum?: RentHistorySumOrderByAggregateInput
   }
 
-  export type AdjustmentLocationScalarWhereWithAggregatesInput = {
-    AND?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
-    OR?: AdjustmentLocationScalarWhereWithAggregatesInput[]
-    NOT?: AdjustmentLocationScalarWhereWithAggregatesInput | AdjustmentLocationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
-    priceAdjustmentId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
-    locationId?: IntWithAggregatesFilter<"AdjustmentLocation"> | number
+  export type RentHistoryScalarWhereWithAggregatesInput = {
+    AND?: RentHistoryScalarWhereWithAggregatesInput | RentHistoryScalarWhereWithAggregatesInput[]
+    OR?: RentHistoryScalarWhereWithAggregatesInput[]
+    NOT?: RentHistoryScalarWhereWithAggregatesInput | RentHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"RentHistory"> | number
+    locationId?: IntWithAggregatesFilter<"RentHistory"> | number
+    month?: IntWithAggregatesFilter<"RentHistory"> | number
+    year?: IntWithAggregatesFilter<"RentHistory"> | number
+    rentAmount?: IntWithAggregatesFilter<"RentHistory"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"RentHistory"> | Date | string
+    CUST_ID?: IntNullableWithAggregatesFilter<"RentHistory"> | number | null
   }
 
   export type UserCreateInput = {
@@ -12692,19 +15391,23 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
     rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
     cust?: UserCreateNestedOneWithoutCreatedUsersInput
     createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -12715,19 +15418,23 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
     CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    dni: number
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
   }
 
   export type UserUpdateInput = {
@@ -12737,19 +15444,23 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
     rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
     cust?: UserUpdateOneWithoutCreatedUsersNestedInput
     createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -12760,19 +15471,23 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -12783,10 +15498,11 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
     CUST_ID?: number | null
+    dni: number
   }
 
   export type UserUpdateManyMutationInput = {
@@ -12796,9 +15512,10 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -12809,27 +15526,29 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
   }
 
   export type LocationCreateInput = {
     name: string
     address: string
-    price?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
     adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateInput = {
@@ -12837,34 +15556,36 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
-    price?: number | null
     CUST_ID?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
     payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
     adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateInput = {
@@ -12872,17 +15593,18 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationCreateManyInput = {
@@ -12890,17 +15612,15 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
-    price?: number | null
     CUST_ID?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
   }
 
   export type LocationUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -12909,18 +15629,303 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LeaseContractCreateInput = {
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    cust?: UserCreateNestedOneWithoutLeaseContractsAsCustInput
+    location: LocationCreateNestedOneWithoutContractsInput
+    renter: UserCreateNestedOneWithoutLeaseContractsAsRenterInput
+  }
+
+  export type LeaseContractUncheckedCreateInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    CUST_ID?: number | null
+    renterId: number
+  }
+
+  export type LeaseContractUpdateInput = {
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    cust?: UserUpdateOneWithoutLeaseContractsAsCustNestedInput
+    location?: LocationUpdateOneRequiredWithoutContractsNestedInput
+    renter?: UserUpdateOneRequiredWithoutLeaseContractsAsRenterNestedInput
+  }
+
+  export type LeaseContractUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    renterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LeaseContractCreateManyInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    CUST_ID?: number | null
+    renterId: number
+  }
+
+  export type LeaseContractUpdateManyMutationInput = {
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LeaseContractUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    renterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type KeyCreateInput = {
+    issueDate: Date | string
+    returnDate?: Date | string | null
+    cust?: UserCreateNestedOneWithoutKeysInput
+    location: LocationCreateNestedOneWithoutKeysInput
+  }
+
+  export type KeyUncheckedCreateInput = {
+    id?: number
+    locationId: number
+    issueDate: Date | string
+    returnDate?: Date | string | null
+    CUST_ID?: number | null
+  }
+
+  export type KeyUpdateInput = {
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cust?: UserUpdateOneWithoutKeysNestedInput
+    location?: LocationUpdateOneRequiredWithoutKeysNestedInput
+  }
+
+  export type KeyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type KeyCreateManyInput = {
+    id?: number
+    locationId: number
+    issueDate: Date | string
+    returnDate?: Date | string | null
+    CUST_ID?: number | null
+  }
+
+  export type KeyUpdateManyMutationInput = {
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type KeyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PriceAdjustmentCreateInput = {
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
+    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentUncheckedCreateInput = {
+    id?: number
+    CUST_ID?: number | null
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentUpdateInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
+    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type PriceAdjustmentUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type PriceAdjustmentCreateManyInput = {
+    id?: number
+    CUST_ID?: number | null
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+  }
+
+  export type PriceAdjustmentUpdateManyMutationInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PriceAdjustmentUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdjustmentLocationCreateInput = {
+    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
+    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
+  }
+
+  export type AdjustmentLocationUncheckedCreateInput = {
+    id?: number
+    priceAdjustmentId: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationUpdateInput = {
+    location?: LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+  }
+
+  export type AdjustmentLocationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdjustmentLocationCreateManyInput = {
+    id?: number
+    priceAdjustmentId: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationUpdateManyMutationInput = {
+
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentCreateInput = {
     date?: Date | string
     amount: number
+    month: number
+    year: number
+    cust?: UserCreateNestedOneWithoutPaymentsInput
     location: LocationCreateNestedOneWithoutPaymentsInput
     paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
-    cust?: UserCreateNestedOneWithoutPaymentsInput
+    paymentRecord: PaymentRecordCreateNestedOneWithoutPaymentsInput
   }
 
   export type PaymentUncheckedCreateInput = {
@@ -12930,23 +15935,32 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
   }
 
   export type PaymentUpdateInput = {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    cust?: UserUpdateOneWithoutPaymentsNestedInput
     location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
     paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
-    cust?: UserUpdateOneWithoutPaymentsNestedInput
+    paymentRecord?: PaymentRecordUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
   export type PaymentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     locationId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentCreateManyInput = {
@@ -12956,20 +15970,104 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
   }
 
   export type PaymentUpdateManyMutationInput = {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     locationId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentRecordCreateInput = {
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentCreateNestedManyWithoutPaymentRecordInput
+    cust?: UserCreateNestedOneWithoutPaymentRecordInput
+    location: LocationCreateNestedOneWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordUncheckedCreateInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    CUST_ID?: number | null
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentUncheckedCreateNestedManyWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordUpdateInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUpdateManyWithoutPaymentRecordNestedInput
+    cust?: UserUpdateOneWithoutPaymentRecordNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUncheckedUpdateManyWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordCreateManyInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    CUST_ID?: number | null
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+  }
+
+  export type PaymentRecordUpdateManyMutationInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentRecordUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentMethodCreateInput = {
@@ -13010,8 +16108,8 @@ export namespace Prisma {
 
   export type InvoiceCreateInput = {
     date: Date | string
-    location: LocationCreateNestedOneWithoutInvoicesInput
     cust?: UserCreateNestedOneWithoutInvoicesInput
+    location: LocationCreateNestedOneWithoutInvoicesInput
   }
 
   export type InvoiceUncheckedCreateInput = {
@@ -13023,8 +16121,8 @@ export namespace Prisma {
 
   export type InvoiceUpdateInput = {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUpdateOneRequiredWithoutInvoicesNestedInput
     cust?: UserUpdateOneWithoutInvoicesNestedInput
+    location?: LocationUpdateOneRequiredWithoutInvoicesNestedInput
   }
 
   export type InvoiceUncheckedUpdateInput = {
@@ -13054,8 +16152,8 @@ export namespace Prisma {
 
   export type PaymentScheduleCreateInput = {
     dueDate: Date | string
-    location: LocationCreateNestedOneWithoutPaymentSchedulesInput
     cust?: UserCreateNestedOneWithoutPaymentSchedulesInput
+    location: LocationCreateNestedOneWithoutPaymentSchedulesInput
   }
 
   export type PaymentScheduleUncheckedCreateInput = {
@@ -13067,8 +16165,8 @@ export namespace Prisma {
 
   export type PaymentScheduleUpdateInput = {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUpdateOneRequiredWithoutPaymentSchedulesNestedInput
     cust?: UserUpdateOneWithoutPaymentSchedulesNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentSchedulesNestedInput
   }
 
   export type PaymentScheduleUncheckedUpdateInput = {
@@ -13096,253 +16194,69 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type KeyCreateInput = {
-    issueDate: Date | string
-    returnDate: Date | string
-    location: LocationCreateNestedOneWithoutKeysInput
-    cust?: UserCreateNestedOneWithoutKeysInput
-  }
-
-  export type KeyUncheckedCreateInput = {
-    id?: number
-    locationId: number
-    issueDate: Date | string
-    returnDate: Date | string
-    CUST_ID?: number | null
-  }
-
-  export type KeyUpdateInput = {
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUpdateOneRequiredWithoutKeysNestedInput
-    cust?: UserUpdateOneWithoutKeysNestedInput
-  }
-
-  export type KeyUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type KeyCreateManyInput = {
-    id?: number
-    locationId: number
-    issueDate: Date | string
-    returnDate: Date | string
-    CUST_ID?: number | null
-  }
-
-  export type KeyUpdateManyMutationInput = {
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KeyUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type ContractCreateInput = {
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    location: LocationCreateNestedOneWithoutContractsInput
-    cust?: UserCreateNestedOneWithoutContractsInput
-  }
-
-  export type ContractUncheckedCreateInput = {
-    id?: number
-    locationId: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    CUST_ID?: number | null
-  }
-
-  export type ContractUpdateInput = {
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    location?: LocationUpdateOneRequiredWithoutContractsNestedInput
-    cust?: UserUpdateOneWithoutContractsNestedInput
-  }
-
-  export type ContractUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type ContractCreateManyInput = {
-    id?: number
-    locationId: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    CUST_ID?: number | null
-  }
-
-  export type ContractUpdateManyMutationInput = {
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type ContractUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type PriceAdjustmentCreateInput = {
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    lastExecutedAt?: Date | string | null
+  export type RentHistoryCreateInput = {
+    month: number
+    year: number
+    rentAmount: number
     createdAt?: Date | string
-    updatedAt?: Date | string
-    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
-    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
+    cust?: UserCreateNestedOneWithoutRentHistoryInput
+    location: LocationCreateNestedOneWithoutRentHistoryInput
   }
 
-  export type PriceAdjustmentUncheckedCreateInput = {
+  export type RentHistoryUncheckedCreateInput = {
     id?: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    CUST_ID?: number | null
-    lastExecutedAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
-  }
-
-  export type PriceAdjustmentUpdateInput = {
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
-    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
-  }
-
-  export type PriceAdjustmentUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
-  }
-
-  export type PriceAdjustmentCreateManyInput = {
-    id?: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    CUST_ID?: number | null
-    lastExecutedAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PriceAdjustmentUpdateManyMutationInput = {
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PriceAdjustmentUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type AdjustmentLocationCreateInput = {
-    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
-    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
-  }
-
-  export type AdjustmentLocationUncheckedCreateInput = {
-    id?: number
-    priceAdjustmentId: number
     locationId: number
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
+    CUST_ID?: number | null
   }
 
-  export type AdjustmentLocationUpdateInput = {
-    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
-    location?: LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput
+  export type RentHistoryUpdateInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cust?: UserUpdateOneWithoutRentHistoryNestedInput
+    location?: LocationUpdateOneRequiredWithoutRentHistoryNestedInput
   }
 
-  export type AdjustmentLocationUncheckedUpdateInput = {
+  export type RentHistoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
     locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type AdjustmentLocationCreateManyInput = {
+  export type RentHistoryCreateManyInput = {
     id?: number
-    priceAdjustmentId: number
     locationId: number
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
+    CUST_ID?: number | null
   }
 
-  export type AdjustmentLocationUpdateManyMutationInput = {
-
+  export type RentHistoryUpdateManyMutationInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AdjustmentLocationUncheckedUpdateManyInput = {
+  export type RentHistoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
     locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13422,10 +16336,58 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type InvoiceListRelationFilter = {
+    every?: InvoiceWhereInput
+    some?: InvoiceWhereInput
+    none?: InvoiceWhereInput
+  }
+
+  export type KeyListRelationFilter = {
+    every?: KeyWhereInput
+    some?: KeyWhereInput
+    none?: KeyWhereInput
+  }
+
+  export type LeaseContractListRelationFilter = {
+    every?: LeaseContractWhereInput
+    some?: LeaseContractWhereInput
+    none?: LeaseContractWhereInput
+  }
+
   export type LocationListRelationFilter = {
     every?: LocationWhereInput
     some?: LocationWhereInput
     none?: LocationWhereInput
+  }
+
+  export type PaymentListRelationFilter = {
+    every?: PaymentWhereInput
+    some?: PaymentWhereInput
+    none?: PaymentWhereInput
+  }
+
+  export type PaymentRecordListRelationFilter = {
+    every?: PaymentRecordWhereInput
+    some?: PaymentRecordWhereInput
+    none?: PaymentRecordWhereInput
+  }
+
+  export type PaymentScheduleListRelationFilter = {
+    every?: PaymentScheduleWhereInput
+    some?: PaymentScheduleWhereInput
+    none?: PaymentScheduleWhereInput
+  }
+
+  export type PriceAdjustmentListRelationFilter = {
+    every?: PriceAdjustmentWhereInput
+    some?: PriceAdjustmentWhereInput
+    none?: PriceAdjustmentWhereInput
+  }
+
+  export type RentHistoryListRelationFilter = {
+    every?: RentHistoryWhereInput
+    some?: RentHistoryWhereInput
+    none?: RentHistoryWhereInput
   }
 
   export type UserNullableRelationFilter = {
@@ -13439,64 +16401,12 @@ export namespace Prisma {
     none?: UserWhereInput
   }
 
-  export type PaymentListRelationFilter = {
-    every?: PaymentWhereInput
-    some?: PaymentWhereInput
-    none?: PaymentWhereInput
-  }
-
-  export type InvoiceListRelationFilter = {
-    every?: InvoiceWhereInput
-    some?: InvoiceWhereInput
-    none?: InvoiceWhereInput
-  }
-
-  export type PaymentScheduleListRelationFilter = {
-    every?: PaymentScheduleWhereInput
-    some?: PaymentScheduleWhereInput
-    none?: PaymentScheduleWhereInput
-  }
-
-  export type KeyListRelationFilter = {
-    every?: KeyWhereInput
-    some?: KeyWhereInput
-    none?: KeyWhereInput
-  }
-
-  export type ContractListRelationFilter = {
-    every?: ContractWhereInput
-    some?: ContractWhereInput
-    none?: ContractWhereInput
-  }
-
-  export type PriceAdjustmentListRelationFilter = {
-    every?: PriceAdjustmentWhereInput
-    some?: PriceAdjustmentWhereInput
-    none?: PriceAdjustmentWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-  export type LocationOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type UserOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type PaymentOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type InvoiceOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type PaymentScheduleOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13504,11 +16414,35 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ContractOrderByRelationAggregateInput = {
+  export type LeaseContractOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LocationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PaymentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PaymentRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PaymentScheduleOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type PriceAdjustmentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type RentHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13520,15 +16454,17 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     picture?: SortOrder
-    password?: SortOrder
     createdAt?: SortOrder
+    password?: SortOrder
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
+    dni?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
     id?: SortOrder
     CUST_ID?: SortOrder
+    dni?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -13539,10 +16475,11 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     picture?: SortOrder
-    password?: SortOrder
     createdAt?: SortOrder
+    password?: SortOrder
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
+    dni?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -13553,15 +16490,17 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     picture?: SortOrder
-    password?: SortOrder
     createdAt?: SortOrder
+    password?: SortOrder
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
+    dni?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
     id?: SortOrder
     CUST_ID?: SortOrder
+    dni?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -13672,6 +16611,11 @@ export namespace Prisma {
     none?: AdjustmentLocationWhereInput
   }
 
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
   export type AdjustmentLocationOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -13681,7 +16625,6 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
-    price?: SortOrder
     CUST_ID?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13690,7 +16633,6 @@ export namespace Prisma {
   export type LocationAvgOrderByAggregateInput = {
     id?: SortOrder
     renterId?: SortOrder
-    price?: SortOrder
     CUST_ID?: SortOrder
   }
 
@@ -13699,7 +16641,6 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
-    price?: SortOrder
     CUST_ID?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13710,7 +16651,6 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     renterId?: SortOrder
-    price?: SortOrder
     CUST_ID?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -13719,19 +16659,7 @@ export namespace Prisma {
   export type LocationSumOrderByAggregateInput = {
     id?: SortOrder
     renterId?: SortOrder
-    price?: SortOrder
     CUST_ID?: SortOrder
-  }
-
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type LocationRelationFilter = {
@@ -13739,9 +16667,203 @@ export namespace Prisma {
     isNot?: LocationWhereInput
   }
 
+  export type LeaseContractCountOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    finishedDate?: SortOrder
+    rentAmount?: SortOrder
+    active?: SortOrder
+    cancelled?: SortOrder
+    createdAt?: SortOrder
+    pdfPath?: SortOrder
+    CUST_ID?: SortOrder
+    renterId?: SortOrder
+  }
+
+  export type LeaseContractAvgOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    rentAmount?: SortOrder
+    CUST_ID?: SortOrder
+    renterId?: SortOrder
+  }
+
+  export type LeaseContractMaxOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    finishedDate?: SortOrder
+    rentAmount?: SortOrder
+    active?: SortOrder
+    cancelled?: SortOrder
+    createdAt?: SortOrder
+    pdfPath?: SortOrder
+    CUST_ID?: SortOrder
+    renterId?: SortOrder
+  }
+
+  export type LeaseContractMinOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    startDate?: SortOrder
+    endDate?: SortOrder
+    finishedDate?: SortOrder
+    rentAmount?: SortOrder
+    active?: SortOrder
+    cancelled?: SortOrder
+    createdAt?: SortOrder
+    pdfPath?: SortOrder
+    CUST_ID?: SortOrder
+    renterId?: SortOrder
+  }
+
+  export type LeaseContractSumOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    rentAmount?: SortOrder
+    CUST_ID?: SortOrder
+    renterId?: SortOrder
+  }
+
+  export type KeyCountOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    issueDate?: SortOrder
+    returnDate?: SortOrder
+    CUST_ID?: SortOrder
+  }
+
+  export type KeyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    CUST_ID?: SortOrder
+  }
+
+  export type KeyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    issueDate?: SortOrder
+    returnDate?: SortOrder
+    CUST_ID?: SortOrder
+  }
+
+  export type KeyMinOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    issueDate?: SortOrder
+    returnDate?: SortOrder
+    CUST_ID?: SortOrder
+  }
+
+  export type KeySumOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    CUST_ID?: SortOrder
+  }
+
+  export type PriceAdjustmentCountOrderByAggregateInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    applyToAll?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    lastExecutedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PriceAdjustmentAvgOrderByAggregateInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    type?: SortOrder
+  }
+
+  export type PriceAdjustmentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    applyToAll?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    lastExecutedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PriceAdjustmentMinOrderByAggregateInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    applyToAll?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    lastExecutedAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PriceAdjustmentSumOrderByAggregateInput = {
+    id?: SortOrder
+    CUST_ID?: SortOrder
+    amount?: SortOrder
+    period?: SortOrder
+    status?: SortOrder
+    type?: SortOrder
+  }
+
+  export type PriceAdjustmentRelationFilter = {
+    is?: PriceAdjustmentWhereInput
+    isNot?: PriceAdjustmentWhereInput
+  }
+
+  export type AdjustmentLocationCountOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationMinOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
+  export type AdjustmentLocationSumOrderByAggregateInput = {
+    id?: SortOrder
+    priceAdjustmentId?: SortOrder
+    locationId?: SortOrder
+  }
+
   export type PaymentMethodRelationFilter = {
     is?: PaymentMethodWhereInput
     isNot?: PaymentMethodWhereInput
+  }
+
+  export type PaymentRecordRelationFilter = {
+    is?: PaymentRecordWhereInput
+    isNot?: PaymentRecordWhereInput
   }
 
   export type PaymentCountOrderByAggregateInput = {
@@ -13751,6 +16873,9 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
   }
 
   export type PaymentAvgOrderByAggregateInput = {
@@ -13759,6 +16884,9 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
   }
 
   export type PaymentMaxOrderByAggregateInput = {
@@ -13768,6 +16896,9 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
   }
 
   export type PaymentMinOrderByAggregateInput = {
@@ -13777,6 +16908,9 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
   }
 
   export type PaymentSumOrderByAggregateInput = {
@@ -13785,22 +16919,64 @@ export namespace Prisma {
     amount?: SortOrder
     paymentMethodId?: SortOrder
     CUST_ID?: SortOrder
+    paymentRecordId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
   }
 
-  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
+  export type PaymentRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+  }
+
+  export type PaymentRecordAvgOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+  }
+
+  export type PaymentRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+  }
+
+  export type PaymentRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
+  }
+
+  export type PaymentRecordSumOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    CUST_ID?: SortOrder
+    remainingAmount?: SortOrder
+    totalPaid?: SortOrder
+    totalRent?: SortOrder
   }
 
   export type PaymentMethodCountOrderByAggregateInput = {
@@ -13892,174 +17068,93 @@ export namespace Prisma {
     CUST_ID?: SortOrder
   }
 
-  export type KeyCountOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    issueDate?: SortOrder
-    returnDate?: SortOrder
-    CUST_ID?: SortOrder
+  export type RentHistoryLocationIdMonthYearCompoundUniqueInput = {
+    locationId: number
+    month: number
+    year: number
   }
 
-  export type KeyAvgOrderByAggregateInput = {
+  export type RentHistoryCountOrderByAggregateInput = {
     id?: SortOrder
     locationId?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type KeyMaxOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    issueDate?: SortOrder
-    returnDate?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type KeyMinOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    issueDate?: SortOrder
-    returnDate?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type KeySumOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type ContractCountOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    renewed?: SortOrder
-    cancelled?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type ContractAvgOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type ContractMaxOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    renewed?: SortOrder
-    cancelled?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type ContractMinOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    renewed?: SortOrder
-    cancelled?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type ContractSumOrderByAggregateInput = {
-    id?: SortOrder
-    locationId?: SortOrder
-    CUST_ID?: SortOrder
-  }
-
-  export type PriceAdjustmentCountOrderByAggregateInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    applyToAll?: SortOrder
-    status?: SortOrder
-    CUST_ID?: SortOrder
-    lastExecutedAt?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PriceAdjustmentAvgOrderByAggregateInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    status?: SortOrder
     CUST_ID?: SortOrder
   }
 
-  export type PriceAdjustmentMaxOrderByAggregateInput = {
+  export type RentHistoryAvgOrderByAggregateInput = {
     id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    applyToAll?: SortOrder
-    status?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
     CUST_ID?: SortOrder
-    lastExecutedAt?: SortOrder
+  }
+
+  export type RentHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
+    CUST_ID?: SortOrder
   }
 
-  export type PriceAdjustmentMinOrderByAggregateInput = {
+  export type RentHistoryMinOrderByAggregateInput = {
     id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    applyToAll?: SortOrder
-    status?: SortOrder
-    CUST_ID?: SortOrder
-    lastExecutedAt?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
     createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type PriceAdjustmentSumOrderByAggregateInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    type?: SortOrder
-    period?: SortOrder
-    status?: SortOrder
     CUST_ID?: SortOrder
   }
 
-  export type PriceAdjustmentRelationFilter = {
-    is?: PriceAdjustmentWhereInput
-    isNot?: PriceAdjustmentWhereInput
+  export type RentHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+    locationId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    rentAmount?: SortOrder
+    CUST_ID?: SortOrder
   }
 
-  export type AdjustmentLocationCountOrderByAggregateInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
+  export type InvoiceCreateNestedManyWithoutCustInput = {
+    create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
+    createMany?: InvoiceCreateManyCustInputEnvelope
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationAvgOrderByAggregateInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
+  export type KeyCreateNestedManyWithoutCustInput = {
+    create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
+    createMany?: KeyCreateManyCustInputEnvelope
+    connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
+  export type LeaseContractCreateNestedManyWithoutCustInput = {
+    create?: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput> | LeaseContractCreateWithoutCustInput[] | LeaseContractUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutCustInput | LeaseContractCreateOrConnectWithoutCustInput[]
+    createMany?: LeaseContractCreateManyCustInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationMinOrderByAggregateInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
+  export type LeaseContractCreateNestedManyWithoutRenterInput = {
+    create?: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput> | LeaseContractCreateWithoutRenterInput[] | LeaseContractUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutRenterInput | LeaseContractCreateOrConnectWithoutRenterInput[]
+    createMany?: LeaseContractCreateManyRenterInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationSumOrderByAggregateInput = {
-    id?: SortOrder
-    priceAdjustmentId?: SortOrder
-    locationId?: SortOrder
+  export type LocationCreateNestedManyWithoutCustInput = {
+    create?: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput> | LocationCreateWithoutCustInput[] | LocationUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutCustInput | LocationCreateOrConnectWithoutCustInput[]
+    createMany?: LocationCreateManyCustInputEnvelope
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
   }
 
   export type LocationCreateNestedManyWithoutRenterInput = {
@@ -14067,6 +17162,41 @@ export namespace Prisma {
     connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
     createMany?: LocationCreateManyRenterInputEnvelope
     connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type PaymentCreateNestedManyWithoutCustInput = {
+    create?: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput> | PaymentCreateWithoutCustInput[] | PaymentUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutCustInput | PaymentCreateOrConnectWithoutCustInput[]
+    createMany?: PaymentCreateManyCustInputEnvelope
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type PaymentRecordCreateNestedManyWithoutCustInput = {
+    create?: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput> | PaymentRecordCreateWithoutCustInput[] | PaymentRecordUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutCustInput | PaymentRecordCreateOrConnectWithoutCustInput[]
+    createMany?: PaymentRecordCreateManyCustInputEnvelope
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+  }
+
+  export type PaymentScheduleCreateNestedManyWithoutCustInput = {
+    create?: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput> | PaymentScheduleCreateWithoutCustInput[] | PaymentScheduleUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentScheduleCreateOrConnectWithoutCustInput | PaymentScheduleCreateOrConnectWithoutCustInput[]
+    createMany?: PaymentScheduleCreateManyCustInputEnvelope
+    connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+  }
+
+  export type PriceAdjustmentCreateNestedManyWithoutCustInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
+    createMany?: PriceAdjustmentCreateManyCustInputEnvelope
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+  }
+
+  export type RentHistoryCreateNestedManyWithoutCustInput = {
+    create?: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput> | RentHistoryCreateWithoutCustInput[] | RentHistoryUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutCustInput | RentHistoryCreateOrConnectWithoutCustInput[]
+    createMany?: RentHistoryCreateManyCustInputEnvelope
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
   }
 
   export type UserCreateNestedOneWithoutCreatedUsersInput = {
@@ -14082,73 +17212,45 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
-  export type LocationCreateNestedManyWithoutCustInput = {
-    create?: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput> | LocationCreateWithoutCustInput[] | LocationUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutCustInput | LocationCreateOrConnectWithoutCustInput[]
-    createMany?: LocationCreateManyCustInputEnvelope
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type PaymentCreateNestedManyWithoutCustInput = {
-    create?: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput> | PaymentCreateWithoutCustInput[] | PaymentUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutCustInput | PaymentCreateOrConnectWithoutCustInput[]
-    createMany?: PaymentCreateManyCustInputEnvelope
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-  }
-
-  export type InvoiceCreateNestedManyWithoutCustInput = {
+  export type InvoiceUncheckedCreateNestedManyWithoutCustInput = {
     create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
     connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
     createMany?: InvoiceCreateManyCustInputEnvelope
     connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
   }
 
-  export type PaymentScheduleCreateNestedManyWithoutCustInput = {
-    create?: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput> | PaymentScheduleCreateWithoutCustInput[] | PaymentScheduleUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PaymentScheduleCreateOrConnectWithoutCustInput | PaymentScheduleCreateOrConnectWithoutCustInput[]
-    createMany?: PaymentScheduleCreateManyCustInputEnvelope
-    connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
-  }
-
-  export type KeyCreateNestedManyWithoutCustInput = {
+  export type KeyUncheckedCreateNestedManyWithoutCustInput = {
     create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
     connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
     createMany?: KeyCreateManyCustInputEnvelope
     connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
   }
 
-  export type ContractCreateNestedManyWithoutCustInput = {
-    create?: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput> | ContractCreateWithoutCustInput[] | ContractUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutCustInput | ContractCreateOrConnectWithoutCustInput[]
-    createMany?: ContractCreateManyCustInputEnvelope
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
+  export type LeaseContractUncheckedCreateNestedManyWithoutCustInput = {
+    create?: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput> | LeaseContractCreateWithoutCustInput[] | LeaseContractUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutCustInput | LeaseContractCreateOrConnectWithoutCustInput[]
+    createMany?: LeaseContractCreateManyCustInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
   }
 
-  export type PriceAdjustmentCreateNestedManyWithoutCustInput = {
-    create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
-    createMany?: PriceAdjustmentCreateManyCustInputEnvelope
-    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
-  }
-
-  export type LocationUncheckedCreateNestedManyWithoutRenterInput = {
-    create?: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput> | LocationCreateWithoutRenterInput[] | LocationUncheckedCreateWithoutRenterInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
-    createMany?: LocationCreateManyRenterInputEnvelope
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type UserUncheckedCreateNestedManyWithoutCustInput = {
-    create?: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput> | UserCreateWithoutCustInput[] | UserUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCustInput | UserCreateOrConnectWithoutCustInput[]
-    createMany?: UserCreateManyCustInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type LeaseContractUncheckedCreateNestedManyWithoutRenterInput = {
+    create?: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput> | LeaseContractCreateWithoutRenterInput[] | LeaseContractUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutRenterInput | LeaseContractCreateOrConnectWithoutRenterInput[]
+    createMany?: LeaseContractCreateManyRenterInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
   }
 
   export type LocationUncheckedCreateNestedManyWithoutCustInput = {
     create?: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput> | LocationCreateWithoutCustInput[] | LocationUncheckedCreateWithoutCustInput[]
     connectOrCreate?: LocationCreateOrConnectWithoutCustInput | LocationCreateOrConnectWithoutCustInput[]
     createMany?: LocationCreateManyCustInputEnvelope
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type LocationUncheckedCreateNestedManyWithoutRenterInput = {
+    create?: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput> | LocationCreateWithoutRenterInput[] | LocationUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
+    createMany?: LocationCreateManyRenterInputEnvelope
     connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
   }
 
@@ -14159,11 +17261,11 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
-  export type InvoiceUncheckedCreateNestedManyWithoutCustInput = {
-    create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
-    createMany?: InvoiceCreateManyCustInputEnvelope
-    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  export type PaymentRecordUncheckedCreateNestedManyWithoutCustInput = {
+    create?: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput> | PaymentRecordCreateWithoutCustInput[] | PaymentRecordUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutCustInput | PaymentRecordCreateOrConnectWithoutCustInput[]
+    createMany?: PaymentRecordCreateManyCustInputEnvelope
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
   }
 
   export type PaymentScheduleUncheckedCreateNestedManyWithoutCustInput = {
@@ -14173,25 +17275,25 @@ export namespace Prisma {
     connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
   }
 
-  export type KeyUncheckedCreateNestedManyWithoutCustInput = {
-    create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
-    createMany?: KeyCreateManyCustInputEnvelope
-    connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
-  }
-
-  export type ContractUncheckedCreateNestedManyWithoutCustInput = {
-    create?: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput> | ContractCreateWithoutCustInput[] | ContractUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutCustInput | ContractCreateOrConnectWithoutCustInput[]
-    createMany?: ContractCreateManyCustInputEnvelope
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-  }
-
   export type PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput = {
     create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
     connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
     createMany?: PriceAdjustmentCreateManyCustInputEnvelope
     connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+  }
+
+  export type RentHistoryUncheckedCreateNestedManyWithoutCustInput = {
+    create?: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput> | RentHistoryCreateWithoutCustInput[] | RentHistoryUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutCustInput | RentHistoryCreateOrConnectWithoutCustInput[]
+    createMany?: RentHistoryCreateManyCustInputEnvelope
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+  }
+
+  export type UserUncheckedCreateNestedManyWithoutCustInput = {
+    create?: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput> | UserCreateWithoutCustInput[] | UserUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCustInput | UserCreateOrConnectWithoutCustInput[]
+    createMany?: UserCreateManyCustInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -14214,6 +17316,84 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type InvoiceUpdateManyWithoutCustNestedInput = {
+    create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
+    upsert?: InvoiceUpsertWithWhereUniqueWithoutCustInput | InvoiceUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: InvoiceCreateManyCustInputEnvelope
+    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    update?: InvoiceUpdateWithWhereUniqueWithoutCustInput | InvoiceUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: InvoiceUpdateManyWithWhereWithoutCustInput | InvoiceUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type KeyUpdateManyWithoutCustNestedInput = {
+    create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
+    upsert?: KeyUpsertWithWhereUniqueWithoutCustInput | KeyUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: KeyCreateManyCustInputEnvelope
+    set?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
+    disconnect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
+    delete?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
+    connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
+    update?: KeyUpdateWithWhereUniqueWithoutCustInput | KeyUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: KeyUpdateManyWithWhereWithoutCustInput | KeyUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: KeyScalarWhereInput | KeyScalarWhereInput[]
+  }
+
+  export type LeaseContractUpdateManyWithoutCustNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput> | LeaseContractCreateWithoutCustInput[] | LeaseContractUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutCustInput | LeaseContractCreateOrConnectWithoutCustInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutCustInput | LeaseContractUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: LeaseContractCreateManyCustInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutCustInput | LeaseContractUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutCustInput | LeaseContractUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+  }
+
+  export type LeaseContractUpdateManyWithoutRenterNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput> | LeaseContractCreateWithoutRenterInput[] | LeaseContractUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutRenterInput | LeaseContractCreateOrConnectWithoutRenterInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutRenterInput | LeaseContractUpsertWithWhereUniqueWithoutRenterInput[]
+    createMany?: LeaseContractCreateManyRenterInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutRenterInput | LeaseContractUpdateWithWhereUniqueWithoutRenterInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutRenterInput | LeaseContractUpdateManyWithWhereWithoutRenterInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+  }
+
+  export type LocationUpdateManyWithoutCustNestedInput = {
+    create?: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput> | LocationCreateWithoutCustInput[] | LocationUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutCustInput | LocationCreateOrConnectWithoutCustInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutCustInput | LocationUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: LocationCreateManyCustInputEnvelope
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutCustInput | LocationUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutCustInput | LocationUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
   export type LocationUpdateManyWithoutRenterNestedInput = {
     create?: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput> | LocationCreateWithoutRenterInput[] | LocationUncheckedCreateWithoutRenterInput[]
     connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
@@ -14226,6 +17406,76 @@ export namespace Prisma {
     update?: LocationUpdateWithWhereUniqueWithoutRenterInput | LocationUpdateWithWhereUniqueWithoutRenterInput[]
     updateMany?: LocationUpdateManyWithWhereWithoutRenterInput | LocationUpdateManyWithWhereWithoutRenterInput[]
     deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type PaymentUpdateManyWithoutCustNestedInput = {
+    create?: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput> | PaymentCreateWithoutCustInput[] | PaymentUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutCustInput | PaymentCreateOrConnectWithoutCustInput[]
+    upsert?: PaymentUpsertWithWhereUniqueWithoutCustInput | PaymentUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: PaymentCreateManyCustInputEnvelope
+    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    update?: PaymentUpdateWithWhereUniqueWithoutCustInput | PaymentUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: PaymentUpdateManyWithWhereWithoutCustInput | PaymentUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type PaymentRecordUpdateManyWithoutCustNestedInput = {
+    create?: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput> | PaymentRecordCreateWithoutCustInput[] | PaymentRecordUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutCustInput | PaymentRecordCreateOrConnectWithoutCustInput[]
+    upsert?: PaymentRecordUpsertWithWhereUniqueWithoutCustInput | PaymentRecordUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: PaymentRecordCreateManyCustInputEnvelope
+    set?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    disconnect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    delete?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    update?: PaymentRecordUpdateWithWhereUniqueWithoutCustInput | PaymentRecordUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: PaymentRecordUpdateManyWithWhereWithoutCustInput | PaymentRecordUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
+  }
+
+  export type PaymentScheduleUpdateManyWithoutCustNestedInput = {
+    create?: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput> | PaymentScheduleCreateWithoutCustInput[] | PaymentScheduleUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentScheduleCreateOrConnectWithoutCustInput | PaymentScheduleCreateOrConnectWithoutCustInput[]
+    upsert?: PaymentScheduleUpsertWithWhereUniqueWithoutCustInput | PaymentScheduleUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: PaymentScheduleCreateManyCustInputEnvelope
+    set?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+    disconnect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+    delete?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+    connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
+    update?: PaymentScheduleUpdateWithWhereUniqueWithoutCustInput | PaymentScheduleUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: PaymentScheduleUpdateManyWithWhereWithoutCustInput | PaymentScheduleUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
+  }
+
+  export type PriceAdjustmentUpdateManyWithoutCustNestedInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
+    upsert?: PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput | PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: PriceAdjustmentCreateManyCustInputEnvelope
+    set?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    disconnect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    delete?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
+    update?: PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput | PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: PriceAdjustmentUpdateManyWithWhereWithoutCustInput | PriceAdjustmentUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
+  }
+
+  export type RentHistoryUpdateManyWithoutCustNestedInput = {
+    create?: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput> | RentHistoryCreateWithoutCustInput[] | RentHistoryUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutCustInput | RentHistoryCreateOrConnectWithoutCustInput[]
+    upsert?: RentHistoryUpsertWithWhereUniqueWithoutCustInput | RentHistoryUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: RentHistoryCreateManyCustInputEnvelope
+    set?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    disconnect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    delete?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    update?: RentHistoryUpdateWithWhereUniqueWithoutCustInput | RentHistoryUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: RentHistoryUpdateManyWithWhereWithoutCustInput | RentHistoryUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
   }
 
   export type UserUpdateOneWithoutCreatedUsersNestedInput = {
@@ -14252,35 +17502,15 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type LocationUpdateManyWithoutCustNestedInput = {
-    create?: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput> | LocationCreateWithoutCustInput[] | LocationUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutCustInput | LocationCreateOrConnectWithoutCustInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutCustInput | LocationUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: LocationCreateManyCustInputEnvelope
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutCustInput | LocationUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutCustInput | LocationUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type PaymentUpdateManyWithoutCustNestedInput = {
-    create?: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput> | PaymentCreateWithoutCustInput[] | PaymentUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutCustInput | PaymentCreateOrConnectWithoutCustInput[]
-    upsert?: PaymentUpsertWithWhereUniqueWithoutCustInput | PaymentUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: PaymentCreateManyCustInputEnvelope
-    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-    update?: PaymentUpdateWithWhereUniqueWithoutCustInput | PaymentUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: PaymentUpdateManyWithWhereWithoutCustInput | PaymentUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-  }
-
-  export type InvoiceUpdateManyWithoutCustNestedInput = {
+  export type InvoiceUncheckedUpdateManyWithoutCustNestedInput = {
     create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
     connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
     upsert?: InvoiceUpsertWithWhereUniqueWithoutCustInput | InvoiceUpsertWithWhereUniqueWithoutCustInput[]
@@ -14294,21 +17524,7 @@ export namespace Prisma {
     deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
   }
 
-  export type PaymentScheduleUpdateManyWithoutCustNestedInput = {
-    create?: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput> | PaymentScheduleCreateWithoutCustInput[] | PaymentScheduleUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PaymentScheduleCreateOrConnectWithoutCustInput | PaymentScheduleCreateOrConnectWithoutCustInput[]
-    upsert?: PaymentScheduleUpsertWithWhereUniqueWithoutCustInput | PaymentScheduleUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: PaymentScheduleCreateManyCustInputEnvelope
-    set?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
-    disconnect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
-    delete?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
-    connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
-    update?: PaymentScheduleUpdateWithWhereUniqueWithoutCustInput | PaymentScheduleUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: PaymentScheduleUpdateManyWithWhereWithoutCustInput | PaymentScheduleUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
-  }
-
-  export type KeyUpdateManyWithoutCustNestedInput = {
+  export type KeyUncheckedUpdateManyWithoutCustNestedInput = {
     create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
     connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
     upsert?: KeyUpsertWithWhereUniqueWithoutCustInput | KeyUpsertWithWhereUniqueWithoutCustInput[]
@@ -14322,76 +17538,32 @@ export namespace Prisma {
     deleteMany?: KeyScalarWhereInput | KeyScalarWhereInput[]
   }
 
-  export type ContractUpdateManyWithoutCustNestedInput = {
-    create?: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput> | ContractCreateWithoutCustInput[] | ContractUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutCustInput | ContractCreateOrConnectWithoutCustInput[]
-    upsert?: ContractUpsertWithWhereUniqueWithoutCustInput | ContractUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: ContractCreateManyCustInputEnvelope
-    set?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    disconnect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    delete?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    update?: ContractUpdateWithWhereUniqueWithoutCustInput | ContractUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: ContractUpdateManyWithWhereWithoutCustInput | ContractUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: ContractScalarWhereInput | ContractScalarWhereInput[]
+  export type LeaseContractUncheckedUpdateManyWithoutCustNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput> | LeaseContractCreateWithoutCustInput[] | LeaseContractUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutCustInput | LeaseContractCreateOrConnectWithoutCustInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutCustInput | LeaseContractUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: LeaseContractCreateManyCustInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutCustInput | LeaseContractUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutCustInput | LeaseContractUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
   }
 
-  export type PriceAdjustmentUpdateManyWithoutCustNestedInput = {
-    create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
-    upsert?: PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput | PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: PriceAdjustmentCreateManyCustInputEnvelope
-    set?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
-    disconnect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
-    delete?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
-    connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
-    update?: PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput | PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: PriceAdjustmentUpdateManyWithWhereWithoutCustInput | PriceAdjustmentUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type LocationUncheckedUpdateManyWithoutRenterNestedInput = {
-    create?: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput> | LocationCreateWithoutRenterInput[] | LocationUncheckedCreateWithoutRenterInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutRenterInput | LocationUpsertWithWhereUniqueWithoutRenterInput[]
-    createMany?: LocationCreateManyRenterInputEnvelope
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutRenterInput | LocationUpdateWithWhereUniqueWithoutRenterInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutRenterInput | LocationUpdateManyWithWhereWithoutRenterInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
-  }
-
-  export type UserUncheckedUpdateManyWithoutCustNestedInput = {
-    create?: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput> | UserCreateWithoutCustInput[] | UserUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCustInput | UserCreateOrConnectWithoutCustInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutCustInput | UserUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: UserCreateManyCustInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutCustInput | UserUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutCustInput | UserUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type LeaseContractUncheckedUpdateManyWithoutRenterNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput> | LeaseContractCreateWithoutRenterInput[] | LeaseContractUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutRenterInput | LeaseContractCreateOrConnectWithoutRenterInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutRenterInput | LeaseContractUpsertWithWhereUniqueWithoutRenterInput[]
+    createMany?: LeaseContractCreateManyRenterInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutRenterInput | LeaseContractUpdateWithWhereUniqueWithoutRenterInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutRenterInput | LeaseContractUpdateManyWithWhereWithoutRenterInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
   }
 
   export type LocationUncheckedUpdateManyWithoutCustNestedInput = {
@@ -14405,6 +17577,20 @@ export namespace Prisma {
     connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
     update?: LocationUpdateWithWhereUniqueWithoutCustInput | LocationUpdateWithWhereUniqueWithoutCustInput[]
     updateMany?: LocationUpdateManyWithWhereWithoutCustInput | LocationUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type LocationUncheckedUpdateManyWithoutRenterNestedInput = {
+    create?: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput> | LocationCreateWithoutRenterInput[] | LocationUncheckedCreateWithoutRenterInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutRenterInput | LocationCreateOrConnectWithoutRenterInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutRenterInput | LocationUpsertWithWhereUniqueWithoutRenterInput[]
+    createMany?: LocationCreateManyRenterInputEnvelope
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutRenterInput | LocationUpdateWithWhereUniqueWithoutRenterInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutRenterInput | LocationUpdateManyWithWhereWithoutRenterInput[]
     deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
   }
 
@@ -14422,18 +17608,18 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
-  export type InvoiceUncheckedUpdateManyWithoutCustNestedInput = {
-    create?: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput> | InvoiceCreateWithoutCustInput[] | InvoiceUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: InvoiceCreateOrConnectWithoutCustInput | InvoiceCreateOrConnectWithoutCustInput[]
-    upsert?: InvoiceUpsertWithWhereUniqueWithoutCustInput | InvoiceUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: InvoiceCreateManyCustInputEnvelope
-    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
-    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
-    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
-    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
-    update?: InvoiceUpdateWithWhereUniqueWithoutCustInput | InvoiceUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: InvoiceUpdateManyWithWhereWithoutCustInput | InvoiceUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  export type PaymentRecordUncheckedUpdateManyWithoutCustNestedInput = {
+    create?: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput> | PaymentRecordCreateWithoutCustInput[] | PaymentRecordUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutCustInput | PaymentRecordCreateOrConnectWithoutCustInput[]
+    upsert?: PaymentRecordUpsertWithWhereUniqueWithoutCustInput | PaymentRecordUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: PaymentRecordCreateManyCustInputEnvelope
+    set?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    disconnect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    delete?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    update?: PaymentRecordUpdateWithWhereUniqueWithoutCustInput | PaymentRecordUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: PaymentRecordUpdateManyWithWhereWithoutCustInput | PaymentRecordUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
   }
 
   export type PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput = {
@@ -14450,34 +17636,6 @@ export namespace Prisma {
     deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
   }
 
-  export type KeyUncheckedUpdateManyWithoutCustNestedInput = {
-    create?: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput> | KeyCreateWithoutCustInput[] | KeyUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: KeyCreateOrConnectWithoutCustInput | KeyCreateOrConnectWithoutCustInput[]
-    upsert?: KeyUpsertWithWhereUniqueWithoutCustInput | KeyUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: KeyCreateManyCustInputEnvelope
-    set?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
-    disconnect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
-    delete?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
-    connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
-    update?: KeyUpdateWithWhereUniqueWithoutCustInput | KeyUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: KeyUpdateManyWithWhereWithoutCustInput | KeyUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: KeyScalarWhereInput | KeyScalarWhereInput[]
-  }
-
-  export type ContractUncheckedUpdateManyWithoutCustNestedInput = {
-    create?: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput> | ContractCreateWithoutCustInput[] | ContractUncheckedCreateWithoutCustInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutCustInput | ContractCreateOrConnectWithoutCustInput[]
-    upsert?: ContractUpsertWithWhereUniqueWithoutCustInput | ContractUpsertWithWhereUniqueWithoutCustInput[]
-    createMany?: ContractCreateManyCustInputEnvelope
-    set?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    disconnect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    delete?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    update?: ContractUpdateWithWhereUniqueWithoutCustInput | ContractUpdateWithWhereUniqueWithoutCustInput[]
-    updateMany?: ContractUpdateManyWithWhereWithoutCustInput | ContractUpdateManyWithWhereWithoutCustInput[]
-    deleteMany?: ContractScalarWhereInput | ContractScalarWhereInput[]
-  }
-
   export type PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput = {
     create?: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput> | PriceAdjustmentCreateWithoutCustInput[] | PriceAdjustmentUncheckedCreateWithoutCustInput[]
     connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutCustInput | PriceAdjustmentCreateOrConnectWithoutCustInput[]
@@ -14492,11 +17650,39 @@ export namespace Prisma {
     deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
   }
 
-  export type ContractCreateNestedManyWithoutLocationInput = {
-    create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
-    createMany?: ContractCreateManyLocationInputEnvelope
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
+  export type RentHistoryUncheckedUpdateManyWithoutCustNestedInput = {
+    create?: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput> | RentHistoryCreateWithoutCustInput[] | RentHistoryUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutCustInput | RentHistoryCreateOrConnectWithoutCustInput[]
+    upsert?: RentHistoryUpsertWithWhereUniqueWithoutCustInput | RentHistoryUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: RentHistoryCreateManyCustInputEnvelope
+    set?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    disconnect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    delete?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    update?: RentHistoryUpdateWithWhereUniqueWithoutCustInput | RentHistoryUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: RentHistoryUpdateManyWithWhereWithoutCustInput | RentHistoryUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
+  }
+
+  export type UserUncheckedUpdateManyWithoutCustNestedInput = {
+    create?: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput> | UserCreateWithoutCustInput[] | UserUncheckedCreateWithoutCustInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCustInput | UserCreateOrConnectWithoutCustInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutCustInput | UserUpsertWithWhereUniqueWithoutCustInput[]
+    createMany?: UserCreateManyCustInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutCustInput | UserUpdateWithWhereUniqueWithoutCustInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutCustInput | UserUpdateManyWithWhereWithoutCustInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationCreateNestedManyWithoutLocationInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
   }
 
   export type InvoiceCreateNestedManyWithoutLocationInput = {
@@ -14513,6 +17699,19 @@ export namespace Prisma {
     connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
   }
 
+  export type LeaseContractCreateNestedManyWithoutLocationInput = {
+    create?: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput> | LeaseContractCreateWithoutLocationInput[] | LeaseContractUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutLocationInput | LeaseContractCreateOrConnectWithoutLocationInput[]
+    createMany?: LeaseContractCreateManyLocationInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutLocationInput = {
+    create?: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLocationInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutRentedLocationsInput = {
     create?: XOR<UserCreateWithoutRentedLocationsInput, UserUncheckedCreateWithoutRentedLocationsInput>
     connectOrCreate?: UserCreateOrConnectWithoutRentedLocationsInput
@@ -14526,6 +17725,13 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
+  export type PaymentRecordCreateNestedManyWithoutLocationInput = {
+    create?: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput> | PaymentRecordCreateWithoutLocationInput[] | PaymentRecordUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutLocationInput | PaymentRecordCreateOrConnectWithoutLocationInput[]
+    createMany?: PaymentRecordCreateManyLocationInputEnvelope
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+  }
+
   export type PaymentScheduleCreateNestedManyWithoutLocationInput = {
     create?: XOR<PaymentScheduleCreateWithoutLocationInput, PaymentScheduleUncheckedCreateWithoutLocationInput> | PaymentScheduleCreateWithoutLocationInput[] | PaymentScheduleUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: PaymentScheduleCreateOrConnectWithoutLocationInput | PaymentScheduleCreateOrConnectWithoutLocationInput[]
@@ -14533,10 +17739,11 @@ export namespace Prisma {
     connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutLocationInput = {
-    create?: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLocationInput
-    connect?: UserWhereUniqueInput
+  export type RentHistoryCreateNestedManyWithoutLocationInput = {
+    create?: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput> | RentHistoryCreateWithoutLocationInput[] | RentHistoryUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutLocationInput | RentHistoryCreateOrConnectWithoutLocationInput[]
+    createMany?: RentHistoryCreateManyLocationInputEnvelope
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
   }
 
   export type PriceAdjustmentCreateNestedManyWithoutLocationsInput = {
@@ -14545,18 +17752,11 @@ export namespace Prisma {
     connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationCreateNestedManyWithoutLocationInput = {
+  export type AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput = {
     create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
     createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
     connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-  }
-
-  export type ContractUncheckedCreateNestedManyWithoutLocationInput = {
-    create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
-    createMany?: ContractCreateManyLocationInputEnvelope
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
   }
 
   export type InvoiceUncheckedCreateNestedManyWithoutLocationInput = {
@@ -14573,11 +17773,25 @@ export namespace Prisma {
     connect?: KeyWhereUniqueInput | KeyWhereUniqueInput[]
   }
 
+  export type LeaseContractUncheckedCreateNestedManyWithoutLocationInput = {
+    create?: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput> | LeaseContractCreateWithoutLocationInput[] | LeaseContractUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutLocationInput | LeaseContractCreateOrConnectWithoutLocationInput[]
+    createMany?: LeaseContractCreateManyLocationInputEnvelope
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+  }
+
   export type PaymentUncheckedCreateNestedManyWithoutLocationInput = {
     create?: XOR<PaymentCreateWithoutLocationInput, PaymentUncheckedCreateWithoutLocationInput> | PaymentCreateWithoutLocationInput[] | PaymentUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutLocationInput | PaymentCreateOrConnectWithoutLocationInput[]
     createMany?: PaymentCreateManyLocationInputEnvelope
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type PaymentRecordUncheckedCreateNestedManyWithoutLocationInput = {
+    create?: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput> | PaymentRecordCreateWithoutLocationInput[] | PaymentRecordUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutLocationInput | PaymentRecordCreateOrConnectWithoutLocationInput[]
+    createMany?: PaymentRecordCreateManyLocationInputEnvelope
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
   }
 
   export type PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput = {
@@ -14587,31 +17801,31 @@ export namespace Prisma {
     connect?: PaymentScheduleWhereUniqueInput | PaymentScheduleWhereUniqueInput[]
   }
 
+  export type RentHistoryUncheckedCreateNestedManyWithoutLocationInput = {
+    create?: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput> | RentHistoryCreateWithoutLocationInput[] | RentHistoryUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutLocationInput | RentHistoryCreateOrConnectWithoutLocationInput[]
+    createMany?: RentHistoryCreateManyLocationInputEnvelope
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+  }
+
   export type PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput = {
     create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
     connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
     connect?: PriceAdjustmentWhereUniqueInput | PriceAdjustmentWhereUniqueInput[]
   }
 
-  export type AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput = {
+  export type AdjustmentLocationUpdateManyWithoutLocationNestedInput = {
     create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput[]
     createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
     connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-  }
-
-  export type ContractUpdateManyWithoutLocationNestedInput = {
-    create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
-    upsert?: ContractUpsertWithWhereUniqueWithoutLocationInput | ContractUpsertWithWhereUniqueWithoutLocationInput[]
-    createMany?: ContractCreateManyLocationInputEnvelope
-    set?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    disconnect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    delete?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    update?: ContractUpdateWithWhereUniqueWithoutLocationInput | ContractUpdateWithWhereUniqueWithoutLocationInput[]
-    updateMany?: ContractUpdateManyWithWhereWithoutLocationInput | ContractUpdateManyWithWhereWithoutLocationInput[]
-    deleteMany?: ContractScalarWhereInput | ContractScalarWhereInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutLocationInput | AdjustmentLocationUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
   }
 
   export type InvoiceUpdateManyWithoutLocationNestedInput = {
@@ -14642,12 +17856,34 @@ export namespace Prisma {
     deleteMany?: KeyScalarWhereInput | KeyScalarWhereInput[]
   }
 
-  export type UserUpdateOneWithoutRentedLocationsNestedInput = {
+  export type LeaseContractUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput> | LeaseContractCreateWithoutLocationInput[] | LeaseContractUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutLocationInput | LeaseContractCreateOrConnectWithoutLocationInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutLocationInput | LeaseContractUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: LeaseContractCreateManyLocationInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutLocationInput | LeaseContractUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutLocationInput | LeaseContractUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutLocationNestedInput = {
+    create?: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLocationInput
+    upsert?: UserUpsertWithoutLocationInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLocationInput, UserUpdateWithoutLocationInput>, UserUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutRentedLocationsNestedInput = {
     create?: XOR<UserCreateWithoutRentedLocationsInput, UserUncheckedCreateWithoutRentedLocationsInput>
     connectOrCreate?: UserCreateOrConnectWithoutRentedLocationsInput
     upsert?: UserUpsertWithoutRentedLocationsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRentedLocationsInput, UserUpdateWithoutRentedLocationsInput>, UserUncheckedUpdateWithoutRentedLocationsInput>
   }
@@ -14666,6 +17902,20 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
+  export type PaymentRecordUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput> | PaymentRecordCreateWithoutLocationInput[] | PaymentRecordUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutLocationInput | PaymentRecordCreateOrConnectWithoutLocationInput[]
+    upsert?: PaymentRecordUpsertWithWhereUniqueWithoutLocationInput | PaymentRecordUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: PaymentRecordCreateManyLocationInputEnvelope
+    set?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    disconnect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    delete?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    update?: PaymentRecordUpdateWithWhereUniqueWithoutLocationInput | PaymentRecordUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: PaymentRecordUpdateManyWithWhereWithoutLocationInput | PaymentRecordUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
+  }
+
   export type PaymentScheduleUpdateManyWithoutLocationNestedInput = {
     create?: XOR<PaymentScheduleCreateWithoutLocationInput, PaymentScheduleUncheckedCreateWithoutLocationInput> | PaymentScheduleCreateWithoutLocationInput[] | PaymentScheduleUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: PaymentScheduleCreateOrConnectWithoutLocationInput | PaymentScheduleCreateOrConnectWithoutLocationInput[]
@@ -14680,14 +17930,18 @@ export namespace Prisma {
     deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
   }
 
-  export type UserUpdateOneWithoutLocationNestedInput = {
-    create?: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLocationInput
-    upsert?: UserUpsertWithoutLocationInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLocationInput, UserUpdateWithoutLocationInput>, UserUncheckedUpdateWithoutLocationInput>
+  export type RentHistoryUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput> | RentHistoryCreateWithoutLocationInput[] | RentHistoryUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutLocationInput | RentHistoryCreateOrConnectWithoutLocationInput[]
+    upsert?: RentHistoryUpsertWithWhereUniqueWithoutLocationInput | RentHistoryUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: RentHistoryCreateManyLocationInputEnvelope
+    set?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    disconnect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    delete?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    update?: RentHistoryUpdateWithWhereUniqueWithoutLocationInput | RentHistoryUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: RentHistoryUpdateManyWithWhereWithoutLocationInput | RentHistoryUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
   }
 
   export type PriceAdjustmentUpdateManyWithoutLocationsNestedInput = {
@@ -14703,7 +17957,7 @@ export namespace Prisma {
     deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
   }
 
-  export type AdjustmentLocationUpdateManyWithoutLocationNestedInput = {
+  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput = {
     create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
     upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput[]
@@ -14715,20 +17969,6 @@ export namespace Prisma {
     update?: AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput[]
     updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutLocationInput | AdjustmentLocationUpdateManyWithWhereWithoutLocationInput[]
     deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
-  }
-
-  export type ContractUncheckedUpdateManyWithoutLocationNestedInput = {
-    create?: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput> | ContractCreateWithoutLocationInput[] | ContractUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: ContractCreateOrConnectWithoutLocationInput | ContractCreateOrConnectWithoutLocationInput[]
-    upsert?: ContractUpsertWithWhereUniqueWithoutLocationInput | ContractUpsertWithWhereUniqueWithoutLocationInput[]
-    createMany?: ContractCreateManyLocationInputEnvelope
-    set?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    disconnect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    delete?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    connect?: ContractWhereUniqueInput | ContractWhereUniqueInput[]
-    update?: ContractUpdateWithWhereUniqueWithoutLocationInput | ContractUpdateWithWhereUniqueWithoutLocationInput[]
-    updateMany?: ContractUpdateManyWithWhereWithoutLocationInput | ContractUpdateManyWithWhereWithoutLocationInput[]
-    deleteMany?: ContractScalarWhereInput | ContractScalarWhereInput[]
   }
 
   export type InvoiceUncheckedUpdateManyWithoutLocationNestedInput = {
@@ -14759,6 +17999,20 @@ export namespace Prisma {
     deleteMany?: KeyScalarWhereInput | KeyScalarWhereInput[]
   }
 
+  export type LeaseContractUncheckedUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput> | LeaseContractCreateWithoutLocationInput[] | LeaseContractUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: LeaseContractCreateOrConnectWithoutLocationInput | LeaseContractCreateOrConnectWithoutLocationInput[]
+    upsert?: LeaseContractUpsertWithWhereUniqueWithoutLocationInput | LeaseContractUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: LeaseContractCreateManyLocationInputEnvelope
+    set?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    disconnect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    delete?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    connect?: LeaseContractWhereUniqueInput | LeaseContractWhereUniqueInput[]
+    update?: LeaseContractUpdateWithWhereUniqueWithoutLocationInput | LeaseContractUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: LeaseContractUpdateManyWithWhereWithoutLocationInput | LeaseContractUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+  }
+
   export type PaymentUncheckedUpdateManyWithoutLocationNestedInput = {
     create?: XOR<PaymentCreateWithoutLocationInput, PaymentUncheckedCreateWithoutLocationInput> | PaymentCreateWithoutLocationInput[] | PaymentUncheckedCreateWithoutLocationInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutLocationInput | PaymentCreateOrConnectWithoutLocationInput[]
@@ -14771,6 +18025,20 @@ export namespace Prisma {
     update?: PaymentUpdateWithWhereUniqueWithoutLocationInput | PaymentUpdateWithWhereUniqueWithoutLocationInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutLocationInput | PaymentUpdateManyWithWhereWithoutLocationInput[]
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput> | PaymentRecordCreateWithoutLocationInput[] | PaymentRecordUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutLocationInput | PaymentRecordCreateOrConnectWithoutLocationInput[]
+    upsert?: PaymentRecordUpsertWithWhereUniqueWithoutLocationInput | PaymentRecordUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: PaymentRecordCreateManyLocationInputEnvelope
+    set?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    disconnect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    delete?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    connect?: PaymentRecordWhereUniqueInput | PaymentRecordWhereUniqueInput[]
+    update?: PaymentRecordUpdateWithWhereUniqueWithoutLocationInput | PaymentRecordUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: PaymentRecordUpdateManyWithWhereWithoutLocationInput | PaymentRecordUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
   }
 
   export type PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput = {
@@ -14787,6 +18055,20 @@ export namespace Prisma {
     deleteMany?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
   }
 
+  export type RentHistoryUncheckedUpdateManyWithoutLocationNestedInput = {
+    create?: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput> | RentHistoryCreateWithoutLocationInput[] | RentHistoryUncheckedCreateWithoutLocationInput[]
+    connectOrCreate?: RentHistoryCreateOrConnectWithoutLocationInput | RentHistoryCreateOrConnectWithoutLocationInput[]
+    upsert?: RentHistoryUpsertWithWhereUniqueWithoutLocationInput | RentHistoryUpsertWithWhereUniqueWithoutLocationInput[]
+    createMany?: RentHistoryCreateManyLocationInputEnvelope
+    set?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    disconnect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    delete?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    connect?: RentHistoryWhereUniqueInput | RentHistoryWhereUniqueInput[]
+    update?: RentHistoryUpdateWithWhereUniqueWithoutLocationInput | RentHistoryUpdateWithWhereUniqueWithoutLocationInput[]
+    updateMany?: RentHistoryUpdateManyWithWhereWithoutLocationInput | RentHistoryUpdateManyWithWhereWithoutLocationInput[]
+    deleteMany?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
+  }
+
   export type PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput = {
     create?: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput> | PriceAdjustmentCreateWithoutLocationsInput[] | PriceAdjustmentUncheckedCreateWithoutLocationsInput[]
     connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutLocationsInput | PriceAdjustmentCreateOrConnectWithoutLocationsInput[]
@@ -14800,18 +18082,208 @@ export namespace Prisma {
     deleteMany?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
   }
 
-  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput = {
-    create?: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput> | AdjustmentLocationCreateWithoutLocationInput[] | AdjustmentLocationUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutLocationInput | AdjustmentLocationCreateOrConnectWithoutLocationInput[]
-    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput[]
-    createMany?: AdjustmentLocationCreateManyLocationInputEnvelope
+  export type UserCreateNestedOneWithoutLeaseContractsAsCustInput = {
+    create?: XOR<UserCreateWithoutLeaseContractsAsCustInput, UserUncheckedCreateWithoutLeaseContractsAsCustInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeaseContractsAsCustInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LocationCreateNestedOneWithoutContractsInput = {
+    create?: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutContractsInput
+    connect?: LocationWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutLeaseContractsAsRenterInput = {
+    create?: XOR<UserCreateWithoutLeaseContractsAsRenterInput, UserUncheckedCreateWithoutLeaseContractsAsRenterInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeaseContractsAsRenterInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneWithoutLeaseContractsAsCustNestedInput = {
+    create?: XOR<UserCreateWithoutLeaseContractsAsCustInput, UserUncheckedCreateWithoutLeaseContractsAsCustInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeaseContractsAsCustInput
+    upsert?: UserUpsertWithoutLeaseContractsAsCustInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLeaseContractsAsCustInput, UserUpdateWithoutLeaseContractsAsCustInput>, UserUncheckedUpdateWithoutLeaseContractsAsCustInput>
+  }
+
+  export type LocationUpdateOneRequiredWithoutContractsNestedInput = {
+    create?: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutContractsInput
+    upsert?: LocationUpsertWithoutContractsInput
+    connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutContractsInput, LocationUpdateWithoutContractsInput>, LocationUncheckedUpdateWithoutContractsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutLeaseContractsAsRenterNestedInput = {
+    create?: XOR<UserCreateWithoutLeaseContractsAsRenterInput, UserUncheckedCreateWithoutLeaseContractsAsRenterInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLeaseContractsAsRenterInput
+    upsert?: UserUpsertWithoutLeaseContractsAsRenterInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLeaseContractsAsRenterInput, UserUpdateWithoutLeaseContractsAsRenterInput>, UserUncheckedUpdateWithoutLeaseContractsAsRenterInput>
+  }
+
+  export type UserCreateNestedOneWithoutKeysInput = {
+    create?: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
+    connectOrCreate?: UserCreateOrConnectWithoutKeysInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LocationCreateNestedOneWithoutKeysInput = {
+    create?: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutKeysInput
+    connect?: LocationWhereUniqueInput
+  }
+
+  export type UserUpdateOneWithoutKeysNestedInput = {
+    create?: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
+    connectOrCreate?: UserCreateOrConnectWithoutKeysInput
+    upsert?: UserUpsertWithoutKeysInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKeysInput, UserUpdateWithoutKeysInput>, UserUncheckedUpdateWithoutKeysInput>
+  }
+
+  export type LocationUpdateOneRequiredWithoutKeysNestedInput = {
+    create?: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutKeysInput
+    upsert?: LocationUpsertWithoutKeysInput
+    connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutKeysInput, LocationUpdateWithoutKeysInput>, LocationUncheckedUpdateWithoutKeysInput>
+  }
+
+  export type AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutPriceAdjustmentsInput = {
+    create?: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPriceAdjustmentsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LocationCreateNestedManyWithoutAdjustmentsInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+  }
+
+  export type LocationUncheckedCreateNestedManyWithoutAdjustmentsInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+  }
+
+  export type AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
     set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
     disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
     delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
     connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput | AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput[]
-    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutLocationInput | AdjustmentLocationUpdateManyWithWhereWithoutLocationInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
     deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutPriceAdjustmentsNestedInput = {
+    create?: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPriceAdjustmentsInput
+    upsert?: UserUpsertWithoutPriceAdjustmentsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPriceAdjustmentsInput, UserUpdateWithoutPriceAdjustmentsInput>, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
+  }
+
+  export type LocationUpdateManyWithoutAdjustmentsNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput = {
+    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
+    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
+    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
+    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
+    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
+    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
+    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
+    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+  }
+
+  export type LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
+    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
+    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
+    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
+    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
+    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  }
+
+  export type LocationCreateNestedOneWithoutAdjustmentLocationInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
+    connect?: LocationWhereUniqueInput
+  }
+
+  export type PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
+    connect?: PriceAdjustmentWhereUniqueInput
+  }
+
+  export type LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
+    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
+    upsert?: LocationUpsertWithoutAdjustmentLocationInput
+    connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput, LocationUpdateWithoutAdjustmentLocationInput>, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
+    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
+    upsert?: PriceAdjustmentUpsertWithoutAdjustmentLocationInput
+    connect?: PriceAdjustmentWhereUniqueInput
+    update?: XOR<XOR<PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput, PriceAdjustmentUpdateWithoutAdjustmentLocationInput>, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type UserCreateNestedOneWithoutPaymentsInput = {
+    create?: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentsInput
+    connect?: UserWhereUniqueInput
   }
 
   export type LocationCreateNestedOneWithoutPaymentsInput = {
@@ -14826,18 +18298,20 @@ export namespace Prisma {
     connect?: PaymentMethodWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutPaymentsInput = {
-    create?: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPaymentsInput
-    connect?: UserWhereUniqueInput
+  export type PaymentRecordCreateNestedOneWithoutPaymentsInput = {
+    create?: XOR<PaymentRecordCreateWithoutPaymentsInput, PaymentRecordUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutPaymentsInput
+    connect?: PaymentRecordWhereUniqueInput
   }
 
-  export type FloatFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type UserUpdateOneWithoutPaymentsNestedInput = {
+    create?: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentsInput
+    upsert?: UserUpsertWithoutPaymentsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPaymentsInput, UserUpdateWithoutPaymentsInput>, UserUncheckedUpdateWithoutPaymentsInput>
   }
 
   export type LocationUpdateOneRequiredWithoutPaymentsNestedInput = {
@@ -14856,14 +18330,84 @@ export namespace Prisma {
     update?: XOR<XOR<PaymentMethodUpdateToOneWithWhereWithoutPaymentsInput, PaymentMethodUpdateWithoutPaymentsInput>, PaymentMethodUncheckedUpdateWithoutPaymentsInput>
   }
 
-  export type UserUpdateOneWithoutPaymentsNestedInput = {
-    create?: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPaymentsInput
-    upsert?: UserUpsertWithoutPaymentsInput
+  export type PaymentRecordUpdateOneRequiredWithoutPaymentsNestedInput = {
+    create?: XOR<PaymentRecordCreateWithoutPaymentsInput, PaymentRecordUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: PaymentRecordCreateOrConnectWithoutPaymentsInput
+    upsert?: PaymentRecordUpsertWithoutPaymentsInput
+    connect?: PaymentRecordWhereUniqueInput
+    update?: XOR<XOR<PaymentRecordUpdateToOneWithWhereWithoutPaymentsInput, PaymentRecordUpdateWithoutPaymentsInput>, PaymentRecordUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type PaymentCreateNestedManyWithoutPaymentRecordInput = {
+    create?: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput> | PaymentCreateWithoutPaymentRecordInput[] | PaymentUncheckedCreateWithoutPaymentRecordInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentRecordInput | PaymentCreateOrConnectWithoutPaymentRecordInput[]
+    createMany?: PaymentCreateManyPaymentRecordInputEnvelope
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutPaymentRecordInput = {
+    create?: XOR<UserCreateWithoutPaymentRecordInput, UserUncheckedCreateWithoutPaymentRecordInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentRecordInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type LocationCreateNestedOneWithoutPaymentRecordInput = {
+    create?: XOR<LocationCreateWithoutPaymentRecordInput, LocationUncheckedCreateWithoutPaymentRecordInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutPaymentRecordInput
+    connect?: LocationWhereUniqueInput
+  }
+
+  export type PaymentUncheckedCreateNestedManyWithoutPaymentRecordInput = {
+    create?: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput> | PaymentCreateWithoutPaymentRecordInput[] | PaymentUncheckedCreateWithoutPaymentRecordInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentRecordInput | PaymentCreateOrConnectWithoutPaymentRecordInput[]
+    createMany?: PaymentCreateManyPaymentRecordInputEnvelope
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+  }
+
+  export type PaymentUpdateManyWithoutPaymentRecordNestedInput = {
+    create?: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput> | PaymentCreateWithoutPaymentRecordInput[] | PaymentUncheckedCreateWithoutPaymentRecordInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentRecordInput | PaymentCreateOrConnectWithoutPaymentRecordInput[]
+    upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentRecordInput | PaymentUpsertWithWhereUniqueWithoutPaymentRecordInput[]
+    createMany?: PaymentCreateManyPaymentRecordInputEnvelope
+    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    update?: PaymentUpdateWithWhereUniqueWithoutPaymentRecordInput | PaymentUpdateWithWhereUniqueWithoutPaymentRecordInput[]
+    updateMany?: PaymentUpdateManyWithWhereWithoutPaymentRecordInput | PaymentUpdateManyWithWhereWithoutPaymentRecordInput[]
+    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutPaymentRecordNestedInput = {
+    create?: XOR<UserCreateWithoutPaymentRecordInput, UserUncheckedCreateWithoutPaymentRecordInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPaymentRecordInput
+    upsert?: UserUpsertWithoutPaymentRecordInput
     disconnect?: UserWhereInput | boolean
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPaymentsInput, UserUpdateWithoutPaymentsInput>, UserUncheckedUpdateWithoutPaymentsInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPaymentRecordInput, UserUpdateWithoutPaymentRecordInput>, UserUncheckedUpdateWithoutPaymentRecordInput>
+  }
+
+  export type LocationUpdateOneRequiredWithoutPaymentRecordNestedInput = {
+    create?: XOR<LocationCreateWithoutPaymentRecordInput, LocationUncheckedCreateWithoutPaymentRecordInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutPaymentRecordInput
+    upsert?: LocationUpsertWithoutPaymentRecordInput
+    connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutPaymentRecordInput, LocationUpdateWithoutPaymentRecordInput>, LocationUncheckedUpdateWithoutPaymentRecordInput>
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutPaymentRecordNestedInput = {
+    create?: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput> | PaymentCreateWithoutPaymentRecordInput[] | PaymentUncheckedCreateWithoutPaymentRecordInput[]
+    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentRecordInput | PaymentCreateOrConnectWithoutPaymentRecordInput[]
+    upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentRecordInput | PaymentUpsertWithWhereUniqueWithoutPaymentRecordInput[]
+    createMany?: PaymentCreateManyPaymentRecordInputEnvelope
+    set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
+    update?: PaymentUpdateWithWhereUniqueWithoutPaymentRecordInput | PaymentUpdateWithWhereUniqueWithoutPaymentRecordInput[]
+    updateMany?: PaymentUpdateManyWithWhereWithoutPaymentRecordInput | PaymentUpdateManyWithWhereWithoutPaymentRecordInput[]
+    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
   export type PaymentCreateNestedManyWithoutPaymentMethodInput = {
@@ -14908,24 +18452,16 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
-  export type LocationCreateNestedOneWithoutInvoicesInput = {
-    create?: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutInvoicesInput
-    connect?: LocationWhereUniqueInput
-  }
-
   export type UserCreateNestedOneWithoutInvoicesInput = {
     create?: XOR<UserCreateWithoutInvoicesInput, UserUncheckedCreateWithoutInvoicesInput>
     connectOrCreate?: UserCreateOrConnectWithoutInvoicesInput
     connect?: UserWhereUniqueInput
   }
 
-  export type LocationUpdateOneRequiredWithoutInvoicesNestedInput = {
+  export type LocationCreateNestedOneWithoutInvoicesInput = {
     create?: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
     connectOrCreate?: LocationCreateOrConnectWithoutInvoicesInput
-    upsert?: LocationUpsertWithoutInvoicesInput
     connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutInvoicesInput, LocationUpdateWithoutInvoicesInput>, LocationUncheckedUpdateWithoutInvoicesInput>
   }
 
   export type UserUpdateOneWithoutInvoicesNestedInput = {
@@ -14938,10 +18474,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutInvoicesInput, UserUpdateWithoutInvoicesInput>, UserUncheckedUpdateWithoutInvoicesInput>
   }
 
-  export type LocationCreateNestedOneWithoutPaymentSchedulesInput = {
-    create?: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutPaymentSchedulesInput
+  export type LocationUpdateOneRequiredWithoutInvoicesNestedInput = {
+    create?: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutInvoicesInput
+    upsert?: LocationUpsertWithoutInvoicesInput
     connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutInvoicesInput, LocationUpdateWithoutInvoicesInput>, LocationUncheckedUpdateWithoutInvoicesInput>
   }
 
   export type UserCreateNestedOneWithoutPaymentSchedulesInput = {
@@ -14950,12 +18488,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type LocationUpdateOneRequiredWithoutPaymentSchedulesNestedInput = {
+  export type LocationCreateNestedOneWithoutPaymentSchedulesInput = {
     create?: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
     connectOrCreate?: LocationCreateOrConnectWithoutPaymentSchedulesInput
-    upsert?: LocationUpsertWithoutPaymentSchedulesInput
     connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutPaymentSchedulesInput, LocationUpdateWithoutPaymentSchedulesInput>, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
   }
 
   export type UserUpdateOneWithoutPaymentSchedulesNestedInput = {
@@ -14968,188 +18504,42 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPaymentSchedulesInput, UserUpdateWithoutPaymentSchedulesInput>, UserUncheckedUpdateWithoutPaymentSchedulesInput>
   }
 
-  export type LocationCreateNestedOneWithoutKeysInput = {
-    create?: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutKeysInput
+  export type LocationUpdateOneRequiredWithoutPaymentSchedulesNestedInput = {
+    create?: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutPaymentSchedulesInput
+    upsert?: LocationUpsertWithoutPaymentSchedulesInput
     connect?: LocationWhereUniqueInput
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutPaymentSchedulesInput, LocationUpdateWithoutPaymentSchedulesInput>, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
   }
 
-  export type UserCreateNestedOneWithoutKeysInput = {
-    create?: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKeysInput
+  export type UserCreateNestedOneWithoutRentHistoryInput = {
+    create?: XOR<UserCreateWithoutRentHistoryInput, UserUncheckedCreateWithoutRentHistoryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRentHistoryInput
     connect?: UserWhereUniqueInput
   }
 
-  export type LocationUpdateOneRequiredWithoutKeysNestedInput = {
-    create?: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutKeysInput
-    upsert?: LocationUpsertWithoutKeysInput
+  export type LocationCreateNestedOneWithoutRentHistoryInput = {
+    create?: XOR<LocationCreateWithoutRentHistoryInput, LocationUncheckedCreateWithoutRentHistoryInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutRentHistoryInput
     connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutKeysInput, LocationUpdateWithoutKeysInput>, LocationUncheckedUpdateWithoutKeysInput>
   }
 
-  export type UserUpdateOneWithoutKeysNestedInput = {
-    create?: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKeysInput
-    upsert?: UserUpsertWithoutKeysInput
+  export type UserUpdateOneWithoutRentHistoryNestedInput = {
+    create?: XOR<UserCreateWithoutRentHistoryInput, UserUncheckedCreateWithoutRentHistoryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRentHistoryInput
+    upsert?: UserUpsertWithoutRentHistoryInput
     disconnect?: UserWhereInput | boolean
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKeysInput, UserUpdateWithoutKeysInput>, UserUncheckedUpdateWithoutKeysInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRentHistoryInput, UserUpdateWithoutRentHistoryInput>, UserUncheckedUpdateWithoutRentHistoryInput>
   }
 
-  export type LocationCreateNestedOneWithoutContractsInput = {
-    create?: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutContractsInput
+  export type LocationUpdateOneRequiredWithoutRentHistoryNestedInput = {
+    create?: XOR<LocationCreateWithoutRentHistoryInput, LocationUncheckedCreateWithoutRentHistoryInput>
+    connectOrCreate?: LocationCreateOrConnectWithoutRentHistoryInput
+    upsert?: LocationUpsertWithoutRentHistoryInput
     connect?: LocationWhereUniqueInput
-  }
-
-  export type UserCreateNestedOneWithoutContractsInput = {
-    create?: XOR<UserCreateWithoutContractsInput, UserUncheckedCreateWithoutContractsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutContractsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type LocationUpdateOneRequiredWithoutContractsNestedInput = {
-    create?: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutContractsInput
-    upsert?: LocationUpsertWithoutContractsInput
-    connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutContractsInput, LocationUpdateWithoutContractsInput>, LocationUncheckedUpdateWithoutContractsInput>
-  }
-
-  export type UserUpdateOneWithoutContractsNestedInput = {
-    create?: XOR<UserCreateWithoutContractsInput, UserUncheckedCreateWithoutContractsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutContractsInput
-    upsert?: UserUpsertWithoutContractsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutContractsInput, UserUpdateWithoutContractsInput>, UserUncheckedUpdateWithoutContractsInput>
-  }
-
-  export type UserCreateNestedOneWithoutPriceAdjustmentsInput = {
-    create?: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPriceAdjustmentsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type LocationCreateNestedManyWithoutAdjustmentsInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput = {
-    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
-    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
-    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
-    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-  }
-
-  export type LocationUncheckedCreateNestedManyWithoutAdjustmentsInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput = {
-    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
-    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
-    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
-    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-  }
-
-  export type UserUpdateOneWithoutPriceAdjustmentsNestedInput = {
-    create?: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPriceAdjustmentsInput
-    upsert?: UserUpsertWithoutPriceAdjustmentsInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPriceAdjustmentsInput, UserUpdateWithoutPriceAdjustmentsInput>, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
-  }
-
-  export type LocationUpdateManyWithoutAdjustmentsNestedInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
-  }
-
-  export type AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput = {
-    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
-    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
-    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
-    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
-    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
-    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
-    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
-  }
-
-  export type LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput> | LocationCreateWithoutAdjustmentsInput[] | LocationUncheckedCreateWithoutAdjustmentsInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentsInput | LocationCreateOrConnectWithoutAdjustmentsInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutAdjustmentsInput | LocationUpsertWithWhereUniqueWithoutAdjustmentsInput[]
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutAdjustmentsInput | LocationUpdateWithWhereUniqueWithoutAdjustmentsInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutAdjustmentsInput | LocationUpdateManyWithWhereWithoutAdjustmentsInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
-  }
-
-  export type AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput = {
-    create?: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput> | AdjustmentLocationCreateWithoutPriceAdjustmentInput[] | AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput[]
-    connectOrCreate?: AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput | AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput[]
-    upsert?: AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput[]
-    createMany?: AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope
-    set?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    disconnect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    delete?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    connect?: AdjustmentLocationWhereUniqueInput | AdjustmentLocationWhereUniqueInput[]
-    update?: AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput | AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput[]
-    updateMany?: AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput | AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput[]
-    deleteMany?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
-  }
-
-  export type PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput = {
-    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
-    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
-    connect?: PriceAdjustmentWhereUniqueInput
-  }
-
-  export type LocationCreateNestedOneWithoutAdjustmentLocationInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
-    connect?: LocationWhereUniqueInput
-  }
-
-  export type PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
-    create?: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
-    connectOrCreate?: PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput
-    upsert?: PriceAdjustmentUpsertWithoutAdjustmentLocationInput
-    connect?: PriceAdjustmentWhereUniqueInput
-    update?: XOR<XOR<PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput, PriceAdjustmentUpdateWithoutAdjustmentLocationInput>, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
-  }
-
-  export type LocationUpdateOneRequiredWithoutAdjustmentLocationNestedInput = {
-    create?: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutAdjustmentLocationInput
-    upsert?: LocationUpsertWithoutAdjustmentLocationInput
-    connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput, LocationUpdateWithoutAdjustmentLocationInput>, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutRentHistoryInput, LocationUpdateWithoutRentHistoryInput>, LocationUncheckedUpdateWithoutRentHistoryInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -15353,234 +18743,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedFloatFilter<$PrismaModel>
-    _min?: NestedFloatFilter<$PrismaModel>
-    _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type LocationCreateWithoutRenterInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutRenterInput = {
-    id?: number
-    name: string
-    address: string
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutRenterInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput>
-  }
-
-  export type LocationCreateManyRenterInputEnvelope = {
-    data: LocationCreateManyRenterInput | LocationCreateManyRenterInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserCreateWithoutCreatedUsersInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
-  }
-
-  export type UserUncheckedCreateWithoutCreatedUsersInput = {
-    id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
-  }
-
-  export type UserCreateOrConnectWithoutCreatedUsersInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCreatedUsersInput, UserUncheckedCreateWithoutCreatedUsersInput>
-  }
-
-  export type UserCreateWithoutCustInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
-  }
-
-  export type UserUncheckedCreateWithoutCustInput = {
-    id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
-  }
-
-  export type UserCreateOrConnectWithoutCustInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput>
-  }
-
-  export type UserCreateManyCustInputEnvelope = {
-    data: UserCreateManyCustInput | UserCreateManyCustInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type LocationCreateWithoutCustInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutCustInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutCustInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput>
-  }
-
-  export type LocationCreateManyCustInputEnvelope = {
-    data: LocationCreateManyCustInput | LocationCreateManyCustInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type PaymentCreateWithoutCustInput = {
-    date?: Date | string
-    amount: number
-    location: LocationCreateNestedOneWithoutPaymentsInput
-    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
-  }
-
-  export type PaymentUncheckedCreateWithoutCustInput = {
-    id?: number
-    locationId: number
-    date?: Date | string
-    amount: number
-    paymentMethodId: number
-  }
-
-  export type PaymentCreateOrConnectWithoutCustInput = {
-    where: PaymentWhereUniqueInput
-    create: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput>
-  }
-
-  export type PaymentCreateManyCustInputEnvelope = {
-    data: PaymentCreateManyCustInput | PaymentCreateManyCustInput[]
-    skipDuplicates?: boolean
-  }
-
   export type InvoiceCreateWithoutCustInput = {
     date: Date | string
     location: LocationCreateNestedOneWithoutInvoicesInput
@@ -15599,6 +18761,255 @@ export namespace Prisma {
 
   export type InvoiceCreateManyCustInputEnvelope = {
     data: InvoiceCreateManyCustInput | InvoiceCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type KeyCreateWithoutCustInput = {
+    issueDate: Date | string
+    returnDate?: Date | string | null
+    location: LocationCreateNestedOneWithoutKeysInput
+  }
+
+  export type KeyUncheckedCreateWithoutCustInput = {
+    id?: number
+    locationId: number
+    issueDate: Date | string
+    returnDate?: Date | string | null
+  }
+
+  export type KeyCreateOrConnectWithoutCustInput = {
+    where: KeyWhereUniqueInput
+    create: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput>
+  }
+
+  export type KeyCreateManyCustInputEnvelope = {
+    data: KeyCreateManyCustInput | KeyCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LeaseContractCreateWithoutCustInput = {
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    location: LocationCreateNestedOneWithoutContractsInput
+    renter: UserCreateNestedOneWithoutLeaseContractsAsRenterInput
+  }
+
+  export type LeaseContractUncheckedCreateWithoutCustInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    renterId: number
+  }
+
+  export type LeaseContractCreateOrConnectWithoutCustInput = {
+    where: LeaseContractWhereUniqueInput
+    create: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput>
+  }
+
+  export type LeaseContractCreateManyCustInputEnvelope = {
+    data: LeaseContractCreateManyCustInput | LeaseContractCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LeaseContractCreateWithoutRenterInput = {
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    cust?: UserCreateNestedOneWithoutLeaseContractsAsCustInput
+    location: LocationCreateNestedOneWithoutContractsInput
+  }
+
+  export type LeaseContractUncheckedCreateWithoutRenterInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    CUST_ID?: number | null
+  }
+
+  export type LeaseContractCreateOrConnectWithoutRenterInput = {
+    where: LeaseContractWhereUniqueInput
+    create: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput>
+  }
+
+  export type LeaseContractCreateManyRenterInputEnvelope = {
+    data: LeaseContractCreateManyRenterInput | LeaseContractCreateManyRenterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LocationCreateWithoutCustInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutCustInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutCustInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput>
+  }
+
+  export type LocationCreateManyCustInputEnvelope = {
+    data: LocationCreateManyCustInput | LocationCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LocationCreateWithoutRenterInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutRenterInput = {
+    id?: number
+    name: string
+    address: string
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutRenterInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutRenterInput, LocationUncheckedCreateWithoutRenterInput>
+  }
+
+  export type LocationCreateManyRenterInputEnvelope = {
+    data: LocationCreateManyRenterInput | LocationCreateManyRenterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PaymentCreateWithoutCustInput = {
+    date?: Date | string
+    amount: number
+    month: number
+    year: number
+    location: LocationCreateNestedOneWithoutPaymentsInput
+    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
+    paymentRecord: PaymentRecordCreateNestedOneWithoutPaymentsInput
+  }
+
+  export type PaymentUncheckedCreateWithoutCustInput = {
+    id?: number
+    locationId: number
+    date?: Date | string
+    amount: number
+    paymentMethodId: number
+    paymentRecordId: number
+    month: number
+    year: number
+  }
+
+  export type PaymentCreateOrConnectWithoutCustInput = {
+    where: PaymentWhereUniqueInput
+    create: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput>
+  }
+
+  export type PaymentCreateManyCustInputEnvelope = {
+    data: PaymentCreateManyCustInput | PaymentCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PaymentRecordCreateWithoutCustInput = {
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentCreateNestedManyWithoutPaymentRecordInput
+    location: LocationCreateNestedOneWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordUncheckedCreateWithoutCustInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentUncheckedCreateNestedManyWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordCreateOrConnectWithoutCustInput = {
+    where: PaymentRecordWhereUniqueInput
+    create: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput>
+  }
+
+  export type PaymentRecordCreateManyCustInputEnvelope = {
+    data: PaymentRecordCreateManyCustInput | PaymentRecordCreateManyCustInput[]
     skipDuplicates?: boolean
   }
 
@@ -15623,81 +19034,31 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type KeyCreateWithoutCustInput = {
-    issueDate: Date | string
-    returnDate: Date | string
-    location: LocationCreateNestedOneWithoutKeysInput
-  }
-
-  export type KeyUncheckedCreateWithoutCustInput = {
-    id?: number
-    locationId: number
-    issueDate: Date | string
-    returnDate: Date | string
-  }
-
-  export type KeyCreateOrConnectWithoutCustInput = {
-    where: KeyWhereUniqueInput
-    create: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput>
-  }
-
-  export type KeyCreateManyCustInputEnvelope = {
-    data: KeyCreateManyCustInput | KeyCreateManyCustInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ContractCreateWithoutCustInput = {
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    location: LocationCreateNestedOneWithoutContractsInput
-  }
-
-  export type ContractUncheckedCreateWithoutCustInput = {
-    id?: number
-    locationId: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-  }
-
-  export type ContractCreateOrConnectWithoutCustInput = {
-    where: ContractWhereUniqueInput
-    create: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput>
-  }
-
-  export type ContractCreateManyCustInputEnvelope = {
-    data: ContractCreateManyCustInput | ContractCreateManyCustInput[]
-    skipDuplicates?: boolean
-  }
-
   export type PriceAdjustmentCreateWithoutCustInput = {
     amount: number
-    type: number
     period: number
-    applyToAll: boolean
     status: number
-    lastExecutedAt?: Date | string | null
+    applyToAll: boolean
+    type: number
     createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
     updatedAt?: Date | string
-    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
     AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
   }
 
   export type PriceAdjustmentUncheckedCreateWithoutCustInput = {
     id?: number
     amount: number
-    type: number
     period: number
-    applyToAll: boolean
     status: number
-    lastExecutedAt?: Date | string | null
+    applyToAll: boolean
+    type: number
     createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
     updatedAt?: Date | string
-    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
     AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
   }
 
   export type PriceAdjustmentCreateOrConnectWithoutCustInput = {
@@ -15708,6 +19069,282 @@ export namespace Prisma {
   export type PriceAdjustmentCreateManyCustInputEnvelope = {
     data: PriceAdjustmentCreateManyCustInput | PriceAdjustmentCreateManyCustInput[]
     skipDuplicates?: boolean
+  }
+
+  export type RentHistoryCreateWithoutCustInput = {
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
+    location: LocationCreateNestedOneWithoutRentHistoryInput
+  }
+
+  export type RentHistoryUncheckedCreateWithoutCustInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
+  }
+
+  export type RentHistoryCreateOrConnectWithoutCustInput = {
+    where: RentHistoryWhereUniqueInput
+    create: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput>
+  }
+
+  export type RentHistoryCreateManyCustInputEnvelope = {
+    data: RentHistoryCreateManyCustInput | RentHistoryCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutCreatedUsersInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+  }
+
+  export type UserUncheckedCreateWithoutCreatedUsersInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutCreatedUsersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCreatedUsersInput, UserUncheckedCreateWithoutCreatedUsersInput>
+  }
+
+  export type UserCreateWithoutCustInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutCustInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutCustInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCustInput, UserUncheckedCreateWithoutCustInput>
+  }
+
+  export type UserCreateManyCustInputEnvelope = {
+    data: UserCreateManyCustInput | UserCreateManyCustInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvoiceUpsertWithWhereUniqueWithoutCustInput = {
+    where: InvoiceWhereUniqueInput
+    update: XOR<InvoiceUpdateWithoutCustInput, InvoiceUncheckedUpdateWithoutCustInput>
+    create: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput>
+  }
+
+  export type InvoiceUpdateWithWhereUniqueWithoutCustInput = {
+    where: InvoiceWhereUniqueInput
+    data: XOR<InvoiceUpdateWithoutCustInput, InvoiceUncheckedUpdateWithoutCustInput>
+  }
+
+  export type InvoiceUpdateManyWithWhereWithoutCustInput = {
+    where: InvoiceScalarWhereInput
+    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type InvoiceScalarWhereInput = {
+    AND?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+    OR?: InvoiceScalarWhereInput[]
+    NOT?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+    id?: IntFilter<"Invoice"> | number
+    locationId?: IntFilter<"Invoice"> | number
+    date?: DateTimeFilter<"Invoice"> | Date | string
+    CUST_ID?: IntNullableFilter<"Invoice"> | number | null
+  }
+
+  export type KeyUpsertWithWhereUniqueWithoutCustInput = {
+    where: KeyWhereUniqueInput
+    update: XOR<KeyUpdateWithoutCustInput, KeyUncheckedUpdateWithoutCustInput>
+    create: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput>
+  }
+
+  export type KeyUpdateWithWhereUniqueWithoutCustInput = {
+    where: KeyWhereUniqueInput
+    data: XOR<KeyUpdateWithoutCustInput, KeyUncheckedUpdateWithoutCustInput>
+  }
+
+  export type KeyUpdateManyWithWhereWithoutCustInput = {
+    where: KeyScalarWhereInput
+    data: XOR<KeyUpdateManyMutationInput, KeyUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type KeyScalarWhereInput = {
+    AND?: KeyScalarWhereInput | KeyScalarWhereInput[]
+    OR?: KeyScalarWhereInput[]
+    NOT?: KeyScalarWhereInput | KeyScalarWhereInput[]
+    id?: IntFilter<"Key"> | number
+    locationId?: IntFilter<"Key"> | number
+    issueDate?: DateTimeFilter<"Key"> | Date | string
+    returnDate?: DateTimeNullableFilter<"Key"> | Date | string | null
+    CUST_ID?: IntNullableFilter<"Key"> | number | null
+  }
+
+  export type LeaseContractUpsertWithWhereUniqueWithoutCustInput = {
+    where: LeaseContractWhereUniqueInput
+    update: XOR<LeaseContractUpdateWithoutCustInput, LeaseContractUncheckedUpdateWithoutCustInput>
+    create: XOR<LeaseContractCreateWithoutCustInput, LeaseContractUncheckedCreateWithoutCustInput>
+  }
+
+  export type LeaseContractUpdateWithWhereUniqueWithoutCustInput = {
+    where: LeaseContractWhereUniqueInput
+    data: XOR<LeaseContractUpdateWithoutCustInput, LeaseContractUncheckedUpdateWithoutCustInput>
+  }
+
+  export type LeaseContractUpdateManyWithWhereWithoutCustInput = {
+    where: LeaseContractScalarWhereInput
+    data: XOR<LeaseContractUpdateManyMutationInput, LeaseContractUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type LeaseContractScalarWhereInput = {
+    AND?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+    OR?: LeaseContractScalarWhereInput[]
+    NOT?: LeaseContractScalarWhereInput | LeaseContractScalarWhereInput[]
+    id?: IntFilter<"LeaseContract"> | number
+    locationId?: IntFilter<"LeaseContract"> | number
+    startDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    endDate?: DateTimeFilter<"LeaseContract"> | Date | string
+    finishedDate?: DateTimeNullableFilter<"LeaseContract"> | Date | string | null
+    rentAmount?: IntFilter<"LeaseContract"> | number
+    active?: BoolFilter<"LeaseContract"> | boolean
+    cancelled?: BoolFilter<"LeaseContract"> | boolean
+    createdAt?: DateTimeFilter<"LeaseContract"> | Date | string
+    pdfPath?: StringNullableFilter<"LeaseContract"> | string | null
+    CUST_ID?: IntNullableFilter<"LeaseContract"> | number | null
+    renterId?: IntFilter<"LeaseContract"> | number
+  }
+
+  export type LeaseContractUpsertWithWhereUniqueWithoutRenterInput = {
+    where: LeaseContractWhereUniqueInput
+    update: XOR<LeaseContractUpdateWithoutRenterInput, LeaseContractUncheckedUpdateWithoutRenterInput>
+    create: XOR<LeaseContractCreateWithoutRenterInput, LeaseContractUncheckedCreateWithoutRenterInput>
+  }
+
+  export type LeaseContractUpdateWithWhereUniqueWithoutRenterInput = {
+    where: LeaseContractWhereUniqueInput
+    data: XOR<LeaseContractUpdateWithoutRenterInput, LeaseContractUncheckedUpdateWithoutRenterInput>
+  }
+
+  export type LeaseContractUpdateManyWithWhereWithoutRenterInput = {
+    where: LeaseContractScalarWhereInput
+    data: XOR<LeaseContractUpdateManyMutationInput, LeaseContractUncheckedUpdateManyWithoutRenterInput>
+  }
+
+  export type LocationUpsertWithWhereUniqueWithoutCustInput = {
+    where: LocationWhereUniqueInput
+    update: XOR<LocationUpdateWithoutCustInput, LocationUncheckedUpdateWithoutCustInput>
+    create: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput>
+  }
+
+  export type LocationUpdateWithWhereUniqueWithoutCustInput = {
+    where: LocationWhereUniqueInput
+    data: XOR<LocationUpdateWithoutCustInput, LocationUncheckedUpdateWithoutCustInput>
+  }
+
+  export type LocationUpdateManyWithWhereWithoutCustInput = {
+    where: LocationScalarWhereInput
+    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type LocationScalarWhereInput = {
+    AND?: LocationScalarWhereInput | LocationScalarWhereInput[]
+    OR?: LocationScalarWhereInput[]
+    NOT?: LocationScalarWhereInput | LocationScalarWhereInput[]
+    id?: IntFilter<"Location"> | number
+    name?: StringFilter<"Location"> | string
+    address?: StringFilter<"Location"> | string
+    renterId?: IntFilter<"Location"> | number
+    CUST_ID?: IntNullableFilter<"Location"> | number | null
+    createdAt?: DateTimeNullableFilter<"Location"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
   }
 
   export type LocationUpsertWithWhereUniqueWithoutRenterInput = {
@@ -15726,18 +19363,152 @@ export namespace Prisma {
     data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutRenterInput>
   }
 
-  export type LocationScalarWhereInput = {
-    AND?: LocationScalarWhereInput | LocationScalarWhereInput[]
-    OR?: LocationScalarWhereInput[]
-    NOT?: LocationScalarWhereInput | LocationScalarWhereInput[]
-    id?: IntFilter<"Location"> | number
-    name?: StringFilter<"Location"> | string
-    address?: StringFilter<"Location"> | string
-    renterId?: IntFilter<"Location"> | number
-    price?: IntNullableFilter<"Location"> | number | null
-    CUST_ID?: IntNullableFilter<"Location"> | number | null
-    createdAt?: DateTimeFilter<"Location"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"Location"> | Date | string | null
+  export type PaymentUpsertWithWhereUniqueWithoutCustInput = {
+    where: PaymentWhereUniqueInput
+    update: XOR<PaymentUpdateWithoutCustInput, PaymentUncheckedUpdateWithoutCustInput>
+    create: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput>
+  }
+
+  export type PaymentUpdateWithWhereUniqueWithoutCustInput = {
+    where: PaymentWhereUniqueInput
+    data: XOR<PaymentUpdateWithoutCustInput, PaymentUncheckedUpdateWithoutCustInput>
+  }
+
+  export type PaymentUpdateManyWithWhereWithoutCustInput = {
+    where: PaymentScalarWhereInput
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type PaymentScalarWhereInput = {
+    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    OR?: PaymentScalarWhereInput[]
+    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
+    id?: IntFilter<"Payment"> | number
+    locationId?: IntFilter<"Payment"> | number
+    date?: DateTimeFilter<"Payment"> | Date | string
+    amount?: IntFilter<"Payment"> | number
+    paymentMethodId?: IntFilter<"Payment"> | number
+    CUST_ID?: IntNullableFilter<"Payment"> | number | null
+    paymentRecordId?: IntFilter<"Payment"> | number
+    month?: IntFilter<"Payment"> | number
+    year?: IntFilter<"Payment"> | number
+  }
+
+  export type PaymentRecordUpsertWithWhereUniqueWithoutCustInput = {
+    where: PaymentRecordWhereUniqueInput
+    update: XOR<PaymentRecordUpdateWithoutCustInput, PaymentRecordUncheckedUpdateWithoutCustInput>
+    create: XOR<PaymentRecordCreateWithoutCustInput, PaymentRecordUncheckedCreateWithoutCustInput>
+  }
+
+  export type PaymentRecordUpdateWithWhereUniqueWithoutCustInput = {
+    where: PaymentRecordWhereUniqueInput
+    data: XOR<PaymentRecordUpdateWithoutCustInput, PaymentRecordUncheckedUpdateWithoutCustInput>
+  }
+
+  export type PaymentRecordUpdateManyWithWhereWithoutCustInput = {
+    where: PaymentRecordScalarWhereInput
+    data: XOR<PaymentRecordUpdateManyMutationInput, PaymentRecordUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type PaymentRecordScalarWhereInput = {
+    AND?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
+    OR?: PaymentRecordScalarWhereInput[]
+    NOT?: PaymentRecordScalarWhereInput | PaymentRecordScalarWhereInput[]
+    id?: IntFilter<"PaymentRecord"> | number
+    locationId?: IntFilter<"PaymentRecord"> | number
+    month?: IntFilter<"PaymentRecord"> | number
+    year?: IntFilter<"PaymentRecord"> | number
+    CUST_ID?: IntNullableFilter<"PaymentRecord"> | number | null
+    remainingAmount?: IntFilter<"PaymentRecord"> | number
+    totalPaid?: IntFilter<"PaymentRecord"> | number
+    totalRent?: IntFilter<"PaymentRecord"> | number
+  }
+
+  export type PaymentScheduleUpsertWithWhereUniqueWithoutCustInput = {
+    where: PaymentScheduleWhereUniqueInput
+    update: XOR<PaymentScheduleUpdateWithoutCustInput, PaymentScheduleUncheckedUpdateWithoutCustInput>
+    create: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput>
+  }
+
+  export type PaymentScheduleUpdateWithWhereUniqueWithoutCustInput = {
+    where: PaymentScheduleWhereUniqueInput
+    data: XOR<PaymentScheduleUpdateWithoutCustInput, PaymentScheduleUncheckedUpdateWithoutCustInput>
+  }
+
+  export type PaymentScheduleUpdateManyWithWhereWithoutCustInput = {
+    where: PaymentScheduleScalarWhereInput
+    data: XOR<PaymentScheduleUpdateManyMutationInput, PaymentScheduleUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type PaymentScheduleScalarWhereInput = {
+    AND?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
+    OR?: PaymentScheduleScalarWhereInput[]
+    NOT?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
+    id?: IntFilter<"PaymentSchedule"> | number
+    locationId?: IntFilter<"PaymentSchedule"> | number
+    dueDate?: DateTimeFilter<"PaymentSchedule"> | Date | string
+    CUST_ID?: IntNullableFilter<"PaymentSchedule"> | number | null
+  }
+
+  export type PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    update: XOR<PriceAdjustmentUpdateWithoutCustInput, PriceAdjustmentUncheckedUpdateWithoutCustInput>
+    create: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput>
+  }
+
+  export type PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    data: XOR<PriceAdjustmentUpdateWithoutCustInput, PriceAdjustmentUncheckedUpdateWithoutCustInput>
+  }
+
+  export type PriceAdjustmentUpdateManyWithWhereWithoutCustInput = {
+    where: PriceAdjustmentScalarWhereInput
+    data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type PriceAdjustmentScalarWhereInput = {
+    AND?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
+    OR?: PriceAdjustmentScalarWhereInput[]
+    NOT?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
+    id?: IntFilter<"PriceAdjustment"> | number
+    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
+    amount?: IntFilter<"PriceAdjustment"> | number
+    period?: IntFilter<"PriceAdjustment"> | number
+    status?: IntFilter<"PriceAdjustment"> | number
+    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
+    type?: IntFilter<"PriceAdjustment"> | number
+    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
+    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
+  }
+
+  export type RentHistoryUpsertWithWhereUniqueWithoutCustInput = {
+    where: RentHistoryWhereUniqueInput
+    update: XOR<RentHistoryUpdateWithoutCustInput, RentHistoryUncheckedUpdateWithoutCustInput>
+    create: XOR<RentHistoryCreateWithoutCustInput, RentHistoryUncheckedCreateWithoutCustInput>
+  }
+
+  export type RentHistoryUpdateWithWhereUniqueWithoutCustInput = {
+    where: RentHistoryWhereUniqueInput
+    data: XOR<RentHistoryUpdateWithoutCustInput, RentHistoryUncheckedUpdateWithoutCustInput>
+  }
+
+  export type RentHistoryUpdateManyWithWhereWithoutCustInput = {
+    where: RentHistoryScalarWhereInput
+    data: XOR<RentHistoryUpdateManyMutationInput, RentHistoryUncheckedUpdateManyWithoutCustInput>
+  }
+
+  export type RentHistoryScalarWhereInput = {
+    AND?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
+    OR?: RentHistoryScalarWhereInput[]
+    NOT?: RentHistoryScalarWhereInput | RentHistoryScalarWhereInput[]
+    id?: IntFilter<"RentHistory"> | number
+    locationId?: IntFilter<"RentHistory"> | number
+    month?: IntFilter<"RentHistory"> | number
+    year?: IntFilter<"RentHistory"> | number
+    rentAmount?: IntFilter<"RentHistory"> | number
+    createdAt?: DateTimeFilter<"RentHistory"> | Date | string
+    CUST_ID?: IntNullableFilter<"RentHistory"> | number | null
   }
 
   export type UserUpsertWithoutCreatedUsersInput = {
@@ -15758,18 +19529,22 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
-    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCreatedUsersInput = {
@@ -15780,18 +19555,22 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
   }
 
   export type UserUpsertWithWhereUniqueWithoutCustInput = {
@@ -15821,220 +19600,29 @@ export namespace Prisma {
     firstName?: StringNullableFilter<"User"> | string | null
     lastName?: StringNullableFilter<"User"> | string | null
     picture?: StringNullableFilter<"User"> | string | null
-    password?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
+    password?: StringNullableFilter<"User"> | string | null
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
+    dni?: IntFilter<"User"> | number
   }
 
-  export type LocationUpsertWithWhereUniqueWithoutCustInput = {
-    where: LocationWhereUniqueInput
-    update: XOR<LocationUpdateWithoutCustInput, LocationUncheckedUpdateWithoutCustInput>
-    create: XOR<LocationCreateWithoutCustInput, LocationUncheckedCreateWithoutCustInput>
+  export type AdjustmentLocationCreateWithoutLocationInput = {
+    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
   }
 
-  export type LocationUpdateWithWhereUniqueWithoutCustInput = {
-    where: LocationWhereUniqueInput
-    data: XOR<LocationUpdateWithoutCustInput, LocationUncheckedUpdateWithoutCustInput>
-  }
-
-  export type LocationUpdateManyWithWhereWithoutCustInput = {
-    where: LocationScalarWhereInput
-    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type PaymentUpsertWithWhereUniqueWithoutCustInput = {
-    where: PaymentWhereUniqueInput
-    update: XOR<PaymentUpdateWithoutCustInput, PaymentUncheckedUpdateWithoutCustInput>
-    create: XOR<PaymentCreateWithoutCustInput, PaymentUncheckedCreateWithoutCustInput>
-  }
-
-  export type PaymentUpdateWithWhereUniqueWithoutCustInput = {
-    where: PaymentWhereUniqueInput
-    data: XOR<PaymentUpdateWithoutCustInput, PaymentUncheckedUpdateWithoutCustInput>
-  }
-
-  export type PaymentUpdateManyWithWhereWithoutCustInput = {
-    where: PaymentScalarWhereInput
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type PaymentScalarWhereInput = {
-    AND?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    OR?: PaymentScalarWhereInput[]
-    NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-    id?: IntFilter<"Payment"> | number
-    locationId?: IntFilter<"Payment"> | number
-    date?: DateTimeFilter<"Payment"> | Date | string
-    amount?: FloatFilter<"Payment"> | number
-    paymentMethodId?: IntFilter<"Payment"> | number
-    CUST_ID?: IntNullableFilter<"Payment"> | number | null
-  }
-
-  export type InvoiceUpsertWithWhereUniqueWithoutCustInput = {
-    where: InvoiceWhereUniqueInput
-    update: XOR<InvoiceUpdateWithoutCustInput, InvoiceUncheckedUpdateWithoutCustInput>
-    create: XOR<InvoiceCreateWithoutCustInput, InvoiceUncheckedCreateWithoutCustInput>
-  }
-
-  export type InvoiceUpdateWithWhereUniqueWithoutCustInput = {
-    where: InvoiceWhereUniqueInput
-    data: XOR<InvoiceUpdateWithoutCustInput, InvoiceUncheckedUpdateWithoutCustInput>
-  }
-
-  export type InvoiceUpdateManyWithWhereWithoutCustInput = {
-    where: InvoiceScalarWhereInput
-    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type InvoiceScalarWhereInput = {
-    AND?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
-    OR?: InvoiceScalarWhereInput[]
-    NOT?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
-    id?: IntFilter<"Invoice"> | number
-    locationId?: IntFilter<"Invoice"> | number
-    date?: DateTimeFilter<"Invoice"> | Date | string
-    CUST_ID?: IntNullableFilter<"Invoice"> | number | null
-  }
-
-  export type PaymentScheduleUpsertWithWhereUniqueWithoutCustInput = {
-    where: PaymentScheduleWhereUniqueInput
-    update: XOR<PaymentScheduleUpdateWithoutCustInput, PaymentScheduleUncheckedUpdateWithoutCustInput>
-    create: XOR<PaymentScheduleCreateWithoutCustInput, PaymentScheduleUncheckedCreateWithoutCustInput>
-  }
-
-  export type PaymentScheduleUpdateWithWhereUniqueWithoutCustInput = {
-    where: PaymentScheduleWhereUniqueInput
-    data: XOR<PaymentScheduleUpdateWithoutCustInput, PaymentScheduleUncheckedUpdateWithoutCustInput>
-  }
-
-  export type PaymentScheduleUpdateManyWithWhereWithoutCustInput = {
-    where: PaymentScheduleScalarWhereInput
-    data: XOR<PaymentScheduleUpdateManyMutationInput, PaymentScheduleUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type PaymentScheduleScalarWhereInput = {
-    AND?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
-    OR?: PaymentScheduleScalarWhereInput[]
-    NOT?: PaymentScheduleScalarWhereInput | PaymentScheduleScalarWhereInput[]
-    id?: IntFilter<"PaymentSchedule"> | number
-    locationId?: IntFilter<"PaymentSchedule"> | number
-    dueDate?: DateTimeFilter<"PaymentSchedule"> | Date | string
-    CUST_ID?: IntNullableFilter<"PaymentSchedule"> | number | null
-  }
-
-  export type KeyUpsertWithWhereUniqueWithoutCustInput = {
-    where: KeyWhereUniqueInput
-    update: XOR<KeyUpdateWithoutCustInput, KeyUncheckedUpdateWithoutCustInput>
-    create: XOR<KeyCreateWithoutCustInput, KeyUncheckedCreateWithoutCustInput>
-  }
-
-  export type KeyUpdateWithWhereUniqueWithoutCustInput = {
-    where: KeyWhereUniqueInput
-    data: XOR<KeyUpdateWithoutCustInput, KeyUncheckedUpdateWithoutCustInput>
-  }
-
-  export type KeyUpdateManyWithWhereWithoutCustInput = {
-    where: KeyScalarWhereInput
-    data: XOR<KeyUpdateManyMutationInput, KeyUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type KeyScalarWhereInput = {
-    AND?: KeyScalarWhereInput | KeyScalarWhereInput[]
-    OR?: KeyScalarWhereInput[]
-    NOT?: KeyScalarWhereInput | KeyScalarWhereInput[]
-    id?: IntFilter<"Key"> | number
-    locationId?: IntFilter<"Key"> | number
-    issueDate?: DateTimeFilter<"Key"> | Date | string
-    returnDate?: DateTimeFilter<"Key"> | Date | string
-    CUST_ID?: IntNullableFilter<"Key"> | number | null
-  }
-
-  export type ContractUpsertWithWhereUniqueWithoutCustInput = {
-    where: ContractWhereUniqueInput
-    update: XOR<ContractUpdateWithoutCustInput, ContractUncheckedUpdateWithoutCustInput>
-    create: XOR<ContractCreateWithoutCustInput, ContractUncheckedCreateWithoutCustInput>
-  }
-
-  export type ContractUpdateWithWhereUniqueWithoutCustInput = {
-    where: ContractWhereUniqueInput
-    data: XOR<ContractUpdateWithoutCustInput, ContractUncheckedUpdateWithoutCustInput>
-  }
-
-  export type ContractUpdateManyWithWhereWithoutCustInput = {
-    where: ContractScalarWhereInput
-    data: XOR<ContractUpdateManyMutationInput, ContractUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type ContractScalarWhereInput = {
-    AND?: ContractScalarWhereInput | ContractScalarWhereInput[]
-    OR?: ContractScalarWhereInput[]
-    NOT?: ContractScalarWhereInput | ContractScalarWhereInput[]
-    id?: IntFilter<"Contract"> | number
-    locationId?: IntFilter<"Contract"> | number
-    startDate?: DateTimeFilter<"Contract"> | Date | string
-    endDate?: DateTimeFilter<"Contract"> | Date | string
-    renewed?: BoolFilter<"Contract"> | boolean
-    cancelled?: BoolFilter<"Contract"> | boolean
-    CUST_ID?: IntNullableFilter<"Contract"> | number | null
-  }
-
-  export type PriceAdjustmentUpsertWithWhereUniqueWithoutCustInput = {
-    where: PriceAdjustmentWhereUniqueInput
-    update: XOR<PriceAdjustmentUpdateWithoutCustInput, PriceAdjustmentUncheckedUpdateWithoutCustInput>
-    create: XOR<PriceAdjustmentCreateWithoutCustInput, PriceAdjustmentUncheckedCreateWithoutCustInput>
-  }
-
-  export type PriceAdjustmentUpdateWithWhereUniqueWithoutCustInput = {
-    where: PriceAdjustmentWhereUniqueInput
-    data: XOR<PriceAdjustmentUpdateWithoutCustInput, PriceAdjustmentUncheckedUpdateWithoutCustInput>
-  }
-
-  export type PriceAdjustmentUpdateManyWithWhereWithoutCustInput = {
-    where: PriceAdjustmentScalarWhereInput
-    data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyWithoutCustInput>
-  }
-
-  export type PriceAdjustmentScalarWhereInput = {
-    AND?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
-    OR?: PriceAdjustmentScalarWhereInput[]
-    NOT?: PriceAdjustmentScalarWhereInput | PriceAdjustmentScalarWhereInput[]
-    id?: IntFilter<"PriceAdjustment"> | number
-    amount?: FloatFilter<"PriceAdjustment"> | number
-    type?: IntFilter<"PriceAdjustment"> | number
-    period?: IntFilter<"PriceAdjustment"> | number
-    applyToAll?: BoolFilter<"PriceAdjustment"> | boolean
-    status?: IntFilter<"PriceAdjustment"> | number
-    CUST_ID?: IntNullableFilter<"PriceAdjustment"> | number | null
-    lastExecutedAt?: DateTimeNullableFilter<"PriceAdjustment"> | Date | string | null
-    createdAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-    updatedAt?: DateTimeFilter<"PriceAdjustment"> | Date | string
-  }
-
-  export type ContractCreateWithoutLocationInput = {
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    cust?: UserCreateNestedOneWithoutContractsInput
-  }
-
-  export type ContractUncheckedCreateWithoutLocationInput = {
+  export type AdjustmentLocationUncheckedCreateWithoutLocationInput = {
     id?: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    CUST_ID?: number | null
+    priceAdjustmentId: number
   }
 
-  export type ContractCreateOrConnectWithoutLocationInput = {
-    where: ContractWhereUniqueInput
-    create: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput>
+  export type AdjustmentLocationCreateOrConnectWithoutLocationInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    create: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput>
   }
 
-  export type ContractCreateManyLocationInputEnvelope = {
-    data: ContractCreateManyLocationInput | ContractCreateManyLocationInput[]
+  export type AdjustmentLocationCreateManyLocationInputEnvelope = {
+    data: AdjustmentLocationCreateManyLocationInput | AdjustmentLocationCreateManyLocationInput[]
     skipDuplicates?: boolean
   }
 
@@ -16061,14 +19649,14 @@ export namespace Prisma {
 
   export type KeyCreateWithoutLocationInput = {
     issueDate: Date | string
-    returnDate: Date | string
+    returnDate?: Date | string | null
     cust?: UserCreateNestedOneWithoutKeysInput
   }
 
   export type KeyUncheckedCreateWithoutLocationInput = {
     id?: number
     issueDate: Date | string
-    returnDate: Date | string
+    returnDate?: Date | string | null
     CUST_ID?: number | null
   }
 
@@ -16082,6 +19670,99 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type LeaseContractCreateWithoutLocationInput = {
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    cust?: UserCreateNestedOneWithoutLeaseContractsAsCustInput
+    renter: UserCreateNestedOneWithoutLeaseContractsAsRenterInput
+  }
+
+  export type LeaseContractUncheckedCreateWithoutLocationInput = {
+    id?: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    CUST_ID?: number | null
+    renterId: number
+  }
+
+  export type LeaseContractCreateOrConnectWithoutLocationInput = {
+    where: LeaseContractWhereUniqueInput
+    create: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput>
+  }
+
+  export type LeaseContractCreateManyLocationInputEnvelope = {
+    data: LeaseContractCreateManyLocationInput | LeaseContractCreateManyLocationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutLocationInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutLocationInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutLocationInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
+  }
+
   export type UserCreateWithoutRentedLocationsInput = {
     email: string
     isRenter?: boolean
@@ -16089,18 +19770,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
     Location?: LocationCreateNestedManyWithoutCustInput
     payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
     paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
   }
 
   export type UserUncheckedCreateWithoutRentedLocationsInput = {
@@ -16111,18 +19796,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
     CUST_ID?: number | null
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
     Location?: LocationUncheckedCreateNestedManyWithoutCustInput
     payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
   }
 
   export type UserCreateOrConnectWithoutRentedLocationsInput = {
@@ -16133,8 +19822,11 @@ export namespace Prisma {
   export type PaymentCreateWithoutLocationInput = {
     date?: Date | string
     amount: number
-    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
+    month: number
+    year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
+    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
+    paymentRecord: PaymentRecordCreateNestedOneWithoutPaymentsInput
   }
 
   export type PaymentUncheckedCreateWithoutLocationInput = {
@@ -16143,6 +19835,9 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
   }
 
   export type PaymentCreateOrConnectWithoutLocationInput = {
@@ -16152,6 +19847,37 @@ export namespace Prisma {
 
   export type PaymentCreateManyLocationInputEnvelope = {
     data: PaymentCreateManyLocationInput | PaymentCreateManyLocationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PaymentRecordCreateWithoutLocationInput = {
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentCreateNestedManyWithoutPaymentRecordInput
+    cust?: UserCreateNestedOneWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordUncheckedCreateWithoutLocationInput = {
+    id?: number
+    month: number
+    year: number
+    CUST_ID?: number | null
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    payments?: PaymentUncheckedCreateNestedManyWithoutPaymentRecordInput
+  }
+
+  export type PaymentRecordCreateOrConnectWithoutLocationInput = {
+    where: PaymentRecordWhereUniqueInput
+    create: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput>
+  }
+
+  export type PaymentRecordCreateManyLocationInputEnvelope = {
+    data: PaymentRecordCreateManyLocationInput | PaymentRecordCreateManyLocationInput[]
     skipDuplicates?: boolean
   }
 
@@ -16176,77 +19902,56 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserCreateWithoutLocationInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
+  export type RentHistoryCreateWithoutLocationInput = {
+    month: number
+    year: number
+    rentAmount: number
     createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutRentHistoryInput
   }
 
-  export type UserUncheckedCreateWithoutLocationInput = {
+  export type RentHistoryUncheckedCreateWithoutLocationInput = {
     id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
+    month: number
+    year: number
+    rentAmount: number
     createdAt?: Date | string
-    updatedAt?: Date | string | null
     CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
   }
 
-  export type UserCreateOrConnectWithoutLocationInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLocationInput, UserUncheckedCreateWithoutLocationInput>
+  export type RentHistoryCreateOrConnectWithoutLocationInput = {
+    where: RentHistoryWhereUniqueInput
+    create: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput>
+  }
+
+  export type RentHistoryCreateManyLocationInputEnvelope = {
+    data: RentHistoryCreateManyLocationInput | RentHistoryCreateManyLocationInput[]
+    skipDuplicates?: boolean
   }
 
   export type PriceAdjustmentCreateWithoutLocationsInput = {
     amount: number
-    type: number
     period: number
-    applyToAll: boolean
     status: number
-    lastExecutedAt?: Date | string | null
+    applyToAll: boolean
+    type: number
     createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
     updatedAt?: Date | string
-    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
     AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutPriceAdjustmentInput
+    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
   }
 
   export type PriceAdjustmentUncheckedCreateWithoutLocationsInput = {
     id?: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
     CUST_ID?: number | null
-    lastExecutedAt?: Date | string | null
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
     createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
     updatedAt?: Date | string
     AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutPriceAdjustmentInput
   }
@@ -16256,39 +19961,29 @@ export namespace Prisma {
     create: XOR<PriceAdjustmentCreateWithoutLocationsInput, PriceAdjustmentUncheckedCreateWithoutLocationsInput>
   }
 
-  export type AdjustmentLocationCreateWithoutLocationInput = {
-    priceAdjustment: PriceAdjustmentCreateNestedOneWithoutAdjustmentLocationInput
-  }
-
-  export type AdjustmentLocationUncheckedCreateWithoutLocationInput = {
-    id?: number
-    priceAdjustmentId: number
-  }
-
-  export type AdjustmentLocationCreateOrConnectWithoutLocationInput = {
+  export type AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput = {
     where: AdjustmentLocationWhereUniqueInput
+    update: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
     create: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput>
   }
 
-  export type AdjustmentLocationCreateManyLocationInputEnvelope = {
-    data: AdjustmentLocationCreateManyLocationInput | AdjustmentLocationCreateManyLocationInput[]
-    skipDuplicates?: boolean
+  export type AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    data: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
   }
 
-  export type ContractUpsertWithWhereUniqueWithoutLocationInput = {
-    where: ContractWhereUniqueInput
-    update: XOR<ContractUpdateWithoutLocationInput, ContractUncheckedUpdateWithoutLocationInput>
-    create: XOR<ContractCreateWithoutLocationInput, ContractUncheckedCreateWithoutLocationInput>
+  export type AdjustmentLocationUpdateManyWithWhereWithoutLocationInput = {
+    where: AdjustmentLocationScalarWhereInput
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutLocationInput>
   }
 
-  export type ContractUpdateWithWhereUniqueWithoutLocationInput = {
-    where: ContractWhereUniqueInput
-    data: XOR<ContractUpdateWithoutLocationInput, ContractUncheckedUpdateWithoutLocationInput>
-  }
-
-  export type ContractUpdateManyWithWhereWithoutLocationInput = {
-    where: ContractScalarWhereInput
-    data: XOR<ContractUpdateManyMutationInput, ContractUncheckedUpdateManyWithoutLocationInput>
+  export type AdjustmentLocationScalarWhereInput = {
+    AND?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+    OR?: AdjustmentLocationScalarWhereInput[]
+    NOT?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
+    id?: IntFilter<"AdjustmentLocation"> | number
+    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
+    locationId?: IntFilter<"AdjustmentLocation"> | number
   }
 
   export type InvoiceUpsertWithWhereUniqueWithoutLocationInput = {
@@ -16323,90 +20018,20 @@ export namespace Prisma {
     data: XOR<KeyUpdateManyMutationInput, KeyUncheckedUpdateManyWithoutLocationInput>
   }
 
-  export type UserUpsertWithoutRentedLocationsInput = {
-    update: XOR<UserUpdateWithoutRentedLocationsInput, UserUncheckedUpdateWithoutRentedLocationsInput>
-    create: XOR<UserCreateWithoutRentedLocationsInput, UserUncheckedCreateWithoutRentedLocationsInput>
-    where?: UserWhereInput
+  export type LeaseContractUpsertWithWhereUniqueWithoutLocationInput = {
+    where: LeaseContractWhereUniqueInput
+    update: XOR<LeaseContractUpdateWithoutLocationInput, LeaseContractUncheckedUpdateWithoutLocationInput>
+    create: XOR<LeaseContractCreateWithoutLocationInput, LeaseContractUncheckedCreateWithoutLocationInput>
   }
 
-  export type UserUpdateToOneWithWhereWithoutRentedLocationsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutRentedLocationsInput, UserUncheckedUpdateWithoutRentedLocationsInput>
+  export type LeaseContractUpdateWithWhereUniqueWithoutLocationInput = {
+    where: LeaseContractWhereUniqueInput
+    data: XOR<LeaseContractUpdateWithoutLocationInput, LeaseContractUncheckedUpdateWithoutLocationInput>
   }
 
-  export type UserUpdateWithoutRentedLocationsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
-    createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutRentedLocationsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
-  }
-
-  export type PaymentUpsertWithWhereUniqueWithoutLocationInput = {
-    where: PaymentWhereUniqueInput
-    update: XOR<PaymentUpdateWithoutLocationInput, PaymentUncheckedUpdateWithoutLocationInput>
-    create: XOR<PaymentCreateWithoutLocationInput, PaymentUncheckedCreateWithoutLocationInput>
-  }
-
-  export type PaymentUpdateWithWhereUniqueWithoutLocationInput = {
-    where: PaymentWhereUniqueInput
-    data: XOR<PaymentUpdateWithoutLocationInput, PaymentUncheckedUpdateWithoutLocationInput>
-  }
-
-  export type PaymentUpdateManyWithWhereWithoutLocationInput = {
-    where: PaymentScalarWhereInput
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutLocationInput>
-  }
-
-  export type PaymentScheduleUpsertWithWhereUniqueWithoutLocationInput = {
-    where: PaymentScheduleWhereUniqueInput
-    update: XOR<PaymentScheduleUpdateWithoutLocationInput, PaymentScheduleUncheckedUpdateWithoutLocationInput>
-    create: XOR<PaymentScheduleCreateWithoutLocationInput, PaymentScheduleUncheckedCreateWithoutLocationInput>
-  }
-
-  export type PaymentScheduleUpdateWithWhereUniqueWithoutLocationInput = {
-    where: PaymentScheduleWhereUniqueInput
-    data: XOR<PaymentScheduleUpdateWithoutLocationInput, PaymentScheduleUncheckedUpdateWithoutLocationInput>
-  }
-
-  export type PaymentScheduleUpdateManyWithWhereWithoutLocationInput = {
-    where: PaymentScheduleScalarWhereInput
-    data: XOR<PaymentScheduleUpdateManyMutationInput, PaymentScheduleUncheckedUpdateManyWithoutLocationInput>
+  export type LeaseContractUpdateManyWithWhereWithoutLocationInput = {
+    where: LeaseContractScalarWhereInput
+    data: XOR<LeaseContractUpdateManyMutationInput, LeaseContractUncheckedUpdateManyWithoutLocationInput>
   }
 
   export type UserUpsertWithoutLocationInput = {
@@ -16427,18 +20052,22 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
     rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
     cust?: UserUpdateOneWithoutCreatedUsersNestedInput
     createdUsers?: UserUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLocationInput = {
@@ -16449,18 +20078,148 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUpsertWithoutRentedLocationsInput = {
+    update: XOR<UserUpdateWithoutRentedLocationsInput, UserUncheckedUpdateWithoutRentedLocationsInput>
+    create: XOR<UserCreateWithoutRentedLocationsInput, UserUncheckedCreateWithoutRentedLocationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutRentedLocationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutRentedLocationsInput, UserUncheckedUpdateWithoutRentedLocationsInput>
+  }
+
+  export type UserUpdateWithoutRentedLocationsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRentedLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type PaymentUpsertWithWhereUniqueWithoutLocationInput = {
+    where: PaymentWhereUniqueInput
+    update: XOR<PaymentUpdateWithoutLocationInput, PaymentUncheckedUpdateWithoutLocationInput>
+    create: XOR<PaymentCreateWithoutLocationInput, PaymentUncheckedCreateWithoutLocationInput>
+  }
+
+  export type PaymentUpdateWithWhereUniqueWithoutLocationInput = {
+    where: PaymentWhereUniqueInput
+    data: XOR<PaymentUpdateWithoutLocationInput, PaymentUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type PaymentUpdateManyWithWhereWithoutLocationInput = {
+    where: PaymentScalarWhereInput
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutLocationInput>
+  }
+
+  export type PaymentRecordUpsertWithWhereUniqueWithoutLocationInput = {
+    where: PaymentRecordWhereUniqueInput
+    update: XOR<PaymentRecordUpdateWithoutLocationInput, PaymentRecordUncheckedUpdateWithoutLocationInput>
+    create: XOR<PaymentRecordCreateWithoutLocationInput, PaymentRecordUncheckedCreateWithoutLocationInput>
+  }
+
+  export type PaymentRecordUpdateWithWhereUniqueWithoutLocationInput = {
+    where: PaymentRecordWhereUniqueInput
+    data: XOR<PaymentRecordUpdateWithoutLocationInput, PaymentRecordUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type PaymentRecordUpdateManyWithWhereWithoutLocationInput = {
+    where: PaymentRecordScalarWhereInput
+    data: XOR<PaymentRecordUpdateManyMutationInput, PaymentRecordUncheckedUpdateManyWithoutLocationInput>
+  }
+
+  export type PaymentScheduleUpsertWithWhereUniqueWithoutLocationInput = {
+    where: PaymentScheduleWhereUniqueInput
+    update: XOR<PaymentScheduleUpdateWithoutLocationInput, PaymentScheduleUncheckedUpdateWithoutLocationInput>
+    create: XOR<PaymentScheduleCreateWithoutLocationInput, PaymentScheduleUncheckedCreateWithoutLocationInput>
+  }
+
+  export type PaymentScheduleUpdateWithWhereUniqueWithoutLocationInput = {
+    where: PaymentScheduleWhereUniqueInput
+    data: XOR<PaymentScheduleUpdateWithoutLocationInput, PaymentScheduleUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type PaymentScheduleUpdateManyWithWhereWithoutLocationInput = {
+    where: PaymentScheduleScalarWhereInput
+    data: XOR<PaymentScheduleUpdateManyMutationInput, PaymentScheduleUncheckedUpdateManyWithoutLocationInput>
+  }
+
+  export type RentHistoryUpsertWithWhereUniqueWithoutLocationInput = {
+    where: RentHistoryWhereUniqueInput
+    update: XOR<RentHistoryUpdateWithoutLocationInput, RentHistoryUncheckedUpdateWithoutLocationInput>
+    create: XOR<RentHistoryCreateWithoutLocationInput, RentHistoryUncheckedCreateWithoutLocationInput>
+  }
+
+  export type RentHistoryUpdateWithWhereUniqueWithoutLocationInput = {
+    where: RentHistoryWhereUniqueInput
+    data: XOR<RentHistoryUpdateWithoutLocationInput, RentHistoryUncheckedUpdateWithoutLocationInput>
+  }
+
+  export type RentHistoryUpdateManyWithWhereWithoutLocationInput = {
+    where: RentHistoryScalarWhereInput
+    data: XOR<RentHistoryUpdateManyMutationInput, RentHistoryUncheckedUpdateManyWithoutLocationInput>
   }
 
   export type PriceAdjustmentUpsertWithWhereUniqueWithoutLocationsInput = {
@@ -16479,45 +20238,968 @@ export namespace Prisma {
     data: XOR<PriceAdjustmentUpdateManyMutationInput, PriceAdjustmentUncheckedUpdateManyWithoutLocationsInput>
   }
 
-  export type AdjustmentLocationUpsertWithWhereUniqueWithoutLocationInput = {
-    where: AdjustmentLocationWhereUniqueInput
-    update: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
-    create: XOR<AdjustmentLocationCreateWithoutLocationInput, AdjustmentLocationUncheckedCreateWithoutLocationInput>
+  export type UserCreateWithoutLeaseContractsAsCustInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
   }
 
-  export type AdjustmentLocationUpdateWithWhereUniqueWithoutLocationInput = {
-    where: AdjustmentLocationWhereUniqueInput
-    data: XOR<AdjustmentLocationUpdateWithoutLocationInput, AdjustmentLocationUncheckedUpdateWithoutLocationInput>
+  export type UserUncheckedCreateWithoutLeaseContractsAsCustInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
   }
 
-  export type AdjustmentLocationUpdateManyWithWhereWithoutLocationInput = {
+  export type UserCreateOrConnectWithoutLeaseContractsAsCustInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLeaseContractsAsCustInput, UserUncheckedCreateWithoutLeaseContractsAsCustInput>
+  }
+
+  export type LocationCreateWithoutContractsInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutContractsInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutContractsInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
+  }
+
+  export type UserCreateWithoutLeaseContractsAsRenterInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutLeaseContractsAsRenterInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutLeaseContractsAsRenterInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLeaseContractsAsRenterInput, UserUncheckedCreateWithoutLeaseContractsAsRenterInput>
+  }
+
+  export type UserUpsertWithoutLeaseContractsAsCustInput = {
+    update: XOR<UserUpdateWithoutLeaseContractsAsCustInput, UserUncheckedUpdateWithoutLeaseContractsAsCustInput>
+    create: XOR<UserCreateWithoutLeaseContractsAsCustInput, UserUncheckedCreateWithoutLeaseContractsAsCustInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLeaseContractsAsCustInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLeaseContractsAsCustInput, UserUncheckedUpdateWithoutLeaseContractsAsCustInput>
+  }
+
+  export type UserUpdateWithoutLeaseContractsAsCustInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLeaseContractsAsCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type LocationUpsertWithoutContractsInput = {
+    update: XOR<LocationUpdateWithoutContractsInput, LocationUncheckedUpdateWithoutContractsInput>
+    create: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
+    where?: LocationWhereInput
+  }
+
+  export type LocationUpdateToOneWithWhereWithoutContractsInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutContractsInput, LocationUncheckedUpdateWithoutContractsInput>
+  }
+
+  export type LocationUpdateWithoutContractsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutContractsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type UserUpsertWithoutLeaseContractsAsRenterInput = {
+    update: XOR<UserUpdateWithoutLeaseContractsAsRenterInput, UserUncheckedUpdateWithoutLeaseContractsAsRenterInput>
+    create: XOR<UserCreateWithoutLeaseContractsAsRenterInput, UserUncheckedCreateWithoutLeaseContractsAsRenterInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLeaseContractsAsRenterInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLeaseContractsAsRenterInput, UserUncheckedUpdateWithoutLeaseContractsAsRenterInput>
+  }
+
+  export type UserUpdateWithoutLeaseContractsAsRenterInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLeaseContractsAsRenterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserCreateWithoutKeysInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutKeysInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutKeysInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
+  }
+
+  export type LocationCreateWithoutKeysInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutKeysInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutKeysInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
+  }
+
+  export type UserUpsertWithoutKeysInput = {
+    update: XOR<UserUpdateWithoutKeysInput, UserUncheckedUpdateWithoutKeysInput>
+    create: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutKeysInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutKeysInput, UserUncheckedUpdateWithoutKeysInput>
+  }
+
+  export type UserUpdateWithoutKeysInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutKeysInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type LocationUpsertWithoutKeysInput = {
+    update: XOR<LocationUpdateWithoutKeysInput, LocationUncheckedUpdateWithoutKeysInput>
+    create: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
+    where?: LocationWhereInput
+  }
+
+  export type LocationUpdateToOneWithWhereWithoutKeysInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutKeysInput, LocationUncheckedUpdateWithoutKeysInput>
+  }
+
+  export type LocationUpdateWithoutKeysInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutKeysInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type AdjustmentLocationCreateWithoutPriceAdjustmentInput = {
+    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
+  }
+
+  export type AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput = {
+    id?: number
+    locationId: number
+  }
+
+  export type AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope = {
+    data: AdjustmentLocationCreateManyPriceAdjustmentInput | AdjustmentLocationCreateManyPriceAdjustmentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutPriceAdjustmentsInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutPriceAdjustmentsInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutPriceAdjustmentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
+  }
+
+  export type LocationCreateWithoutAdjustmentsInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+  }
+
+  export type LocationUncheckedCreateWithoutAdjustmentsInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+  }
+
+  export type LocationCreateOrConnectWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
+  }
+
+  export type AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    update: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
+    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput = {
+    where: AdjustmentLocationWhereUniqueInput
+    data: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
+  }
+
+  export type AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput = {
     where: AdjustmentLocationScalarWhereInput
-    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutLocationInput>
+    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentInput>
   }
 
-  export type AdjustmentLocationScalarWhereInput = {
-    AND?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
-    OR?: AdjustmentLocationScalarWhereInput[]
-    NOT?: AdjustmentLocationScalarWhereInput | AdjustmentLocationScalarWhereInput[]
-    id?: IntFilter<"AdjustmentLocation"> | number
-    priceAdjustmentId?: IntFilter<"AdjustmentLocation"> | number
-    locationId?: IntFilter<"AdjustmentLocation"> | number
+  export type UserUpsertWithoutPriceAdjustmentsInput = {
+    update: XOR<UserUpdateWithoutPriceAdjustmentsInput, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
+    create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPriceAdjustmentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPriceAdjustmentsInput, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
+  }
+
+  export type UserUpdateWithoutPriceAdjustmentsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPriceAdjustmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type LocationUpsertWithWhereUniqueWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    update: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
+    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
+  }
+
+  export type LocationUpdateWithWhereUniqueWithoutAdjustmentsInput = {
+    where: LocationWhereUniqueInput
+    data: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
+  }
+
+  export type LocationUpdateManyWithWhereWithoutAdjustmentsInput = {
+    where: LocationScalarWhereInput
+    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutAdjustmentsInput>
+  }
+
+  export type LocationCreateWithoutAdjustmentLocationInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutAdjustmentLocationInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutAdjustmentLocationInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+  }
+
+  export type PriceAdjustmentCreateWithoutAdjustmentLocationInput = {
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
+    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput = {
+    id?: number
+    CUST_ID?: number | null
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
+  }
+
+  export type PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput = {
+    where: PriceAdjustmentWhereUniqueInput
+    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+  }
+
+  export type LocationUpsertWithoutAdjustmentLocationInput = {
+    update: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
+    where?: LocationWhereInput
+  }
+
+  export type LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type LocationUpdateWithoutAdjustmentLocationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutAdjustmentLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type PriceAdjustmentUpsertWithoutAdjustmentLocationInput = {
+    update: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
+    where?: PriceAdjustmentWhereInput
+  }
+
+  export type PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
+    where?: PriceAdjustmentWhereInput
+    data: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
+  }
+
+  export type PriceAdjustmentUpdateWithoutAdjustmentLocationInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
+  }
+
+  export type UserCreateWithoutPaymentsInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutPaymentsInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutPaymentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
   }
 
   export type LocationCreateWithoutPaymentsInput = {
     name: string
     address: string
-    price?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
     invoices?: InvoiceCreateNestedManyWithoutLocationInput
     keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
     cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
     adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
   }
 
   export type LocationUncheckedCreateWithoutPaymentsInput = {
@@ -16525,16 +21207,17 @@ export namespace Prisma {
     name: string
     address: string
     renterId: number
-    price?: number | null
     CUST_ID?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
     invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
     keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
     paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
     adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
   }
 
   export type LocationCreateOrConnectWithoutPaymentsInput = {
@@ -16556,52 +21239,92 @@ export namespace Prisma {
     create: XOR<PaymentMethodCreateWithoutPaymentsInput, PaymentMethodUncheckedCreateWithoutPaymentsInput>
   }
 
-  export type UserCreateWithoutPaymentsInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+  export type PaymentRecordCreateWithoutPaymentsInput = {
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+    cust?: UserCreateNestedOneWithoutPaymentRecordInput
+    location: LocationCreateNestedOneWithoutPaymentRecordInput
   }
 
-  export type UserUncheckedCreateWithoutPaymentsInput = {
+  export type PaymentRecordUncheckedCreateWithoutPaymentsInput = {
     id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
+    locationId: number
+    month: number
+    year: number
     CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
   }
 
-  export type UserCreateOrConnectWithoutPaymentsInput = {
-    where: UserWhereUniqueInput
+  export type PaymentRecordCreateOrConnectWithoutPaymentsInput = {
+    where: PaymentRecordWhereUniqueInput
+    create: XOR<PaymentRecordCreateWithoutPaymentsInput, PaymentRecordUncheckedCreateWithoutPaymentsInput>
+  }
+
+  export type UserUpsertWithoutPaymentsInput = {
+    update: XOR<UserUpdateWithoutPaymentsInput, UserUncheckedUpdateWithoutPaymentsInput>
     create: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPaymentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPaymentsInput, UserUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type UserUpdateWithoutPaymentsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPaymentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
   }
 
   export type LocationUpsertWithoutPaymentsInput = {
@@ -16618,17 +21341,18 @@ export namespace Prisma {
   export type LocationUpdateWithoutPaymentsInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
   export type LocationUncheckedUpdateWithoutPaymentsInput = {
@@ -16636,16 +21360,17 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
     paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type PaymentMethodUpsertWithoutPaymentsInput = {
@@ -16668,39 +21393,218 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserUpsertWithoutPaymentsInput = {
-    update: XOR<UserUpdateWithoutPaymentsInput, UserUncheckedUpdateWithoutPaymentsInput>
-    create: XOR<UserCreateWithoutPaymentsInput, UserUncheckedCreateWithoutPaymentsInput>
+  export type PaymentRecordUpsertWithoutPaymentsInput = {
+    update: XOR<PaymentRecordUpdateWithoutPaymentsInput, PaymentRecordUncheckedUpdateWithoutPaymentsInput>
+    create: XOR<PaymentRecordCreateWithoutPaymentsInput, PaymentRecordUncheckedCreateWithoutPaymentsInput>
+    where?: PaymentRecordWhereInput
+  }
+
+  export type PaymentRecordUpdateToOneWithWhereWithoutPaymentsInput = {
+    where?: PaymentRecordWhereInput
+    data: XOR<PaymentRecordUpdateWithoutPaymentsInput, PaymentRecordUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type PaymentRecordUpdateWithoutPaymentsInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    cust?: UserUpdateOneWithoutPaymentRecordNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateWithoutPaymentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentCreateWithoutPaymentRecordInput = {
+    date?: Date | string
+    amount: number
+    month: number
+    year: number
+    cust?: UserCreateNestedOneWithoutPaymentsInput
+    location: LocationCreateNestedOneWithoutPaymentsInput
+    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
+  }
+
+  export type PaymentUncheckedCreateWithoutPaymentRecordInput = {
+    id?: number
+    locationId: number
+    date?: Date | string
+    amount: number
+    paymentMethodId: number
+    CUST_ID?: number | null
+    month: number
+    year: number
+  }
+
+  export type PaymentCreateOrConnectWithoutPaymentRecordInput = {
+    where: PaymentWhereUniqueInput
+    create: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput>
+  }
+
+  export type PaymentCreateManyPaymentRecordInputEnvelope = {
+    data: PaymentCreateManyPaymentRecordInput | PaymentCreateManyPaymentRecordInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutPaymentRecordInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutPaymentRecordInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutPaymentRecordInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPaymentRecordInput, UserUncheckedCreateWithoutPaymentRecordInput>
+  }
+
+  export type LocationCreateWithoutPaymentRecordInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutPaymentRecordInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutPaymentRecordInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutPaymentRecordInput, LocationUncheckedCreateWithoutPaymentRecordInput>
+  }
+
+  export type PaymentUpsertWithWhereUniqueWithoutPaymentRecordInput = {
+    where: PaymentWhereUniqueInput
+    update: XOR<PaymentUpdateWithoutPaymentRecordInput, PaymentUncheckedUpdateWithoutPaymentRecordInput>
+    create: XOR<PaymentCreateWithoutPaymentRecordInput, PaymentUncheckedCreateWithoutPaymentRecordInput>
+  }
+
+  export type PaymentUpdateWithWhereUniqueWithoutPaymentRecordInput = {
+    where: PaymentWhereUniqueInput
+    data: XOR<PaymentUpdateWithoutPaymentRecordInput, PaymentUncheckedUpdateWithoutPaymentRecordInput>
+  }
+
+  export type PaymentUpdateManyWithWhereWithoutPaymentRecordInput = {
+    where: PaymentScalarWhereInput
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutPaymentRecordInput>
+  }
+
+  export type UserUpsertWithoutPaymentRecordInput = {
+    update: XOR<UserUpdateWithoutPaymentRecordInput, UserUncheckedUpdateWithoutPaymentRecordInput>
+    create: XOR<UserCreateWithoutPaymentRecordInput, UserUncheckedCreateWithoutPaymentRecordInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutPaymentsInput = {
+  export type UserUpdateToOneWithWhereWithoutPaymentRecordInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPaymentsInput, UserUncheckedUpdateWithoutPaymentsInput>
+    data: XOR<UserUpdateWithoutPaymentRecordInput, UserUncheckedUpdateWithoutPaymentRecordInput>
   }
 
-  export type UserUpdateWithoutPaymentsInput = {
+  export type UserUpdateWithoutPaymentRecordInput = {
     email?: StringFieldUpdateOperationsInput | string
     isRenter?: BoolFieldUpdateOperationsInput | boolean
     accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
     rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
     cust?: UserUpdateOneWithoutCreatedUsersNestedInput
     createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutPaymentsInput = {
+  export type UserUncheckedUpdateWithoutPaymentRecordInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     isRenter?: BoolFieldUpdateOperationsInput | boolean
@@ -16708,25 +21612,78 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type LocationUpsertWithoutPaymentRecordInput = {
+    update: XOR<LocationUpdateWithoutPaymentRecordInput, LocationUncheckedUpdateWithoutPaymentRecordInput>
+    create: XOR<LocationCreateWithoutPaymentRecordInput, LocationUncheckedCreateWithoutPaymentRecordInput>
+    where?: LocationWhereInput
+  }
+
+  export type LocationUpdateToOneWithWhereWithoutPaymentRecordInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutPaymentRecordInput, LocationUncheckedUpdateWithoutPaymentRecordInput>
+  }
+
+  export type LocationUpdateWithoutPaymentRecordInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutPaymentRecordInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
   }
 
   export type PaymentCreateWithoutPaymentMethodInput = {
     date?: Date | string
     amount: number
-    location: LocationCreateNestedOneWithoutPaymentsInput
+    month: number
+    year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
+    location: LocationCreateNestedOneWithoutPaymentsInput
+    paymentRecord: PaymentRecordCreateNestedOneWithoutPaymentsInput
   }
 
   export type PaymentUncheckedCreateWithoutPaymentMethodInput = {
@@ -16735,6 +21692,9 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
   }
 
   export type PaymentCreateOrConnectWithoutPaymentMethodInput = {
@@ -16763,44 +21723,6 @@ export namespace Prisma {
     data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutPaymentMethodInput>
   }
 
-  export type LocationCreateWithoutInvoicesInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutInvoicesInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutInvoicesInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
-  }
-
   export type UserCreateWithoutInvoicesInput = {
     email: string
     isRenter?: boolean
@@ -16808,18 +21730,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
+    dni: number
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
     rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
     cust?: UserCreateNestedOneWithoutCreatedUsersInput
     createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
   }
 
   export type UserUncheckedCreateWithoutInvoicesInput = {
@@ -16830,18 +21756,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
     CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    dni: number
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
   }
 
   export type UserCreateOrConnectWithoutInvoicesInput = {
@@ -16849,48 +21779,44 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutInvoicesInput, UserUncheckedCreateWithoutInvoicesInput>
   }
 
-  export type LocationUpsertWithoutInvoicesInput = {
-    update: XOR<LocationUpdateWithoutInvoicesInput, LocationUncheckedUpdateWithoutInvoicesInput>
+  export type LocationCreateWithoutInvoicesInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutInvoicesInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutInvoicesInput = {
+    where: LocationWhereUniqueInput
     create: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutInvoicesInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutInvoicesInput, LocationUncheckedUpdateWithoutInvoicesInput>
-  }
-
-  export type LocationUpdateWithoutInvoicesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutInvoicesInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutInvoicesInput = {
@@ -16911,18 +21837,22 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
     rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
     cust?: UserUpdateOneWithoutCreatedUsersNestedInput
     createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
   }
 
   export type UserUncheckedUpdateWithoutInvoicesInput = {
@@ -16933,56 +21863,68 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
   }
 
-  export type LocationCreateWithoutPaymentSchedulesInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+  export type LocationUpsertWithoutInvoicesInput = {
+    update: XOR<LocationUpdateWithoutInvoicesInput, LocationUncheckedUpdateWithoutInvoicesInput>
+    create: XOR<LocationCreateWithoutInvoicesInput, LocationUncheckedCreateWithoutInvoicesInput>
+    where?: LocationWhereInput
   }
 
-  export type LocationUncheckedCreateWithoutPaymentSchedulesInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+  export type LocationUpdateToOneWithWhereWithoutInvoicesInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutInvoicesInput, LocationUncheckedUpdateWithoutInvoicesInput>
   }
 
-  export type LocationCreateOrConnectWithoutPaymentSchedulesInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
+  export type LocationUpdateWithoutInvoicesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutInvoicesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
   }
 
   export type UserCreateWithoutPaymentSchedulesInput = {
@@ -16992,18 +21934,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
+    dni: number
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
   }
 
   export type UserUncheckedCreateWithoutPaymentSchedulesInput = {
@@ -17014,18 +21960,22 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
-    password?: string | null
     createdAt?: Date | string
+    password?: string | null
     updatedAt?: Date | string | null
     CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    dni: number
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
     priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    RentHistory?: RentHistoryUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
   }
 
   export type UserCreateOrConnectWithoutPaymentSchedulesInput = {
@@ -17033,48 +21983,44 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutPaymentSchedulesInput, UserUncheckedCreateWithoutPaymentSchedulesInput>
   }
 
-  export type LocationUpsertWithoutPaymentSchedulesInput = {
-    update: XOR<LocationUpdateWithoutPaymentSchedulesInput, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
+  export type LocationCreateWithoutPaymentSchedulesInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutPaymentSchedulesInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    rentHistory?: RentHistoryUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutPaymentSchedulesInput = {
+    where: LocationWhereUniqueInput
     create: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutPaymentSchedulesInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutPaymentSchedulesInput, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
-  }
-
-  export type LocationUpdateWithoutPaymentSchedulesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutPaymentSchedulesInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
   export type UserUpsertWithoutPaymentSchedulesInput = {
@@ -17095,18 +22041,22 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
-    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
-    createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPaymentSchedulesInput = {
@@ -17117,367 +22067,203 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
-  }
-
-  export type LocationCreateWithoutKeysInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutKeysInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutKeysInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
-  }
-
-  export type UserCreateWithoutKeysInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
-  }
-
-  export type UserUncheckedCreateWithoutKeysInput = {
-    id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
-  }
-
-  export type UserCreateOrConnectWithoutKeysInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
-  }
-
-  export type LocationUpsertWithoutKeysInput = {
-    update: XOR<LocationUpdateWithoutKeysInput, LocationUncheckedUpdateWithoutKeysInput>
-    create: XOR<LocationCreateWithoutKeysInput, LocationUncheckedCreateWithoutKeysInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutKeysInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutKeysInput, LocationUncheckedUpdateWithoutKeysInput>
-  }
-
-  export type LocationUpdateWithoutKeysInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutKeysInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type UserUpsertWithoutKeysInput = {
-    update: XOR<UserUpdateWithoutKeysInput, UserUncheckedUpdateWithoutKeysInput>
-    create: XOR<UserCreateWithoutKeysInput, UserUncheckedCreateWithoutKeysInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutKeysInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutKeysInput, UserUncheckedUpdateWithoutKeysInput>
-  }
-
-  export type UserUpdateWithoutKeysInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
-    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
-    createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutKeysInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
     Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
   }
 
-  export type LocationCreateWithoutContractsInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutContractsInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutContractsInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
-  }
-
-  export type UserCreateWithoutContractsInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
-  }
-
-  export type UserUncheckedCreateWithoutContractsInput = {
-    id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
-  }
-
-  export type UserCreateOrConnectWithoutContractsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutContractsInput, UserUncheckedCreateWithoutContractsInput>
-  }
-
-  export type LocationUpsertWithoutContractsInput = {
-    update: XOR<LocationUpdateWithoutContractsInput, LocationUncheckedUpdateWithoutContractsInput>
-    create: XOR<LocationCreateWithoutContractsInput, LocationUncheckedCreateWithoutContractsInput>
+  export type LocationUpsertWithoutPaymentSchedulesInput = {
+    update: XOR<LocationUpdateWithoutPaymentSchedulesInput, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
+    create: XOR<LocationCreateWithoutPaymentSchedulesInput, LocationUncheckedCreateWithoutPaymentSchedulesInput>
     where?: LocationWhereInput
   }
 
-  export type LocationUpdateToOneWithWhereWithoutContractsInput = {
+  export type LocationUpdateToOneWithWhereWithoutPaymentSchedulesInput = {
     where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutContractsInput, LocationUncheckedUpdateWithoutContractsInput>
+    data: XOR<LocationUpdateWithoutPaymentSchedulesInput, LocationUncheckedUpdateWithoutPaymentSchedulesInput>
   }
 
-  export type LocationUpdateWithoutContractsInput = {
+  export type LocationUpdateWithoutPaymentSchedulesInput = {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUpdateManyWithoutLocationNestedInput
     keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
     cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
   }
 
-  export type LocationUncheckedUpdateWithoutContractsInput = {
+  export type LocationUncheckedUpdateWithoutPaymentSchedulesInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
     invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
     keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
     adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
   }
 
-  export type UserUpsertWithoutContractsInput = {
-    update: XOR<UserUpdateWithoutContractsInput, UserUncheckedUpdateWithoutContractsInput>
-    create: XOR<UserCreateWithoutContractsInput, UserUncheckedCreateWithoutContractsInput>
+  export type UserCreateWithoutRentHistoryInput = {
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    dni: number
+    invoices?: InvoiceCreateNestedManyWithoutCustInput
+    keys?: KeyCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
+    Location?: LocationCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
+    payments?: PaymentCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentCreateNestedManyWithoutCustInput
+    cust?: UserCreateNestedOneWithoutCreatedUsersInput
+    createdUsers?: UserCreateNestedManyWithoutCustInput
+  }
+
+  export type UserUncheckedCreateWithoutRentHistoryInput = {
+    id?: number
+    email: string
+    isRenter?: boolean
+    accessToken?: string | null
+    firstName?: string | null
+    lastName?: string | null
+    picture?: string | null
+    createdAt?: Date | string
+    password?: string | null
+    updatedAt?: Date | string | null
+    CUST_ID?: number | null
+    dni: number
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
+    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
+    leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
+    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
+    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutCustInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
+    priceAdjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutCustInput
+    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
+  }
+
+  export type UserCreateOrConnectWithoutRentHistoryInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutRentHistoryInput, UserUncheckedCreateWithoutRentHistoryInput>
+  }
+
+  export type LocationCreateWithoutRentHistoryInput = {
+    name: string
+    address: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceCreateNestedManyWithoutLocationInput
+    keys?: KeyCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractCreateNestedManyWithoutLocationInput
+    cust?: UserCreateNestedOneWithoutLocationInput
+    renter: UserCreateNestedOneWithoutRentedLocationsInput
+    payments?: PaymentCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationUncheckedCreateWithoutRentHistoryInput = {
+    id?: number
+    name: string
+    address: string
+    renterId: number
+    CUST_ID?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
+    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
+    contracts?: LeaseContractUncheckedCreateNestedManyWithoutLocationInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
+    PaymentRecord?: PaymentRecordUncheckedCreateNestedManyWithoutLocationInput
+    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
+    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
+  }
+
+  export type LocationCreateOrConnectWithoutRentHistoryInput = {
+    where: LocationWhereUniqueInput
+    create: XOR<LocationCreateWithoutRentHistoryInput, LocationUncheckedCreateWithoutRentHistoryInput>
+  }
+
+  export type UserUpsertWithoutRentHistoryInput = {
+    update: XOR<UserUpdateWithoutRentHistoryInput, UserUncheckedUpdateWithoutRentHistoryInput>
+    create: XOR<UserCreateWithoutRentHistoryInput, UserUncheckedCreateWithoutRentHistoryInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutContractsInput = {
+  export type UserUpdateToOneWithWhereWithoutRentHistoryInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutContractsInput, UserUncheckedUpdateWithoutContractsInput>
+    data: XOR<UserUpdateWithoutRentHistoryInput, UserUncheckedUpdateWithoutRentHistoryInput>
   }
 
-  export type UserUpdateWithoutContractsInput = {
+  export type UserUpdateWithoutRentHistoryInput = {
     email?: StringFieldUpdateOperationsInput | string
     isRenter?: BoolFieldUpdateOperationsInput | boolean
     accessToken?: NullableStringFieldUpdateOperationsInput | string | null
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
     rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
     cust?: UserUpdateOneWithoutCreatedUsersNestedInput
     createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutContractsInput = {
+  export type UserUncheckedUpdateWithoutRentHistoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     isRenter?: BoolFieldUpdateOperationsInput | boolean
@@ -17485,371 +22271,175 @@ export namespace Prisma {
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    dni?: IntFieldUpdateOperationsInput | number
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
     priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
   }
 
-  export type UserCreateWithoutPriceAdjustmentsInput = {
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    rentedLocations?: LocationCreateNestedManyWithoutRenterInput
-    cust?: UserCreateNestedOneWithoutCreatedUsersInput
-    createdUsers?: UserCreateNestedManyWithoutCustInput
-    Location?: LocationCreateNestedManyWithoutCustInput
-    payments?: PaymentCreateNestedManyWithoutCustInput
-    invoices?: InvoiceCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutCustInput
-    keys?: KeyCreateNestedManyWithoutCustInput
-    contracts?: ContractCreateNestedManyWithoutCustInput
+  export type LocationUpsertWithoutRentHistoryInput = {
+    update: XOR<LocationUpdateWithoutRentHistoryInput, LocationUncheckedUpdateWithoutRentHistoryInput>
+    create: XOR<LocationCreateWithoutRentHistoryInput, LocationUncheckedCreateWithoutRentHistoryInput>
+    where?: LocationWhereInput
   }
 
-  export type UserUncheckedCreateWithoutPriceAdjustmentsInput = {
-    id?: number
-    email: string
-    isRenter?: boolean
-    accessToken?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    picture?: string | null
-    password?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    CUST_ID?: number | null
-    rentedLocations?: LocationUncheckedCreateNestedManyWithoutRenterInput
-    createdUsers?: UserUncheckedCreateNestedManyWithoutCustInput
-    Location?: LocationUncheckedCreateNestedManyWithoutCustInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutCustInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutCustInput
-    keys?: KeyUncheckedCreateNestedManyWithoutCustInput
-    contracts?: ContractUncheckedCreateNestedManyWithoutCustInput
+  export type LocationUpdateToOneWithWhereWithoutRentHistoryInput = {
+    where?: LocationWhereInput
+    data: XOR<LocationUpdateWithoutRentHistoryInput, LocationUncheckedUpdateWithoutRentHistoryInput>
   }
 
-  export type UserCreateOrConnectWithoutPriceAdjustmentsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
+  export type LocationUpdateWithoutRentHistoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
   }
 
-  export type LocationCreateWithoutAdjustmentsInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    AdjustmentLocation?: AdjustmentLocationCreateNestedManyWithoutLocationInput
+  export type LocationUncheckedUpdateWithoutRentHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
   }
 
-  export type LocationUncheckedCreateWithoutAdjustmentsInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutAdjustmentsInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
-  }
-
-  export type AdjustmentLocationCreateWithoutPriceAdjustmentInput = {
-    location: LocationCreateNestedOneWithoutAdjustmentLocationInput
-  }
-
-  export type AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput = {
+  export type InvoiceCreateManyCustInput = {
     id?: number
     locationId: number
+    date: Date | string
   }
 
-  export type AdjustmentLocationCreateOrConnectWithoutPriceAdjustmentInput = {
-    where: AdjustmentLocationWhereUniqueInput
-    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
-  }
-
-  export type AdjustmentLocationCreateManyPriceAdjustmentInputEnvelope = {
-    data: AdjustmentLocationCreateManyPriceAdjustmentInput | AdjustmentLocationCreateManyPriceAdjustmentInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserUpsertWithoutPriceAdjustmentsInput = {
-    update: XOR<UserUpdateWithoutPriceAdjustmentsInput, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
-    create: XOR<UserCreateWithoutPriceAdjustmentsInput, UserUncheckedCreateWithoutPriceAdjustmentsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutPriceAdjustmentsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPriceAdjustmentsInput, UserUncheckedUpdateWithoutPriceAdjustmentsInput>
-  }
-
-  export type UserUpdateWithoutPriceAdjustmentsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
-    cust?: UserUpdateOneWithoutCreatedUsersNestedInput
-    createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutPriceAdjustmentsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
-  }
-
-  export type LocationUpsertWithWhereUniqueWithoutAdjustmentsInput = {
-    where: LocationWhereUniqueInput
-    update: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
-    create: XOR<LocationCreateWithoutAdjustmentsInput, LocationUncheckedCreateWithoutAdjustmentsInput>
-  }
-
-  export type LocationUpdateWithWhereUniqueWithoutAdjustmentsInput = {
-    where: LocationWhereUniqueInput
-    data: XOR<LocationUpdateWithoutAdjustmentsInput, LocationUncheckedUpdateWithoutAdjustmentsInput>
-  }
-
-  export type LocationUpdateManyWithWhereWithoutAdjustmentsInput = {
-    where: LocationScalarWhereInput
-    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutAdjustmentsInput>
-  }
-
-  export type AdjustmentLocationUpsertWithWhereUniqueWithoutPriceAdjustmentInput = {
-    where: AdjustmentLocationWhereUniqueInput
-    update: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
-    create: XOR<AdjustmentLocationCreateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedCreateWithoutPriceAdjustmentInput>
-  }
-
-  export type AdjustmentLocationUpdateWithWhereUniqueWithoutPriceAdjustmentInput = {
-    where: AdjustmentLocationWhereUniqueInput
-    data: XOR<AdjustmentLocationUpdateWithoutPriceAdjustmentInput, AdjustmentLocationUncheckedUpdateWithoutPriceAdjustmentInput>
-  }
-
-  export type AdjustmentLocationUpdateManyWithWhereWithoutPriceAdjustmentInput = {
-    where: AdjustmentLocationScalarWhereInput
-    data: XOR<AdjustmentLocationUpdateManyMutationInput, AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentInput>
-  }
-
-  export type PriceAdjustmentCreateWithoutAdjustmentLocationInput = {
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    lastExecutedAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    cust?: UserCreateNestedOneWithoutPriceAdjustmentsInput
-    locations?: LocationCreateNestedManyWithoutAdjustmentsInput
-  }
-
-  export type PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput = {
+  export type KeyCreateManyCustInput = {
     id?: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
+    locationId: number
+    issueDate: Date | string
+    returnDate?: Date | string | null
+  }
+
+  export type LeaseContractCreateManyCustInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    renterId: number
+  }
+
+  export type LeaseContractCreateManyRenterInput = {
+    id?: number
+    locationId: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
     CUST_ID?: number | null
-    lastExecutedAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    locations?: LocationUncheckedCreateNestedManyWithoutAdjustmentsInput
   }
 
-  export type PriceAdjustmentCreateOrConnectWithoutAdjustmentLocationInput = {
-    where: PriceAdjustmentWhereUniqueInput
-    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
-  }
-
-  export type LocationCreateWithoutAdjustmentLocationInput = {
-    name: string
-    address: string
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-    contracts?: ContractCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceCreateNestedManyWithoutLocationInput
-    keys?: KeyCreateNestedManyWithoutLocationInput
-    renter?: UserCreateNestedOneWithoutRentedLocationsInput
-    payments?: PaymentCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleCreateNestedManyWithoutLocationInput
-    cust?: UserCreateNestedOneWithoutLocationInput
-    adjustments?: PriceAdjustmentCreateNestedManyWithoutLocationsInput
-  }
-
-  export type LocationUncheckedCreateWithoutAdjustmentLocationInput = {
+  export type LocationCreateManyCustInput = {
     id?: number
     name: string
     address: string
     renterId: number
-    price?: number | null
-    CUST_ID?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
-    contracts?: ContractUncheckedCreateNestedManyWithoutLocationInput
-    invoices?: InvoiceUncheckedCreateNestedManyWithoutLocationInput
-    keys?: KeyUncheckedCreateNestedManyWithoutLocationInput
-    payments?: PaymentUncheckedCreateNestedManyWithoutLocationInput
-    paymentSchedules?: PaymentScheduleUncheckedCreateNestedManyWithoutLocationInput
-    adjustments?: PriceAdjustmentUncheckedCreateNestedManyWithoutLocationsInput
-  }
-
-  export type LocationCreateOrConnectWithoutAdjustmentLocationInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
-  }
-
-  export type PriceAdjustmentUpsertWithoutAdjustmentLocationInput = {
-    update: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
-    create: XOR<PriceAdjustmentCreateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedCreateWithoutAdjustmentLocationInput>
-    where?: PriceAdjustmentWhereInput
-  }
-
-  export type PriceAdjustmentUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
-    where?: PriceAdjustmentWhereInput
-    data: XOR<PriceAdjustmentUpdateWithoutAdjustmentLocationInput, PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput>
-  }
-
-  export type PriceAdjustmentUpdateWithoutAdjustmentLocationInput = {
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
-    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
-  }
-
-  export type PriceAdjustmentUncheckedUpdateWithoutAdjustmentLocationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
-  }
-
-  export type LocationUpsertWithoutAdjustmentLocationInput = {
-    update: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
-    create: XOR<LocationCreateWithoutAdjustmentLocationInput, LocationUncheckedCreateWithoutAdjustmentLocationInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutAdjustmentLocationInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutAdjustmentLocationInput, LocationUncheckedUpdateWithoutAdjustmentLocationInput>
-  }
-
-  export type LocationUpdateWithoutAdjustmentLocationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutAdjustmentLocationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
   }
 
   export type LocationCreateManyRenterInput = {
     id?: number
     name: string
     address: string
-    price?: number | null
     CUST_ID?: number | null
-    createdAt?: Date | string
+    createdAt?: Date | string | null
     updatedAt?: Date | string | null
+  }
+
+  export type PaymentCreateManyCustInput = {
+    id?: number
+    locationId: number
+    date?: Date | string
+    amount: number
+    paymentMethodId: number
+    paymentRecordId: number
+    month: number
+    year: number
+  }
+
+  export type PaymentRecordCreateManyCustInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
+  }
+
+  export type PaymentScheduleCreateManyCustInput = {
+    id?: number
+    locationId: number
+    dueDate: Date | string
+  }
+
+  export type PriceAdjustmentCreateManyCustInput = {
+    id?: number
+    amount: number
+    period: number
+    status: number
+    applyToAll: boolean
+    type: number
+    createdAt?: Date | string
+    lastExecutedAt?: Date | string | null
+    updatedAt?: Date | string
+  }
+
+  export type RentHistoryCreateManyCustInput = {
+    id?: number
+    locationId: number
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
   }
 
   export type UserCreateManyCustInput = {
@@ -17860,232 +22450,10 @@ export namespace Prisma {
     firstName?: string | null
     lastName?: string | null
     picture?: string | null
+    createdAt?: Date | string
     password?: string | null
-    createdAt?: Date | string
     updatedAt?: Date | string | null
-  }
-
-  export type LocationCreateManyCustInput = {
-    id?: number
-    name: string
-    address: string
-    renterId: number
-    price?: number | null
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
-  }
-
-  export type PaymentCreateManyCustInput = {
-    id?: number
-    locationId: number
-    date?: Date | string
-    amount: number
-    paymentMethodId: number
-  }
-
-  export type InvoiceCreateManyCustInput = {
-    id?: number
-    locationId: number
-    date: Date | string
-  }
-
-  export type PaymentScheduleCreateManyCustInput = {
-    id?: number
-    locationId: number
-    dueDate: Date | string
-  }
-
-  export type KeyCreateManyCustInput = {
-    id?: number
-    locationId: number
-    issueDate: Date | string
-    returnDate: Date | string
-  }
-
-  export type ContractCreateManyCustInput = {
-    id?: number
-    locationId: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-  }
-
-  export type PriceAdjustmentCreateManyCustInput = {
-    id?: number
-    amount: number
-    type: number
-    period: number
-    applyToAll: boolean
-    status: number
-    lastExecutedAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type LocationUpdateWithoutRenterInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutRenterInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateManyWithoutRenterInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type UserUpdateWithoutCustInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUpdateManyWithoutCustNestedInput
-    Location?: LocationUpdateManyWithoutCustNestedInput
-    payments?: PaymentUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
-    keys?: KeyUpdateManyWithoutCustNestedInput
-    contracts?: ContractUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
-    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
-    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
-    contracts?: ContractUncheckedUpdateManyWithoutCustNestedInput
-    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
-  }
-
-  export type UserUncheckedUpdateManyWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    isRenter?: BoolFieldUpdateOperationsInput | boolean
-    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    picture?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type LocationUpdateWithoutCustInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateManyWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type PaymentUpdateWithoutCustInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
-    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
-  }
-
-  export type PaymentUncheckedUpdateWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    paymentMethodId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type PaymentUncheckedUpdateManyWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    paymentMethodId?: IntFieldUpdateOperationsInput | number
+    dni: number
   }
 
   export type InvoiceUpdateWithoutCustInput = {
@@ -18105,6 +22473,259 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type KeyUpdateWithoutCustInput = {
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    location?: LocationUpdateOneRequiredWithoutKeysNestedInput
+  }
+
+  export type KeyUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type KeyUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LeaseContractUpdateWithoutCustInput = {
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: LocationUpdateOneRequiredWithoutContractsNestedInput
+    renter?: UserUpdateOneRequiredWithoutLeaseContractsAsRenterNestedInput
+  }
+
+  export type LeaseContractUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    renterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LeaseContractUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    renterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LeaseContractUpdateWithoutRenterInput = {
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    cust?: UserUpdateOneWithoutLeaseContractsAsCustNestedInput
+    location?: LocationUpdateOneRequiredWithoutContractsNestedInput
+  }
+
+  export type LeaseContractUncheckedUpdateWithoutRenterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type LeaseContractUncheckedUpdateManyWithoutRenterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type LocationUpdateWithoutCustInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LocationUpdateWithoutRenterInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutRenterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+    adjustments?: PriceAdjustmentUncheckedUpdateManyWithoutLocationsNestedInput
+  }
+
+  export type LocationUncheckedUpdateManyWithoutRenterInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PaymentUpdateWithoutCustInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
+    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
+    paymentRecord?: PaymentRecordUpdateOneRequiredWithoutPaymentsNestedInput
+  }
+
+  export type PaymentUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    paymentMethodId?: IntFieldUpdateOperationsInput | number
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    paymentMethodId?: IntFieldUpdateOperationsInput | number
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentRecordUpdateWithoutCustInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUpdateManyWithoutPaymentRecordNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUncheckedUpdateManyWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+  }
+
   export type PaymentScheduleUpdateWithoutCustInput = {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     location?: LocationUpdateOneRequiredWithoutPaymentSchedulesNestedInput
@@ -18122,98 +22743,139 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type KeyUpdateWithoutCustInput = {
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: LocationUpdateOneRequiredWithoutKeysNestedInput
-  }
-
-  export type KeyUncheckedUpdateWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KeyUncheckedUpdateManyWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ContractUpdateWithoutCustInput = {
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    location?: LocationUpdateOneRequiredWithoutContractsNestedInput
-  }
-
-  export type ContractUncheckedUpdateWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-  }
-
-  export type ContractUncheckedUpdateManyWithoutCustInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-  }
-
   export type PriceAdjustmentUpdateWithoutCustInput = {
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
     AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
+    locations?: LocationUpdateManyWithoutAdjustmentsNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateWithoutCustInput = {
     id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
     AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
+    locations?: LocationUncheckedUpdateManyWithoutAdjustmentsNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateManyWithoutCustInput = {
     id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ContractCreateManyLocationInput = {
+  export type RentHistoryUpdateWithoutCustInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    location?: LocationUpdateOneRequiredWithoutRentHistoryNestedInput
+  }
+
+  export type RentHistoryUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RentHistoryUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUpdateWithoutCustInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUpdateManyWithoutCustNestedInput
+    keys?: KeyUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
+    Location?: LocationUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+    invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
+    leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
+    Location?: LocationUncheckedUpdateManyWithoutCustNestedInput
+    rentedLocations?: LocationUncheckedUpdateManyWithoutRenterNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutCustNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutCustNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutCustNestedInput
+    priceAdjustments?: PriceAdjustmentUncheckedUpdateManyWithoutCustNestedInput
+    RentHistory?: RentHistoryUncheckedUpdateManyWithoutCustNestedInput
+    createdUsers?: UserUncheckedUpdateManyWithoutCustNestedInput
+  }
+
+  export type UserUncheckedUpdateManyWithoutCustInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    isRenter?: BoolFieldUpdateOperationsInput | boolean
+    accessToken?: NullableStringFieldUpdateOperationsInput | string | null
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    picture?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dni?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AdjustmentLocationCreateManyLocationInput = {
     id?: number
-    startDate: Date | string
-    endDate: Date | string
-    renewed: boolean
-    cancelled: boolean
-    CUST_ID?: number | null
+    priceAdjustmentId: number
   }
 
   export type InvoiceCreateManyLocationInput = {
@@ -18225,8 +22887,22 @@ export namespace Prisma {
   export type KeyCreateManyLocationInput = {
     id?: number
     issueDate: Date | string
-    returnDate: Date | string
+    returnDate?: Date | string | null
     CUST_ID?: number | null
+  }
+
+  export type LeaseContractCreateManyLocationInput = {
+    id?: number
+    startDate: Date | string
+    endDate: Date | string
+    finishedDate?: Date | string | null
+    rentAmount: number
+    active?: boolean
+    cancelled?: boolean
+    createdAt?: Date | string
+    pdfPath?: string | null
+    CUST_ID?: number | null
+    renterId: number
   }
 
   export type PaymentCreateManyLocationInput = {
@@ -18235,6 +22911,19 @@ export namespace Prisma {
     amount: number
     paymentMethodId: number
     CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
+  }
+
+  export type PaymentRecordCreateManyLocationInput = {
+    id?: number
+    month: number
+    year: number
+    CUST_ID?: number | null
+    remainingAmount?: number
+    totalPaid?: number
+    totalRent: number
   }
 
   export type PaymentScheduleCreateManyLocationInput = {
@@ -18243,35 +22932,27 @@ export namespace Prisma {
     CUST_ID?: number | null
   }
 
-  export type AdjustmentLocationCreateManyLocationInput = {
+  export type RentHistoryCreateManyLocationInput = {
     id?: number
-    priceAdjustmentId: number
+    month: number
+    year: number
+    rentAmount: number
+    createdAt?: Date | string
+    CUST_ID?: number | null
   }
 
-  export type ContractUpdateWithoutLocationInput = {
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    cust?: UserUpdateOneWithoutContractsNestedInput
+  export type AdjustmentLocationUpdateWithoutLocationInput = {
+    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
   }
 
-  export type ContractUncheckedUpdateWithoutLocationInput = {
+  export type AdjustmentLocationUncheckedUpdateWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ContractUncheckedUpdateManyWithoutLocationInput = {
+  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    renewed?: BoolFieldUpdateOperationsInput | boolean
-    cancelled?: BoolFieldUpdateOperationsInput | boolean
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
   }
 
   export type InvoiceUpdateWithoutLocationInput = {
@@ -18293,45 +22974,126 @@ export namespace Prisma {
 
   export type KeyUpdateWithoutLocationInput = {
     issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cust?: UserUpdateOneWithoutKeysNestedInput
   }
 
   export type KeyUncheckedUpdateWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
     issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type KeyUncheckedUpdateManyWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
     issueDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    returnDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    returnDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type LeaseContractUpdateWithoutLocationInput = {
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    cust?: UserUpdateOneWithoutLeaseContractsAsCustNestedInput
+    renter?: UserUpdateOneRequiredWithoutLeaseContractsAsRenterNestedInput
+  }
+
+  export type LeaseContractUncheckedUpdateWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    renterId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LeaseContractUncheckedUpdateManyWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    cancelled?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pdfPath?: NullableStringFieldUpdateOperationsInput | string | null
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    renterId?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentUpdateWithoutLocationInput = {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
     cust?: UserUpdateOneWithoutPaymentsNestedInput
+    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
+    paymentRecord?: PaymentRecordUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
   export type PaymentUncheckedUpdateWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentUncheckedUpdateManyWithoutLocationInput = {
     id?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentRecordUpdateWithoutLocationInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUpdateManyWithoutPaymentRecordNestedInput
+    cust?: UserUpdateOneWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
+    payments?: PaymentUncheckedUpdateManyWithoutPaymentRecordNestedInput
+  }
+
+  export type PaymentRecordUncheckedUpdateManyWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    remainingAmount?: IntFieldUpdateOperationsInput | number
+    totalPaid?: IntFieldUpdateOperationsInput | number
+    totalRent?: IntFieldUpdateOperationsInput | number
   }
 
   export type PaymentScheduleUpdateWithoutLocationInput = {
@@ -18351,138 +23113,75 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type PriceAdjustmentUpdateWithoutLocationsInput = {
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  export type RentHistoryUpdateWithoutLocationInput = {
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cust?: UserUpdateOneWithoutRentHistoryNestedInput
+  }
+
+  export type RentHistoryUncheckedUpdateWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type RentHistoryUncheckedUpdateManyWithoutLocationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    rentAmount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type PriceAdjustmentUpdateWithoutLocationsInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
     AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutPriceAdjustmentNestedInput
+    cust?: UserUpdateOneWithoutPriceAdjustmentsNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateWithoutLocationsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
-    period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
-    status?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    period?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutPriceAdjustmentNestedInput
   }
 
   export type PriceAdjustmentUncheckedUpdateManyWithoutLocationsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    amount?: FloatFieldUpdateOperationsInput | number
-    type?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    amount?: IntFieldUpdateOperationsInput | number
     period?: IntFieldUpdateOperationsInput | number
-    applyToAll?: BoolFieldUpdateOperationsInput | boolean
     status?: IntFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    applyToAll?: BoolFieldUpdateOperationsInput | boolean
+    type?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastExecutedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type AdjustmentLocationUpdateWithoutLocationInput = {
-    priceAdjustment?: PriceAdjustmentUpdateOneRequiredWithoutAdjustmentLocationNestedInput
-  }
-
-  export type AdjustmentLocationUncheckedUpdateWithoutLocationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type AdjustmentLocationUncheckedUpdateManyWithoutLocationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    priceAdjustmentId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type PaymentCreateManyPaymentMethodInput = {
-    id?: number
-    locationId: number
-    date?: Date | string
-    amount: number
-    CUST_ID?: number | null
-  }
-
-  export type PaymentUpdateWithoutPaymentMethodInput = {
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
-    cust?: UserUpdateOneWithoutPaymentsNestedInput
-  }
-
-  export type PaymentUncheckedUpdateWithoutPaymentMethodInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type PaymentUncheckedUpdateManyWithoutPaymentMethodInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    locationId?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type AdjustmentLocationCreateManyPriceAdjustmentInput = {
     id?: number
     locationId: number
-  }
-
-  export type LocationUpdateWithoutAdjustmentsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
-    keys?: KeyUpdateManyWithoutLocationNestedInput
-    renter?: UserUpdateOneWithoutRentedLocationsNestedInput
-    payments?: PaymentUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
-    cust?: UserUpdateOneWithoutLocationNestedInput
-    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutAdjustmentsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    contracts?: ContractUncheckedUpdateManyWithoutLocationNestedInput
-    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
-    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
-    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
-    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
-    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateManyWithoutAdjustmentsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    renterId?: IntFieldUpdateOperationsInput | number
-    price?: NullableIntFieldUpdateOperationsInput | number | null
-    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AdjustmentLocationUpdateWithoutPriceAdjustmentInput = {
@@ -18499,6 +23198,137 @@ export namespace Prisma {
     locationId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type LocationUpdateWithoutAdjustmentsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUpdateManyWithoutLocationNestedInput
+    keys?: KeyUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUpdateManyWithoutLocationNestedInput
+    cust?: UserUpdateOneWithoutLocationNestedInput
+    renter?: UserUpdateOneRequiredWithoutRentedLocationsNestedInput
+    payments?: PaymentUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUpdateManyWithoutLocationNestedInput
+  }
+
+  export type LocationUncheckedUpdateWithoutAdjustmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    AdjustmentLocation?: AdjustmentLocationUncheckedUpdateManyWithoutLocationNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutLocationNestedInput
+    keys?: KeyUncheckedUpdateManyWithoutLocationNestedInput
+    contracts?: LeaseContractUncheckedUpdateManyWithoutLocationNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutLocationNestedInput
+    PaymentRecord?: PaymentRecordUncheckedUpdateManyWithoutLocationNestedInput
+    paymentSchedules?: PaymentScheduleUncheckedUpdateManyWithoutLocationNestedInput
+    rentHistory?: RentHistoryUncheckedUpdateManyWithoutLocationNestedInput
+  }
+
+  export type LocationUncheckedUpdateManyWithoutAdjustmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    renterId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type PaymentCreateManyPaymentRecordInput = {
+    id?: number
+    locationId: number
+    date?: Date | string
+    amount: number
+    paymentMethodId: number
+    CUST_ID?: number | null
+    month: number
+    year: number
+  }
+
+  export type PaymentUpdateWithoutPaymentRecordInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    cust?: UserUpdateOneWithoutPaymentsNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
+    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
+  }
+
+  export type PaymentUncheckedUpdateWithoutPaymentRecordInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    paymentMethodId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutPaymentRecordInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    paymentMethodId?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentCreateManyPaymentMethodInput = {
+    id?: number
+    locationId: number
+    date?: Date | string
+    amount: number
+    CUST_ID?: number | null
+    paymentRecordId: number
+    month: number
+    year: number
+  }
+
+  export type PaymentUpdateWithoutPaymentMethodInput = {
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    cust?: UserUpdateOneWithoutPaymentsNestedInput
+    location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
+    paymentRecord?: PaymentRecordUpdateOneRequiredWithoutPaymentsNestedInput
+  }
+
+  export type PaymentUncheckedUpdateWithoutPaymentMethodInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PaymentUncheckedUpdateManyWithoutPaymentMethodInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locationId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: IntFieldUpdateOperationsInput | number
+    CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentRecordId?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
 
 
   /**
@@ -18513,13 +23343,17 @@ export namespace Prisma {
      */
     export type LocationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LocationCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use PaymentMethodCountOutputTypeDefaultArgs instead
-     */
-    export type PaymentMethodCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentMethodCountOutputTypeDefaultArgs<ExtArgs>
-    /**
      * @deprecated Use PriceAdjustmentCountOutputTypeDefaultArgs instead
      */
     export type PriceAdjustmentCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PriceAdjustmentCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PaymentRecordCountOutputTypeDefaultArgs instead
+     */
+    export type PaymentRecordCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentRecordCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PaymentMethodCountOutputTypeDefaultArgs instead
+     */
+    export type PaymentMethodCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentMethodCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -18529,9 +23363,29 @@ export namespace Prisma {
      */
     export type LocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LocationDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use LeaseContractDefaultArgs instead
+     */
+    export type LeaseContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LeaseContractDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use KeyDefaultArgs instead
+     */
+    export type KeyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = KeyDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PriceAdjustmentDefaultArgs instead
+     */
+    export type PriceAdjustmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PriceAdjustmentDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use AdjustmentLocationDefaultArgs instead
+     */
+    export type AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AdjustmentLocationDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use PaymentDefaultArgs instead
      */
     export type PaymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PaymentRecordDefaultArgs instead
+     */
+    export type PaymentRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentRecordDefaultArgs<ExtArgs>
     /**
      * @deprecated Use PaymentMethodDefaultArgs instead
      */
@@ -18545,21 +23399,9 @@ export namespace Prisma {
      */
     export type PaymentScheduleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PaymentScheduleDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use KeyDefaultArgs instead
+     * @deprecated Use RentHistoryDefaultArgs instead
      */
-    export type KeyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = KeyDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use ContractDefaultArgs instead
-     */
-    export type ContractArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ContractDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use PriceAdjustmentDefaultArgs instead
-     */
-    export type PriceAdjustmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PriceAdjustmentDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use AdjustmentLocationDefaultArgs instead
-     */
-    export type AdjustmentLocationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AdjustmentLocationDefaultArgs<ExtArgs>
+    export type RentHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = RentHistoryDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

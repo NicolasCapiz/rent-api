@@ -16,6 +16,7 @@ import { SharedService } from 'src/shared/services/shared.service';
 import { BulkResponse } from 'src/types/bulk-response.types';
 import { CustId } from '../decorators/cust-id.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { DashboardFiltersDto } from 'src/dto/dashboard.filters.dto';
 const MODEL = 'location',
   RESPONSE = 'locations';
 
@@ -29,17 +30,13 @@ export class LocationController {
 
   @Get()
   async getMeLocations(
-    @Query('search') search: string, // Búsqueda
-    @Query('sortKey') sortKey: string, // Clave para ordenar
-    @Query('sortOrder') sortOrder: 'asc' | 'desc' = 'asc', // Orden ascendente o descendente
+    @Query() filters: DashboardFiltersDto,
     @CustId() custId: number
-  ): Promise<Location[]> {
+  ): Promise<any[]> {
     return await this.prisma.buildQuery(
-      MODEL,
-      search,
-      sortKey,
-      sortOrder,
-      [],
+      'location',
+      filters,
+      ['name', 'address', 'renter.firstName', 'renter.lastName'],
       custId,
     );
   }

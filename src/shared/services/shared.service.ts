@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { ValidationError, validateOrReject } from 'class-validator';
 import { dtoMap } from 'src/dto';
@@ -17,7 +17,6 @@ export class SharedService {
   ): Promise<BulkResponse<ModelType>> {
     try {
       const processedRecords: ModelType[] = [];
-      console.log('llegue//');
       
       for (const record of records) {
         const model = (this.prismaService as any)[modelName];
@@ -70,29 +69,21 @@ export class SharedService {
       };
     } catch (error) {
       console.error('Error processing bulk operation:', error);
-  
+    
       // Manejo específico de errores de validación
       if (Array.isArray(error) && error[0] instanceof ValidationError) {
-        const validationErrors = error.map((err) => {
-          return {
-            field: err.property,
-            constraints: Object.values(err.constraints || {}).join(', '),
-          };
-        });
-  
-        return {
-          status: 'error',
+        const validationErrors = error.map((err) => ({
+          field: err.property,
+          constraints: Object.values(err.constraints || {}).join(', '),
+        }));
+        throw new BadRequestException({
           message: 'Errores de validación en los datos enviados.',
           errors: validationErrors,
-        };
+        });
       }
-  
-      // Error general
-      return {
-        status: 'error',
-        message: `Error al procesar ${response}`,
-        errors: [],
-      };
+    
+      // Para cualquier otro error, se lanza una excepción genérica
+      throw new HttpException(`Error al procesar ${response}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 

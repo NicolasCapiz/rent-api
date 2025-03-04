@@ -10,13 +10,20 @@ import { LocationController } from './controllers/location.controller';
 import { UserController } from './controllers/user.controller';
 import { AuthController } from './controllers/auth.controller';
 import { PaymentController } from './controllers/payment.controller';
+import { PaymentRecordController } from './controllers/paymentRecord.controller';
+import { DashboardController } from './controllers/dashboard.controller';
 import { PaymentMethodController } from './controllers/paymentMethod.controller';
 import { InvoiceController } from './controllers/invoice.controller';
+import { LeaseContractController } from './controllers/leaseContract.controller.ts';
 import { PaymentScheduleController } from './controllers/paymentSchedule.controller';
 import { KeyController } from './controllers/key.controller';
+import { RentHistoryController } from './controllers/rentHistory.controller';
 import { SharedService } from './shared/services/shared.service';
 import { AuthService } from './services/auth.service';
+import { LeaseContractService } from './services/leaseContract.service';
+import { PaymentRecordService } from './services/paymentRecord.service';
 import { UserService } from './services/user.service';
+import { DashboardService } from './services/dashboard.service';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { LocalStrategy } from './strategy/local.strategy';
 import * as dotenv from 'dotenv';
@@ -41,9 +48,13 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
     PaymentController,
     PaymentMethodController,
     InvoiceController,
+    LeaseContractController,
     PaymentScheduleController,
     KeyController,
+    RentHistoryController,
     PriceAdjustmentController,
+    DashboardController,
+    PaymentRecordController
   ],
   providers: [
     // {
@@ -53,9 +64,12 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
     SharedService,
     PrismaService,
     AuthService,
+    LeaseContractService,
     JwtStrategy,
     LocalStrategy,
     UserService,
+    DashboardService,
+    PaymentRecordService
   ],
 })
 export class AppModule {

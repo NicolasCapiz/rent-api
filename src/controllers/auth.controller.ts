@@ -18,7 +18,6 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() req) {
-    console.log('aca juju');
     
     try {
       const { email, password } = req.body;
@@ -35,8 +34,8 @@ export class AuthController {
   @Post('register')
   async register(@Request() req) {
     try {
-      const { email, password } = req.body;
-      const result = await this.authService.register(email, password);
+      const { email, password, dni } = req.body;
+      const result = await this.authService.register(email, password, dni);
       return result;
     } catch (error) {
       throw new HttpException(

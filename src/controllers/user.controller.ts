@@ -16,6 +16,7 @@ import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
 import { BulkResponse } from 'src/types/bulk-response.types';
 import { CustId } from '../decorators/cust-id.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { DashboardFiltersDto } from 'src/dto/dashboard.filters.dto';
 
 const MODEL = 'user',
   RESPONSE = 'users';
@@ -36,16 +37,12 @@ export class UserController {
   @Get('/renters')
   async getMeRenters(
     @CustId() custId: number,
-    @Query('search') search: string, // Búsqueda
-    @Query('sortKey') sortKey: string, // Clave para ordenar
-    @Query('sortOrder') sortOrder: 'asc' | 'desc' = 'asc', // Orden ascendente o descendente
+    @Query() filters: DashboardFiltersDto,
   ): Promise<any[]> {
 
     return await this.prisma.buildQuery(
       MODEL,
-      search,
-      sortKey,
-      sortOrder,
+      filters,
       ['email',
       'firstName',
       'lastName'],

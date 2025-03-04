@@ -36,7 +36,7 @@ export class AuthService {
     };
   }
 
-  async register(email: string, password: string) {
+  async register(email: string, password: string, dni: number) {
     const existingUser = await this.userService.findByEmail(email);
     if (existingUser) {
       throw new HttpException(
@@ -45,7 +45,7 @@ export class AuthService {
       );
     }
 
-    const user = await this.userService.createUser(email, password);
+    const user = await this.userService.createUser(email, password, dni);
     const payload = { email: user.email, sub: user.id };
     const token = this.jwtService.sign(payload);
 

@@ -9,29 +9,33 @@ datasource db {
 }
 
 model User {
-  id              Int        @id @default(autoincrement())
-  email           String     @unique
-  isRenter        Boolean    @default(true)
-  accessToken     String?    @db.VarChar(255)
-  firstName       String?
-  lastName        String?
-  picture         String?
-  password        String?
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime?  @updatedAt
-  rentedLocations Location[] @relation("renter")
-  CUST_ID         Int?
-  cust            User?      @relation("UserCust", fields: [CUST_ID], references: [id])
-  createdUsers    User[]     @relation("UserCust") // Relación inversa
+  id                     Int               @id @default(autoincrement())
+  email                  String            @unique
+  isRenter               Boolean           @default(true)
+  accessToken            String?           @db.VarChar(255)
+  firstName              String?
+  lastName               String?
+  picture                String?
+  createdAt              DateTime          @default(now())
+  password               String?
+  updatedAt              DateTime?         @updatedAt
+  CUST_ID                Int?
+  dni                    Int               @unique
+  invoices               Invoice[]
+  keys                   Key[]
+  leaseContractsAsCust   LeaseContract[]   @relation("LeaseContractCust")
+  leaseContractsAsRenter LeaseContract[]   @relation("LeaseContractRenter")
+  Location               Location[]
+  rentedLocations        Location[]        @relation("renter")
+  payments               Payment[]
+  PaymentRecord          PaymentRecord[]
+  paymentSchedules       PaymentSchedule[]
+  priceAdjustments       PriceAdjustment[]
+  RentHistory            RentHistory[]
+  cust                   User?             @relation("UserCust", fields: [CUST_ID], references: [id])
+  createdUsers           User[]            @relation("UserCust")
 
-  // Relaciones con CUST_ID en otras tablas
-  Location         Location[]
-  payments         Payment[]
-  invoices         Invoice[]
-  paymentSchedules PaymentSchedule[]
-  keys             Key[]
-  contracts        Contract[]
-  priceAdjustments PriceAdjustment[]
+  @@index([CUST_ID], map: "User_CUST_ID_fkey")
 }
 
 model Location {
@@ -39,112 +43,168 @@ model Location {
   name               String
   address            String
   renterId           Int
-  contracts          Contract[]
+  CUST_ID            Int?
+  createdAt          DateTime?            @default(now())
+  updatedAt          DateTime?            @updatedAt
+  AdjustmentLocation AdjustmentLocation[]
   invoices           Invoice[]
   keys               Key[]
-  price              Int?
-  renter             User?                @relation("renter", fields: [renterId], references: [id])
-  payments           Payment[]
-  paymentSchedules   PaymentSchedule[]
-  CUST_ID            Int?
+  contracts          LeaseContract[]
   cust               User?                @relation(fields: [CUST_ID], references: [id])
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime?            @updatedAt
+  renter             User                 @relation("renter", fields: [renterId], references: [id])
+  payments           Payment[]
+  PaymentRecord      PaymentRecord[]
+  paymentSchedules   PaymentSchedule[]
+  rentHistory        RentHistory[]
   adjustments        PriceAdjustment[]    @relation("AdjustmentLocations")
-  AdjustmentLocation AdjustmentLocation[]
 
   @@index([renterId], map: "Location_renterId_fkey")
+  @@index([CUST_ID], map: "Location_CUST_ID_fkey")
+}
+
+model LeaseContract {
+  id           Int       @id @default(autoincrement())
+  locationId   Int
+  startDate    DateTime
+  endDate      DateTime
+  finishedDate DateTime?
+  rentAmount   Int
+  active       Boolean   @default(true)
+  cancelled    Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  pdfPath      String?
+  CUST_ID      Int?
+  renterId     Int
+  cust         User?     @relation("LeaseContractCust", fields: [CUST_ID], references: [id])
+  location     Location  @relation(fields: [locationId], references: [id])
+  renter       User      @relation("LeaseContractRenter", fields: [renterId], references: [id])
+
+  @@index([locationId], map: "LeaseContract_locationId_fkey")
+  @@index([CUST_ID], map: "LeaseContract_CUST_ID_fkey")
+  @@index([renterId], map: "LeaseContract_renterId_fkey")
+}
+
+model Key {
+  id         Int       @id @default(autoincrement())
+  locationId Int
+  issueDate  DateTime
+  returnDate DateTime?
+  CUST_ID    Int?
+  cust       User?     @relation(fields: [CUST_ID], references: [id])
+  location   Location  @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "Key_locationId_fkey")
+  @@index([CUST_ID], map: "Key_CUST_ID_fkey")
+}
+
+model PriceAdjustment {
+  id                 Int                  @id @default(autoincrement())
+  CUST_ID            Int?
+  amount             Int
+  period             Int
+  status             Int
+  applyToAll         Boolean
+  type               Int
+  createdAt          DateTime             @default(now())
+  lastExecutedAt     DateTime?
+  updatedAt          DateTime             @updatedAt
+  AdjustmentLocation AdjustmentLocation[]
+  cust               User?                @relation(fields: [CUST_ID], references: [id])
+  locations          Location[]           @relation("AdjustmentLocations")
+
+  @@index([CUST_ID], map: "PriceAdjustment_CUST_ID_fkey")
+}
+
+model AdjustmentLocation {
+  id                Int             @id @default(autoincrement())
+  priceAdjustmentId Int
+  locationId        Int
+  location          Location        @relation(fields: [locationId], references: [id])
+  priceAdjustment   PriceAdjustment @relation(fields: [priceAdjustmentId], references: [id])
+
+  @@index([locationId], map: "AdjustmentLocation_locationId_fkey")
+  @@index([priceAdjustmentId], map: "AdjustmentLocation_priceAdjustmentId_fkey")
 }
 
 model Payment {
   id              Int           @id @default(autoincrement())
   locationId      Int
   date            DateTime      @default(now())
-  amount          Float
+  amount          Int
   paymentMethodId Int
+  CUST_ID         Int?
+  paymentRecordId Int
+  month           Int
+  year            Int
+  cust            User?         @relation(fields: [CUST_ID], references: [id])
   location        Location      @relation(fields: [locationId], references: [id])
   paymentMethod   PaymentMethod @relation(fields: [paymentMethodId], references: [id])
-  CUST_ID         Int?
-  cust            User?         @relation(fields: [CUST_ID], references: [id])
+  paymentRecord   PaymentRecord @relation(fields: [paymentRecordId], references: [id])
 
   @@index([locationId], map: "Payment_locationId_fkey")
   @@index([paymentMethodId], map: "Payment_paymentMethodId_fkey")
+  @@index([CUST_ID], map: "Payment_CUST_ID_fkey")
+  @@index([paymentRecordId], map: "Payment_paymentRecordId_fkey")
+}
+
+model PaymentRecord {
+  id              Int       @id @default(autoincrement())
+  locationId      Int
+  month           Int
+  year            Int
+  CUST_ID         Int?
+  remainingAmount Int       @default(0)
+  totalPaid       Int       @default(0)
+  totalRent       Int
+  payments        Payment[]
+  cust            User?     @relation(fields: [CUST_ID], references: [id])
+  location        Location  @relation(fields: [locationId], references: [id])
+
+  @@index([locationId], map: "PaymentRecord_locationId_fkey")
+  @@index([CUST_ID], map: "PaymentRecord_CUST_ID_fkey")
 }
 
 model PaymentMethod {
   id       Int       @id @default(autoincrement())
-  payments Payment[]
   name     String    @unique
+  payments Payment[]
 }
 
 model Invoice {
   id         Int      @id @default(autoincrement())
   locationId Int
   date       DateTime
-  location   Location @relation(fields: [locationId], references: [id])
   CUST_ID    Int?
   cust       User?    @relation(fields: [CUST_ID], references: [id])
+  location   Location @relation(fields: [locationId], references: [id])
 
   @@index([locationId], map: "Invoice_locationId_fkey")
+  @@index([CUST_ID], map: "Invoice_CUST_ID_fkey")
 }
 
 model PaymentSchedule {
   id         Int      @id @default(autoincrement())
   locationId Int
   dueDate    DateTime
-  location   Location @relation(fields: [locationId], references: [id])
   CUST_ID    Int?
   cust       User?    @relation(fields: [CUST_ID], references: [id])
+  location   Location @relation(fields: [locationId], references: [id])
 
   @@index([locationId], map: "PaymentSchedule_locationId_fkey")
+  @@index([CUST_ID], map: "PaymentSchedule_CUST_ID_fkey")
 }
 
-model Key {
+model RentHistory {
   id         Int      @id @default(autoincrement())
   locationId Int
-  issueDate  DateTime
-  returnDate DateTime
-  location   Location @relation(fields: [locationId], references: [id])
+  month      Int
+  year       Int
+  rentAmount Int
+  createdAt  DateTime @default(now())
   CUST_ID    Int?
   cust       User?    @relation(fields: [CUST_ID], references: [id])
-
-  @@index([locationId], map: "Key_locationId_fkey")
-}
-
-model Contract {
-  id         Int      @id @default(autoincrement())
-  locationId Int
-  startDate  DateTime
-  endDate    DateTime
-  renewed    Boolean
-  cancelled  Boolean
   location   Location @relation(fields: [locationId], references: [id])
-  CUST_ID    Int?
-  cust       User?    @relation(fields: [CUST_ID], references: [id])
 
-  @@index([locationId], map: "Contract_locationId_fkey")
-}
-
-model PriceAdjustment {
-  id                 Int                  @id @default(autoincrement())
-  amount             Float
-  type               Int
-  period             Int
-  applyToAll         Boolean
-  status             Int
-  cust               User?                @relation(fields: [CUST_ID], references: [id])
-  CUST_ID            Int?
-  lastExecutedAt     DateTime? // Fecha de última ejecución
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  locations          Location[]           @relation("AdjustmentLocations")
-  AdjustmentLocation AdjustmentLocation[]
-}
-
-model AdjustmentLocation {
-  id                Int             @id @default(autoincrement())
-  priceAdjustment   PriceAdjustment @relation(fields: [priceAdjustmentId], references: [id])
-  priceAdjustmentId Int
-  location          Location        @relation(fields: [locationId], references: [id])
-  locationId        Int
+  @@unique([locationId, month, year])
+  @@index([CUST_ID], map: "RentHistory_CUST_ID_fkey")
 }
