@@ -1,6 +1,12 @@
 import { PrismaClient } from '@prisma/client/edge';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
+    },
+  },
+});
 
 async function seed() {
   // Inserta datos en la base de datos usando el cliente Prisma
