@@ -198,6 +198,7 @@ exports.Prisma.PaymentScalarFieldEnum = {
   CUST_ID: 'CUST_ID',
   paymentRecordId: 'paymentRecordId',
   month: 'month',
+  day: 'day',
   year: 'year'
 };
 

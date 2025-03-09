@@ -10,15 +10,18 @@ import {
 import { AuthService } from '../services/auth.service';
 import { LocalAuthGuard } from '../common/guards/local-auth.guard';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
+import { PrismaService } from 'src/services/prisma.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly authService: AuthService) { }
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() req) {
-    
+
     try {
       const { email, password } = req.body;
       const result = await this.authService.login(email, password);
@@ -45,12 +48,23 @@ export class AuthController {
     }
   }
 
-  // Nueva ruta para obtener los detalles del usuario autenticado
   @UseGuards(JwtAuthGuard) // Proteger con JWT
   @Get('me')
-  getMe(@Request() req) {
-    // El token ya ha sido validado y el usuario está en req.user
-    return req.user;
+  async getMe(@Request() req) {
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: req.user.userId },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        dni: true,
+      },
+    });
+
+    return user;
   }
+
 
 }

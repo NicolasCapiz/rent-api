@@ -5,7 +5,7 @@ import { DashboardFiltersDto } from '../dto/dashboard.filters.dto';
 
 @Injectable()
 export class DashboardService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   /**
    * Ingresos diarios: Suma de Payment.amount agrupado por día para el mes seleccionado.
@@ -14,24 +14,36 @@ export class DashboardService {
   async getDailyRevenue(filters: DashboardFiltersDto, custId: number) {
     const year = Number(filters.year);
     const month = Number(filters.month);
-    // Buscar pagos en el período (Payment tiene el campo 'date' que usaremos para obtener el día)
+
+    const daysInMonth = new Date(year, month, 0).getDate();
+
     const records = await this.prisma.payment.findMany({
       where: {
-        year: year,
-        month: month,
+        year,
+        month,
         CUST_ID: custId,
-        ...(filters.local && filters.local !== "0" && { locationId: parseInt(filters.local, 10) }),
+        ...(filters.local && Number(filters.local) != 0
+          ? { locationId: Number(filters.local) }
+          : {}),
       },
     });
+    console.log('records', records);
+
     const dailyMap: { [key: number]: number } = {};
+
     records.forEach(record => {
-      const day = new Date(record.date).getDate();
+      const day = record.day; // Utiliza directamente el campo 'day'
       dailyMap[day] = (dailyMap[day] || 0) + record.amount;
     });
+
     const days = Array.from({ length: 31 }, (_, i) => i + 1);
     const revenue = days.map(day => dailyMap[day] || 0);
+
     return { days: days.map(String), revenue };
   }
+
+
+
 
   /**
    * Ingresos mensuales: Suma de rentAmount en RentHistory agrupado por mes para el año seleccionado.
@@ -101,12 +113,12 @@ export class DashboardService {
   async getPaymentStatus(filters: DashboardFiltersDto, custId: number) {
     const year = Number(filters.year);
     const month = Number(filters.month);
-  
+
     // Validar que year y month sean números válidos
     if (isNaN(year) || isNaN(month)) {
       throw new Error("Los filtros 'year' y 'month' deben ser números válidos.");
     }
-  
+
     const records = await this.prisma.paymentRecord.findMany({
       where: {
         year: year,
@@ -115,7 +127,7 @@ export class DashboardService {
         ...(filters.local && filters.local !== "0" && { locationId: parseInt(filters.local, 10) }),
       },
     });
-  
+
     let pagado = 0, pendiente = 0, vencido = 0;
     records.forEach(record => {
       if (record.totalPaid >= record.totalRent) {
@@ -126,7 +138,7 @@ export class DashboardService {
         vencido++;
       }
     });
-  
+
     return {
       labels: ['Pagado', 'Pendiente', 'Vencido'],
       datasets: [{
@@ -136,14 +148,14 @@ export class DashboardService {
       }],
     };
   }
-  
+
   // Dashboard de Ajustes de Precio: agrupa los ajustes del año dado por mes
   async getPriceAdjustments(filters: DashboardFiltersDto, custId: number) {
     const year = Number(filters.year) || new Date().getFullYear();
     // Definir el rango del año solicitado
     const start = new Date(year, 0, 1);
     const end = new Date(year + 1, 0, 1);
-    
+
     // Obtener todos los ajustes de precio de este cliente en el año (y filtrar por local si se indica)
     const adjustments = await this.prisma.priceAdjustment.findMany({
       where: {

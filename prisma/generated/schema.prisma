@@ -135,6 +135,7 @@ model Payment {
   CUST_ID         Int?
   paymentRecordId Int
   month           Int
+  day             Int?
   year            Int
   cust            User?         @relation(fields: [CUST_ID], references: [id])
   location        Location      @relation(fields: [locationId], references: [id])

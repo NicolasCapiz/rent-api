@@ -27,28 +27,28 @@ export class PaymentController {
   constructor(
     private readonly prisma: PrismaService,
     private sharedService: SharedService,
-  ) {}
+  ) { }
 
   // 🔹 Obtener todos los pagos
   @Get()
-async getAllPayments(
-  @Query() filters: DashboardFiltersDto,
-  @CustId() custId: number,
-): Promise<Payment[]> {
-  // Define los campos en los que se realizará la búsqueda
-  // Por ejemplo, si quieres poder buscar por el monto, mes, año y también por el nombre del local o del método de pago:
-  const searchableFields = ['amount', 'month', 'year', 'location.name', 'paymentMethod.name'];
+  async getAllPayments(
+    @Query() filters: DashboardFiltersDto,
+    @CustId() custId: number,
+  ): Promise<Payment[]> {
+    // Define los campos en los que se realizará la búsqueda
+    // Por ejemplo, si quieres poder buscar por el monto, mes, año y también por el nombre del local o del método de pago:
+    const searchableFields = ['amount', 'month', 'year', 'location.name', 'paymentMethod.name'];
 
-  // Llama a la función buildQuery definida en PrismaService
-  const payments = await this.prisma.buildQuery(
-    'payment',
-    filters,
-    searchableFields,
-    custId,
-  );
+    // Llama a la función buildQuery definida en PrismaService
+    const payments = await this.prisma.buildQuery(
+      'payment',
+      filters,
+      searchableFields,
+      custId,
+    );
 
-  return payments;
-}
+    return payments;
+  }
 
 
   // 🔹 Obtener pago por ID
@@ -62,27 +62,27 @@ async getAllPayments(
 
   @Post()
   async createPayment(@Body() paymentData: any, @CustId() custId: number) {
-    const { locationId, amount, paymentMethodId, month, year } = paymentData;
-  
-    if (!locationId || !amount || !paymentMethodId || !month || !year) {
+    const { locationId, amount, paymentMethodId, month, year, day } = paymentData;
+
+    if (!locationId || !amount || !paymentMethodId || !month || !year || !day) {
       throw new HttpException('Todos los campos son obligatorios', HttpStatus.BAD_REQUEST);
     }
-  
+
     // 📌 Buscar o crear el PaymentRecord del mes
     let paymentRecord = await this.prisma.paymentRecord.findFirst({
       where: { locationId, month, year, CUST_ID: custId },
     });
-  
+
     if (!paymentRecord) {
       const rentHistory = await this.prisma.rentHistory.findFirst({
         where: { locationId, month, year, CUST_ID: custId },
       });
-  
+
       if (!rentHistory) {
 
         throw new HttpException('No existe un historial de renta para esta fecha', HttpStatus.NOT_FOUND);
       }
-  
+
       // Si no existe, lo creamos
       paymentRecord = await this.prisma.paymentRecord.create({
         data: {
@@ -96,7 +96,7 @@ async getAllPayments(
         },
       });
     }
-  
+
     // 📌 Crear el pago individual
     const payment = await this.prisma.payment.create({
       data: {
@@ -105,11 +105,12 @@ async getAllPayments(
         paymentMethodId,
         month,
         year,
+        day,
         paymentRecordId: paymentRecord.id,
         CUST_ID: custId,
       },
     });
-  
+
     // 📌 Actualizar el PaymentRecord
     await this.prisma.paymentRecord.update({
       where: { id: paymentRecord.id },
@@ -118,7 +119,7 @@ async getAllPayments(
         remainingAmount: { decrement: amount },
       },
     });
-  
+
     return payment;
   }
 

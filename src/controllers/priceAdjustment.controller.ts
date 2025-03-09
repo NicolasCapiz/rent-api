@@ -28,7 +28,7 @@ const PERIODS = [
 @UseGuards(JwtAuthGuard)
 @Controller('priceAdjustments')
 export class PriceAdjustmentController {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   @Get()
   async getPriceAdjustments(@CustId() custId: number) {
@@ -165,43 +165,55 @@ export class PriceAdjustmentController {
   }
 
   // Cron Job para aplicar ajustes activos mensualmente
-  @Cron('0 4 1 * *')
+  @Cron('0 4 1 * *') // Ejecutar cada 1° del mes a las 4 AM
   async applyActiveAdjustments() {
     console.log('🔄 Aplicando ajustes de precio activos...');
+
     const activeAdjustments = await this.prisma.priceAdjustment.findMany({
       where: { status: STATUS.ACTIVE },
       include: { locations: true },
     });
+
     const now = new Date();
-    const currentMonth = now.getMonth() + 1;
+    const currentMonth = now.getMonth() + 1; // Mes actual (1-12)
     const currentYear = now.getFullYear();
+
     for (const adjustment of activeAdjustments) {
-      const isDue = this.isAdjustmentDue(adjustment.period, adjustment.lastExecutedAt || adjustment.createdAt);
-      if (!isDue) continue;
+      const lastExecutedDate = adjustment.lastExecutedAt || adjustment.createdAt; // Asegura que tenga un valor
+      const isDue = this.isAdjustmentDue(adjustment.period, lastExecutedDate);
+
+      if (!isDue) continue; // Si no es el momento de aplicar el ajuste, lo salteamos
+
       const locations = adjustment.applyToAll
         ? await this.prisma.location.findMany()
         : adjustment.locations;
+
       for (const location of locations) {
         const lastRentRecord = await this.prisma.rentHistory.findFirst({
           where: { locationId: location.id },
           orderBy: { year: 'desc' },
         });
+
         const lastPrice = lastRentRecord?.rentAmount ?? 0;
         const newPrice =
           adjustment.type === ADJUSTMENT_TYPE.AMOUNT
             ? lastPrice + adjustment.amount
             : lastPrice * (1 + adjustment.amount / 100);
+
         await this.prisma.rentHistory.create({
           data: {
             locationId: location.id,
             month: currentMonth,
             year: currentYear,
-            rentAmount: newPrice,
+            rentAmount: Math.round(newPrice * 100) / 100, // Redondeo a 2 decimales
             CUST_ID: adjustment.CUST_ID,
           },
         });
-        console.log(`✅ Nuevo precio registrado para local ${location.id}: ${newPrice}`);
+
+        console.log(`✅ Nuevo precio registrado para local ${location.id}: $${newPrice}`);
       }
+
+      // ✅ Actualizamos la última ejecución
       await this.prisma.priceAdjustment.update({
         where: { id: adjustment.id },
         data: { lastExecutedAt: now },
@@ -210,19 +222,25 @@ export class PriceAdjustmentController {
   }
 
   private isAdjustmentDue(period: number, lastExecutedAt: Date): boolean {
+    const lastDate = new Date(lastExecutedAt);
     const now = new Date();
-    const diffInDays = Math.floor((now.getTime() - new Date(lastExecutedAt).getTime()) / (1000 * 60 * 60 * 24));
+
+    const lastMonth = lastDate.getMonth() + 1; // Mes de la última ejecución
+    const lastYear = lastDate.getFullYear();
+
+    const diffInMonths = (now.getFullYear() - lastYear) * 12 + now.getMonth() + 1 - lastMonth;
+
     switch (period) {
       case PERIOD.MONTHLY:
-        return diffInDays >= 30;
+        return diffInMonths >= 1;
       case PERIOD.BIMONTHLY:
-        return diffInDays >= 60;
+        return diffInMonths >= 2;
       case PERIOD.QUARTERLY:
-        return diffInDays >= 90;
+        return diffInMonths >= 3;
       case PERIOD.SEMIANNUAL:
-        return diffInDays >= 180;
+        return diffInMonths >= 6;
       case PERIOD.ANNUAL:
-        return diffInDays >= 365;
+        return diffInMonths >= 12;
       default:
         return false;
     }

@@ -8503,6 +8503,7 @@ export namespace Prisma {
     CUST_ID: number | null
     paymentRecordId: number | null
     month: number | null
+    day: number | null
     year: number | null
   }
 
@@ -8514,6 +8515,7 @@ export namespace Prisma {
     CUST_ID: number | null
     paymentRecordId: number | null
     month: number | null
+    day: number | null
     year: number | null
   }
 
@@ -8526,6 +8528,7 @@ export namespace Prisma {
     CUST_ID: number | null
     paymentRecordId: number | null
     month: number | null
+    day: number | null
     year: number | null
   }
 
@@ -8538,6 +8541,7 @@ export namespace Prisma {
     CUST_ID: number | null
     paymentRecordId: number | null
     month: number | null
+    day: number | null
     year: number | null
   }
 
@@ -8550,6 +8554,7 @@ export namespace Prisma {
     CUST_ID: number
     paymentRecordId: number
     month: number
+    day: number
     year: number
     _all: number
   }
@@ -8563,6 +8568,7 @@ export namespace Prisma {
     CUST_ID?: true
     paymentRecordId?: true
     month?: true
+    day?: true
     year?: true
   }
 
@@ -8574,6 +8580,7 @@ export namespace Prisma {
     CUST_ID?: true
     paymentRecordId?: true
     month?: true
+    day?: true
     year?: true
   }
 
@@ -8586,6 +8593,7 @@ export namespace Prisma {
     CUST_ID?: true
     paymentRecordId?: true
     month?: true
+    day?: true
     year?: true
   }
 
@@ -8598,6 +8606,7 @@ export namespace Prisma {
     CUST_ID?: true
     paymentRecordId?: true
     month?: true
+    day?: true
     year?: true
   }
 
@@ -8610,6 +8619,7 @@ export namespace Prisma {
     CUST_ID?: true
     paymentRecordId?: true
     month?: true
+    day?: true
     year?: true
     _all?: true
   }
@@ -8709,6 +8719,7 @@ export namespace Prisma {
     CUST_ID: number | null
     paymentRecordId: number
     month: number
+    day: number | null
     year: number
     _count: PaymentCountAggregateOutputType | null
     _avg: PaymentAvgAggregateOutputType | null
@@ -8740,6 +8751,7 @@ export namespace Prisma {
     CUST_ID?: boolean
     paymentRecordId?: boolean
     month?: boolean
+    day?: boolean
     year?: boolean
     cust?: boolean | Payment$custArgs<ExtArgs>
     location?: boolean | LocationDefaultArgs<ExtArgs>
@@ -8757,6 +8769,7 @@ export namespace Prisma {
     CUST_ID?: boolean
     paymentRecordId?: boolean
     month?: boolean
+    day?: boolean
     year?: boolean
   }
 
@@ -8784,6 +8797,7 @@ export namespace Prisma {
       CUST_ID: number | null
       paymentRecordId: number
       month: number
+      day: number | null
       year: number
     }, ExtArgs["result"]["payment"]>
     composites: {}
@@ -9166,6 +9180,7 @@ export namespace Prisma {
     readonly CUST_ID: FieldRef<"Payment", 'Int'>
     readonly paymentRecordId: FieldRef<"Payment", 'Int'>
     readonly month: FieldRef<"Payment", 'Int'>
+    readonly day: FieldRef<"Payment", 'Int'>
     readonly year: FieldRef<"Payment", 'Int'>
   }
     
@@ -14356,6 +14371,7 @@ export namespace Prisma {
     CUST_ID: 'CUST_ID',
     paymentRecordId: 'paymentRecordId',
     month: 'month',
+    day: 'day',
     year: 'year'
   };
 
@@ -15009,6 +15025,7 @@ export namespace Prisma {
     CUST_ID?: IntNullableFilter<"Payment"> | number | null
     paymentRecordId?: IntFilter<"Payment"> | number
     month?: IntFilter<"Payment"> | number
+    day?: IntNullableFilter<"Payment"> | number | null
     year?: IntFilter<"Payment"> | number
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     location?: XOR<LocationRelationFilter, LocationWhereInput>
@@ -15025,6 +15042,7 @@ export namespace Prisma {
     CUST_ID?: SortOrderInput | SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrderInput | SortOrder
     year?: SortOrder
     cust?: UserOrderByWithRelationInput
     location?: LocationOrderByWithRelationInput
@@ -15044,6 +15062,7 @@ export namespace Prisma {
     CUST_ID?: IntNullableFilter<"Payment"> | number | null
     paymentRecordId?: IntFilter<"Payment"> | number
     month?: IntFilter<"Payment"> | number
+    day?: IntNullableFilter<"Payment"> | number | null
     year?: IntFilter<"Payment"> | number
     cust?: XOR<UserNullableRelationFilter, UserWhereInput> | null
     location?: XOR<LocationRelationFilter, LocationWhereInput>
@@ -15060,6 +15079,7 @@ export namespace Prisma {
     CUST_ID?: SortOrderInput | SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrderInput | SortOrder
     year?: SortOrder
     _count?: PaymentCountOrderByAggregateInput
     _avg?: PaymentAvgOrderByAggregateInput
@@ -15080,6 +15100,7 @@ export namespace Prisma {
     CUST_ID?: IntNullableWithAggregatesFilter<"Payment"> | number | null
     paymentRecordId?: IntWithAggregatesFilter<"Payment"> | number
     month?: IntWithAggregatesFilter<"Payment"> | number
+    day?: IntNullableWithAggregatesFilter<"Payment"> | number | null
     year?: IntWithAggregatesFilter<"Payment"> | number
   }
 
@@ -15921,6 +15942,7 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     month: number
+    day?: number | null
     year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
     location: LocationCreateNestedOneWithoutPaymentsInput
@@ -15937,6 +15959,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -15944,6 +15967,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
     cust?: UserUpdateOneWithoutPaymentsNestedInput
     location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
@@ -15960,6 +15984,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -15972,6 +15997,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -15979,6 +16005,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -15991,6 +16018,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -16875,6 +16903,7 @@ export namespace Prisma {
     CUST_ID?: SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrder
     year?: SortOrder
   }
 
@@ -16886,6 +16915,7 @@ export namespace Prisma {
     CUST_ID?: SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrder
     year?: SortOrder
   }
 
@@ -16898,6 +16928,7 @@ export namespace Prisma {
     CUST_ID?: SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrder
     year?: SortOrder
   }
 
@@ -16910,6 +16941,7 @@ export namespace Prisma {
     CUST_ID?: SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrder
     year?: SortOrder
   }
 
@@ -16921,6 +16953,7 @@ export namespace Prisma {
     CUST_ID?: SortOrder
     paymentRecordId?: SortOrder
     month?: SortOrder
+    day?: SortOrder
     year?: SortOrder
   }
 
@@ -18955,6 +18988,7 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     month: number
+    day?: number | null
     year: number
     location: LocationCreateNestedOneWithoutPaymentsInput
     paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
@@ -18969,6 +19003,7 @@ export namespace Prisma {
     paymentMethodId: number
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -19391,6 +19426,7 @@ export namespace Prisma {
     CUST_ID?: IntNullableFilter<"Payment"> | number | null
     paymentRecordId?: IntFilter<"Payment"> | number
     month?: IntFilter<"Payment"> | number
+    day?: IntNullableFilter<"Payment"> | number | null
     year?: IntFilter<"Payment"> | number
   }
 
@@ -19823,6 +19859,7 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     month: number
+    day?: number | null
     year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
     paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
@@ -19837,6 +19874,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -21429,6 +21467,7 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     month: number
+    day?: number | null
     year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
     location: LocationCreateNestedOneWithoutPaymentsInput
@@ -21443,6 +21482,7 @@ export namespace Prisma {
     paymentMethodId: number
     CUST_ID?: number | null
     month: number
+    day?: number | null
     year: number
   }
 
@@ -21680,6 +21720,7 @@ export namespace Prisma {
     date?: Date | string
     amount: number
     month: number
+    day?: number | null
     year: number
     cust?: UserCreateNestedOneWithoutPaymentsInput
     location: LocationCreateNestedOneWithoutPaymentsInput
@@ -21694,6 +21735,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -22402,6 +22444,7 @@ export namespace Prisma {
     paymentMethodId: number
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -22667,6 +22710,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
     location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
     paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
@@ -22681,6 +22725,7 @@ export namespace Prisma {
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -22692,6 +22737,7 @@ export namespace Prisma {
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -22913,6 +22959,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -23037,6 +23084,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
     cust?: UserUpdateOneWithoutPaymentsNestedInput
     paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
@@ -23051,6 +23099,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -23062,6 +23111,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -23251,6 +23301,7 @@ export namespace Prisma {
     paymentMethodId: number
     CUST_ID?: number | null
     month: number
+    day?: number | null
     year: number
   }
 
@@ -23258,6 +23309,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
     cust?: UserUpdateOneWithoutPaymentsNestedInput
     location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
@@ -23272,6 +23324,7 @@ export namespace Prisma {
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -23283,6 +23336,7 @@ export namespace Prisma {
     paymentMethodId?: IntFieldUpdateOperationsInput | number
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -23294,6 +23348,7 @@ export namespace Prisma {
     CUST_ID?: number | null
     paymentRecordId: number
     month: number
+    day?: number | null
     year: number
   }
 
@@ -23301,6 +23356,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     amount?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
     cust?: UserUpdateOneWithoutPaymentsNestedInput
     location?: LocationUpdateOneRequiredWithoutPaymentsNestedInput
@@ -23315,6 +23371,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
@@ -23326,6 +23383,7 @@ export namespace Prisma {
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     paymentRecordId?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    day?: NullableIntFieldUpdateOperationsInput | number | null
     year?: IntFieldUpdateOperationsInput | number
   }
 
