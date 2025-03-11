@@ -12,6 +12,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { PrismaService } from '../services/prisma.service';
+import { NotificationService } from '../services/notification.service';
 import { CreatePriceAdjustmentDto, STATUS, PERIOD, ADJUSTMENT_TYPE } from '../dto/priceAdjustment.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { Cron } from '@nestjs/schedule';
@@ -28,7 +29,7 @@ const PERIODS = [
 @UseGuards(JwtAuthGuard)
 @Controller('priceAdjustments')
 export class PriceAdjustmentController {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService, private readonly notification: NotificationService) { }
 
   @Get()
   async getPriceAdjustments(@CustId() custId: number) {
@@ -210,8 +211,13 @@ export class PriceAdjustmentController {
           },
         });
 
+        await this.notification.sendNotifications(location.renterId, "priceIncrease", {
+          locationName: location.name,
+          newPrice: newPrice.toFixed(2),
+        });
         console.log(`✅ Nuevo precio registrado para local ${location.id}: $${newPrice}`);
       }
+
 
       // ✅ Actualizamos la última ejecución
       await this.prisma.priceAdjustment.update({

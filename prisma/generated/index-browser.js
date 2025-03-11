@@ -134,7 +134,12 @@ exports.Prisma.UserScalarFieldEnum = {
   password: 'password',
   updatedAt: 'updatedAt',
   CUST_ID: 'CUST_ID',
-  dni: 'dni'
+  dni: 'dni',
+  notifyPriceIncrease: 'notifyPriceIncrease',
+  notifyContractEnded: 'notifyContractEnded',
+  notifyBillingSummary: 'notifyBillingSummary',
+  notifyPaymentReminder: 'notifyPaymentReminder',
+  notifyContractExpiring: 'notifyContractExpiring'
 };
 
 exports.Prisma.LocationScalarFieldEnum = {

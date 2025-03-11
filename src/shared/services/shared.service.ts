@@ -7,7 +7,7 @@ import { BulkResponse } from 'src/types/bulk-response.types';
 
 @Injectable()
 export class SharedService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(private prismaService: PrismaService) { }
 
   async processBulk<ModelType>(
     records: ModelType[],
@@ -17,51 +17,53 @@ export class SharedService {
   ): Promise<BulkResponse<ModelType>> {
     try {
       const processedRecords: ModelType[] = [];
-      
+
       for (const record of records) {
         const model = (this.prismaService as any)[modelName];
-  
+
         if (!model) {
           throw new Error(`Model ${modelName} not found on PrismaService`);
         }
-  
+
         const { id, isNew, isEdited, isDeleted, ...data } = record as any;
         let result = null;
-  
+        console.log('record', record);
+
         const dtoModule = await this.getDtoModule(modelName);
-  
+
         const transformedData = this.transformRelationFields(data, modelName);
-        
+
         // Asignar `CUST_ID` si el modelo lo requiere
         this.assignCustIdIfApplicable(modelName, transformedData, custId);
-  
+
         delete transformedData.CUST_ID;
         if (isNew) {
           await this.validateDto(dtoModule.CreateUserDto, transformedData);
           if (custId) {
             transformedData.cust = { connect: { id: custId } };
           }
-          console.log('111',transformedData);
-          
+          console.log('111', transformedData);
+
           result = await model.create({ data: transformedData });
         }
-         else if (isEdited) {
-           console.log('transformedData',transformedData);
-           await this.validateDto(dtoModule.UpdateUserDto, transformedData);
-           console.log('error?');
-          
+        else if (isDeleted) {
+          await this.validateDto(dtoModule.DeleteUserDto, { id });
+
+          result = await model.delete({ where: { id: id } });
+        } else if (isEdited) {
+          console.log('transformedData', transformedData);
+          await this.validateDto(dtoModule.UpdateUserDto, transformedData);
+          console.log('error?');
+
           result = await model.update({
             where: { id: id },
             data: transformedData,
           });
-        } else if (isDeleted) {
-          await this.validateDto(dtoModule.DeleteUserDto, { id });
-          result = await model.delete({ where: { id: id } });
         }
-  
+
         processedRecords.push(result);
       }
-  
+
       return {
         status: 'success',
         message: `${response} procesados correctamente`,
@@ -69,7 +71,7 @@ export class SharedService {
       };
     } catch (error) {
       console.error('Error processing bulk operation:', error);
-    
+
       // Manejo específico de errores de validación
       if (Array.isArray(error) && error[0] instanceof ValidationError) {
         const validationErrors = error.map((err) => ({
@@ -81,7 +83,7 @@ export class SharedService {
           errors: validationErrors,
         });
       }
-    
+
       // Para cualquier otro error, se lanza una excepción genérica
       throw new HttpException(`Error al procesar ${response}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -91,12 +93,12 @@ export class SharedService {
     // Verifica si el modelo tiene un campo `CUST_ID` y lo asigna
     const modelDefinition = this.prismaService.getModelDefinition(modelName);
     const hasCustId = modelDefinition.fields.some((field) => field.name === 'CUST_ID');
-    
+
     if (hasCustId) {
       data.CUST_ID = custId; // Asignación de `CUST_ID`
     }
   }
-  
+
 
 
   private filterModifiedFields(originalData: any, modifiedData: any) {
@@ -114,7 +116,7 @@ export class SharedService {
   private transformRelationFields(data: any, modelName: string) {
     const transformedData = { ...data };
     const modelDefinition = this.prismaService.getModelDefinition(modelName);
-  
+
     for (const key of Object.keys(data)) {
       // Convertir "renterId" a "renter: { connect: { id: renterId } }"
       if (key.endsWith("Id") && key !== 'CUST_ID') { // Ignorar CUST_ID
@@ -122,14 +124,14 @@ export class SharedService {
         const isRelation = modelDefinition.fields.some(
           (field) => field.name === relationKey && field.kind === "object"
         );
-  
+
         if (isRelation) {
           transformedData[relationKey] = { connect: { id: data[key] } };
           delete transformedData[key];
         }
       }
     }
-  
+
     return transformedData;
   }
 

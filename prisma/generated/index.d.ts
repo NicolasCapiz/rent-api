@@ -2112,6 +2112,11 @@ export namespace Prisma {
     updatedAt: Date | null
     CUST_ID: number | null
     dni: number | null
+    notifyPriceIncrease: boolean | null
+    notifyContractEnded: boolean | null
+    notifyBillingSummary: string | null
+    notifyPaymentReminder: boolean | null
+    notifyContractExpiring: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2127,6 +2132,11 @@ export namespace Prisma {
     updatedAt: Date | null
     CUST_ID: number | null
     dni: number | null
+    notifyPriceIncrease: boolean | null
+    notifyContractEnded: boolean | null
+    notifyBillingSummary: string | null
+    notifyPaymentReminder: boolean | null
+    notifyContractExpiring: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2142,6 +2152,11 @@ export namespace Prisma {
     updatedAt: number
     CUST_ID: number
     dni: number
+    notifyPriceIncrease: number
+    notifyContractEnded: number
+    notifyBillingSummary: number
+    notifyPaymentReminder: number
+    notifyContractExpiring: number
     _all: number
   }
 
@@ -2171,6 +2186,11 @@ export namespace Prisma {
     updatedAt?: true
     CUST_ID?: true
     dni?: true
+    notifyPriceIncrease?: true
+    notifyContractEnded?: true
+    notifyBillingSummary?: true
+    notifyPaymentReminder?: true
+    notifyContractExpiring?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2186,6 +2206,11 @@ export namespace Prisma {
     updatedAt?: true
     CUST_ID?: true
     dni?: true
+    notifyPriceIncrease?: true
+    notifyContractEnded?: true
+    notifyBillingSummary?: true
+    notifyPaymentReminder?: true
+    notifyContractExpiring?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2201,6 +2226,11 @@ export namespace Prisma {
     updatedAt?: true
     CUST_ID?: true
     dni?: true
+    notifyPriceIncrease?: true
+    notifyContractEnded?: true
+    notifyBillingSummary?: true
+    notifyPaymentReminder?: true
+    notifyContractExpiring?: true
     _all?: true
   }
 
@@ -2303,6 +2333,11 @@ export namespace Prisma {
     updatedAt: Date | null
     CUST_ID: number | null
     dni: number
+    notifyPriceIncrease: boolean
+    notifyContractEnded: boolean
+    notifyBillingSummary: string
+    notifyPaymentReminder: boolean
+    notifyContractExpiring: boolean
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2337,6 +2372,11 @@ export namespace Prisma {
     updatedAt?: boolean
     CUST_ID?: boolean
     dni?: boolean
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: boolean
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: boolean | User$invoicesArgs<ExtArgs>
     keys?: boolean | User$keysArgs<ExtArgs>
     leaseContractsAsCust?: boolean | User$leaseContractsAsCustArgs<ExtArgs>
@@ -2367,6 +2407,11 @@ export namespace Prisma {
     updatedAt?: boolean
     CUST_ID?: boolean
     dni?: boolean
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: boolean
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2416,6 +2461,11 @@ export namespace Prisma {
       updatedAt: Date | null
       CUST_ID: number | null
       dni: number
+      notifyPriceIncrease: boolean
+      notifyContractEnded: boolean
+      notifyBillingSummary: string
+      notifyPaymentReminder: boolean
+      notifyContractExpiring: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2810,6 +2860,11 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly CUST_ID: FieldRef<"User", 'Int'>
     readonly dni: FieldRef<"User", 'Int'>
+    readonly notifyPriceIncrease: FieldRef<"User", 'Boolean'>
+    readonly notifyContractEnded: FieldRef<"User", 'Boolean'>
+    readonly notifyBillingSummary: FieldRef<"User", 'String'>
+    readonly notifyPaymentReminder: FieldRef<"User", 'Boolean'>
+    readonly notifyContractExpiring: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -14289,7 +14344,12 @@ export namespace Prisma {
     password: 'password',
     updatedAt: 'updatedAt',
     CUST_ID: 'CUST_ID',
-    dni: 'dni'
+    dni: 'dni',
+    notifyPriceIncrease: 'notifyPriceIncrease',
+    notifyContractEnded: 'notifyContractEnded',
+    notifyBillingSummary: 'notifyBillingSummary',
+    notifyPaymentReminder: 'notifyPaymentReminder',
+    notifyContractExpiring: 'notifyContractExpiring'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -14508,6 +14568,11 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
     dni?: IntFilter<"User"> | number
+    notifyPriceIncrease?: BoolFilter<"User"> | boolean
+    notifyContractEnded?: BoolFilter<"User"> | boolean
+    notifyBillingSummary?: StringFilter<"User"> | string
+    notifyPaymentReminder?: BoolFilter<"User"> | boolean
+    notifyContractExpiring?: BoolFilter<"User"> | boolean
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
     leaseContractsAsCust?: LeaseContractListRelationFilter
@@ -14536,6 +14601,11 @@ export namespace Prisma {
     updatedAt?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
     dni?: SortOrder
+    notifyPriceIncrease?: SortOrder
+    notifyContractEnded?: SortOrder
+    notifyBillingSummary?: SortOrder
+    notifyPaymentReminder?: SortOrder
+    notifyContractExpiring?: SortOrder
     invoices?: InvoiceOrderByRelationAggregateInput
     keys?: KeyOrderByRelationAggregateInput
     leaseContractsAsCust?: LeaseContractOrderByRelationAggregateInput
@@ -14567,6 +14637,11 @@ export namespace Prisma {
     password?: StringNullableFilter<"User"> | string | null
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
+    notifyPriceIncrease?: BoolFilter<"User"> | boolean
+    notifyContractEnded?: BoolFilter<"User"> | boolean
+    notifyBillingSummary?: StringFilter<"User"> | string
+    notifyPaymentReminder?: BoolFilter<"User"> | boolean
+    notifyContractExpiring?: BoolFilter<"User"> | boolean
     invoices?: InvoiceListRelationFilter
     keys?: KeyListRelationFilter
     leaseContractsAsCust?: LeaseContractListRelationFilter
@@ -14595,6 +14670,11 @@ export namespace Prisma {
     updatedAt?: SortOrderInput | SortOrder
     CUST_ID?: SortOrderInput | SortOrder
     dni?: SortOrder
+    notifyPriceIncrease?: SortOrder
+    notifyContractEnded?: SortOrder
+    notifyBillingSummary?: SortOrder
+    notifyPaymentReminder?: SortOrder
+    notifyContractExpiring?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -14618,6 +14698,11 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableWithAggregatesFilter<"User"> | number | null
     dni?: IntWithAggregatesFilter<"User"> | number
+    notifyPriceIncrease?: BoolWithAggregatesFilter<"User"> | boolean
+    notifyContractEnded?: BoolWithAggregatesFilter<"User"> | boolean
+    notifyBillingSummary?: StringWithAggregatesFilter<"User"> | string
+    notifyPaymentReminder?: BoolWithAggregatesFilter<"User"> | boolean
+    notifyContractExpiring?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type LocationWhereInput = {
@@ -15416,6 +15501,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -15444,6 +15534,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -15469,6 +15564,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -15497,6 +15597,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -15524,6 +15629,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -15537,6 +15647,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -15552,6 +15667,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LocationCreateInput = {
@@ -16487,6 +16607,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
     dni?: SortOrder
+    notifyPriceIncrease?: SortOrder
+    notifyContractEnded?: SortOrder
+    notifyBillingSummary?: SortOrder
+    notifyPaymentReminder?: SortOrder
+    notifyContractExpiring?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -16508,6 +16633,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
     dni?: SortOrder
+    notifyPriceIncrease?: SortOrder
+    notifyContractEnded?: SortOrder
+    notifyBillingSummary?: SortOrder
+    notifyPaymentReminder?: SortOrder
+    notifyContractExpiring?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -16523,6 +16653,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
     CUST_ID?: SortOrder
     dni?: SortOrder
+    notifyPriceIncrease?: SortOrder
+    notifyContractEnded?: SortOrder
+    notifyBillingSummary?: SortOrder
+    notifyPaymentReminder?: SortOrder
+    notifyContractExpiring?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -19144,6 +19279,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -19171,6 +19311,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -19200,6 +19345,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -19226,6 +19376,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -19569,6 +19724,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -19596,6 +19756,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -19641,6 +19806,11 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     CUST_ID?: IntNullableFilter<"User"> | number | null
     dni?: IntFilter<"User"> | number
+    notifyPriceIncrease?: BoolFilter<"User"> | boolean
+    notifyContractEnded?: BoolFilter<"User"> | boolean
+    notifyBillingSummary?: StringFilter<"User"> | string
+    notifyPaymentReminder?: BoolFilter<"User"> | boolean
+    notifyContractExpiring?: BoolFilter<"User"> | boolean
   }
 
   export type AdjustmentLocationCreateWithoutLocationInput = {
@@ -19754,6 +19924,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -19781,6 +19956,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -19810,6 +19990,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -19837,6 +20022,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -20094,6 +20284,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -20121,6 +20316,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -20156,6 +20356,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -20183,6 +20388,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -20287,6 +20497,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
@@ -20314,6 +20529,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
@@ -20383,6 +20603,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -20410,6 +20635,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -20450,6 +20680,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
@@ -20477,6 +20712,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
@@ -20558,6 +20798,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -20585,6 +20830,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -20609,6 +20859,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
@@ -20636,6 +20891,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
@@ -20716,6 +20976,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
@@ -20743,6 +21008,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
@@ -20832,6 +21102,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -20859,6 +21134,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -20955,6 +21235,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -20982,6 +21267,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -21178,6 +21468,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -21205,6 +21500,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -21325,6 +21625,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -21352,6 +21657,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -21507,6 +21817,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -21534,6 +21849,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -21630,6 +21950,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -21657,6 +21982,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -21776,6 +22106,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractCreateNestedManyWithoutRenterInput
@@ -21803,6 +22138,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsRenter?: LeaseContractUncheckedCreateNestedManyWithoutRenterInput
@@ -21883,6 +22223,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUpdateManyWithoutRenterNestedInput
@@ -21910,6 +22255,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsRenter?: LeaseContractUncheckedUpdateManyWithoutRenterNestedInput
@@ -21980,6 +22330,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -22007,6 +22362,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -22087,6 +22447,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -22114,6 +22479,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -22184,6 +22554,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceCreateNestedManyWithoutCustInput
     keys?: KeyCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractCreateNestedManyWithoutCustInput
@@ -22211,6 +22586,11 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     CUST_ID?: number | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
     invoices?: InvoiceUncheckedCreateNestedManyWithoutCustInput
     keys?: KeyUncheckedCreateNestedManyWithoutCustInput
     leaseContractsAsCust?: LeaseContractUncheckedCreateNestedManyWithoutCustInput
@@ -22291,6 +22671,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -22318,6 +22703,11 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     CUST_ID?: NullableIntFieldUpdateOperationsInput | number | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -22497,6 +22887,11 @@ export namespace Prisma {
     password?: string | null
     updatedAt?: Date | string | null
     dni: number
+    notifyPriceIncrease?: boolean
+    notifyContractEnded?: boolean
+    notifyBillingSummary?: string
+    notifyPaymentReminder?: boolean
+    notifyContractExpiring?: boolean
   }
 
   export type InvoiceUpdateWithoutCustInput = {
@@ -22865,6 +23260,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUpdateManyWithoutCustNestedInput
     keys?: KeyUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUpdateManyWithoutCustNestedInput
@@ -22891,6 +23291,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
     invoices?: InvoiceUncheckedUpdateManyWithoutCustNestedInput
     keys?: KeyUncheckedUpdateManyWithoutCustNestedInput
     leaseContractsAsCust?: LeaseContractUncheckedUpdateManyWithoutCustNestedInput
@@ -22917,6 +23322,11 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     dni?: IntFieldUpdateOperationsInput | number
+    notifyPriceIncrease?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractEnded?: BoolFieldUpdateOperationsInput | boolean
+    notifyBillingSummary?: StringFieldUpdateOperationsInput | string
+    notifyPaymentReminder?: BoolFieldUpdateOperationsInput | boolean
+    notifyContractExpiring?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AdjustmentLocationCreateManyLocationInput = {

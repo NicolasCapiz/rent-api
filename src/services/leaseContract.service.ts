@@ -6,10 +6,12 @@ import { CreateLeaseContractFromPdfDto } from '../dto/contract.dto';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import * as fs from 'fs';
 import * as path from 'path';
+import { NotificationService } from './notification.service';
 
 @Injectable()
 export class LeaseContractService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly notificationService: NotificationService
+  ) { }
 
   async getAllContracts(custId: number) {
     return this.prisma.leaseContract.findMany({
@@ -36,10 +38,12 @@ export class LeaseContractService {
     custId: number
   ) {
     if (!dto.tempPdfPath) {
-      throw new BadRequestException("No se encontró la ruta del PDF temporal.");
+      throw new BadRequestException(
+        "No se encontró la ruta temporal del PDF. Por favor, verifique que el archivo se haya subido correctamente."
+      );
     }
     return await this.prisma.$transaction(async (prisma) => {
-      // Buscar la locación por nombre y que todos sus contratos estén inactivos
+      // Buscar la locación por nombre y asegurarse de que no tenga contratos activos
       const location = await prisma.location.findFirst({
         where: {
           name: dto.localName,
@@ -48,32 +52,46 @@ export class LeaseContractService {
       });
       if (!location) {
         throw new BadRequestException(
-          `No se encontró una locación disponible para "${dto.localName}" sin contrato vigente.`
+          `No se encontró una locación disponible para "${dto.localName}" sin un contrato vigente. Asegúrese de que la locación exista y que no tenga contratos activos.`
         );
       }
-      // Buscar o crear el usuario (concesionario)
-      let renter = await prisma.user.findUnique({
-        where: { dni: dto.tenantDNI },
+
+      // Buscar o crear el usuario (renter)
+      // Buscar el usuario filtrando por DNI y CUST_ID
+      let renter = await prisma.user.findFirst({
+        where: { dni: dto.tenantDNI, CUST_ID: custId },
       });
+
+      // Si no se encontró, buscamos por DNI solamente
       if (!renter) {
-        renter = await prisma.user.create({
-          data: {
-            dni: dto.tenantDNI,
-            firstName: dto.tenantName,
-            isRenter: true,
-            CUST_ID: custId,
-          } as any,
-        });
-      } else if (!renter.CUST_ID) {
-        renter = await prisma.user.update({
+        const existingUser = await prisma.user.findUnique({
           where: { dni: dto.tenantDNI },
-          data: { CUST_ID: custId },
         });
+        if (existingUser) {
+          // Si ya existe, actualizamos el CUST_ID
+          renter = await prisma.user.update({
+            where: { dni: dto.tenantDNI },
+            data: { CUST_ID: custId },
+          });
+        } else {
+          // Si no existe, creamos el usuario
+          renter = await prisma.user.create({
+            data: {
+              dni: dto.tenantDNI,
+              firstName: dto.tenantName,
+              isRenter: true,
+              CUST_ID: custId,
+            } as any,
+          });
+        }
       }
+
+
+      // Calcular fechas de inicio y fin del contrato
       const startDate = new Date();
       const endDate = new Date();
       endDate.setMonth(endDate.getMonth() + dto.contractDuration);
-    
+
       // Crear el contrato inicialmente sin pdfPath
       const contract = await prisma.leaseContract.create({
         data: {
@@ -88,21 +106,63 @@ export class LeaseContractService {
           pdfPath: "", // Se actualizará luego
         },
       });
-    
-      // Mover el archivo desde la ubicación temporal a la definitiva y eliminar el temporal
-      const permanentPath = await this.movePdfToPermanent(dto.tempPdfPath, location.id);
-    
+
+      // Mover el archivo PDF de la ubicación temporal a la definitiva
+      let permanentPath: string;
+      try {
+        permanentPath = await this.movePdfToPermanent(dto.tempPdfPath, location.id);
+      } catch (moveError) {
+        throw new BadRequestException(
+          "Error al mover el PDF a la ubicación definitiva. Por favor, intente de nuevo o contacte soporte."
+        );
+      }
+
       const updatedContract = await prisma.leaseContract.update({
         where: { id: contract.id },
         data: { pdfPath: permanentPath },
       });
-      
+
+      // Generar historial de renta (rent history)
+      // Se crea un registro para cada mes desde startDate hasta endDate
+      let currentDate = new Date(startDate);
+      while (currentDate < endDate) {
+        const month = currentDate.getMonth() + 1;
+        const year = currentDate.getFullYear();
+
+        const existingHistory = await prisma.rentHistory.findFirst({
+          where: {
+            locationId: location.id,
+            month,
+            year,
+          },
+        });
+
+        if (existingHistory) {
+          await prisma.rentHistory.update({
+            where: { id: existingHistory.id },
+            data: { rentAmount: dto.monthlyRent, createdAt: new Date(), },
+          });
+        } else {
+          await prisma.rentHistory.create({
+            data: {
+              locationId: location.id,
+              month,
+              year,
+              rentAmount: dto.monthlyRent,
+              createdAt: new Date(),
+              CUST_ID: custId,
+            },
+          });
+        }
+        // Avanza un mes
+        currentDate.setMonth(currentDate.getMonth() + 1);
+      }
+
+
       return updatedContract;
     });
   }
-  
 
-  
   /**
    * Guarda el PDF temporalmente en 'uploads/tmp' y retorna la ruta relativa.
    */
@@ -230,6 +290,7 @@ export class LeaseContractService {
         id: contractId,
         CUST_ID: custId,
       },
+      include: { renter: true, location: true },
     });
     if (!contract) {
       throw new NotFoundException("Contrato no encontrado para el usuario autenticado.");
@@ -245,12 +306,19 @@ export class LeaseContractService {
         active: false,
       },
     });
+
     await this.prisma.adjustmentLocation.deleteMany({
       where: {
         locationId: contract.locationId,
         priceAdjustment: { status: 1 },
       },
     });
+
+    await this.notificationService.sendNotifications(contract.renter.id, "contractEnded", {
+      locationName: contract.location.name,
+      endDate: finishedDate.toISOString().split("T")[0],
+    });
+
     return updatedContract;
   }
 
@@ -266,8 +334,9 @@ export class LeaseContractService {
         active: true,
         endDate: { lte: now },
       },
+      include: { renter: true, location: true }
     });
- 
+
     for (const contract of expiredContracts) {
       try {
         await this.prisma.leaseContract.update({
@@ -282,6 +351,11 @@ export class LeaseContractService {
             locationId: contract.locationId,
             priceAdjustment: { status: 1 },
           },
+        });
+        // 📩 Notificar al dueño que su contrato ha finalizado automáticamente
+        await this.notificationService.sendNotifications(contract.renter.id, "contractEnded", {
+          locationName: contract.location.name,
+          endDate: now.toISOString().split("T")[0],
         });
         console.log(`Contrato ${contract.id} finalizado automáticamente.`);
       } catch (error) {
@@ -318,4 +392,97 @@ export class LeaseContractService {
       }
     }
   }
+
+  @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
+  async notifyExpiringContracts() {
+    const today = new Date();
+    const nextMonth = new Date();
+    nextMonth.setMonth(today.getMonth() + 1);
+
+    const expiringContracts = await this.prisma.leaseContract.findMany({
+      where: {
+        endDate: { gte: today, lte: nextMonth },
+        active: true,
+      },
+      include: { renter: { select: { id: true, email: true, notifyContractExpiring: true } }, location: true },
+    });
+
+    for (const contract of expiringContracts) {
+      if (contract.renter.notifyContractExpiring) {
+        await this.notificationService.sendNotifications(contract.renter.id, "contractExpiring", {
+          locationName: contract.location.name,
+          endDate: contract.endDate.toISOString().split("T")[0],
+        });
+      }
+    }
+
+    console.log(`✅ ${expiringContracts.length} contratos próximos a vencer notificados.`);
+  }
+
+  async generateBillingSummary(userId: number) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { email: true, notifyBillingSummary: true, rentedLocations: { select: { id: true, name: true } } },
+    });
+
+    if (!user || user.notifyBillingSummary === "none") return;
+
+    const days = user.notifyBillingSummary === "daily" ? 1 : user.notifyBillingSummary === "weekly" ? 7 : 30;
+    const sinceDate = new Date();
+    sinceDate.setDate(sinceDate.getDate() - days);
+
+    let message = `Aquí tienes el resumen de facturación de los últimos ${days} días:\n\n`;
+    let htmlMessage = `<p>Aquí tienes el resumen de facturación de los últimos ${days} días:</p><ul>`;
+
+    for (const location of user.rentedLocations) {
+      const payments = await this.prisma.payment.findMany({
+        where: { locationId: location.id, date: { gte: sinceDate } },
+        orderBy: { date: "desc" },
+        select: { amount: true, date: true },
+      });
+
+      if (payments.length > 0) {
+        message += `📍 ${location.name}:\n`;
+        htmlMessage += `<li><b>${location.name}:</b><ul>`;
+
+        for (const payment of payments) {
+          const formattedDate = payment.date.toISOString().split("T")[0];
+          message += `  - $${payment.amount} el ${formattedDate}\n`;
+          htmlMessage += `<li>$${payment.amount} el ${formattedDate}</li>`;
+        }
+
+        htmlMessage += "</ul></li>";
+      }
+    }
+
+    htmlMessage += "</ul>";
+
+    if (message.length > 50) {
+      await this.notificationService.sendNotifications(userId, "billingSummary", {
+        summaryText: message,
+        summaryHtml: htmlMessage,
+      });
+    }
+  }
+
+  /**
+   * 📌 **Cron Job para enviar el Resumen de Facturación**
+   * - Se ejecuta todos los días a las 6 AM.
+   */
+  @Cron("0 6 * * *") // Cada día a las 6 AM
+  async sendBillingSummaries() {
+    console.log("🔄 Generando y enviando resúmenes de facturación...");
+
+    const users = await this.prisma.user.findMany({
+      where: { notifyBillingSummary: { not: "none" } },
+      select: { id: true },
+    });
+
+    for (const user of users) {
+      await this.generateBillingSummary(user.id);
+    }
+
+    console.log(`✅ Se enviaron ${users.length} resúmenes de facturación.`);
+  }
+
 }

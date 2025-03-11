@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { LeaseContractService } from './services/leaseContract.service';
 import { PaymentRecordService } from './services/paymentRecord.service';
 import { UserService } from './services/user.service';
+import { NotificationService } from './services/notification.service';
 import { DashboardService } from './services/dashboard.service';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { LocalStrategy } from './strategy/local.strategy';
@@ -35,7 +36,10 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
 @Module({
   imports: [
     ScheduleModule.forRoot(),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
+    }),
     JwtModule.register({
       secret: process.env.JWT_SECRET, // Accede directamente a la variable de entorno
       signOptions: { expiresIn: '60m' },
@@ -69,14 +73,15 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
     LocalStrategy,
     UserService,
     DashboardService,
-    PaymentRecordService
+    PaymentRecordService,
+    NotificationService
   ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(CreateContextMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
+      .forRoutes({ path: '*', method: RequestMethod.ALL, });
   }
 }
 

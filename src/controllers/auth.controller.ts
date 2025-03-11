@@ -37,8 +37,10 @@ export class AuthController {
   @Post('register')
   async register(@Request() req) {
     try {
-      const { email, password, dni } = req.body;
-      const result = await this.authService.register(email, password, dni);
+      const { email, password, firstName, lastName, dni } = req.body;
+      console.log('email, password, dni', email, password, firstName, lastName, dni);
+
+      const result = await this.authService.register(email, password, firstName, lastName, dni);
       return result;
     } catch (error) {
       throw new HttpException(

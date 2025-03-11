@@ -79,8 +79,7 @@ export class PaymentController {
       });
 
       if (!rentHistory) {
-
-        throw new HttpException('No existe un historial de renta para esta fecha', HttpStatus.NOT_FOUND);
+        throw new HttpException('No se encontró historial de renta para la fecha indicada. Esto puede deberse a que no tienes un contrato activo en el período actual. Por favor, verifica tu contrato e intenta de nuevo.', HttpStatus.NOT_FOUND);
       }
 
       // Si no existe, lo creamos
@@ -105,7 +104,7 @@ export class PaymentController {
         paymentMethodId,
         month,
         year,
-        day,
+        day: parseInt(day, 10),
         paymentRecordId: paymentRecord.id,
         CUST_ID: custId,
       },

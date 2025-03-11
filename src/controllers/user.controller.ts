@@ -8,6 +8,8 @@ import {
   Delete,
   Query,
   UseGuards,
+  Req,
+  BadRequestException,
 } from '@nestjs/common';
 import { PrismaService } from '../services/prisma.service';
 import { User } from '../../prisma/generated';
@@ -17,6 +19,7 @@ import { BulkResponse } from 'src/types/bulk-response.types';
 import { CustId } from '../decorators/cust-id.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { DashboardFiltersDto } from 'src/dto/dashboard.filters.dto';
+import { UserService } from '../services/user.service';
 
 const MODEL = 'user',
   RESPONSE = 'users';
@@ -26,12 +29,38 @@ const MODEL = 'user',
 export class UserController {
   constructor(
     private readonly prisma: PrismaService,
+    private readonly userService: UserService,
     private sharedService: SharedService,
-  ) {}
+  ) { }
 
   @Get()
-  async getUsers() {
-    return this.prisma.user.findMany();
+  async getUsers(
+    @CustId() custId: number,
+    @Query() filters: DashboardFiltersDto,
+  ): Promise<any[]> {
+
+    return await this.prisma.buildQuery(
+      MODEL,
+      filters,
+      ['email',
+        'firstName',
+        'lastName'],
+      custId,
+    );
+  }
+
+  // 🔹 Obtener preferencias de notificación del usuario autenticado usando CustId
+  @Get('notifications')
+  async getNotificationSettings(@CustId() custId: number) {
+    return this.userService.getNotificationSettings(custId);
+  }
+  // 🔹 Actualizar preferencias de notificación usando CustId
+  @Put('notifications')
+  async updateNotificationSettings(
+    @CustId() custId: number,
+    @Body() settings: any
+  ) {
+    return this.userService.updateNotificationSettings(custId, settings);
   }
 
   @Get('/renters')
@@ -44,18 +73,25 @@ export class UserController {
       MODEL,
       filters,
       ['email',
-      'firstName',
-      'lastName'],
+        'firstName',
+        'lastName'],
       custId,
     );
   }
 
   @Get(':id')
   async getUser(@Param('id') id: string) {
+    const userId = parseInt(id, 10); // Convierte `id` de string a número
+
+    if (isNaN(userId)) {
+      throw new BadRequestException("El ID proporcionado no es válido.");
+    }
+
     return this.prisma.user.findUnique({
-      where: { id: parseInt(id) },
+      where: { id: userId },
     });
   }
+
 
   @Post()
   async createUser(@Body() user: CreateUserDto) {
@@ -85,4 +121,8 @@ export class UserController {
       where: { id: parseInt(id) },
     });
   }
+
+
+
+
 }

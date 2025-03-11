@@ -35,6 +35,13 @@ model User {
   cust                   User?             @relation("UserCust", fields: [CUST_ID], references: [id])
   createdUsers           User[]            @relation("UserCust")
 
+  // 🔹 Preferencias de notificación
+  notifyPriceIncrease    Boolean @default(false)
+  notifyContractEnded    Boolean @default(false)
+  notifyBillingSummary   String  @default("none") // "daily", "weekly", "monthly", "none"
+  notifyPaymentReminder  Boolean @default(false)
+  notifyContractExpiring Boolean @default(false)
+
   @@index([CUST_ID], map: "User_CUST_ID_fkey")
 }
 
