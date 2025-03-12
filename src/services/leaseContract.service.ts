@@ -210,7 +210,7 @@ export class LeaseContractService {
     const nameDniRegex = /y\s+por\s+la?\s+otra\s+([\p{L}\s]+?)\s+con\s+cuit\s+\d{2}-\d{8}-\d,\s*dni\s*([\d]+)/iu;
 
     const nameDniMatch = nameDniRegex.exec(text);
-    console.log('nameDniMatch', nameDniMatch);
+
 
     let renterName: string | null = null;
     let renterDni: number | null = null;
@@ -231,17 +231,24 @@ export class LeaseContractService {
     // const monthlyRentRegex = /(?:cuotas mensuales de|la suma de\s*\$?)\s*\(?([\d.,]+)\)?(?:\s*por\s*mes|mensuales?)/i;
 
     const monthlyRentMatch = lowerText.match(monthlyRentRegex);
+    console.log('monthlyRentRegex', monthlyRentRegex);
+
     let monthlyRent: number | null = null;
     if (monthlyRentMatch) {
       const rentStr = monthlyRentMatch[1].replace(/\./g, "");
+      console.log('rentStr', rentStr);
       monthlyRent = parseInt(rentStr, 10);
     }
+    console.log('monthlyRent', monthlyRent);
+
     if (monthlyRent === null || isNaN(monthlyRent)) {
       throw new Error("No se encontró el valor del alquiler mensual en el PDF o es inválido.");
     }
 
     // Extraer la duración del contrato (en años) y convertir a meses
-    const durationRegex = /el plazo contractual será de un\s+\(?(\d+)\)?\s+año/i;
+    // const durationRegex = /el plazo contractual será de un\s+\(?(\d+)\)?\s+año/i;
+    const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(?:años?|meses?)/i;
+
     const durationMatch = lowerText.match(durationRegex);
     let contractDuration: number | null = null;
     if (durationMatch) {
@@ -364,7 +371,7 @@ export class LeaseContractService {
           locationName: contract.location.name,
           endDate: now.toISOString().split("T")[0],
         });
-        console.log(`Contrato ${contract.id} finalizado automáticamente.`);
+
       } catch (error) {
         console.error(`Error al finalizar contrato ${contract.id}:`, error);
       }
