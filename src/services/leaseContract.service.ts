@@ -227,16 +227,14 @@ export class LeaseContractService {
     }
 
     // Extraer el alquiler mensual
-    // const monthlyRentRegex = /cuotas mensuales de\s+\(?([\d.,]+)\)?/i;
-    const monthlyRentRegex = /(?:cuotas mensuales de|la suma de\s*\$?)\s*\(?([\d.,]+)\)?(?:\s*por\s*mes|mensuales?)/i;
+    const monthlyRentRegex = /cuotas mensuales de\s+\(?([\d.,]+)\)?/i;
+    // const monthlyRentRegex = /(?:cuotas mensuales de|la suma de\s*\$?)\s*\(?([\d.,]+)\)?(?:\s*por\s*mes|mensuales?)/i;
 
     const monthlyRentMatch = lowerText.match(monthlyRentRegex);
     let monthlyRent: number | null = null;
     if (monthlyRentMatch) {
-      // const rentStr = monthlyRentMatch[1].replace(/\./g, "");
-      // monthlyRent = parseInt(rentStr, 10);
-      const rentStr = monthlyRentMatch[1].replace(/\./g, "").replace(",", "."); // Manejo de formatos de número
-      monthlyRent = parseFloat(rentStr);
+      const rentStr = monthlyRentMatch[1].replace(/\./g, "");
+      monthlyRent = parseInt(rentStr, 10);
     }
     if (monthlyRent === null || isNaN(monthlyRent)) {
       throw new Error("No se encontró el valor del alquiler mensual en el PDF o es inválido.");
