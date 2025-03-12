@@ -206,8 +206,12 @@ export class LeaseContractService {
     const lowerText = text.toLowerCase();
 
     // Extraer nombre y DNI del concesionario
-    const nameDniRegex = /y\s+por\s+la\s+otra\s+([A-Za-zÁÉÍÓÚÑáéíóú\s]+?)\s+con\s+cuit\s+[\d-]+\s+dni\s+([\d\.]+)/i;
+    // const nameDniRegex = /y\s+por\s+la\s+otra\s+([A-Za-zÁÉÍÓÚÑáéíóú\s]+?)\s+con\s+cuit\s+[\d-]+\s+dni\s+([\d\.]+)/i;
+    const nameDniRegex = /y\s+por\s+la?\s+otra\s+([A-Za-zÁÉÍÓÚÑáéíóú\s]+?)\s+con\s+cuit\s+\d{2}-\d{8}-\d\s+dni\s+([\d\.]+)/i;
+
     const nameDniMatch = nameDniRegex.exec(text);
+    console.log('nameDniMatch', nameDniMatch);
+
     let renterName: string | null = null;
     let renterDni: number | null = null;
     if (nameDniMatch) {
@@ -315,7 +319,7 @@ export class LeaseContractService {
       },
     });
 
-    await this.notificationService.sendNotifications(contract.renter.id, "contractEnded", {
+    await this.notificationService.sendNotifications(custId, "contractEnded", {
       locationName: contract.location.name,
       endDate: finishedDate.toISOString().split("T")[0],
     });
