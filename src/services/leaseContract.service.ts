@@ -247,7 +247,9 @@ export class LeaseContractService {
 
     // Extraer la duración del contrato (en años) y convertir a meses
     // const durationRegex = /el plazo contractual será de un\s+\(?(\d+)\)?\s+año/i;
-    const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(?:años?|meses?)/i;
+    // const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(?:años?|meses?)/i;
+    const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(?:años?|meses?|año?)/i;
+    console.log('durationRegex', durationRegex);
 
     const durationMatch = lowerText.match(durationRegex);
     let contractDuration: number | null = null;
