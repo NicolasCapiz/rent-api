@@ -207,7 +207,7 @@ export class LeaseContractService {
 
     // Extraer nombre y DNI del concesionario
     // const nameDniRegex = /y\s+por\s+la\s+otra\s+([A-Za-zÁÉÍÓÚÑáéíóú\s]+?)\s+con\s+cuit\s+[\d-]+\s+dni\s+([\d\.]+)/i;
-    const nameDniRegex = /y\s+por\s+la?\s+otra\s+([A-Za-zÁÉÍÓÚÑáéíóú\s]+?)\s+con\s+cuit\s+\d{2}-\d{8}-\d\s+dni\s+([\d\.]+)/i;
+    const nameDniRegex = /y\s+por\s+la?\s+otra\s+([\p{L}\s]+?)\s+con\s+cuit\s+\d{2}-\d{8}-\d,\s*dni\s*([\d]+)/iu;
 
     const nameDniMatch = nameDniRegex.exec(text);
     console.log('nameDniMatch', nameDniMatch);
