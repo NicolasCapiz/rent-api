@@ -79,6 +79,7 @@ export class LeaseContractService {
             data: {
               dni: dto.tenantDNI,
               firstName: dto.tenantName,
+              email: `${dto.tenantName}@gmail.com`,
               isRenter: true,
               CUST_ID: custId,
             } as any,
