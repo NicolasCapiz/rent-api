@@ -7,10 +7,26 @@ export class UserService {
   constructor(private prisma: PrismaService) { }
 
   async findByEmail(email: string): Promise<User | null> {
-    return this.prisma.user.findUnique({
-      where: { email },
-    });
+    try {
+      console.log(`🔍 Buscando usuario con email: ${email}`);
+
+      const user = await this.prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (!user) {
+        console.warn(`⚠️ Usuario no encontrado con email: ${email}`);
+      } else {
+        console.log(`✅ Usuario encontrado: ${JSON.stringify(user)}`);
+      }
+
+      return user;
+    } catch (error) {
+      console.error(`❌ Error al buscar usuario con email: ${email}`, error);
+      throw new Error('Error interno al buscar el usuario');
+    }
   }
+
 
   async createUser(email: string, password: string, firstName: string, lastName: string, dni: number): Promise<User> {
     return this.prisma.user.create({
