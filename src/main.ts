@@ -19,7 +19,7 @@ async function bootstrap() {
 
   const prismaService = await app.resolve(PrismaService);
   await prismaService.$connect();
-  const port = process.env.PORT || 3301
+  const port = process.env.PORT || 3001
   console.log('port', port);
 
   await app.listen(port);
