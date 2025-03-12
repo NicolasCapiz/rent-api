@@ -248,7 +248,8 @@ export class LeaseContractService {
     // Extraer la duración del contrato (en años) y convertir a meses
     // const durationRegex = /el plazo contractual será de un\s+\(?(\d+)\)?\s+año/i;
     // const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(?:años?|meses?)/i;
-    const durationRegex = /el plazo contractual será de un\s*\(?(\d+)\)?\s*(años?|meses?|año?)/i;
+    const durationRegex = /plazo contractual.*?\b(\d+)\)?\s*(años?|meses?|año?)/i;
+
     console.log('durationRegex', durationRegex);
 
     const durationMatch = lowerText.match(durationRegex);
@@ -256,8 +257,9 @@ export class LeaseContractService {
 
     let contractDuration: number | null = null;
     if (durationMatch) {
-      const years = parseInt(durationMatch[1], 10);
-      contractDuration = years * 12;
+      const quantity = parseInt(durationMatch[1], 10);
+      const unit = durationMatch[2].toLowerCase();
+      contractDuration = (unit === "año" || unit === "años") ? quantity * 12 : quantity;
     }
     if (!contractDuration) {
       throw new Error("No se encontró el plazo contractual en el PDF.");
